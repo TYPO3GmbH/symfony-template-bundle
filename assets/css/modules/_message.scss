@@ -1,0 +1,60 @@
+//
+// Messages
+//
+.message {
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 0.5rem;
+    border-left: 6px solid;
+    display: flex;
+    &:hover {
+        background-color: rgba(0,0,0,.05);
+    }
+}
+@each $color, $value in $theme-colors {
+    .message-#{$color} {
+        border-left-color: $value;
+    }
+}
+.message-badge {
+    width: 2.25rem;
+    flex-shrink: 0;
+    flex-grow: 0;
+    margin-right: 1rem;
+}
+.message-body {
+    flex-shrink: 1;
+    flex-grow: 1;
+    word-break: break-word;
+    hyphens: auto;
+}
+.message-meta {
+    font-size: $small-font-size;
+}
+.message-detail {
+    font-size: $small-font-size;
+}
+.message-detail-item {
+    margin-top: 0.15rem;
+    &:first-child {
+        margin-top: 0.5rem;
+    }
+}
+    
+.message-detail-key {
+    &:after {
+        content: ':';
+    }
+}
+
+//
+// Message List
+//
+.message-list {
+    .message {
+        &:first-child {
+            border-top: none;
+        }
+        border-top: 1px solid #e0e3e4;
+        margin-bottom: 0;
+    }
+}

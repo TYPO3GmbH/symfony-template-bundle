@@ -1,0 +1,9 @@
+{% set nextSortingDirectionLabel = 'ascending' %}
+{% if direction == 'desc' %}{% set nextSortingDirectionLabel = 'descending' %}{% endif %}
+{% set linkTitle = 'sort by ' ~ title ~ ' in ' ~ nextSortingDirectionLabel ~ ' order' %}
+{% set options = options|merge({'title': linkTitle }) %}
+{% set options = options|merge({'class': 'datatable-sorting ' ~ options.class}) %}
+<a {% for attr, value in options %} {{ attr }}="{{ value }}"{% endfor %}>
+    <span class="datatable-sorting-icon"></span>
+    <span class="datatable-sorting-label datatable-visually-hidden">{{ linkTitle }}</span>
+</a>

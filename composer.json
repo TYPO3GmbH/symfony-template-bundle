@@ -1,0 +1,47 @@
+{
+    "name": "t3g/symfony-template-bundle",
+    "type": "symfony-bundle",
+    "description": "TYPO3 Template Bundle",
+    "keywords": [
+        "TYPO3",
+        "Templates"
+    ],
+    "homepage": "http://www.typo3.com",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "Benjamin Kott",
+            "email": "benjamin.kott@typo3.com"
+        }
+    ],
+    "require": {
+        "php": "^7.2",
+        "knplabs/knp-menu-bundle": "^2.2 || ^3.0",
+        "knplabs/knp-paginator-bundle": "^3.0 || ^4.0 || ^5.0",
+        "symfony/asset": "^4.3 || ^5.0",
+        "symfony/framework-bundle": "^4.3 || ^5.0",
+        "symfony/http-kernel": "^4.3 || ^5.0",
+        "symfony/security-bundle": "^4.3 || ^5.0",
+        "symfony/translation": "^4.3 || ^5.0",
+        "symfony/twig-bundle": "^4.3 || ^5.0",
+        "symfony/webpack-encore-bundle": "^1.0",
+        "twig/twig": "^2.10 || ^3.0"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^2.2"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": { 
+            "T3G\\Bundle\\TemplateBundle\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "T3G\\Bundle\\TemplateBundle\\Tests\\": "tests/"
+        }
+    }
+}

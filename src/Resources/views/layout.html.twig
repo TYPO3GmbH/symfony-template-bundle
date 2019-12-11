@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{% endblock %} - {{ template.application.name }}</title>
+    <link rel="shortcut icon" href="{{ asset('build/images/favicon.ico') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600">
+    <link rel="stylesheet" href="{{ asset('bundles/template/app.css') }}">
+    {% if template.application.assets.encore_entrypoint %}
+        {{ encore_entry_link_tags(template.application.assets.encore_entrypoint) }}
+    {% endif %}
+    {% block stylesheets %}{% endblock %}
+</head>
+<body>
+
+    <div class="page-wrapper">
+        <header class="page-header">
+            <nav class="navbar navbar-mainnavigation navbar-dark bg-darkest navbar-expand-md" role="banner">
+                <div class="container">
+                    <a class="navbar-brand" href="{{ path(template.application.routes.home) }}"><i class="fab fa-typo3 text-primary"></i> <strong>{{ template.application.name }}</strong></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainnavigation" aria-controls="mainnavigation" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="mainnavigation">
+                        {{ knp_menu_render('main-default') }}
+                        {{ knp_menu_render('main-profile') }}
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        {# flash messages on this page are NOT escaped !#}
+        {% if app.request.hasPreviousSession %}
+            {% for key, flashMassages in app.session.flashBag.all %}
+                <div class="content-section content-section-none">
+                    <div class="alert-pagegroup">
+                        {% block flashMessages %}
+                            {% for flashMassage in flashMassages %}
+                                <div class="alert alert-{{ key }} alert-dismissible fade show" role="alert">
+                                    <div class="alert-inner">
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        {{ flashMassage | raw }}
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        {% endblock %}
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        <main class="page-main">
+
+            {% if block('headline') is defined %}
+                <div class="content-section content-section-small bg-primary text-white">
+                    <div class="container">
+                        <h1 class="h2">{{ block('headline')|raw }}</h1>
+                    </div>
+                </div>
+            {% endif %}
+            {% block body %}{% endblock %}
+
+        </main>
+
+        <footer class="page-footer">
+            {% block footer %}{% endblock %}
+            <div class="content-section content-section-smallest bg-darkest text-white">
+                <div class="container">
+                    <div class="page-footer-copyright">
+                        <span>© {{ "now"|date("Y") }} <a href="https://typo3.com" target="_blank">TYPO3 GmbH</a>.</span>
+                    </div>
+                    <div class="page-footer-menu">
+                        {{ knp_menu_render('main-footer') }}
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="{{ asset('bundles/template/app.js') }}"></script>
+    {% if template.application.assets.encore_entrypoint %}
+        {{ encore_entry_script_tags(template.application.assets.encore_entrypoint) }}
+    {% endif %}
+    {% block javascripts %}{% endblock %}
+
+</body>
+</html>

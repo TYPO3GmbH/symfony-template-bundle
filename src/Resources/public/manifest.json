@@ -1,0 +1,14 @@
+{
+  "bundles/template/app.css": "./app.css",
+  "bundles/template/app.js": "./app.js",
+  "bundles/template/fonts/fa-brands-400.eot": "./fonts/fa-brands-400.088a34f7.eot",
+  "bundles/template/fonts/fa-brands-400.ttf": "./fonts/fa-brands-400.273dc9bf.ttf",
+  "bundles/template/fonts/fa-brands-400.woff2": "./fonts/fa-brands-400.822d94f1.woff2",
+  "bundles/template/fonts/fa-brands-400.woff": "./fonts/fa-brands-400.f4920c94.woff",
+  "bundles/template/fonts/fa-solid-900.ttf": "./fonts/fa-solid-900.2aa6edf8.ttf",
+  "bundles/template/fonts/fa-solid-900.eot": "./fonts/fa-solid-900.7fb1cdd9.eot",
+  "bundles/template/fonts/fa-solid-900.woff": "./fonts/fa-solid-900.93f28454.woff",
+  "bundles/template/fonts/fa-solid-900.woff2": "./fonts/fa-solid-900.f6121be5.woff2",
+  "bundles/template/images/fa-brands-400.svg": "./images/fa-brands-400.d7229311.svg",
+  "bundles/template/images/fa-solid-900.svg": "./images/fa-solid-900.7a5de9b0.svg"
+}

@@ -1,0 +1,5 @@
+{% if datetime %}
+    <span data-processor="localdate" data-value="{{ datetime|date('Y-m-d\\TH:i:sP', "UTC") }}">
+        {{ datetime|date('m/d/y, H:i', "UTC") }}
+    </span>
+{% endif %}
