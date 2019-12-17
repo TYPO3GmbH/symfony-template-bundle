@@ -1,0 +1,58 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  build-php:
+    name: Build ${{ matrix.php }} / ${{ matrix.symfony }}
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 4
+      fail-fast: false
+      matrix:
+        php: ['7.2', '7.3', '7.4']
+        symfony: ['^4.4', '^5.0']
+        include:
+          - symfony: '^4.4'
+            deprecations: 'max[self]=0'
+          - symfony: '^5.0'
+            deprecations: ''
+
+    steps:
+
+    - name: Checkout
+      uses: actions/checkout@v1
+
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v1
+      with:
+        php-version: ${{ matrix.php }}
+        extensions: mbstring, xml, ctype, iconv
+        coverage: none
+
+    - name: Cache composer dependencies
+      uses: actions/cache@v1
+      with:
+        path: vendor
+        key: ${{ matrix.php }}-composer-${{ matrix.symfony }}
+
+    - name: Cache yarn dependencies
+      uses: actions/cache@v1
+      with:
+        path: node_modules
+        key: yarn-${{ hashFiles('yarn.lock') }}
+
+    - name: Install
+      run: |
+        sed -ri 's/"symfony\/framework-bundle": "(.+)"/"symfony\/framework-bundle": "'${{ matrix.symfony }}'"/' composer.json;
+        composer update --prefer-dist --no-progress
+        composer info
+
+    - name: Build Frontend
+      run: yarn install && yarn build
+
+    - name: Lint
+      run: composer test:php:lint
+
+    - name: CGL
+      run: composer test:php:cgl
