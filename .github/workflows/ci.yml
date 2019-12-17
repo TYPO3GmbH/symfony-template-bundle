@@ -46,7 +46,7 @@ jobs:
 
     - name: Install
       run: |
-        composer require symfony/framework-bundle:${{ matrix.symfony }} --update-with-all-dependencies
+        sed -ri 's/"symfony\/framework-bundle": "(.+)"/"symfony\/framework-bundle": "'${{ matrix.symfony }}'"/' composer.json;
         composer update ${{ matrix.composer-flags }} --prefer-dist --no-progress
 
     - name: Build Frontend
