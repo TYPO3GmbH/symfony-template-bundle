@@ -40,3 +40,6 @@ jobs:
     - name: Install
       run: |
         composer install --no-progress
+
+    - name: Build Frontend
+      run: yarn install && yarn build
