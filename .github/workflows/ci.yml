@@ -37,8 +37,6 @@ jobs:
       with:
         path: vendor
         key: ${{ matrix.php }}-composer-${{ matrix.symfony }}
-        restore-keys: |
-          ${{ matrix.php }}-composer
 
     - name: Cache yarn dependencies
       uses: actions/cache@v1
@@ -48,7 +46,7 @@ jobs:
 
     - name: Install
       run: |
-        composer require symfony/framework-bundle:${{ matrix.symfony }}
+        composer require symfony/framework-bundle:${{ matrix.symfony }} --update-with-all-dependencies
         composer update ${{ matrix.composer-flags }} --prefer-dist --no-progress
 
     - name: Build Frontend
