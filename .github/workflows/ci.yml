@@ -19,9 +19,6 @@ jobs:
           - symfony: '^5.0'
             composer-flags: '--prefer-stable'
             deprecations: ''
-        exclude:
-          - symfony: '^4.3'
-            php: '7.4'
 
     steps:
 
