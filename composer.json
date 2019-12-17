@@ -29,7 +29,9 @@
         "twig/twig": "^2.10 || ^3.0"
     },
     "require-dev": {
-        "friendsofphp/php-cs-fixer": "^2.2"
+        "friendsofphp/php-cs-fixer": "^2.2",
+        "overtrue/phplint": "^1.2",
+        "symfony/phpunit-bridge": "^4.3 | ^5.0"
     },
     "config": {
         "bin-dir": "bin",
@@ -37,8 +39,20 @@
         "optimize-autoloader": true,
         "vendor-dir": "vendor"
     },
+    "scripts": {
+        "test:php:cgl": [
+            "php-cs-fixer --diff -v fix"
+        ],
+        "test:php:lint": [
+            "phplint"
+        ],
+        "test": [
+            "@test:php:cgl",
+            "@test:php:lint"
+        ]
+    },
     "autoload": {
-        "psr-4": { 
+        "psr-4": {
             "T3G\\Bundle\\TemplateBundle\\": "src/"
         }
     },

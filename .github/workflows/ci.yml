@@ -51,3 +51,9 @@ jobs:
 
     - name: Build Frontend
       run: yarn install && yarn build
+
+    - name: Lint
+      run: composer test:php:lint
+
+    - name: CGL
+      run: composer test:php:cgl
