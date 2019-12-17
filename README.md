@@ -1,6 +1,6 @@
 # symfony-template-bundle
 
-This package is used across various TYPO3 Symfony Applications to ensure a streamlined visual experience and reduced maintenance. 
+This package is used across various TYPO3 Symfony Applications to ensure a streamlined visual experience and reduced maintenance.
 
 ## Installation
 
@@ -119,7 +119,7 @@ class MenuBuilder extends TemplateMenuBuider
 Available methods to override `mainDefault`, `mainProfile` and `mainFooter`.
 
 
-## Templates
+## Page Template
 
 Extend Default Layout
 
@@ -227,3 +227,71 @@ Stylesheet block will be rendered after the `base` and `encore` css before the c
 #### `javascripts`
 
 JavaScript block will be rendered after `base` and `encore` javascript before the closing `</body>`.
+
+## EMail Template
+
+Extend Default Layout
+
+```twig
+{% extends '@Template/email.html.twig' %}
+```
+
+### Available Blocks
+
+#### `email_subject`
+
+```twig
+{% block email_subject %}Reset Your Password{% endblock %}
+```
+
+#### `email_plaintext`
+
+```twig
+{% block email_plaintext %}
+Forgot your password? Let's get you a new one.
+
+We got a request to change the password for the account with the username {{ user.username }}.
+
+You can reset your password by accessing {{ confirmationUrl }}
+
+If you don't want to reset your password, you can ignore this email.
+{% endblock %}
+```
+
+#### `email_html_preview`
+
+```twig
+{% block email_html_preview %}
+You requested a password reset for your account.
+{% endblock %}
+```
+
+#### `email_html_body`
+
+```twig
+{% block email_html_body %}
+<h3>Forgot your password?<br>Let's get you a new one.</h3>
+<p>We got a request to change the password for the account with the username <strong style="color: #222222;">{{ user.username }}</strong>.</p>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%" class="buttonBlock" style="min-width:100%;">
+    <tbody class="buttonBlockOuter">
+        <tr>
+            <td style="padding-top: 36px; padding-right:18px; padding-bottom:36px; padding-left:18px;" valign="top" align="center" class="buttonBlockInner">
+                <table border="0" cellpadding="0" cellspacing="0" class="buttonContentContainer" style="border-collapse: separate !important;border-radius: 3px;background-color: #ff8700;">
+                    <tbody>
+                        <tr>
+                            <td align="center" valign="middle" class="buttonContent" style="font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, Verdana, sans-serif; font-size: 16px; padding: 18px;">
+                                <a class="button " title="Reset Your Password" href="{{ confirmationUrl }}" rel="noopener noreferrer" target="_blank" style="font-weight: bold;letter-spacing: -0.5px;line-height: 100%;text-align: center;text-decoration: none;color: #FFFFFF;">Reset Your Password</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<p style="font-size: 12px;">Or reset your password using this link: {{ confirmationUrl }}</p>
+<p style="font-size: 12px;">If you don't want to reset your password, you can ignore this email.</p>
+{% endblock %}
+```
