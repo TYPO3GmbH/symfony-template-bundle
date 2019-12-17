@@ -11,6 +11,17 @@ jobs:
       fail-fast: false
       matrix:
         php: ['7.2', '7.3', '7.4']
+        symfony: ['^4.3.0', '^5.0.0']
+        include:
+          - symfony: '^4.3.0'
+            php: ['7.2', '7.3']
+            composer-flags: '--prefer-lowest --prefer-stable'
+            deprecations: 'max[self]=0'
+          - symfony: '^5.0.0'
+            php: ['7.3', '7.4']
+            composer-flags: '--prefer-stable'
+            deprecations: ''
+
     steps:
 
     - name: Checkout
@@ -37,9 +48,13 @@ jobs:
         path: node_modules
         key: yarn-${{ hashFiles('yarn.lock') }}
 
+    - name: Prepare Symfony ${{ matrix.symfony }}
+      run: |
+        sed -ri 's/"symfony\/(.+)": "(.+)"/"symfony\/\1": "'${{ matrix.symfony }}'"/' composer.json;
+
     - name: Install
       run: |
-        composer install --no-progress
+        composer install ${{ matrix.composer-flags }} --prefer-dist --no-progress
 
     - name: Build Frontend
       run: yarn install && yarn build
