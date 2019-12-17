@@ -11,13 +11,11 @@ jobs:
       fail-fast: false
       matrix:
         php: ['7.2', '7.3', '7.4']
-        symfony: ['^4.3', '^5.0']
+        symfony: ['^4.4', '^5.0']
         include:
-          - symfony: '^4.3'
-            composer-flags: '--prefer-lowest --prefer-stable'
+          - symfony: '^4.4'
             deprecations: 'max[self]=0'
           - symfony: '^5.0'
-            composer-flags: '--prefer-stable'
             deprecations: ''
 
     steps:
@@ -47,7 +45,7 @@ jobs:
     - name: Install
       run: |
         sed -ri 's/"symfony\/framework-bundle": "(.+)"/"symfony\/framework-bundle": "'${{ matrix.symfony }}'"/' composer.json;
-        composer update ${{ matrix.composer-flags }} --prefer-dist --no-progress
+        composer update --prefer-dist --no-progress
         composer info
 
     - name: Build Frontend
