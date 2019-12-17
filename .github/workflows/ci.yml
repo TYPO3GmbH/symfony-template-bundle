@@ -19,6 +19,9 @@ jobs:
           - symfony: '^5.0'
             composer-flags: '--prefer-stable'
             deprecations: ''
+        exclude:
+          - symfony: '^4.3'
+            php: '7.4'
 
     steps:
 
@@ -48,6 +51,7 @@ jobs:
       run: |
         sed -ri 's/"symfony\/framework-bundle": "(.+)"/"symfony\/framework-bundle": "'${{ matrix.symfony }}'"/' composer.json;
         composer update ${{ matrix.composer-flags }} --prefer-dist --no-progress
+        composer info
 
     - name: Build Frontend
       run: yarn install && yarn build
