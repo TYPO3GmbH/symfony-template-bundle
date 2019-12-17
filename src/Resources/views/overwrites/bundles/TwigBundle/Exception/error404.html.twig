@@ -1,0 +1,16 @@
+{% extends "@Template/exception.html.twig" %}
+{% block title %}An Error Occurred: {{ status_text }}{% endblock %}
+{% block body %}
+
+    <h1>Awww... <strong>{{ status_code }}</strong><br>{{ status_text }}</h1>
+    <p class="lead">The page you were looking for cannot be found. You may have followed a bad link or mis-typed an URL. Possibly the page has been moved, discarded or is from the past. Our apologies.</p>
+    <a href="/" class="btn btn-success btn-lg my-2">
+        <span class="btn-icon">
+            <i class="fas fa-home"></i>
+        </span>
+        <span class="btn-text">
+            Home
+        </span>
+    </a>
+
+{% endblock %}
