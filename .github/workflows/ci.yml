@@ -4,7 +4,7 @@ on: [push, pull_request]
 
 jobs:
   build-php:
-    name: Build PHP ${{ matrix.php }}
+    name: Build PHP ${{ matrix.php }} / Symfony ${{ matrix.symfony }}
     runs-on: ubuntu-latest
     strategy:
       max-parallel: 4
@@ -52,7 +52,7 @@ jobs:
 
     - name: Install
       run: |
-        composer install ${{ matrix.composer-flags }} --prefer-dist --no-progress
+        composer update ${{ matrix.composer-flags }} --prefer-dist --no-progress
 
     - name: Build Frontend
       run: yarn install && yarn build
