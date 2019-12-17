@@ -4,19 +4,19 @@ on: [push, pull_request]
 
 jobs:
   build-php:
-    name: Build PHP ${{ matrix.php }} / Symfony ${{ matrix.symfony }}
+    name: Build ${{ matrix.php }} / ${{ matrix.symfony }}
     runs-on: ubuntu-latest
     strategy:
       max-parallel: 4
       fail-fast: false
       matrix:
         php: ['7.2', '7.3', '7.4']
-        symfony: ['^4.3.0', '^5.0.0']
+        symfony: ['^4.3', '^5.0']
         include:
-          - symfony: '^4.3.0'
+          - symfony: '^4.3'
             composer-flags: '--prefer-lowest --prefer-stable'
             deprecations: 'max[self]=0'
-          - symfony: '^5.0.0'
+          - symfony: '^5.0'
             composer-flags: '--prefer-stable'
             deprecations: ''
 
@@ -36,7 +36,7 @@ jobs:
       uses: actions/cache@v1
       with:
         path: vendor
-        key: ${{ matrix.php }}-composer
+        key: ${{ matrix.php }}-composer-${{ matrix.symfony }}
         restore-keys: |
           ${{ matrix.php }}-composer
 
@@ -46,12 +46,9 @@ jobs:
         path: node_modules
         key: yarn-${{ hashFiles('yarn.lock') }}
 
-    - name: Prepare Symfony ${{ matrix.symfony }}
-      run: |
-        sed -ri 's/"symfony\/(.+)": "(.+)"/"symfony\/\1": "'${{ matrix.symfony }}'"/' composer.json;
-
     - name: Install
       run: |
+        composer require symfony/framework-bundle:${{ matrix.symfony }}
         composer update ${{ matrix.composer-flags }} --prefer-dist --no-progress
 
     - name: Build Frontend
