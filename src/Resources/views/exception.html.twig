@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{% endblock %} - {{ template.application.name }}</title>
+    <link rel="shortcut icon" href="{{ asset('build/images/favicon.ico') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600">
+    <link rel="stylesheet" href="{{ asset('bundles/template/app.css') }}">
+</head>
+<body>
+    <div class="page-wrapper">
+        <main class="page-main">
+            {% block body %}{% endblock %}
+        </main>
+    </div>
+    <script src="{{ asset('bundles/template/app.js') }}"></script>
+</body>
+</html>
