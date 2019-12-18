@@ -20,6 +20,7 @@ Encore
         corejs: 3
     })
     .addEntry('app', './assets/js/app.js')
+    .addStyleEntry('webfont', './assets/css/webfont.scss')
 ;
 
 module.exports = Encore.getWebpackConfig();

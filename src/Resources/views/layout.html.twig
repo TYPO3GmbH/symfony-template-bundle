@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}{% endblock %} - {{ template.application.name }}</title>
     <link rel="shortcut icon" href="{{ asset('build/images/favicon.ico') }}">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600">
     <link rel="stylesheet" href="{{ asset('bundles/template/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('bundles/template/webfont.css') }}">
     {% if template.application.assets.encore_entrypoint %}
         {{ encore_entry_link_tags(template.application.assets.encore_entrypoint) }}
     {% endif %}
