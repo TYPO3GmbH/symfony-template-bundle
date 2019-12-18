@@ -21,6 +21,10 @@ Encore
     })
     .addEntry('app', './assets/js/app.js')
     .addStyleEntry('webfont', './assets/css/webfont.scss')
+    .copyFiles({
+        from: './assets/images',
+        to: 'images/[path][name].[ext]'
+    })
 ;
 
 module.exports = Encore.getWebpackConfig();
