@@ -44,7 +44,7 @@ template:
         menu:
             # Example: App\Menu\MenuBuilder
             class: T3G\Bundle\TemplateBundle\Menu\MenuBuilder
-         assets:
+        assets:
             # Example: app
             encore_entrypoint: ~
 ```
@@ -76,7 +76,7 @@ To enable your encore entrypoint simply configure the key within the yaml config
 # config/packages/template.yaml
 template:
     application:
-         assets:
+        assets:
             encore_entrypoint: app
 ```
 
