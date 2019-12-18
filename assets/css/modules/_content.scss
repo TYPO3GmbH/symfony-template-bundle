@@ -41,6 +41,53 @@
         padding-bottom: ($spacer * 8);
     }
 }
+
+
+.content-section-collapsible {
+    margin-top: -($spacer * 2);
+    @include media-breakpoint-up(sm) {
+        margin-top: -($spacer * 3);
+    }
+    @include media-breakpoint-up(md) {
+        margin-top: -($spacer * 4);
+    }
+}
+.content-section-collapsible-smallest {
+    margin-top: -($spacer * 1.5) !important;
+}
+.content-section-collapsible-small {
+    @include media-breakpoint-up(sm) {
+        margin-top: -($spacer * 2) !important;
+    }
+}
+.content-section-collapsible-large {
+    margin-top: -($spacer * 4);
+    @include media-breakpoint-up(sm) {
+        margin-top: -($spacer * 6) !important;
+    }
+    @include media-breakpoint-up(md) {
+        margin-top: -($spacer * 8) !important;
+    }
+}
+@mixin make-section-collapsible($name) {
+    .content-section.bg-#{$name} + .content-section.bg-#{$name} {
+        @extend .content-section-collapsible ;
+    }
+    .content-section.content-section-smallest.bg-#{$name} + .content-section.bg-#{$name} {
+        @extend .content-section-collapsible-smallest ;
+    }
+    .content-section.content-section-small.bg-#{$name} + .content-section.bg-#{$name} {
+        @extend .content-section-collapsible-small ;
+    }
+    .content-section.content-section-large.bg-#{$name} + .content-section.bg-#{$name} {
+        @extend .content-section-collapsible-large ;
+    }
+}
+@each $color, $value in $theme-colors {
+    @include make-section-collapsible($color);
+}
+
+
 .content-section-none {
     padding: 0;
 }

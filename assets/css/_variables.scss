@@ -1,24 +1,24 @@
 //
-// Color system
-//
-$white:     #FFFFFF;
-$gray-100:  #EAEAEA;
-$gray-200:  #D5D5D5;
-$gray-300:  #C0C0C0;
-$gray-400:  #ABABAB;
-$gray-500:  #969696;
-$gray-600:  #6C6C6C;
-$gray-700:  #575757;
-$gray-800:  #424242;
-$gray-900:  #2D2D2D;
-$black:     #191919;
+// Colors
+// -------------------------------------------------
+$white:             #ffffff;
+$gray-100:          #f2f2f2;
+$gray-200:          #e9e9e9;
+$gray-300:          #dedede;
+$gray-400:          #cecece;
+$gray-500:          #ababab;
+$gray-600:          #6c6c6c;
+$gray-700:          #494949;
+$gray-800:          #363636;
+$gray-900:          #292929;
+$black:             #000000;
 
-$primary:   #E87B00;
-$secondary: #333333;
-$success:   #37BD74;
-$danger:    #FF304F;
-$info:      #27A2FC;
-$warning:   #FF9B37;
+$primary:           #ff8700;
+$secondary:         #333333;
+$success:           #5cb85c;
+$info:              #5bc0de;
+$warning:           #f0ad4e;
+$danger:            #d9534f;
 
 $theme-colors: (
     primary: $primary,
@@ -34,23 +34,29 @@ $theme-colors: (
     darkest: $black
 );
 
-$theme-shadow: 0 2px 1px rgba(0, 0, 0, 0.15);
-$theme-shadow-hover: 0 2px 1px rgba(0, 0, 0, 0.25);
+$link-color:                    $primary;
+$link-hover-color:              darken($link-color, 15%);
+$link-alternate-color:          #ffffff;
+$link-alternate-hover-color:    darken($link-alternate-color, 15%);
 
-//
-// Spacer
-//
-$spacer: 1rem;
+$yiq-contrasted-threshold:      160;
 
 //
 // Fonts
-//
-$font-family-sans-serif:     'Source Sans Pro', sans-serif;
-$font-family-monospace:      'Source Code Pro', monospace;
-$headings-margin-bottom:     $spacer;
-$headings-font-weight:       300;
-$lead-font-size:             1.5rem;
-$lead-font-weight:           200;
+// --------------------------------------------------
+$font-family-sans-serif: 'Source Sans Pro', sans-serif;
+$font-family-monospace: 'Source Code Pro', monospace;
+$font-weight-bold: 600;
+
+$h1-font-size: 2em;
+$h2-font-size: 1.75em;
+$h3-font-size: 1.5em;
+$h4-font-size: 1.25em;
+$h5-font-size: 1em;
+$h6-font-size: .85em;
+
+$headings-font-weight: $font-weight-bold;
+$headings-margin-bottom: .5em;
 
 //
 // Navbar
@@ -66,13 +72,28 @@ $border-radius-sm:          2px;
 
 //
 // Pagination
-//
+// --------------------------------------------------
 $pagination-color:          #616161;
 $pagination-hover-color:    #313131;
 
+//
+// Components
+// --------------------------------------------------
+$box-shadow-sm: 0 2px 2px 0 rgba(0, 0, 0, .15);
 
+//
 // Cards
+// --------------------------------------------------
 $card-border-width:         0;
-$card-spacer:               1.5rem;
-$card-spacer-y:             $card-spacer;
-$card-spacer-x:             $card-spacer;
+$card-spacer-y:             1.25rem;
+$card-spacer-x:             1.25rem;
+
+//
+// Table
+// --------------------------------------------------
+$table-bg:          $white;
+
+//
+// Grid
+// --------------------------------------------------
+$grid-gutter-width: 40px;
