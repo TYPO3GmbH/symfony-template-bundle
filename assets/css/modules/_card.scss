@@ -3,7 +3,7 @@
 //
 .card {
     overflow: hidden;
-    box-shadow: $theme-shadow;
+    box-shadow: $box-shadow-sm;
     margin-bottom: $spacer * 2;
 
     .datatable {
@@ -17,19 +17,19 @@
     }
 }
 .card-header {
-    h1, 
-    h2, 
-    h3, 
-    h4, 
+    h1,
+    h2,
+    h3,
+    h4,
     h5 {
         font-size: 1.2rem;
         font-weight: bold;
     }
-    padding: ($card-spacer * .75) $card-spacer;
+    padding: $card-spacer-y $card-spacer-x;
     border-bottom: 1px solid rgba(0,0,0,0.15);
 }
 .card-footer {
-    padding: ($card-spacer * .75) $card-spacer; 
+    padding: $card-spacer-y $card-spacer-x;
     .datatable + & {
         border-top: 1px solid rgba(0,0,0,0.15);
     }

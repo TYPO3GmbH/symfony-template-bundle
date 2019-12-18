@@ -5,11 +5,7 @@
     display: inline-flex;
     letter-spacing: .5px;
     text-transform: uppercase;
-    box-shadow: $theme-shadow;
-    &:focus,
-    &:hover {
-        box-shadow: $theme-shadow-hover;
-    }
+    box-shadow: $box-shadow-sm;
     .input-group & {
         box-shadow: none;
     }
@@ -31,5 +27,5 @@
             padding-left: 0;
         }
         order: 2;
-    } 
+    }
 }
