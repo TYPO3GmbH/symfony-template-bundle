@@ -100,7 +100,7 @@ class MenuBuilder extends TemplateMenuBuider
 {
     public function mainDefault(array $options)
     {
-        $menu = $this->factory->createItem('root');
+        $menu = parent::mainDefault($options);
         $menu->addChild(
             'home',
             [
