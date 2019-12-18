@@ -58,7 +58,9 @@ class TemplateExtension extends Extension implements PrependExtensionInterface
                 'twig',
                 [
                     'form_themes' => ['bootstrap_4_layout.html.twig'],
-                    'paths' => [__DIR__ . '/../Resources/views/overwrites']
+                    'paths' => [
+                        __DIR__ . '/../Resources/overrides/TwigBundle' => 'Twig'
+                    ]
                 ]
             );
         }

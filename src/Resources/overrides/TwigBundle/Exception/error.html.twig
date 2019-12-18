@@ -4,7 +4,7 @@
 
     <h1>Ooops... <strong>{{ status_code }}</strong><br>{{ status_text }}</h1>
     <p class="lead">Something is broken. Please let us know what you were doing when this error occurred. We will fix it as soon as possible. Sorry for any inconvenience caused.</p>
-    <a href="mailto:info@typo3.com?subject=Error-Report: {{ template.application.name }}&body=Code:%20{{ exception.code }}%0AMessage:%20{{ exception.message }}%0ATime:%20{{ date().timestamp }}" class="btn btn-lg btn-light">
+    <a href="mailto:info@typo3.com?subject=Error-Report:%20{{ template.application.name }}&body=Code:%20{{ exception.code }}%0AMessage:%20{{ exception.message }}%0ATime:%20{{ date().timestamp }}" class="btn btn-lg btn-light">
         <span class="btn-icon">
             <i class="fas fa-bug"></i>
         </span>
