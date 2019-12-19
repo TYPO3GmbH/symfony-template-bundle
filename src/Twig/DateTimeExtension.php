@@ -19,32 +19,25 @@ class DateTimeExtension extends AbstractExtension
     public function getFunctions(): array
     {
         return [
-            new TwigFunction(
-                'template_date_time',
-                [
-                    $this,
-                    'render'
-                ],
-                [
-                    'needs_environment' => true,
-                    'is_safe' => [ 'html' ]
-                ]
-            ),
+            new TwigFunction('to_datetime', [$this, 'toDateTime']),
+            new TwigFunction('localtime', [$this, 'localtime'], ['needs_environment' => true, 'is_safe' => ['html']]),
+            new TwigFunction('relativetime', [$this, 'relativetime'], ['needs_environment' => true, 'is_safe' => ['html']]),
         ];
     }
 
-    public function render(Environment $environment, \DateTime $datetime = null): string
+    public function toDateTime(string $date, string $format = 'Y/m/d H:i:s'): \DateTime
     {
-        return $environment->render(
-            '@Template/extension/date_time.html.twig',
-            [
-                'datetime' => $datetime
-            ]
-        );
+        $datetime = \DateTime::createFromFormat($format, $date);
+        return $datetime;
     }
 
-    public function getName(): string
+    public function localtime(Environment $environment, \DateTime $datetime = null): string
     {
-        return 'template_date_time';
+        return $environment->render('@Template/extension/datetime/localtime.html.twig', ['datetime' => $datetime]);
+    }
+
+    public function relativetime(Environment $environment, \DateTime $datetime = null): string
+    {
+        return $environment->render('@Template/extension/datetime/relativetime.html.twig', ['datetime' => $datetime]);
     }
 }

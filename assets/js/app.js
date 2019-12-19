@@ -13,6 +13,7 @@ require('./libs/navbar.js');
 require('prismjs');
 require('prismjs/components/prism-nginx');
 require('prismjs/components/prism-json');
+require('prismjs/components/prism-rest');
 
 var {DateTime} = require('luxon');
 
@@ -29,6 +30,13 @@ function convertDates() {
         });
     });
 }
+function convertRelativeTime() {
+    Array.from(document.querySelectorAll('[data-processor="relativetime"]')).forEach(function (element) {
+        const value = element.dataset.value;
+        element.textContent = DateTime.fromISO(value).toRelative();
+    });
+}
 document.addEventListener('DOMContentLoaded', function() {
     convertDates();
+    convertRelativeTime();
 });
