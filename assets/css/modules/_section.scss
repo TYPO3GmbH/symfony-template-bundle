@@ -1,0 +1,25 @@
+//
+// Sections
+//
+.section {
+    @include make-row();
+}
+
+// Named
+.section-filter,
+.section-sidebar {
+    @include make-col-ready();
+    margin-bottom: $spacer;
+    @include media-breakpoint-up(lg) {
+        width: 300px;
+        margin-bottom: 0;
+    }
+}
+.section-main {
+    @include make-col-ready();
+    @include media-breakpoint-up(lg) {
+        width: 0;
+        flex-grow: 1;
+        max-width: 100%;
+    }
+}

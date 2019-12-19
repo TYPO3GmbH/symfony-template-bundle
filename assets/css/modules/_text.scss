@@ -1,0 +1,12 @@
+//
+// Text
+//
+.text-inherit {
+    color: inherit !important;
+    &:hover {
+        color: inherit !important;
+    }
+}
+.text-underline {
+    text-decoration: underline;
+}

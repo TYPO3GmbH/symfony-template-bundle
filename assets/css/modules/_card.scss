@@ -49,6 +49,12 @@
 .card-body + .card-body {
     border-top: 1px solid rgba(0,0,0,0.15);
 }
+.card-datatable {
+    flex-grow: 1;
+    & + .card-footer {
+        border-top: 1px solid rgba(0,0,0,0.15);
+    }
+}
 
 
 //

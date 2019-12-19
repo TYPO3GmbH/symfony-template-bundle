@@ -1,0 +1,35 @@
+//
+// Form
+//
+.form-headline {
+    margin-bottom: $spacer * 1.5;
+}
+.form-buttons {
+    margin-top: $spacer * 2.5;
+    .btn + .btn {
+        margin-left: 0.25rem;
+    }
+}
+.form-buttons-text {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 1rem;
+}
+
+
+//
+// Custom Forms
+//
+.custom-control-label-hascount {
+    display: flex;
+}
+.custom-control-label-title {
+    flex-grow: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.custom-control-label-count {
+    flex-shrink: 0;
+    margin-left: 1rem
+}
