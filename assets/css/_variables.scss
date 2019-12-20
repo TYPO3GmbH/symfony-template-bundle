@@ -34,6 +34,14 @@ $theme-colors: (
     darkest: $black
 );
 
+$progress-colors: (
+    default: $secondary,
+    blocked: $danger,
+    open: $info,
+    wip: $secondary,
+    done: $success
+);
+
 $link-color:                    $primary;
 $link-hover-color:              darken($link-color, 15%);
 $link-alternate-color:          #ffffff;

@@ -1,0 +1,9 @@
+//
+// Progress
+//
+@each $color, $value in $progress-colors {
+    .progress-type-#{$color} {
+        background-color: $value;
+        color: color-yiq($value);
+    }
+}

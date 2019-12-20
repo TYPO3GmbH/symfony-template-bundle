@@ -1,0 +1,38 @@
+//
+// Board
+//
+.board {
+    display: flex;
+    overflow-x: auto;
+    background-color: #ffffff;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+.board-container {
+    min-width: 100%;
+    display: flex;
+    padding: 0 10px;
+}
+.board-column {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    flex-basis: 0;
+    min-width: 232px;
+    padding: 0 5px;
+    position: relative;
+}
+.board-column-header {
+    width: 100%;
+    padding-bottom: ($grid-gutter-width / 2);
+}
+.board-colum-header-headline {
+    font-size: 1.25rem;
+    margin: 0;
+}
+.board-column-content {
+    width: 100%;
+    flex-grow: 1;
+    background-color: #f4f4f4;
+    padding: ($grid-gutter-width / 2);
+}
