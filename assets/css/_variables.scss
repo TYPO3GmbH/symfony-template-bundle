@@ -50,6 +50,17 @@ $review-colors: (
     task: $info,
 );
 
+$status-colors: (
+    new: #AE4A32,
+    accepted: #D1C4B1,
+    underreview: #8DB173,
+    onhold: #F38725,
+    needsfeedback: #F38725,
+    nextup: #7373b1,
+    inprogress: #62C0DC,
+    done: #696969
+);
+
 $progress-colors: (
     default: $secondary,
     blocked: $danger,
