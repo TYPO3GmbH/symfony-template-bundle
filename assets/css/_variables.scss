@@ -34,6 +34,15 @@ $theme-colors: (
     darkest: $black
 );
 
+$issue-colors: (
+    default: $secondary,
+    bug: $danger,
+    feature: $success,
+    task: $info,
+    epic: #6610f2,
+    story: #ffc107
+);
+
 $progress-colors: (
     default: $secondary,
     blocked: $danger,

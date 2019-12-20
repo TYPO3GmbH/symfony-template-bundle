@@ -1,0 +1,172 @@
+//
+// Issue
+//
+$issue-shadow: $box-shadow-sm;
+$issue-bg: #ffffff;
+$issue-border-radius: 2px;
+$issue-color: color-yiq($issue-bg);
+$issue-padding: 1rem;
+$issue-margin: $spacer;
+$issue-type-width: 1.25rem;
+
+.issue {
+    position: relative;
+    padding-left: $issue-type-width;
+    border-radius: $issue-border-radius;
+    color: $issue-color;
+    background-color: $issue-bg;
+    overflow: hidden;
+    box-shadow: $issue-shadow;
+    margin-bottom: $issue-margin;
+}
+
+// Type
+.issue-type {
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: $issue-type-width;
+    position: absolute;
+    display: block;
+    text-transform: uppercase;
+    line-height: $issue-type-width;
+    font-size: 0.875rem;
+}
+@each $color, $value in $issue-colors {
+    .issue-type-#{$color} {
+        background-color: $value;
+        color: color-yiq($value);
+    }
+}
+.issue-type-title {
+    position: absolute;
+    top: .75rem;
+    left: $issue-type-width;
+    transform: perspective(1px) rotate(90deg);
+    transform-origin: left top 0;
+    letter-spacing: 2px;
+}
+
+// Content
+.issue-content {
+    padding: $issue-padding;
+    > *:first-child {
+        margin-top: 0;
+    }
+    > *:last-child {
+        margin-bottom: 0;
+    }
+}
+.issue-status {
+    margin-bottom: .25rem;
+}
+.issue-headline {
+    word-break: break-word;
+    > a {
+        color: $issue-color!important;
+    }
+}
+.issue-id {
+    color: theme-color('primary')!important;
+}
+.issue-title {
+    color: $issue-color!important;
+}
+
+// Data
+.issue-data {
+    border-top: 1px dashed rgba(0,0,0,.15);
+    font-size: $font-size-sm;
+    line-height: 1.2;
+    display: flex;
+    flex-wrap: wrap;
+    padding: .75rem 0;
+}
+.issue-data-item {
+    padding: 1px $issue-padding;
+    display: flex;
+    width: 50%;
+    min-width: 200px;
+    flex-grow: 1;
+}
+.issue-data-item-label {
+    flex-grow: 1;
+}
+.issue-data-item-value {
+    font-weight: bold;
+}
+
+// Meta
+.issue-meta {
+    padding: .5rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.875rem;
+    line-height: 1.25;
+    margin-top: 0!important;
+    background-color: darken($issue-bg, 2.5%);
+}
+.issue-meta-group {
+    margin: 0.25rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.issue-meta-group-stacked {
+    display: block;
+    .issue-meta-item-label {
+        @extend .sr-only;
+    }
+}
+.issue-meta-item {
+    padding: 1px $issue-padding;
+    display: flex;
+    align-items: center;
+}
+.issue-meta-author {
+    flex-grow: 1;
+}
+.issue-meta-created,
+.issue-meta-updated {
+    flex-shrink: 0;
+}
+.issue-meta-item-icon,
+.issue-meta-item-avatar {
+    margin-right: 0.5rem;
+}
+.issue-meta-item-body {
+    display: inline-flex;
+    flex-direction: column;
+}
+.issue-meta-item-label {
+    font-weight: bold;
+}
+
+//
+// Card
+//
+.issue-card {
+    .issue-headline {
+        font-size: 1rem;
+    }
+    .issue-meta-item-avatar {
+        margin-left: -19px;
+        position: relative;
+        z-index: 1;
+        .avatar {
+            border: 3px solid darken($issue-bg, 2.5%);
+        }
+    }
+    .issue-meta-author {
+        .issue-meta-item-body {
+            white-space: nowrap;
+            max-width: 120px;
+        }
+        .issue-meta-item-value {
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+    }
+}
