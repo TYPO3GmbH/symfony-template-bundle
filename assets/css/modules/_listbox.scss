@@ -1,0 +1,79 @@
+//
+// Listbox
+//
+$listbox-shadow: $box-shadow-sm;
+$listbox-bg: #ffffff;
+$listbox-border-radius: 2px;
+$listbox-color: color-yiq($card-bg);
+$listbox-margin: $spacer;
+$listbox-padding: 1rem;
+
+.listbox {
+    border-radius: $listbox-border-radius;
+    color: $listbox-color;
+    background-color: $listbox-bg;
+    overflow: hidden;
+    box-shadow: $listbox-shadow;
+    display: flex;
+    flex-direction: column;
+}
+.listbox-small {
+    font-size: $font-size-sm;
+    line-height: 1.25;
+}
+.listbox-header {
+    display: flex;
+    justify-content: space-between;
+    padding: ($listbox-padding / 2) $listbox-padding;
+    background-color: darken($card-bg, 2.5%);
+    a,
+    a:hover {
+        font-weight: bold;
+        color: inherit;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+}
+.listbox-header-title,
+.listbox-header-title a {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.listbox-header-count {
+    opacity: 0.5;
+    flex-shrink: 0;
+    margin-left: .25rem;
+}
+.listbox-entries {
+    flex-grow: 1;
+    padding: ($listbox-padding / 2) 0;
+}
+.listbox-item {
+    display: flex;
+    justify-content: space-between;
+    padding: ($listbox-padding / 4) $listbox-padding;
+}
+.listbox-item-name {
+    flex-grow: 1;
+    a,
+    a:hover {
+        color: inherit;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+}
+.listbox-item-name,
+.listbox-item-name a {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.listbox-item-badge {
+    flex-shrink: 0;
+    margin-left: .25rem;
+}

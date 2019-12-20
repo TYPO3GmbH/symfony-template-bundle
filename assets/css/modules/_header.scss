@@ -1,0 +1,35 @@
+//
+// Header
+//
+.header {
+    @include media-breakpoint-up(md) {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+.header-headline {
+    font-size: 1.5rem;
+    line-height: 1.2em;
+    margin-bottom: 0.25rem;
+    a {
+        color: inherit;
+    }
+    @include media-breakpoint-up(md) {
+        font-size: 1.75rem;
+        margin-bottom: 0;
+    }
+}
+.header-actions {
+    .btn {
+        text-align: left;
+        display: block;
+        margin-top: 0.5rem;
+        @media (min-width: 350px) {
+            display: inline-block;
+        }
+        @include media-breakpoint-up(lg) {
+            margin-top: 0;
+        }
+    }
+}

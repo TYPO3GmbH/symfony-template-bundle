@@ -2,8 +2,8 @@
 @import 'variables';
 
 // Include Dependencies
-@import '~bootstrap/scss/bootstrap';
-@import '~prismjs/themes/prism-okaidia';
+@import '../../node_modules/bootstrap/scss/bootstrap.scss';
+@import '../../node_modules/prismjs/themes/prism-okaidia';
 
 // Mixins
 @import 'mixins/function';
@@ -21,6 +21,8 @@
 @import 'modules/form';
 @import 'modules/datatable';
 @import 'modules/expander';
+@import 'modules/header';
+@import 'modules/listbox';
 @import 'modules/btn';
 @import 'modules/message';
 @import 'modules/fontawesome';
