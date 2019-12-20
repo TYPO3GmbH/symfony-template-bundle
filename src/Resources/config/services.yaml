@@ -1,37 +1,36 @@
 parameters:
 
 services:
-    _defaults:
-        public: false
-        autowire: true
-        autoconfigure: true
+  _defaults:
+    public: false
+    autowire: true
+    autoconfigure: true
 
-    T3G\Bundle\TemplateBundle\Twig\GlobalVariablesExtension:
-        arguments: ['%t3g.template.config%']
-        tags:
-            -
-                name: twig.extension
+  T3G\Bundle\TemplateBundle\Twig\GlobalVariablesExtension:
+    arguments: ["%t3g.template.config%"]
+    tags:
+      - name: twig.extension
 
-    T3G\Bundle\TemplateBundle\Twig\DateTimeExtension:
-        tags:
-            -
-                name: twig.extension
+  T3G\Bundle\TemplateBundle\Twig\DateTimeExtension:
+    tags:
+      - name: twig.extension
 
-    T3G\Bundle\TemplateBundle\Menu\MenuBuilder:
-        class: '%t3g.template.config.menu.class%'
-        tags:
-            -
-                name: 'knp_menu.menu_builder'
-                method: 'mainDefault'
-                alias: 'main-default'
-                priority: 20
-            -
-                name: 'knp_menu.menu_builder'
-                method: 'mainProfile'
-                alias: 'main-profile'
-                priority: 20
-            -
-                name: 'knp_menu.menu_builder'
-                method: 'mainFooter'
-                alias: 'main-footer'
-                priority: 20
+  T3G\Bundle\TemplateBundle\Twig\TextExtension:
+    tags:
+      - name: twig.extension
+
+  T3G\Bundle\TemplateBundle\Menu\MenuBuilder:
+    class: "%t3g.template.config.menu.class%"
+    tags:
+      - name: "knp_menu.menu_builder"
+        method: "mainDefault"
+        alias: "main-default"
+        priority: 20
+      - name: "knp_menu.menu_builder"
+        method: "mainProfile"
+        alias: "main-profile"
+        priority: 20
+      - name: "knp_menu.menu_builder"
+        method: "mainFooter"
+        alias: "main-footer"
+        priority: 20
