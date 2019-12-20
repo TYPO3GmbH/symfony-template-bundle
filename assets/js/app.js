@@ -8,6 +8,7 @@ require('../css/app.scss');
 let $ = require('jquery');
 require('bootstrap');
 require('./libs/navbar.js');
+require('./libs/aggregations.js');
 
 // Syntax Highlighter
 require('prismjs');

@@ -1,0 +1,128 @@
+//
+// Aggregations
+//
+$aggregation-shadow: $box-shadow-sm;
+$aggregation-padding: $card-spacer-y $card-spacer-x;
+$aggregation-margin: $spacer;
+$aggregation-bg: #ffffff;
+$aggregation-border-radius: 2px;
+$aggregation-breakpoint: 'lg';
+
+// Toggle
+.aggregations-checkbox {
+    display: none;
+}
+.aggregations {
+    display: none;
+}
+.aggregations-toggle-text-active {
+    display: none;
+}
+.aggregations-checkbox:checked ~ .aggregations-toggle {
+    .aggregations-toggle-text-active {
+        display: initial;
+    }
+    .aggregations-toggle-text-inactive {
+        display: none;
+    }
+}
+.aggregations-checkbox:checked ~ .aggregations {
+    display: block;
+}
+.aggregations-toggle {
+    @extend .btn;
+    @extend .btn-secondary;
+    @extend .btn-block;
+    cursor: pointer;
+    justify-content: center;
+}
+.aggregations-toggle-icon {
+    @extend .btn-icon;
+}
+.aggregations-toggle-text {
+    @extend .btn-text;
+}
+@include media-breakpoint-up($aggregation-breakpoint) {
+    .aggregations-toggle {
+        display: none!important;
+    }
+    .aggregations {
+        display: block;
+    }
+}
+
+// Component
+.aggregations {
+    overflow: hidden;
+    background-color: $aggregation-bg;
+    border-radius: $aggregation-border-radius;
+    box-shadow: $aggregation-shadow;
+
+    > *:first-child {
+        margin-top: 0;
+    }
+    > *:last-child {
+        margin-top: 0;
+    }
+}
+.aggregation {
+    padding: $aggregation-padding;
+    & + .aggregation {
+        border-top: 1px dashed rgba(0, 0, 0, .15);
+    }
+}
+.aggregation-title-link {
+    color: inherit;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    &:hover {
+        color: inherit;
+        text-decoration: none;
+    }
+}
+.aggregation-title-text {
+    position: relative;
+    flex-grow: 1;
+    font-weight: bold;
+    min-height: 1.5rem;
+    padding-left: 1.5rem;
+    &:before,
+    &:after {
+        position: absolute;
+        pointer-events: none;
+        display: block;
+        content: "";
+        transition: all 0.15s ease-in-out;
+    }
+    &:before {
+        top: 50%;
+        left: 2px;
+        transform: translate(0, -50%);
+        width: 12px;
+        height: 2px;
+        background-color: #313131;
+    }
+    &:after {
+        opacity: 0;
+        top: 50%;
+        left: 7px;
+        transform: translate(0, -50%);
+        width: 2px;
+        height: 2px;
+        background-color: #313131;
+    }
+}
+.collapsed .aggregation-title-text:after {
+    height: 12px;
+    opacity: 1;
+}
+.aggregation-title-badge {
+    margin-left: .5rem;
+    .badge {
+        display: block;
+    }
+}
+.aggregation-body {
+    margin-top: .5rem;
+}
