@@ -7,6 +7,7 @@ require('../css/app.scss');
 // Load the JS stuff
 let $ = require('jquery');
 require('bootstrap');
+require('bootstrap-tagsinput/dist/bootstrap-tagsinput');
 require('./libs/navbar.js');
 require('./libs/aggregations.js');
 

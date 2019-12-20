@@ -4,6 +4,7 @@
         "@symfony/webpack-encore": "^0.28.2",
         "autoprefixer": "^9.7.3",
         "bootstrap": "^4.4.1",
+        "bootstrap-tagsinput": "^0.7.1",
         "core-js": "^3.5.0",
         "jquery": "^3.4.1",
         "node-sass": "^4.13.0",
