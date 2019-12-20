@@ -8,7 +8,9 @@
 
         .navbar-nav {
             margin-left: auto;
-
+            &:first-child {
+                margin-left: 0;
+            }
             &:last-child {
                 .dropdown-menu {
                     right: 0;
