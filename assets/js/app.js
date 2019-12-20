@@ -8,8 +8,9 @@ require('../css/app.scss');
 let $ = require('jquery');
 require('bootstrap');
 require('bootstrap-tagsinput/dist/bootstrap-tagsinput');
-require('./libs/navbar.js');
-require('./libs/aggregations.js');
+require('./libs/navbar');
+require('./libs/aggregations');
+require('./libs/charts');
 
 // Syntax Highlighter
 require('prismjs');

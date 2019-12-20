@@ -5,6 +5,7 @@
         "autoprefixer": "^9.7.3",
         "bootstrap": "^4.4.1",
         "bootstrap-tagsinput": "^0.7.1",
+        "chart.js": "^2.9.3",
         "core-js": "^3.5.0",
         "jquery": "^3.4.1",
         "node-sass": "^4.13.0",
