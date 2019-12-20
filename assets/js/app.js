@@ -36,7 +36,20 @@ function convertRelativeTime() {
         element.textContent = DateTime.fromISO(value).toRelative();
     });
 }
-document.addEventListener('DOMContentLoaded', function() {
-    convertDates();
-    convertRelativeTime();
-});
+function initializeExpander() {
+    Array.from(document.querySelectorAll('.expander')).forEach(function (element) {
+        let checkbox = element.getElementsByClassName('expander-checkbox')[0];
+        let content = element.getElementsByClassName('expander-content')[0];
+        let inner = element.getElementsByClassName('expander-content-inner')[0];
+        if (checkbox && content && inner && inner.clientHeight < content.clientHeight) {
+            checkbox.checked = true;
+        }
+    });
+}
+document.onreadystatechange = function () {
+    if (document.readyState == "interactive") {
+        convertDates();
+        convertRelativeTime();
+        initializeExpander();
+    }
+}

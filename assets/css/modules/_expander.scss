@@ -1,0 +1,56 @@
+//
+// Expander
+//
+.expander {
+    display: flex;
+    flex-direction: column;
+}
+.expander-checkbox {
+    display: none;
+}
+.expander-checkbox:checked {
+    ~ .expander-content {
+        height: auto!important;
+        &:after {
+            display: none;
+        }
+    }
+    ~ .expander-toggle {
+        display: none;
+    }
+}
+.expander-content {
+    position: relative;
+    order: 1;
+    overflow: hidden;
+    height: 6rem;
+    &:after {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        display: block;
+        content: '';
+        height: 2rem;
+        background: linear-gradient(
+            to bottom,
+            rgba(255,255,255,0) 0%,
+            rgba(255,255,255,1) 100%
+        );
+    }
+}
+.expander-content-inner {
+    > *:first-child {
+        margin-top: 0;
+    }
+    > *:last-child {
+        margin-bottom: 0;
+    }
+}
+.expander-toggle {
+    order: 2;
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+    text-decoration: underline;
+    cursor: pointer;
+}

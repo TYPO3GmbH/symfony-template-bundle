@@ -1,0 +1,13 @@
+{% if content %}
+<div class="expander">
+    <input class="expander-checkbox" type="checkbox" id="expander-{{ id }}">
+    <label for="expander-{{ id }}" class="expander-toggle">
+        Show more
+    </label>
+    <div class="expander-content">
+        <div class="expander-content-inner">
+            {{ content|raw }}
+        </div>
+    </div>
+</div>
+{% endif %}
