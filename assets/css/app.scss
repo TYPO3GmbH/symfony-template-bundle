@@ -2,7 +2,7 @@
 @import 'variables';
 
 // Include Dependencies
-@import '../../node_modules/bootstrap/scss/bootstrap.scss';
+@import '../../node_modules/bootstrap/scss/bootstrap';
 @import '../../node_modules/prismjs/themes/prism-okaidia';
 
 // Mixins
@@ -25,5 +25,6 @@
 @import 'modules/listbox';
 @import 'modules/btn';
 @import 'modules/message';
+@import 'modules/yearview';
 @import 'modules/fontawesome';
 @import 'modules/syntax';
