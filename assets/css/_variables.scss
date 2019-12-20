@@ -43,6 +43,13 @@ $issue-colors: (
     story: #ffc107
 );
 
+$review-colors: (
+    default: $secondary,
+    bugfix: $danger,
+    feature: $success,
+    task: $info,
+);
+
 $progress-colors: (
     default: $secondary,
     blocked: $danger,
