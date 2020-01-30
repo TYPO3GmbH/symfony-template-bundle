@@ -76,7 +76,7 @@
             <div class="content-section content-section-smallest bg-darkest text-white">
                 <div class="container">
                     <div class="page-footer-copyright">
-                        <span>© {{ "now"|date("Y") }} <a href="https://typo3.com" target="_blank">TYPO3 GmbH</a>.</span>
+                        <span>© {{ "now"|date("Y") }} <a href="{{ template.application.copyright.url }}" target="_blank">{{ template.application.copyright.author }}</a>.</span>
                     </div>
                     <div class="page-footer-menu">
                         {{ knp_menu_render('main-footer') }}

@@ -38,6 +38,9 @@ template:
     application:
         # Example: Intercept
         name: 'Template Bundle'
+        copyright:
+            author: TYPO3 GmbH
+            url: https://typo3.com
         routes:
              # Example: app_index
             home: app_index
