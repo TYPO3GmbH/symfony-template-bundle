@@ -8,7 +8,7 @@ declare(strict_types=1);
  * LICENSE file that was distributed with this source code.
  */
 
-namespace T3G\Bundle\TemplateBundle\Twig;
+namespace T3G\Bundle\TemplateBundle\Twig\Extension;
 
 use Twig\Environment;
 use Twig\Extension\AbstractExtension;

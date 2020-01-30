@@ -6,16 +6,16 @@ services:
     autowire: true
     autoconfigure: true
 
-  T3G\Bundle\TemplateBundle\Twig\GlobalVariablesExtension:
+  T3G\Bundle\TemplateBundle\Twig\Extension\GlobalVariablesExtension:
     arguments: ["%t3g.template.config%"]
     tags:
       - name: twig.extension
 
-  T3G\Bundle\TemplateBundle\Twig\DateTimeExtension:
+  T3G\Bundle\TemplateBundle\Twig\Extension\DateTimeExtension:
     tags:
       - name: twig.extension
 
-  T3G\Bundle\TemplateBundle\Twig\TextExtension:
+  T3G\Bundle\TemplateBundle\Twig\Extension\TextExtension:
     tags:
       - name: twig.extension
 
