@@ -103,21 +103,26 @@ class MenuBuilder
      */
     public function mainFooter(array $options)
     {
+        $config = $this->container->getParameter('t3g.template.config');
         $menu = $this->factory->createItem('root');
-        $menu->addChild(
-            'privacy',
-            [
-                'label' => 'Privacy Policy',
-                'uri' => 'https://typo3.com/privacy-policy',
-            ]
-        );
-        $menu->addChild(
-            'legal',
-            [
-                'label' => 'Legal Information',
-                'uri' => 'https://typo3.com/legal-notice',
-            ]
-        );
+        if (!empty($config['application']['routes']['privacy'])) {
+            $menu->addChild(
+                'privacy',
+                [
+                    'label' => 'Privacy Policy',
+                    'uri' => $config['application']['routes']['privacy'],
+                ]
+            );
+        }
+        if (!empty($config['application']['routes']['legal'])) {
+            $menu->addChild(
+                'legal',
+                [
+                    'label' => 'Legal Information',
+                    'uri' => $config['application']['routes']['legal'],
+                ]
+            );
+        }
         return $menu;
     }
 }

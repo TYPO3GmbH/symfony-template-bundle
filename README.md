@@ -44,6 +44,8 @@ template:
         routes:
              # Example: app_index
             home: app_index
+            privacy: https://typo3.com/privacy-policy
+            legal: https://typo3.com/legal-notice
         menu:
             # Example: App\Menu\MenuBuilder
             class: T3G\Bundle\TemplateBundle\Menu\MenuBuilder
