@@ -38,6 +38,8 @@ template:
     application:
         # Example: Intercept
         name: 'Template Bundle'
+        # Example: intercept
+        platformkey: ~
         copyright:
             author: TYPO3 GmbH
             url: https://typo3.com
