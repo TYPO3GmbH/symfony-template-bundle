@@ -1,0 +1,7 @@
+<div{% if id %} id="{{ id }}"{% endif %} class="{{ classesOuter }}">
+    <div class="frame-container">
+        <div class="{{ classesInner }}">
+            {{ content|raw }}
+        </div>
+    </div>
+</div>

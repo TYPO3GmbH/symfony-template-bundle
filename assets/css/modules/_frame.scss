@@ -121,7 +121,11 @@ $frame-backgrounds: map-merge(
         }
     }
 }
-.frame-small {
+
+//
+// Size
+// --------------------------------------------------
+.frame-size-small {
     padding-top: .5rem;
     padding-bottom: .5rem;
     @include media-breakpoint-up('sm') {
@@ -158,7 +162,7 @@ $frame-backgrounds: map-merge(
         @extend .frame-collapsible;
     }
 }
-@include make-frame-spacing('none');
+@include make-frame-spacing('default');
 @mixin make-frame-background($name, $settings) {
     $background: map-get($settings, 'background');
     $color: color-yiq($background);

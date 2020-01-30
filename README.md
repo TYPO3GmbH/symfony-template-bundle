@@ -295,3 +295,41 @@ You requested a password reset for your account.
 <p style="font-size: 12px;">If you don't want to reset your password, you can ignore this email.</p>
 {% endblock %}
 ```
+
+## Layout Helper
+
+### `frame`
+
+| Option            | Type                                      | Default       |
+| ----------------- | ----------------------------------------- | ------------- |
+| id                | string                                    |               |
+| size              | small/default                             | default       |
+| color             | default/primary/secondary/light/dark      | default       |
+| indent            | bool                                      | false         |
+| rulerBefore       | bool                                      | false         |
+| rulerAfter        | bool                                      | false         |
+| center            | bool                                      | false         |
+
+#### Usage
+
+```twig
+{% frame with options %}Inner Content{% endframe %}
+```
+
+#### Example
+
+```twig
+{% frame with { id: 'identifier', color: 'primary', center: true } %}
+    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+{% endframe %}
+```
+
+```html
+<div id="identifier" class="frame frame-size-default frame-background-primary frame-no-backgroundimage frame-space-before-none frame-space-after-none">
+    <div class="frame-container">
+        <div class="frame-inner text-center">
+            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+    </div>
+</div>
+```
