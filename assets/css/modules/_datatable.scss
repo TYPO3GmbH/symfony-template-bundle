@@ -65,41 +65,52 @@ $table-sorting-icon-descending: '<svg viewBox="0 0 16 16"><g fill="#{$table-high
         td {
             border-top: 1px solid #e0e3e4;
         }
-
         th {
             font-weight: normal;
-            background-color: rgba(224, 227, 228, 0.3);
+            background-color: rgba(0, 0, 0, 0.025);
         }
-
         tr {
             &:nth-child(odd) {
                 background-color: rgba(245, 245, 246, 0.5);
             }
-
             &:hover {
                 background-color: $table-row-hover-bg;
                 color: $table-row-hover-color;
-
-                th {
-                    background-color: darken($table-row-hover-bg, 3%);
-                }
-
                 th,
                 td {
                     border-top: 1px solid darken($table-row-hover-bg, 5%);
                 }
-
                 a:not(.datatable-action) {
                     border-bottom-color: inherit;
                 }
-
                 .datatable-link-highlight {
                     color: inherit;
                 }
-
                 .datatable-action {
                     background-color: #fff;
                     color: $table-text;
+                }
+            }
+            @each $name, $value in $theme-colors {
+                &.datatable-severity-#{$name} {
+                    background-color: theme-color-level($name, -10);
+                    color: color-yiq(theme-color-level($name, -10));
+                    th,
+                    td {
+                        border-top: 1px solid darken(theme-color-level($name, -10), 5%);
+                    }
+                    &:nth-child(odd) {
+                        background-color: theme-color-level($name, -8);
+                        color: color-yiq(theme-color-level($name, -8));
+                    }
+                    &:hover {
+                        background-color: theme-color($name);
+                        color: color-yiq(theme-color($name));
+                        th,
+                        td {
+                            border-top: 1px solid darken(theme-color($name), 5%);
+                        }
+                    }
                 }
             }
         }
