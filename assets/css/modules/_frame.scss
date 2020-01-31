@@ -17,22 +17,22 @@ $frame-backgrounds: () !default;
 $frame-backgrounds: map-merge(
     (
         primary: (
-            background:                $primary,
+            background:                theme-color('primary'),
             link-color:                $link-alternate-color,
             link-hover-color:          $link-alternate-hover-color
         ),
         secondary: (
-            background:                $secondary,
+            background:                theme-color('secondary'),
             link-color:                $link-alternate-color,
             link-hover-color:          $link-alternate-hover-color
         ),
         light: (
-            background:                $light,
+            background:                theme-color('light'),
             link-color:                $link-color,
             link-hover-color:          $link-hover-color
         ),
         dark: (
-            background:                $dark,
+            background:                theme-color('dark'),
             link-color:                $link-alternate-color,
             link-hover-color:          $link-alternate-hover-color
         )
