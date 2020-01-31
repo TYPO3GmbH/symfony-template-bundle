@@ -321,6 +321,7 @@ You requested a password reset for your account.
 | rulerAfter        | bool                                      | false         |
 | center            | bool                                      | false         |
 | backgroundImage   | string                                    |               |
+| height            | auto/small/medium                         | auto          |
 
 #### Usage
 

@@ -135,6 +135,33 @@ $frame-backgrounds: map-merge(
 }
 
 //
+// Height
+// --------------------------------------------------
+.frame-height-small,
+.frame-height-medium {
+    display: flex;
+    .frame-container {
+        display: flex;
+        align-items: center;
+    }
+    .frame-inner {
+        flex-grow: 1;
+    }
+}
+.frame-height-small {
+    min-height: 300px;
+    @include media-breakpoint-up(md) {
+        min-height: 400px;
+    }
+}
+.frame-height-medium {
+    min-height: 400px;
+    @include media-breakpoint-up(md) {
+        min-height: 500px;
+    }
+}
+
+//
 // Background
 // --------------------------------------------------
 .container {

@@ -41,10 +41,12 @@ class BlockExtension extends AbstractExtension
         $attributes['rulerBefore'] = $attributes['rulerBefore'] ?? false;
         $attributes['rulerAfter'] = $attributes['rulerAfter'] ?? false;
         $attributes['center'] = $attributes['center'] ?? false;
+        $attributes['height'] = $attributes['height'] ?? 'auto';
 
         $classesOuter = [];
         $classesOuter[] = 'frame';
         $classesOuter[] = 'frame-size-' . $attributes['size'];
+        $classesOuter[] = 'frame-height-' . $attributes['height'];
         if ($attributes['indent']) {
             $classesOuter[] = 'frame-indent';
         }
