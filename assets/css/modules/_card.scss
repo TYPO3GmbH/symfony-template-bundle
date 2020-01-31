@@ -1,4 +1,13 @@
 //
+// Variables
+//
+$card-title-size:  1.35rem !default;
+$card-subtitle-size: 1.25rem !default;
+$card-link-color: $link-color !default;
+$card-link-hover-color: $link-hover-color !default;
+
+
+//
 // Card
 //
 .card {
@@ -12,6 +21,9 @@
 }
 .card-header,
 .card-body {
+    > *:first-child {
+        margin-top: 0;
+    }
     > *:last-child {
         margin-bottom: 0;
     }
@@ -27,6 +39,14 @@
     }
     padding: $card-spacer-y $card-spacer-x;
     border-bottom: 1px solid rgba(0,0,0,0.15);
+}
+.card-img-top {
+    overflow: hidden;
+    picture,
+    img {
+        width: 100%;
+        height: auto;
+    }
 }
 .card-footer {
     padding: $card-spacer-y $card-spacer-x;
@@ -117,6 +137,72 @@
     .form-group {
         padding: 0.25rem;
         margin: 0;
+    }
+}
+
+
+//
+// Card Group Element
+//
+.card-group-element {
+    margin: -$card-deck-margin;
+    margin-bottom: -$card-deck-margin !important;
+    display: flex;
+    flex-wrap: wrap;
+}
+.card-group-element-item {
+    width: 100%;
+    padding: $card-deck-margin;
+    .card {
+        height: 100%;
+    }
+    .card-title {
+        font-size: $card-title-size;
+    }
+    .card-subtitle {
+        font-size: $card-subtitle-size;
+        margin-bottom: $card-spacer-y;
+    }
+    .card-footer {
+        border-top: 0;
+        padding: $card-spacer-x;
+        background-color: transparent;
+    }
+    .card-body + .card-footer {
+        padding-top: 0;
+    }
+}
+.card-group-element-align-left {
+    justify-content: flex-start;
+}
+.card-group-element-align-center {
+    justify-content: center;
+}
+.card-group-element-align-right {
+    justify-content: flex-end;
+}
+.card-group-element-columns-2 {
+    .card-group-element-item {
+        @include media-breakpoint-up('sm') {
+            width: calc(100% / 2);
+        }
+    }
+}
+.card-group-element-columns-3 {
+    .card-group-element-item {
+        @include media-breakpoint-up('md') {
+            width: calc(100% / 3);
+        }
+    }
+}
+.card-group-element-columns-4 {
+    .card-group-element-item {
+        @include media-breakpoint-up('sm') {
+            width: calc(100% / 2);
+        }
+        @include media-breakpoint-up('xl') {
+            width: calc(100% / 4);
+        }
     }
 }
 
