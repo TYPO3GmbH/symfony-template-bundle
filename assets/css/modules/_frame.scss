@@ -33,8 +33,8 @@ $frame-backgrounds: map-merge(
         ),
         dark: (
             background:                $dark,
-            link-color:                $link-color,
-            link-hover-color:          $link-hover-color
+            link-color:                $link-alternate-color,
+            link-hover-color:          $link-alternate-hover-color
         )
     ),
     $frame-backgrounds
