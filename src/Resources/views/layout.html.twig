@@ -39,50 +39,42 @@
         {# flash messages on this page are NOT escaped !#}
         {% if app.request.hasPreviousSession %}
             {% for key, flashMassages in app.session.flashBag.all %}
-                <div class="content-section content-section-none">
-                    <div class="alert-pagegroup">
-                        {% block flashMessages %}
-                            {% for flashMassage in flashMassages %}
-                                <div class="alert alert-{{ key }} alert-dismissible fade show" role="alert">
-                                    <div class="alert-inner">
-                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                        {{ flashMassage | raw }}
-                                    </div>
+                <div class="alert-pagegroup">
+                    {% block flashMessages %}
+                        {% for flashMassage in flashMassages %}
+                            <div class="alert alert-{{ key }} alert-dismissible fade show" role="alert">
+                                <div class="alert-inner">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    {{ flashMassage | raw }}
                                 </div>
-                            {% endfor %}
-                        {% endblock %}
-                    </div>
+                            </div>
+                        {% endfor %}
+                    {% endblock %}
                 </div>
             {% endfor %}
         {% endif %}
 
         <main class="page-main">
-
             {% if block('headline') is defined %}
-                <div class="content-section content-section-small bg-primary text-white">
-                    <div class="container">
-                        <h1 class="h2">{{ block('headline')|raw }}</h1>
-                    </div>
-                </div>
+                {% frame with { color: 'primary', size: 'small'} %}
+                    <h1 class="h2">{{ block('headline')|raw }}</h1>
+                {% endframe %}
             {% endif %}
             {% block body %}{% endblock %}
-
         </main>
 
         <footer class="page-footer">
             {% block footer %}{% endblock %}
-            <div class="content-section content-section-smallest bg-darkest text-white">
-                <div class="container">
-                    <div class="page-footer-copyright">
-                        <span>© {{ "now"|date("Y") }} <a href="{{ template.application.copyright.url }}" target="_blank">{{ template.application.copyright.author }}</a>.</span>
-                    </div>
-                    <div class="page-footer-menu">
-                        {{ knp_menu_render('main-footer') }}
-                    </div>
+            {% frame with { color: 'dark', size: 'small'} %}
+                <div class="page-footer-copyright">
+                    <span>© {{ "now"|date("Y") }} <a href="{{ template.application.copyright.url }}" target="_blank">{{ template.application.copyright.author }}</a>.</span>
                 </div>
-            </div>
+                <div class="page-footer-menu">
+                    {{ knp_menu_render('main-footer') }}
+                </div>
+            {% endframe %}
         </footer>
     </div>
 
