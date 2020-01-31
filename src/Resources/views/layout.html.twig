@@ -77,12 +77,31 @@
 
         <footer class="page-footer">
             {% block footer %}{% endblock %}
-            {% frame with { color: 'dark', size: 'small'} %}
-                <div class="page-footer-copyright">
-                    <span>© {{ "now"|date("Y") }} <a href="{{ template.application.copyright.url }}" target="_blank">{{ template.application.copyright.author }}</a>.</span>
-                </div>
-                <div class="page-footer-menu">
-                    {{ knp_menu_render('main-footer') }}
+            {% frame with { color: 'dark' } %}
+                <ul class="page-footer-social">
+                    <li>
+                        <a href="https://www.facebook.com/typo3" title="Follow us on Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://twitter.com/typo3" title="Follow us on Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://youtube.com/typo3" title="Follow us on YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </li>
+                </ul>
+                <div class="page-footer-meta">
+                    <div class="page-footer-copyright">
+                        <span>© {{ "now"|date("Y") }} <a href="{{ template.application.copyright.url }}" target="_blank">{{ template.application.copyright.author }}</a>.</span>
+                    </div>
+                    <div class="page-footer-menu">
+                        {{ knp_menu_render('main-footer') }}
+                    </div>
                 </div>
             {% endframe %}
         </footer>
