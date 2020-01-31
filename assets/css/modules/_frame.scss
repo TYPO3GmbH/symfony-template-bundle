@@ -185,7 +185,7 @@ $frame-backgrounds: map-merge(
     }
 }
 @mixin make-frame-spacing($name) {
-    .frame-background-#{$name}:not(.frame-ruler-after):not(.frame-has-backgroundimage) + .frame-background-#{$name}:not(.frame-ruler-before):not(.frame-has-backgroundimage) {
+    .frame-size-default.frame-background-#{$name}:not(.frame-ruler-after):not(.frame-has-backgroundimage) + .frame-size-default.frame-background-#{$name}:not(.frame-ruler-before):not(.frame-has-backgroundimage) {
         @extend .frame-collapsible;
     }
 }
