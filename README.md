@@ -303,7 +303,7 @@ You requested a password reset for your account.
 {% endblock %}
 ```
 
-## Layout Helper
+## Twig Tags
 
 ### `frame`
 
