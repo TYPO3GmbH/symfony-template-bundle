@@ -1,9 +1,36 @@
 //
+// Navbar Heights
+//
+$navbar-heights: (
+    xs: 60px,
+    sm: 60px,
+    md: 75px,
+    lg: 90px,
+    xl: 90px
+) !default;
+.navbar-mainnavigation {
+    .navbar-brand {
+        @each $breakpoint in map-keys($navbar-heights) {
+            @include media-breakpoint-up($breakpoint) {
+                height: map-get($navbar-heights, $breakpoint);
+            }
+        }
+    }
+}
+
+//
 // Navbar
 //
 @mixin make-navbar-breakpoint() {
     padding-top: 0;
     padding-bottom: 0;
+    .navbar-collapse,
+    .container {
+        align-items: stretch;
+    }
+    .navbar-collapse {
+        padding-bottom: 0;
+    }
     .navbar-nav {
         margin-left: auto;
         &:first-child:not(:last-child) {
@@ -19,13 +46,11 @@
     .navbar-brand,
     .nav-link {
         line-height: 2rem;
-        padding-top: 1rem;
-        padding-bottom: 1rem;
     }
     .nav-item {
+        align-items: center;
+        display: flex;
         .btn {
-            margin-top: calc(1rem - 2px);
-            margin-bottom: calc(1rem - 2px);
             margin-left: 0.55rem;
         }
     }
@@ -45,7 +70,25 @@
         @include make-navbar-breakpoint();
     }
 }
+.nav-link {
+    display: flex;
+    align-items: center;
+}
 
+//
+// Mainnavigation
+//
+.navbar-mainnavigation {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+.navbar-collapse {
+    padding-bottom: 1.25rem;
+}
+
+//
+// Item
+//
 .nav-item-icon,
 .nav-item-image,
 .nav-item-label {
@@ -58,7 +101,6 @@
         display: block;
     }
 }
-
 .nav-item-icon + .nav-item-label,
 .nav-item-image + .nav-item-label {
     margin-left: 0.25rem;
@@ -67,10 +109,15 @@
 //
 // Brand
 //
+.navbar-brand {
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
 .navbar-brand-image {
     display: block;
     img {
-        margin-top: -4px;
+        margin-top: -6px;
         display: block;
     }
 }
@@ -80,6 +127,8 @@
 //
 .navbar-toggler {
     padding: 0;
+    margin-left: -6px;
+    margin-right: -6px;
     height: 34px;
     width: 34px;
     position: relative;
