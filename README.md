@@ -54,6 +54,9 @@ template:
         assets:
             # Example: app
             encore_entrypoint: ~
+        theme:
+            # Example: md
+            navbar_breakpoint: lg
 ```
 
 ```console

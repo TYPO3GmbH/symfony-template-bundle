@@ -22,7 +22,7 @@
                 <!-- Fallback to consume the defined space on loading and no component support -->
                 <div style="display: block; height: 44px; background-color: #313131;"></div>
             </typo3-universe>
-            <nav class="navbar navbar-mainnavigation navbar-light bg-white navbar-expand-md" role="banner">
+            <nav class="navbar navbar-mainnavigation navbar-light bg-white navbar-breakpoint-{{ template.application.theme.navbar_breakpoint }}" role="banner">
                 <div class="container">
                     <a class="navbar-brand" href="{{ path(template.application.routes.home) }}"><i class="fab fa-typo3 text-primary"></i> <strong>{{ template.application.name }}</strong></a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainnavigation" aria-controls="mainnavigation" aria-expanded="false" aria-label="Toggle navigation">
