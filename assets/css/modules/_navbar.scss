@@ -2,11 +2,11 @@
 // Navbar Heights
 //
 $navbar-heights: (
-    xs: 60px,
-    sm: 60px,
-    md: 75px,
-    lg: 90px,
-    xl: 90px
+    xs: 70px,
+    sm: 70px,
+    md: 100px,
+    lg: 110px,
+    xl: 110px
 ) !default;
 .navbar-mainnavigation {
     .navbar-brand {
@@ -81,6 +81,7 @@ $navbar-heights: (
 .navbar-mainnavigation {
     padding-top: 0;
     padding-bottom: 0;
+    box-shadow: 0 1px 0 0 rgba(0,0,0,.15);
 }
 .navbar-collapse {
     padding-bottom: 1.25rem;
