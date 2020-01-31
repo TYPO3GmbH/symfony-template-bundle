@@ -16,6 +16,7 @@
             }
         }
     }
+    .navbar-brand,
     .nav-link {
         line-height: 2rem;
         padding-top: 1rem;
@@ -61,6 +62,17 @@
 .nav-item-icon + .nav-item-label,
 .nav-item-image + .nav-item-label {
     margin-left: 0.25rem;
+}
+
+//
+// Brand
+//
+.navbar-brand-image {
+    display: block;
+    img {
+        margin-top: -4px;
+        display: block;
+    }
 }
 
 //

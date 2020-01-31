@@ -24,7 +24,17 @@
             </typo3-universe>
             <nav class="navbar navbar-mainnavigation navbar-light bg-white navbar-breakpoint-{{ template.application.theme.navbar_breakpoint }}" role="banner">
                 <div class="container">
-                    <a class="navbar-brand" href="{{ path(template.application.routes.home) }}"><i class="fab fa-typo3 text-primary"></i> <strong>{{ template.application.name }}</strong></a>
+                    <a class="navbar-brand" href="{{ path(template.application.routes.home) }}">
+                        {% if template.application.theme.use_logo %}
+                            <span class="navbar-brand-image">
+                                <img src="{{ asset('bundles/template/images/logo.svg') }}" width="100" height="26" alt="TYPO3 Logo">
+                            </span>
+                        {% else %}
+                            <span class="navbar-brand-text">
+                                <i class="fab fa-typo3 text-primary"></i> <strong>{{ template.application.name }}</strong>
+                            </span>
+                        {% endif %}
+                    </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainnavigation" aria-controls="mainnavigation" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
