@@ -34,6 +34,7 @@ class BlockExtension extends AbstractExtension
     public function frameFunction(Environment $environment, string $content, array $attributes): string
     {
         $attributes['id'] = $attributes['id'] ?? null;
+        $attributes['backgroundImage'] = $attributes['backgroundImage'] ?? null;
         $attributes['size'] = $attributes['size'] ?? 'default';
         $attributes['color'] = $attributes['color'] ?? 'default';
         $attributes['indent'] = $attributes['indent'] ?? false;
@@ -48,7 +49,7 @@ class BlockExtension extends AbstractExtension
             $classesOuter[] = 'frame-indent';
         }
         $classesOuter[] = 'frame-background-' . $attributes['color'];
-        $classesOuter[] = 'frame-no-backgroundimage';
+        $classesOuter[] = $attributes['backgroundImage'] ? 'frame-has-backgroundimage' : 'frame-no-backgroundimage';
         if ($attributes['rulerBefore']) {
             $classesOuter[] = 'frame-ruler-before';
         }
@@ -67,6 +68,7 @@ class BlockExtension extends AbstractExtension
         return $environment->render('@Template/extension/block/frame.html.twig', [
             'content' => $content,
             'id' => $attributes['id'],
+            'backgroundImage' => $attributes['backgroundImage'],
             'classesOuter' => implode(' ', $classesOuter),
             'classesInner' => implode(' ', $classesInner),
         ]);

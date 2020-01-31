@@ -320,6 +320,7 @@ You requested a password reset for your account.
 | rulerBefore       | bool                                      | false         |
 | rulerAfter        | bool                                      | false         |
 | center            | bool                                      | false         |
+| backgroundImage   | string                                    |               |
 
 #### Usage
 
