@@ -81,6 +81,10 @@ Examples:
 
 ## Encore
 
+```console
+composer require symfony/webpack-encore-bundle
+```
+
 To enable your encore entrypoint simply configure the key within the yaml configuration.
 
 ```yaml
@@ -306,6 +310,33 @@ You requested a password reset for your account.
 <p style="font-size: 12px;">If you don't want to reset your password, you can ignore this email.</p>
 {% endblock %}
 ```
+
+## Twig Extensions
+
+### `template_function_exist`
+
+A function to check if a function is available within the current Twig Environment.
+
+```twig
+{% if template_function_exist('relativetime') %}
+    The relativetime function is available.
+{% endif %}
+```
+
+### `template_function_call`
+
+Twig always checks for all functions with a template, also within a condition.
+This function is a wrapper around the original function call that is only executed
+if the function actually exists.
+
+```twig
+# Template will still work if `encore_entry_link_tags` is not defined, function just returns null.
+{{ template_function_call('encore_entry_link_tags', template.application.assets.encore_entrypoint) }}
+
+# Template will fail if `encore_entry_link_tags` is not registered.
+{{ encore_entry_link_tags(template.application.assets.encore_entrypoint) }}
+```
+
 
 ## Twig Tags
 
