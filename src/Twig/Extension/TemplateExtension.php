@@ -35,6 +35,6 @@ class TemplateExtension extends AbstractExtension
         if ($function === false) {
             return null;
         }
-        return $function->getCallable()(...$args);
+        return $function->getCallable()(...$arguments);
     }
 }
