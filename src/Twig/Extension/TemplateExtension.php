@@ -20,7 +20,7 @@ class TemplateExtension extends AbstractExtension
     {
         return [
             new TwigFunction('template_function_exist', [$this, 'functionExist'], ['needs_environment' => true]),
-            new TwigFunction('template_function_call', [$this, 'functionCall'], ['needs_environment' => true]),
+            new TwigFunction('template_function_call', [$this, 'functionCall'], ['needs_environment' => true, 'is_safe' => ['html']]),
         ];
     }
 
