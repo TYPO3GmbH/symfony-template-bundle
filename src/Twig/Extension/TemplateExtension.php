@@ -29,7 +29,7 @@ class TemplateExtension extends AbstractExtension
         return $environment->getFunction($name) ? true : false;
     }
 
-    public function functionCall(Environment $environment, string $name = null, ...$arguments): bool
+    public function functionCall(Environment $environment, string $name = null, ...$arguments): string
     {
         $function = $environment->getFunction($name);
         if ($function === false) {
