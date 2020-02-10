@@ -16,7 +16,7 @@
     <script type="module" src="https://typo3.azureedge.net/typo3infrastructure/universe/dist/typo3-universe.js"></script>
 </head>
 <body>
-    <div class="page-wrapper">
+    <div class="page-wrapper{% if template.application.theme.background %} page-background-{{ template.application.theme.background }}{% endif %}">
         <header class="page-header">
             <typo3-universe{% if template.application.platformkey %} active="{{ template.application.platformkey }}"{% endif %}>
                 <!-- Fallback to consume the defined space on loading and no component support -->

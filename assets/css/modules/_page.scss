@@ -6,6 +6,12 @@
     display: flex;
     flex-direction: column;
 }
+@each $color, $value in $theme-colors {
+    .page-background-#{$color} {
+        color: color-yiq($value);
+        background-color: $value;
+    }
+}
 
 .page-header {
     flex-grow: 0;

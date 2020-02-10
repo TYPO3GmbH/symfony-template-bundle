@@ -58,6 +58,7 @@ template:
             # Example: md
             navbar_breakpoint: lg
             use_logo: false
+            background: light
 ```
 
 ```console
