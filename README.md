@@ -353,7 +353,7 @@ if the function actually exists.
 | rulerAfter        | bool                                      | false         |
 | center            | bool                                      | false         |
 | backgroundImage   | string                                    |               |
-| height            | auto/small/medium                         | auto          |
+| height            | auto/small/medium/max                     | auto          |
 
 #### Usage
 

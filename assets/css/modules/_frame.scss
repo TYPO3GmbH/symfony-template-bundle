@@ -93,8 +93,8 @@ $frame-backgrounds: map-merge(
             $i: index(map-keys($grid-breakpoints), $breakpoint);
             $i: $i - 1;
             @include media-breakpoint-up($breakpoint) {
-                margin-left: $i * 4%;
-                margin-right: $i * 4%;
+                margin-left: $i * 5%;
+                margin-right: $i * 5%;
             }
         }
     }
@@ -105,7 +105,7 @@ $frame-backgrounds: map-merge(
             $i: index(map-keys($grid-breakpoints), $breakpoint);
             $i: $i - 1;
             @include media-breakpoint-up($breakpoint) {
-                margin-left: $i * 8%;
+                margin-left: $i * 10%;
             }
         }
     }
@@ -116,7 +116,7 @@ $frame-backgrounds: map-merge(
             $i: index(map-keys($grid-breakpoints), $breakpoint);
             $i: $i - 1;
             @include media-breakpoint-up($breakpoint) {
-                margin-right: $i * 8%;
+                margin-right: $i * 10%;
             }
         }
     }
@@ -159,6 +159,11 @@ $frame-backgrounds: map-merge(
     @include media-breakpoint-up(md) {
         min-height: 500px;
     }
+}
+.frame-height-max {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
 }
 
 //
