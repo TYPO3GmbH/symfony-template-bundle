@@ -2,7 +2,7 @@ var Encore = require('@symfony/webpack-encore');
 
 Encore
     .setOutputPath('./src/Resources/public/')
-    .setPublicPath('./')
+    .setPublicPath('/bundles/template/')
     .setManifestKeyPrefix('bundles/template')
 
     .cleanupOutputBeforeBuild()
@@ -11,7 +11,7 @@ Encore
     })
     .enablePostCssLoader()
     .enableSourceMaps(false)
-    .enableVersioning(false)
+    .enableVersioning(true)
     .disableSingleRuntimeChunk()
     .autoProvidejQuery()
 

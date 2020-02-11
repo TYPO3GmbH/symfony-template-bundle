@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}{% endblock %} - {{ template.application.name }}</title>
-    <link rel="shortcut icon" href="{{ asset('bundles/template/images/favicon.ico') }}">
-    <link rel="stylesheet" href="{{ asset('bundles/template/app.css') }}">
-    <link rel="stylesheet" href="{{ asset('bundles/template/webfont.css') }}">
+    <link rel="shortcut icon" href="{{ asset('bundles/template/images/favicon.ico', 'template') }}">
+    <link rel="stylesheet" href="{{ asset('bundles/template/app.css', 'template') }}">
+    <link rel="stylesheet" href="{{ asset('bundles/template/webfont.css', 'template') }}">
     {% if template.application.assets.encore_entrypoint and template_function_exist('encore_entry_link_tags') %}
         {{ template_function_call('encore_entry_link_tags', template.application.assets.encore_entrypoint) }}
     {% endif %}
@@ -107,7 +107,7 @@
         </footer>
     </div>
 
-    <script src="{{ asset('bundles/template/app.js') }}"></script>
+    <script src="{{ asset('bundles/template/app.js', 'template') }}"></script>
     {% if template.application.assets.encore_entrypoint and template_function_exist('encore_entry_script_tags') %}
         {{ template_function_call('encore_entry_script_tags', template.application.assets.encore_entrypoint) }}
     {% endif %}

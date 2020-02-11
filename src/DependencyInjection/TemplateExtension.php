@@ -32,6 +32,20 @@ class TemplateExtension extends Extension implements PrependExtensionInterface
 
     public function prepend(ContainerBuilder $container): void
     {
+        if ($container->hasExtension('framework')) {
+            $container->prependExtensionConfig(
+                'framework',
+                [
+                    'assets' => [
+                        'packages' => [
+                            'template' => [
+                                'json_manifest_path' => '%kernel.project_dir%/public/bundles/template/manifest.json'
+                            ]
+                        ]
+                    ]
+                ]
+            );
+        }
         if ($container->hasExtension('knp_menu')) {
             $container->prependExtensionConfig(
                 'knp_menu',
