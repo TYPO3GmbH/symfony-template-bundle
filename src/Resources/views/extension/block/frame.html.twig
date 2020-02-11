@@ -4,7 +4,7 @@
             <div class="frame-backgroundimage frame-backgroundimage-fade" style="background-image: url({{ backgroundImage }});"></div>
         </div>
     {% endif %}
-    <div class="frame-container">
+    <div class="{{ classesContainer }}">
         <div class="{{ classesInner }}">
             {{ content|raw }}
         </div>

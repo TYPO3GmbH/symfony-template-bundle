@@ -42,6 +42,7 @@ class BlockExtension extends AbstractExtension
         $attributes['rulerAfter'] = $attributes['rulerAfter'] ?? false;
         $attributes['center'] = $attributes['center'] ?? false;
         $attributes['height'] = $attributes['height'] ?? 'auto';
+        $attributes['innerWidth'] = $attributes['innerWidth'] ?? 'default';
 
         $classesOuter = [];
         $classesOuter[] = 'frame';
@@ -61,6 +62,10 @@ class BlockExtension extends AbstractExtension
         $classesOuter[] = 'frame-space-before-none';
         $classesOuter[] = 'frame-space-after-none';
 
+        $classesContainer = [];
+        $classesContainer[] = 'frame-container';
+        $classesContainer[] = 'frame-container-' . $attributes['innerWidth'];
+
         $classesInner = [];
         $classesInner[] = 'frame-inner';
         if ($attributes['center']) {
@@ -72,6 +77,7 @@ class BlockExtension extends AbstractExtension
             'id' => $attributes['id'],
             'backgroundImage' => $attributes['backgroundImage'],
             'classesOuter' => implode(' ', $classesOuter),
+            'classesContainer' => implode(' ', $classesContainer),
             'classesInner' => implode(' ', $classesInner),
         ]);
     }

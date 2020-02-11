@@ -386,6 +386,7 @@ if the function actually exists.
 | center            | bool                                      | false         |
 | backgroundImage   | string                                    |               |
 | height            | auto/small/medium/max                     | auto          |
+| innerWidth        | small/full/default                        | default       |
 
 #### Usage
 

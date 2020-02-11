@@ -46,7 +46,15 @@ $frame-backgrounds: map-merge(
 .frame-container {
     position: relative;
     @include make-container();
+}
+.frame-container-default {
     @include make-container-max-widths();
+}
+.frame-container-small {
+    max-width: 600px;
+}
+.frame-container-full {
+    max-width: none;
 }
 
 //
