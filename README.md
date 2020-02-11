@@ -312,7 +312,39 @@ You requested a password reset for your account.
 {% endblock %}
 ```
 
+## Utilities
+
+### AvatarUtility::getAvatar(string $email, int $size)
+
+```php
+<?php
+use T3G\Bundle\TemplateBundle\Utility\AvatarUtility;
+echo AvatarUtility::getAvatar('info@typo3.com', 32);
+// <img src="https://...avatar.png" class="avatar" height="32" width="32">
+```
+
+### AvatarUtility::getAvatarUrl(string $email, int $size)
+
+```php
+<?php
+use T3G\Bundle\TemplateBundle\Utility\AvatarUtility;
+echo AvatarUtility::getAvatarUrl('info@typo3.com', 32);
+// https://...avatar.png
+```
+
 ## Twig Extensions
+
+### `avatar`
+
+Twig function to display avatars.
+
+```twig
+{{ avatar('info@typo3.com', 32) }}
+```
+```html
+<img src="https://...avatar.png" class="avatar" height="32" width="32">
+```
+
 
 ### `template_function_exist`
 

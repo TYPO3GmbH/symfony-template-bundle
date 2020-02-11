@@ -11,6 +11,10 @@ services:
     tags:
       - name: twig.extension
 
+  T3G\Bundle\TemplateBundle\Twig\Extension\AvatarExtension:
+    tags:
+      - name: twig.extension
+
   T3G\Bundle\TemplateBundle\Twig\Extension\BlockExtension:
     tags:
       - name: twig.extension
