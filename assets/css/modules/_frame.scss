@@ -26,6 +26,11 @@ $frame-backgrounds: map-merge(
             link-color:                $link-alternate-color,
             link-hover-color:          $link-alternate-hover-color
         ),
+        white: (
+            background:                #ffffff,
+            link-color:                $link-color,
+            link-hover-color:          $link-hover-color
+        ),
         light: (
             background:                theme-color('light'),
             link-color:                $link-color,
