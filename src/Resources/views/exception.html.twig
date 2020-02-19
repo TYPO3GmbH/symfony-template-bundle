@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}{% endblock %} - {{ template.application.name }}</title>
-    <link rel="shortcut icon" href="{{ asset('build/images/favicon.ico') }}">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600">
-    <link rel="stylesheet" href="{{ asset('bundles/template/app.css') }}">
+    <link rel="shortcut icon" href="{{ asset('bundles/template/images/favicon.ico', 'template') }}">
+    <link rel="stylesheet" href="{{ asset('bundles/template/app.css', 'template') }}">
+    <link rel="stylesheet" href="{{ asset('bundles/template/webfont.css', 'template') }}">
 </head>
 <body>
     <div class="page-wrapper">
@@ -20,6 +20,6 @@
             </div>
         </main>
     </div>
-    <script src="{{ asset('bundles/template/app.js') }}"></script>
+    <script src="{{ asset('bundles/template/app.js', 'template') }}"></script>
 </body>
 </html>
