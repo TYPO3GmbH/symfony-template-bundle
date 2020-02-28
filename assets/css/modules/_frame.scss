@@ -217,7 +217,7 @@ $frame-backgrounds: map-merge(
         @extend %frame-has-backgroundimage;
         color: $color;
         background-color: $background;
-        a:not(.btn) {
+        a[class=""] {
             color: $link-color;
             @include hover {
                 color: $link-hover-color;

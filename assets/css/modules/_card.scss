@@ -11,9 +11,17 @@ $card-link-hover-color: $link-hover-color !default;
 // Card
 //
 .card {
+    color: color-yiq($card-bg);
     overflow: hidden;
     box-shadow: $box-shadow-sm;
     margin-bottom: $spacer * 2;
+
+    a[class=""] {
+        color: $card-link-color;
+        @include hover {
+            color: $card-link-hover-color;
+        }
+    }
 
     .datatable {
         margin-bottom: 0;
