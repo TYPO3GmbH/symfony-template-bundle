@@ -7,7 +7,7 @@
         "bootstrap-tagsinput": "^0.7.1",
         "chart.js": "^2.9.3",
         "core-js": "^3.6.4",
-        "jquery": "^3.4.1",
+        "jquery": "^3.5.0",
         "node-sass": "^4.13.1",
         "popper.js": "^1.16.1",
         "postcss-loader": "^3.0.0",
