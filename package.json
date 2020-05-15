@@ -1,17 +1,17 @@
 {
     "devDependencies": {
-        "@fortawesome/fontawesome-free": "^5.12.1",
-        "@symfony/webpack-encore": "^0.28.3",
-        "autoprefixer": "^9.7.4",
-        "bootstrap": "^4.4.1",
+        "@fortawesome/fontawesome-free": "^5.13.0",
+        "@symfony/webpack-encore": "^0.30.2",
+        "autoprefixer": "^9.7.6",
+        "bootstrap": "^4.5.0",
         "bootstrap-tagsinput": "^0.7.1",
         "chart.js": "^2.9.3",
-        "core-js": "^3.6.4",
-        "jquery": "^3.4.1",
-        "node-sass": "^4.13.1",
+        "core-js": "^3.6.5",
+        "jquery": "^3.5.1",
+        "node-sass": "^4.14.1",
         "popper.js": "^1.16.1",
         "postcss-loader": "^3.0.0",
-        "sass-loader": "^7.3.1"
+        "sass-loader": "^8.0.2"
     },
     "license": "UNLICENSED",
     "browserslist": [
@@ -23,7 +23,7 @@
         "build": "encore production --progress"
     },
     "dependencies": {
-        "luxon": "^1.22.0",
-        "prismjs": "^1.19.0"
+        "luxon": "^1.24.1",
+        "prismjs": "^1.20.0"
     }
 }
