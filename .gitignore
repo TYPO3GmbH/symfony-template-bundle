@@ -2,5 +2,6 @@ bin
 node_modules
 vendor
 *.cache
+*.idea
 *.lock
 *Zone.Identifier
