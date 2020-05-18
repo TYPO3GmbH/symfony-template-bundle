@@ -1,0 +1,23 @@
+{% use "bootstrap_4_layout.html.twig" %}
+
+{%- block collection_widget -%}
+    {%- set attr = attr|merge({'data-formtype': 'collection' }) -%}
+    {% if prototype is defined and not prototype.rendered %}
+        {%- set attr = attr|merge({'data-prototype': form_row(prototype) }) -%}
+    {% endif %}
+    {%- set attr = attr|merge({'data-allow-add': allow_add ? 1 : 0}) -%}
+    {%- set attr = attr|merge({'data-allow-remove': allow_delete ? 1 : 0 }) -%}
+    {{- block('form_widget') -}}
+{%- endblock collection_widget -%}
+
+{% block form_row -%}
+    {%- set widget_attr = {} -%}
+    {%- if help is not empty -%}
+        {%- set widget_attr = {attr: {'aria-describedby': id ~"_help"}} -%}
+    {%- endif -%}
+    <{{ element|default('div') }}{% with {attr: row_attr|merge({class: (row_attr.class|default('') ~ ' form-group')|trim})} %}{{ block('attributes') }}{% endwith %}>
+        {{- form_label(form) -}}
+        {{- form_widget(form, widget_attr) -}}
+        {{- form_help(form) -}}
+    </{{ element|default('div') }}>
+{%- endblock form_row %}
