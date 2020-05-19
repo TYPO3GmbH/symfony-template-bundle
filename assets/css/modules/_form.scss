@@ -16,6 +16,24 @@
     margin-left: 1rem;
 }
 
+//
+// Form Collection
+//
+[data-formtype="collection"] {
+    > .form-group {
+        border: 1px solid rgba(0,0,0,0.15);
+        padding: 1.5em;
+        legend {
+            width: auto;
+            max-width: none;
+            background-color: #f2f2f2;
+            margin: -1.5em;
+            margin-bottom: 1.5em;
+            padding-left: 1.5em;
+            padding-right: 1.5em;
+        }
+    }
+}
 
 //
 // Custom Forms

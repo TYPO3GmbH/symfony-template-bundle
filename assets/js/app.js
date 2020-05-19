@@ -11,6 +11,7 @@ require('bootstrap-tagsinput/dist/bootstrap-tagsinput');
 require('./libs/navbar');
 require('./libs/aggregations');
 require('./libs/charts');
+require('./form/collection');
 
 // Syntax Highlighter
 require('prismjs');
