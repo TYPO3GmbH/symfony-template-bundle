@@ -18,7 +18,7 @@ class MarkdownExtension extends AbstractExtension
     public function getFilters(): array
     {
         return [
-            new TwigFilter('markdown', [$this, 'parse']),
+            new TwigFilter('markdown', [$this, 'parse'], ['is_safe' => ['html']]),
         ];
     }
 
