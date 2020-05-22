@@ -345,6 +345,13 @@ Twig function to display avatars.
 <img src="https://...avatar.png" class="avatar" height="32" width="32">
 ```
 
+### `markdown`
+
+Twig function to render markdown as HTML.
+
+```twig
+{{ value|markdown }}
+```
 
 ### `template_function_exist`
 
