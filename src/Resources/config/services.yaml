@@ -23,6 +23,10 @@ services:
     tags:
       - name: twig.extension
 
+  T3G\Bundle\TemplateBundle\Twig\Extension\MarkdownExtension:
+    tags:
+      - name: twig.extension
+
   T3G\Bundle\TemplateBundle\Twig\Extension\TemplateExtension:
     tags:
       - name: twig.extension
