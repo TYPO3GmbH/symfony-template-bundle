@@ -15,9 +15,6 @@
     vertical-align: middle;
     margin-left: 1rem;
 }
-.form-group:last-of-type {
-    margin-bottom: 0;
-}
 
 //
 // Form Collection
@@ -59,4 +56,11 @@
 .custom-control-label-count {
     flex-shrink: 0;
     margin-left: 1rem
+}
+
+// Forms in Cards
+.card-body {
+    > .form-group:last-of-type {
+        margin-bottom: 0;
+    }
 }
