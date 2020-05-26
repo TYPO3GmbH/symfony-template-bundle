@@ -60,7 +60,9 @@
 
 // Forms in Cards
 .card-body {
-    > .form-group:last-of-type {
-        margin-bottom: 0;
+    form {
+        > div > .form-group:last-of-type {
+            margin-bottom: 0;
+        }
     }
 }
