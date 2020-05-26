@@ -10,6 +10,11 @@
     {{- block('form_widget') -}}
 {%- endblock collection_widget -%}
 
+{%- block choice_widget_collapsed -%}
+    {%- set attr = attr|merge({class: ('custom-select')|trim}) -%}
+    {{- parent() -}}
+{%- endblock choice_widget_collapsed -%}
+
 {% block form_row -%}
     {%- set widget_attr = {} -%}
     {%- if help is not empty -%}
