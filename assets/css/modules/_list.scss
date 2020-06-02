@@ -1,8 +1,44 @@
+// Bubble
+ul.list-bubble {
+    padding-left: 0;
+    list-style: none;
+    counter-reset: listStyle;
+    li {
+        position: relative;
+        padding-left: 2.25em;
+        counter-increment: listStyle;
+    }
+    li:before {
+        position: absolute;
+        text-align: center;
+        font-weight: bold;
+        line-height: 1.5em;
+        font-size: 1em;
+        left: 0;
+        top: 0;
+        height: 1.5em;
+        width: 1.5em;
+        border-radius: 50%;
+        background-color: #eaeaea;
+        content: counter(listStyle, decimal);
+    }
+}
+ul.list-bubble-alpha {
+    li:before {
+        content: counter(listStyle, upper-alpha);
+    }
+}
+
+
+
+// Size
 ul.list-lead {
     @include media-breakpoint-up('md') {
         font-size: 1.2em;
     }
 }
+
+// Special
 ul.list-normal,
 ul.list-times,
 ul.list-check,
@@ -33,7 +69,6 @@ ul.list-link {
         }
     }
 }
-
 $list-icons: (
     'normal': '<svg viewBox="0 0 288 512"><path d="M144 144c61.9 0 112 50 112 112 0 61.9-50 112-112 112-61.9 0-112-50-112-112 0-61.9 50-112 112-112m0-32C64.5 112 0 176.5 0 256s64.5 144 144 144 144-64.5 144-144-64.5-144-144-144z"/></svg>',
     'times': '<svg viewBox="0 0 320 512"><path fill="#{$danger}" d="M193.94 256L296.5 153.44l21.15-21.15c3.12-3.12 3.12-8.19 0-11.31l-22.63-22.63c-3.12-3.12-8.19-3.12-11.31 0L160 222.06 36.29 98.34c-3.12-3.12-8.19-3.12-11.31 0L2.34 120.97c-3.12 3.12-3.12 8.19 0 11.31L126.06 256 2.34 379.71c-3.12 3.12-3.12 8.19 0 11.31l22.63 22.63c3.12 3.12 8.19 3.12 11.31 0L160 289.94 262.56 392.5l21.15 21.15c3.12 3.12 8.19 3.12 11.31 0l22.63-22.63c3.12-3.12 3.12-8.19 0-11.31L193.94 256z"/></svg>',
