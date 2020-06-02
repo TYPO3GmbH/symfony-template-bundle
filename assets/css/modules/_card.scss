@@ -84,6 +84,33 @@ $card-link-hover-color: $link-hover-color !default;
     }
 }
 
+//
+// Sidepanel
+//
+.card-hassidebar {
+    position: relative;
+    padding-left: 2em;
+    .card-sidebar {
+        background-color: #fafafa;
+        border-right: 1px dotted #dadada;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 2em;
+        span {
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            backface-visibility: hidden;
+            white-space: nowrap;
+            left: 1.8em;
+            top: 1em;
+            position: absolute;
+            transform: rotate(90deg);
+            transform-origin: left top 0;
+        }
+    }
+}
 
 //
 // Header Bar
