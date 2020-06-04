@@ -55,6 +55,9 @@ $frame-backgrounds: map-merge(
 .frame-container-default {
     @include make-container-max-widths();
 }
+.frame-container-medium {
+    max-width: 870px;
+}
 .frame-container-small {
     max-width: 600px;
 }
