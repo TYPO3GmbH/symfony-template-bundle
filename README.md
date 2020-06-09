@@ -55,6 +55,14 @@ template:
         assets:
             # Example: app
             encore_entrypoint: ~
+        email:
+            legal_footer: |
+                TYPO3 GmbH, Emanuel-Leutze-Straße 11, DE-40547 Düsseldorf, Germany
+                Phone: +49 (0)211 20 54 36 0, Web: www.typo3.com, Email: info@typo3.com
+
+                Court of registration: Amtsgericht Düsseldorf HRB 77950
+                CEO: Mathias Schreiber
+                Supervisory Board: Olivier Dobberkau, Ric van Westhreenen, Stefan Busemann
         theme:
             # Example: md
             navbar_breakpoint: lg
