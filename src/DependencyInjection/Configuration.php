@@ -1,5 +1,4 @@
-<?php
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 /*
  * This file is part of the package t3g/symfony-template-bundle.
@@ -41,6 +40,29 @@ class Configuration implements ConfigurationInterface
                                 ->scalarNode('url')
                                     ->defaultValue('https://typo3.com')
                                     ->example('https://typo3.com')
+                                    ->cannotBeEmpty()
+                                ->end()
+                            ->end()
+                        ->end()
+                        ->arrayNode('email')->addDefaultsIfNotSet()
+                            ->children()
+                                ->scalarNode('legal_footer')
+                                    ->defaultValue(implode("\n", [
+                                        'TYPO3 GmbH, Emanuel-Leutze-Straße 11, DE-40547 Düsseldorf, Germany',
+                                        'Phone: +49 (0)211 20 54 36 0, Web: www.typo3.com, Email: info@typo3.com',
+                                        '',
+                                        'Court of registration: Amtsgericht Düsseldorf HRB 77950',
+                                        'CEO: Mathias Schreiber',
+                                        'Supervisory Board: Olivier Dobberkau, Ric van Westhreenen, Stefan Busemann'
+                                    ]))
+                                    ->example(implode("\n", [
+                                        'TYPO3 GmbH, Emanuel-Leutze-Straße 11, DE-40547 Düsseldorf, Germany',
+                                        'Phone: +49 (0)211 20 54 36 0, Web: www.typo3.com, Email: info@typo3.com',
+                                        '',
+                                        'Court of registration: Amtsgericht Düsseldorf HRB 77950',
+                                        'CEO: Mathias Schreiber',
+                                        'Supervisory Board: Olivier Dobberkau, Ric van Westhreenen, Stefan Busemann'
+                                    ]))
                                     ->cannotBeEmpty()
                                 ->end()
                             ->end()

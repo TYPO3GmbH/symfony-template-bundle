@@ -10,6 +10,10 @@
     {% if template.application.routes.privacy %}Privacy Policy: {{ template.application.routes.privacy }}{% endif %}
     {% if template.application.routes.legal %}Legal Information: {{ template.application.routes.legal }}{% endif %}
     {% if template.application.routes.feedback %}Feedback: {{ template.application.routes.feedback }}{% endif %}
+
+    ---
+
+    {{ template.application.email.legal_footer }}
 {% endautoescape %}
 {% endblock %}
 
@@ -239,7 +243,7 @@
         }
         .bodyContainer .textContent,
         .bodyContainer .textContent p {
-            color:#808080;
+            color:#606060;
             font-family:'Helvetica Neue', Helvetica, Arial, Verdana, sans-serif;
             font-size:16px;
             line-height:150%;
@@ -263,15 +267,15 @@
             padding-bottom:36px;
         }
         .footerContainer{
-            background-color:#313131;
+            background-color:#292929;
             background-image:none;
             background-repeat:no-repeat;
             background-position:center;
             background-size:cover;
             border-top:0;
             border-bottom:0;
-            padding-top:45px;
-            padding-bottom:45px;
+            padding-top:25px;
+            padding-bottom:25px;
         }
         .footerContainer .textContent,
         .footerContainer .textContent p {
@@ -285,7 +289,32 @@
         .footerContainer .textContent p a {
             color:#FFFFFF;
             font-weight:normal;
-            text-decoration:underline;
+            text-decoration:none;
+        }
+        .footerLegalContainer {
+            background-color:#f2f2f2;
+            background-image:none;
+            background-repeat:no-repeat;
+            background-position:center;
+            background-size:cover;
+            border-top:0;
+            border-bottom:0;
+            padding-top:25px;
+            padding-bottom:25px;
+        }
+        .footerLegalContainer .textContent,
+        .footerLegalContainer .textContent p {
+            color:#292929;
+            font-family:'Helvetica Neue', Helvetica, Arial, Verdana, sans-serif;
+            font-size:10px;
+            line-height:150%;
+            text-align:center;
+        }
+        .footerLegalContainer .textContent a,
+        .footerLegalContainer .textContent p a {
+            color:#292929;
+            font-weight:normal;
+            text-decoration:none;
         }
         @media only screen and (min-width:768px){
             .templateContainer {
@@ -407,6 +436,11 @@
                 font-size:14px !important;
                 line-height:150% !important;
             }
+            .footerLegalContainer .textContent,
+            .footerLegalContainer .textContent p {
+                font-size:10px !important;
+                line-height:150% !important;
+            }
         }
     </style>
 </head>
@@ -491,7 +525,7 @@
                     {% endif %}
 
                     {% if template.application.routes.legal %}
-                        <a href="{{ template.application.routes.legal }}" target="" title="Legal Information" rel="noopener noreferrer" target="_blank">Legal Information</a>
+                        <a href="{{ template.application.routes.legal }}" title="Legal Information" rel="noopener noreferrer" target="_blank">Legal Information</a>
                     {% endif %}
 
                     {% if template.application.routes.feedback %}
@@ -505,6 +539,21 @@
         </td></tr></table>
         <!--[if (gte mso 9)|(IE)]></td></tr></table><![endif]-->
 
+        <!--[if (gte mso 9)|(IE)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="600" style="width:600px;"><tr><td align="center" valign="top" width="600" style="width:600px;"><![endif]-->
+        <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" class="templateContainer"><tr><td valign="top" class="footerLegalContainer">
+        <table border="0" cellpadding="0" cellspacing="0" width="100%" class="textBlock" style="min-width:100%;"><tbody class="textBlockOuter"><tr><td valign="top" class="textBlockInner">
+
+                <!--[if mso]><table align="left" border="0" cellspacing="0" cellpadding="0" width="100%" style="width:100%;"><tr><td valign="top" width="600" style="width:600px;"><![endif]-->
+                <table align="left" border="0" cellpadding="0" cellspacing="0" style="max-width:100%; min-width:100%;" width="100%" class="textContentContainer"><tbody><tr><td valign="top" class="textContent" style="padding:0 36px;">
+
+                    <p style="margin: 0;">{{ template.application.email.legal_footer|nl2br }}</p>
+
+                </td></tr></tbody></table>
+                <!--[if mso]></td></tr></table><![endif]-->
+
+        </td></tr></tbody></table>
+        </td></tr></table>
+        <!--[if (gte mso 9)|(IE)]></td></tr></table><![endif]-->
 
     </td></tr>
     <!-- FOOTER END -->
