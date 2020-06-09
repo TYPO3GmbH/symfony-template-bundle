@@ -45,6 +45,9 @@
         "vendor-dir": "vendor"
     },
     "scripts": {
+        "test:php:unit": [
+            "simple-phpunit -c phpunit.xml.dist --testsuite \"Unit Test Suite\""
+        ],
         "test:php:cgl": [
             "php-cs-fixer --diff -v fix"
         ],
