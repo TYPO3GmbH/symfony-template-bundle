@@ -123,6 +123,15 @@ class MenuBuilder
                 ]
             );
         }
+        if (!empty($config['application']['routes']['feedback'])) {
+            $menu->addChild(
+                'feedback',
+                [
+                    'label' => 'Feedback',
+                    'uri' => $config['application']['routes']['feedback'],
+                ]
+            );
+        }
         return $menu;
     }
 }
