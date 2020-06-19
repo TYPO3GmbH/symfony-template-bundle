@@ -1,0 +1,14 @@
+//
+// Tabs
+//
+.card {
+    .nav-tabs {
+        .nav-link {
+            border-top: none;
+            border-radius: 0;
+        }
+        .nav-item:first-child .nav-link {
+            border-left: none;
+        }
+    }
+}
