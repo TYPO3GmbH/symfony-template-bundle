@@ -118,7 +118,7 @@ class MenuBuilder
             $menu->addChild(
                 'legal',
                 [
-                    'label' => 'Legal Information',
+                    'label' => 'Legal Notice',
                     'uri' => $config['application']['routes']['legal'],
                 ]
             );
