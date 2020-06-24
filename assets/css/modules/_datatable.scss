@@ -80,9 +80,6 @@ $table-sorting-icon-descending: '<svg viewBox="0 0 16 16"><g fill="#{$table-high
                 td {
                     border-top: 1px solid darken($table-row-hover-bg, 5%);
                 }
-                a:not(.datatable-action) {
-                    border-bottom-color: inherit;
-                }
             }
             @each $name, $value in $theme-colors {
                 &.datatable-severity-#{$name} {
