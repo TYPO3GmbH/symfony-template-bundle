@@ -7,3 +7,16 @@
         color: color-yiq($value);
     }
 }
+.progress-text {
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.progress-text-inner {
+    line-height: 1.25em;
+}
