@@ -31,12 +31,12 @@ class DateTimeExtension extends AbstractExtension
         return $datetime;
     }
 
-    public function localtime(Environment $environment, \DateTime $datetime = null): string
+    public function localtime(Environment $environment, \DateTimeInterface $datetime = null): string
     {
         return $environment->render('@Template/extension/datetime/localtime.html.twig', ['datetime' => $datetime]);
     }
 
-    public function relativetime(Environment $environment, \DateTime $datetime = null): string
+    public function relativetime(Environment $environment, \DateTimeInterface $datetime = null): string
     {
         return $environment->render('@Template/extension/datetime/relativetime.html.twig', ['datetime' => $datetime]);
     }
