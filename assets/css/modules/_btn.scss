@@ -5,7 +5,9 @@
     display: inline-flex;
     letter-spacing: .5px;
     text-transform: uppercase;
-    box-shadow: $box-shadow-sm;
+    &:not(:focus) {
+        box-shadow: $box-shadow-sm;
+    }
     .input-group & {
         box-shadow: none;
     }

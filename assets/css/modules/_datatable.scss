@@ -4,8 +4,8 @@
 $table-highlight: theme-color("primary");
 $table-text: #333;
 $table-link-highlight: $link-color;
-$table-row-hover-bg: theme-color("primary");
-$table-row-hover-color: color-yiq(theme-color("primary"));
+$table-row-hover-bg: #efefef;
+$table-row-hover-color: color-yiq($table-row-hover-bg);
 $table-padding: 1em;
 $table-padding-x: $table-padding;
 $table-padding-y: $table-padding * 0.75;
@@ -82,13 +82,6 @@ $table-sorting-icon-descending: '<svg viewBox="0 0 16 16"><g fill="#{$table-high
                 }
                 a:not(.datatable-action) {
                     border-bottom-color: inherit;
-                }
-                .datatable-link-highlight {
-                    color: inherit;
-                }
-                .datatable-action {
-                    background-color: #fff;
-                    color: $table-text;
                 }
             }
             @each $name, $value in $theme-colors {
@@ -223,14 +216,59 @@ $table-sorting-icon-descending: '<svg viewBox="0 0 16 16"><g fill="#{$table-high
 }
 
 .datatable-action {
-    color: inherit;
     display: inline-block;
     position: relative;
     overflow: hidden;
     vertical-align: middle;
-    background-color: rgba(224, 227, 228, 0.3);
     padding: 5px 7px;
     border-radius: 2px;
+    box-shadow: $box-shadow-sm;
+
+    &:hover,
+    &:focus {
+        text-decoration: none;
+    }
+
+    &:focus {
+        outline: 0;
+    }
+
+    &:disabled {
+        opacity: .5;
+        pointer-events: none;
+    }
+}
+
+.datatable-action {
+    background-color: theme-color('default');
+    color: color-yiq(theme-color('default'));
+
+    &:focus {
+        box-shadow: 0 0 0 2px rgba(color-yiq(theme-color('default')), .5);
+    }
+
+    &:hover,
+    &:focus {
+        background-color: darken(theme-color('default'), 7.5%);
+        color: color-yiq(theme-color('default'));
+    }
+}
+
+@each $color, $value in $theme-colors {
+    &.datatable-action-#{$color} {
+        background-color: theme-color($color);
+        color: color-yiq(theme-color($color));
+
+        &:focus {
+            box-shadow: 0 0 0 2px rgba(theme-color($color), .5);
+        }
+
+        &:hover,
+        &:focus {
+            background-color: darken(theme-color($color), 7.5%);
+            color: color-yiq(theme-color($color));
+        }
+    }
 }
 
 .datatable-visually-hidden {
