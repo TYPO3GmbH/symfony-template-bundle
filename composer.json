@@ -45,18 +45,22 @@
         "vendor-dir": "vendor"
     },
     "scripts": {
-        "test:php:unit": [
+        "t3g:test:php:unit": [
             "simple-phpunit -c phpunit.xml.dist --testsuite \"Unit Test Suite\""
         ],
-        "test:php:cgl": [
-            "php-cs-fixer --diff -v fix"
+        "t3g:cgl": [
+            "php-cs-fixer fix -v --dry-run"
         ],
-        "test:php:lint": [
+        "t3g:cgl:fix": [
+            "php-cs-fixer fix"
+        ],
+        "t3g:test:php:lint": [
             "phplint"
         ],
-        "test": [
-            "@test:php:cgl",
-            "@test:php:lint"
+        "t3g:test": [
+            "@t3g:cgl",
+            "@t3g:test:php:lint",
+            "@t3g:test:php:unit"
         ]
     },
     "autoload": {
