@@ -44,6 +44,10 @@
 //
 // Custom Forms
 //
+.custom-control-label {
+    display: block;
+    max-width: 100%;
+}
 .custom-control-label-hascount {
     display: flex;
 }
