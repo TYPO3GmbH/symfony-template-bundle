@@ -26,9 +26,9 @@ class AvatarExtension extends AbstractExtension
         ];
     }
 
-    public function render(string $email, int $size = 36): string
+    public function render(string $value, int $size = 36): string
     {
-        return AvatarUtility::getAvatar((string) $email, (int) $size);
+        return AvatarUtility::getAvatar($value, $size);
     }
 
     public function getName(): string
