@@ -16,34 +16,38 @@ namespace T3G\Bundle\TemplateBundle\Utility;
 class AvatarUtility
 {
     /**
-     * @param string $email
+     * @param string $value
      * @param int $size
      * @return string
      */
-    public static function getAvatar($email, $size = 80): string
+    public static function getAvatar(string $value, int $size = 80): string
     {
         $attributes = '';
 
         $attributesData = [];
-        $attributesData['src'] = self::getAvatarUrl($email, $size);
+        $attributesData['src'] = self::getAvatarUrl($value, $size);
         $attributesData['class'] = 'avatar';
-        $attributesData['height'] = (int) $size;
-        $attributesData['width'] = (int) $size;
+        $attributesData['height'] = $size;
+        $attributesData['width'] = $size;
 
-        foreach ($attributesData as $key => $value) {
-            $attributes .= ' ' . $key . '="' . $value . '"';
+        foreach ($attributesData as $key => $data) {
+            $attributes .= ' ' . $key . '="' . $data . '"';
         }
 
         return '<img' . $attributes . '/>';
     }
 
     /**
-     * @param string $email
+     * @param string $value
      * @param int $size
      * @return string
      */
-    public static function getAvatarUrl($email, $size = 80): string
+    public static function getAvatarUrl(string $value, int $size = 80): string
     {
-        return 'https://www.gravatar.com/avatar/' . md5(strtolower(trim($email))) . '?s= ' . (int) $size . '&d=mp&r=g';
+        if (0 === preg_match('/^[a-f0-9]{32}$/', $value)) {
+            $value = md5(strtolower(trim($value)));
+        }
+
+        return 'https://www.gravatar.com/avatar/' . $value . '?s=' . $size . '&d=mp&r=g';
     }
 }

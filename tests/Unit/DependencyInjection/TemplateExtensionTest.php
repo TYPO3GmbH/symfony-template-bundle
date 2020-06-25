@@ -11,7 +11,6 @@ namespace T3G\Bundle\TemplateBundle\Tests\Unit\DependencyInjection;
 
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\Yaml\Parser;
 use T3G\Bundle\TemplateBundle\DependencyInjection\TemplateExtension;
 
 class TemplateExtensionTest extends TestCase
