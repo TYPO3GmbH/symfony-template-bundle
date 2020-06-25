@@ -44,10 +44,10 @@ class AvatarUtility
      */
     public static function getAvatarUrl(string $value, int $size = 80): string
     {
-        if (!preg_match('/^[a-f0-9]{32}$/', $value)) {
+        if (0 === preg_match('/^[a-f0-9]{32}$/', $value)) {
             $value = md5(strtolower(trim($value)));
         }
 
-        return 'https://www.gravatar.com/avatar/' . $value . '?s= ' . $size . '&d=mp&r=g';
+        return 'https://www.gravatar.com/avatar/' . $value . '?s=' . $size . '&d=mp&r=g';
     }
 }
