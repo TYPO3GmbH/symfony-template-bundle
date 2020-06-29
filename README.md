@@ -1,8 +1,42 @@
-# symfony-template-bundle
+# Symfony Template Bundle
 
 This package is used across various TYPO3 Symfony Applications to ensure a streamlined visual experience and reduced maintenance.
 
-## Installation
+- [Symfony Template Bundle](#symfony-template-bundle)
+- [Installation](#installation)
+- [Configuration](#configuration)
+  - [Encore](#encore)
+  - [Extending Menus](#extending-menus)
+- [Page Template](#page-template)
+  - [Available Blocks](#available-blocks)
+    - [`title`](#title)
+    - [`headline`](#headline)
+    - [`body`](#body)
+    - [`footer`](#footer)
+    - [`stylesheets`](#stylesheets)
+    - [`javascripts`](#javascripts)
+- [EMail Template](#email-template)
+  - [Available Blocks](#available-blocks-1)
+    - [`email_subject`](#email_subject)
+    - [`email_plaintext`](#email_plaintext)
+    - [`email_html_preview`](#email_html_preview)
+    - [`email_html_body`](#email_html_body)
+- [Utilities](#utilities)
+  - [AvatarUtility::getAvatar(string $email, int $size)](#avatarutilitygetavatarstring-email-int-size)
+  - [AvatarUtility::getAvatarUrl(string $email, int $size)](#avatarutilitygetavatarurlstring-email-int-size)
+- [Twig Extensions](#twig-extensions)
+  - [`avatar`](#avatar)
+  - [`markdown`](#markdown)
+  - [`template_function_exist`](#template_function_exist)
+  - [`template_function_call`](#template_function_call)
+- [Twig Tags](#twig-tags)
+  - [`frame`](#frame)
+    - [Usage](#usage)
+    - [Example](#example)
+- [JavaScript Libraries](#javascript-libraries)
+  - [Choices.js](#choicesjs)
+
+# Installation
 
 ```console
 composer require t3g/symfony-template-bundle
@@ -27,7 +61,7 @@ Ensure that symfony default scripts are present in your `composer.json` file.
 }
 ```
 
-## Configuration
+# Configuration
 
 The bundle comes with a sensible default configuration, which is listed below.
 You can define these options if you need to change them:
@@ -144,7 +178,7 @@ class MenuBuilder extends TemplateMenuBuider
 Available methods to override `mainDefault`, `mainProfile` and `mainFooter`.
 
 
-## Page Template
+# Page Template
 
 Extend Default Layout
 
@@ -152,9 +186,9 @@ Extend Default Layout
 {% extends '@Template/layout.html.twig' %}
 ```
 
-### Available Blocks
+## Available Blocks
 
-#### `title`
+### `title`
 
 ```twig
 {% block title %}Home{% endblock %}
@@ -164,7 +198,7 @@ Extend Default Layout
 <title>Home - {{ template.application.name }}</title>
 ```
 
-#### `headline`
+### `headline`
 
 This block will **only** be rendered obove the body block if defined in the template.
 
@@ -188,7 +222,7 @@ This block will **only** be rendered obove the body block if defined in the temp
 </div>
 ```
 
-#### `body`
+### `body`
 
 ```twig
 {% block body %}
@@ -216,7 +250,7 @@ This block will **only** be rendered obove the body block if defined in the temp
 </div>
 ```
 
-#### `footer`
+### `footer`
 
 
 ```twig
@@ -245,15 +279,15 @@ This block will **only** be rendered obove the body block if defined in the temp
 </div>
 ```
 
-#### `stylesheets`
+### `stylesheets`
 
 Stylesheet block will be rendered after the `base` and `encore` css before the closing `</head>`.
 
-#### `javascripts`
+### `javascripts`
 
 JavaScript block will be rendered after `base` and `encore` javascript before the closing `</body>`.
 
-## EMail Template
+# EMail Template
 
 Extend Default Layout
 
@@ -261,15 +295,15 @@ Extend Default Layout
 {% extends '@Template/email.html.twig' %}
 ```
 
-### Available Blocks
+## Available Blocks
 
-#### `email_subject`
+### `email_subject`
 
 ```twig
 {% block email_subject %}Reset Your Password{% endblock %}
 ```
 
-#### `email_plaintext`
+### `email_plaintext`
 
 ```twig
 {% block email_plaintext %}
@@ -283,7 +317,7 @@ If you don't want to reset your password, you can ignore this email.
 {% endblock %}
 ```
 
-#### `email_html_preview`
+### `email_html_preview`
 
 ```twig
 {% block email_html_preview %}
@@ -291,7 +325,7 @@ You requested a password reset for your account.
 {% endblock %}
 ```
 
-#### `email_html_body`
+### `email_html_body`
 
 ```twig
 {% block email_html_body %}
@@ -321,9 +355,9 @@ You requested a password reset for your account.
 {% endblock %}
 ```
 
-## Utilities
+# Utilities
 
-### AvatarUtility::getAvatar(string $email, int $size)
+## AvatarUtility::getAvatar(string $email, int $size)
 
 ```php
 <?php
@@ -332,7 +366,7 @@ echo AvatarUtility::getAvatar('info@typo3.com', 32);
 // <img src="https://...avatar.png" class="avatar" height="32" width="32">
 ```
 
-### AvatarUtility::getAvatarUrl(string $email, int $size)
+## AvatarUtility::getAvatarUrl(string $email, int $size)
 
 ```php
 <?php
@@ -341,9 +375,9 @@ echo AvatarUtility::getAvatarUrl('info@typo3.com', 32);
 // https://...avatar.png
 ```
 
-## Twig Extensions
+# Twig Extensions
 
-### `avatar`
+## `avatar`
 
 Twig function to display avatars.
 
@@ -354,7 +388,7 @@ Twig function to display avatars.
 <img src="https://...avatar.png" class="avatar" height="32" width="32">
 ```
 
-### `markdown`
+## `markdown`
 
 Twig function to render markdown as HTML.
 
@@ -362,7 +396,7 @@ Twig function to render markdown as HTML.
 {{ value|markdown }}
 ```
 
-### `template_function_exist`
+## `template_function_exist`
 
 A function to check if a function is available within the current Twig Environment.
 
@@ -372,7 +406,7 @@ A function to check if a function is available within the current Twig Environme
 {% endif %}
 ```
 
-### `template_function_call`
+## `template_function_call`
 
 Twig always checks for all functions with a template, also within a condition.
 This function is a wrapper around the original function call that is only executed
@@ -387,30 +421,30 @@ if the function actually exists.
 ```
 
 
-## Twig Tags
+# Twig Tags
 
-### `frame`
+## `frame`
 
-| Option            | Type                                      | Default       |
-| ----------------- | ----------------------------------------- | ------------- |
-| id                | string                                    |               |
-| size              | small/default                             | default       |
-| color             | default/primary/secondary/light/dark      | default       |
-| indent            | bool                                      | false         |
-| rulerBefore       | bool                                      | false         |
-| rulerAfter        | bool                                      | false         |
-| center            | bool                                      | false         |
-| backgroundImage   | string                                    |               |
-| height            | auto/small/medium/max                     | auto          |
-| innerWidth        | small/medium/full/default                 | default       |
+| Option          | Type                                 | Default |
+| --------------- | ------------------------------------ | ------- |
+| id              | string                               |         |
+| size            | small/default                        | default |
+| color           | default/primary/secondary/light/dark | default |
+| indent          | bool                                 | false   |
+| rulerBefore     | bool                                 | false   |
+| rulerAfter      | bool                                 | false   |
+| center          | bool                                 | false   |
+| backgroundImage | string                               |         |
+| height          | auto/small/medium/max                | auto    |
+| innerWidth      | small/medium/full/default            | default |
 
-#### Usage
+### Usage
 
 ```twig
 {% frame with options %}Inner Content{% endframe %}
 ```
 
-#### Example
+### Example
 
 ```twig
 {% frame with { id: 'identifier', color: 'primary', center: true } %}
@@ -427,3 +461,45 @@ if the function actually exists.
     </div>
 </div>
 ```
+
+# JavaScript Libraries
+
+## Choices.js
+
+The library can be enabled and configured through the attribute `data-choicesjs`, pass the configuration as json encoded string.
+
+**Example HTML**
+
+```html
+<select
+    name='country'
+    data-choicesjs='{"maxItemCount":1}'
+>
+    <option value="">Please select a country</option>
+    ...
+    <option value="DE" selected="selected">Germany</option>
+    <option value="GH">Ghana</option><option value="GI">Gibraltar</option>
+    <option value="GL">Greenland</option><option value="GD">Grenada</option>
+    ...
+</select>
+```
+
+**Example FormBuilder**
+
+```php
+$builder->add('country', ChoiceType::class, [
+    'attr' => [
+        'data-choicesjs' => json_encode(
+            [
+                'maxItemCount' => 1,
+            ],
+            JSON_THROW_ON_ERROR
+        ),
+    ],
+    'choices' => $countryChoices,
+    'empty_data' => null,
+    'placeholder' => 'Please select a country',
+]);
+```
+
+Source: https://github.com/jshjohnson/Choices

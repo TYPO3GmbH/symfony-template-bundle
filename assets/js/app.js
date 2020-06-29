@@ -1,25 +1,26 @@
 // Load the CSS stuff
-require('@fortawesome/fontawesome-free/css/fontawesome.min.css');
-require('@fortawesome/fontawesome-free/css/brands.min.css');
-require('@fortawesome/fontawesome-free/css/solid.min.css');
-require('../css/app.scss');
+import '@fortawesome/fontawesome-free/css/fontawesome.min.css';
+import '@fortawesome/fontawesome-free/css/brands.min.css';
+import '@fortawesome/fontawesome-free/css/solid.min.css';
+import '../css/app.scss';
 
 // Load the JS stuff
-let $ = require('jquery');
-require('bootstrap');
-require('bootstrap-tagsinput/dist/bootstrap-tagsinput');
-require('./libs/navbar');
-require('./libs/aggregations');
-require('./libs/charts');
-require('./form/collection');
+import $ from 'jquery';
+import 'bootstrap';
+import 'bootstrap-tagsinput/dist/bootstrap-tagsinput';
+import './libs/navbar';
+import './libs/aggregations';
+import './libs/charts';
+import './form/collection';
+import './form/choices';
 
 // Syntax Highlighter
-require('prismjs');
-require('prismjs/components/prism-nginx');
-require('prismjs/components/prism-json');
-require('prismjs/components/prism-rest');
+import 'prismjs';
+import 'prismjs/components/prism-nginx';
+import 'prismjs/components/prism-json';
+import 'prismjs/components/prism-rest';
 
-var {DateTime} = require('luxon');
+import DateTime from 'luxon';
 
 function convertDates() {
     Array.from(document.querySelectorAll('[data-processor="localdate"]')).forEach(function (element) {

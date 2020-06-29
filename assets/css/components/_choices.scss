@@ -1,0 +1,22 @@
+// Dependency
+@import '../../../node_modules/choices.js/src/styles/choices.scss';
+
+// Adjustments
+.#{$choices-selector}__inner {
+    padding: 2px 8px;
+    min-height: 38px;
+
+    .is-focused &,
+    .is-open & {
+        border-color: #ffc380;
+        box-shadow: 0 0 0 0.2rem rgba(255,135,0,.25);
+    }
+}
+.#{$choices-selector}[data-type*=select-one] .#{$choices-selector}__inner {
+    padding-bottom: 2px;
+}
+.#{$choices-selector}__list--dropdown {
+    .#{$choices-selector}__list {
+        max-height: 200px;
+    }
+}

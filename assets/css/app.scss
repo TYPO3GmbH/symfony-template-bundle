@@ -6,6 +6,9 @@
 @import '../../node_modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.css';
 @import '../../node_modules/prismjs/themes/prism-okaidia';
 
+// Components
+@import 'components/choices';
+
 // Mixins
 @import 'mixins/function';
 @import 'mixins/svg';
