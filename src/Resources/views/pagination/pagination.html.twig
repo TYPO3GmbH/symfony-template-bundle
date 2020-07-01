@@ -2,9 +2,9 @@
 {% set labelNext = 'Next' %}
 
 {% if pageCount > 1 %}
-    <nav>
-        <ul class="pagination justify-content-center">
-
+    <nav class="d-md-flex justify-content-md-between align-items-md-center">
+        <div class="mb-2 mb-md-0">Showing {{ firstItemNumber }} to {{ lastItemNumber }} of {{ totalCount }} entries</div>
+        <ul class="pagination">
             {% if startPage > 1 %}
                 <li class="page-item">
                     <a class="page-link" href="{{ path(route, query|merge({(pageParameterName): 1})) }}">1</a>
