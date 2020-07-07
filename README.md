@@ -25,6 +25,7 @@ This package is used across various TYPO3 Symfony Applications to ensure a strea
   - [AvatarUtility::getAvatar(string $email, int $size)](#avatarutilitygetavatarstring-email-int-size)
   - [AvatarUtility::getAvatarUrl(string $email, int $size)](#avatarutilitygetavatarurlstring-email-int-size)
 - [Twig Extensions](#twig-extensions)
+  - [`autolink`](#autolink)
   - [`avatar`](#avatar)
   - [`markdown`](#markdown)
   - [`template_function_exist`](#template_function_exist)
@@ -376,6 +377,34 @@ echo AvatarUtility::getAvatarUrl('info@typo3.com', 32);
 ```
 
 # Twig Extensions
+
+## `autolink`
+
+Twig filter to automaticly convert urls, emails and phone numbers to links.
+
+```twig
+{{ value|autolink }}
+```
+
+or
+
+```twig
+{% apply autolink %}
+    <p>
+        Phone: +49 (0)211 205436-0<br>
+        Web: www.typo3.com<br>
+        Email: info@typo3.com
+    </p>
+{% endapply %}
+```
+
+```html
+<p>
+    Phone: <a href="tel:+492112054360">+49 (0)211 205436-0</a><br>
+    Web: <a href="https://www.typo3.com" target="_blank" rel="noopener">www.typo3.com</a><br>
+    Email: <a href="mailto:info@typo3.com">info@typo3.com</a>
+</p>
+```
 
 ## `avatar`
 
