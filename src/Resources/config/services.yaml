@@ -11,7 +11,7 @@ services:
     tags:
       - name: twig.extension
 
-  T3G\Bundle\TemplateBundle\Twig\Extension\Autolink:
+  T3G\Bundle\TemplateBundle\Twig\Extension\AutolinkExtension:
     tags:
       - name: twig.extension
 
