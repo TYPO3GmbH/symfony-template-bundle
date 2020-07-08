@@ -46,32 +46,49 @@
             </nav>
         </header>
 
-        {# flash messages on this page are NOT escaped !#}
-        {% if app.request.hasPreviousSession %}
-            {% for key, flashMassages in app.session.flashBag.all %}
-                <div class="alert-pagegroup">
-                    {% block flashMessages %}
-                        {% for flashMassage in flashMassages %}
-                            <div class="alert alert-{{ key }} alert-dismissible fade show" role="alert">
-                                <div class="alert-inner">
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                    {{ flashMassage | raw }}
-                                </div>
-                            </div>
-                        {% endfor %}
-                    {% endblock %}
-                </div>
-            {% endfor %}
-        {% endif %}
-
         <main class="page-main">
             {% if block('headline') is defined %}
                 {% frame with { color: 'primary', size: 'small'} %}
                     <h1 class="h4">{{ block('headline')|raw }}</h1>
                 {% endframe %}
             {% endif %}
+            {% if block('header') is defined %}
+                {% block header %}{% endblock %}
+            {% endif %}
+
+            {# flash messages on this page are NOT escaped !#}
+            {% if app.request.hasPreviousSession %}
+                <div class="alert-pagegroup-container">
+                    <div class="alert-pagegroup">
+                        {% for key, flashMassages in app.session.flashBag.all %}
+                            {% block flashMessages %}
+                                {% for flashMassage in flashMassages %}
+                                    <div class="alert alert-{{ key }} alert-dismissible fade show" data-severity="{{ key }}" role="alert">
+                                        <div class="alert-inner">
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            <div class="alert-icon">
+                                                {% if key == "danger" %}
+                                                    <i class="fas fa-exclamation"></i>
+                                                {% elseif key == "success" %}
+                                                    <i class="fas fa-check"></i>
+                                                {% elseif key == "warning" %}
+                                                    <i class="fas fa-warning"></i>
+                                                {% else %}
+                                                    <i class="fas fa-info"></i>
+                                                {% endif %}
+                                            </div>
+                                            <div class="alert-message">{{ flashMassage | raw }}</div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            {% endblock %}
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endif %}
+
             {% block body %}{% endblock %}
         </main>
 
