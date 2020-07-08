@@ -465,7 +465,7 @@ if the function actually exists.
 | center          | bool                                 | false   |
 | backgroundImage | string                               |         |
 | height          | auto/small/medium/max                | auto    |
-| innerWidth      | small/medium/full/default            | default |
+| innerWidth      | small/medium/large/full/default      | default |
 
 ### Usage
 
