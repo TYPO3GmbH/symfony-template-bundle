@@ -21,7 +21,7 @@ import 'prismjs/components/prism-nginx';
 import 'prismjs/components/prism-json';
 import 'prismjs/components/prism-rest';
 
-import DateTime from 'luxon';
+import {DateTime} from 'luxon';
 
 function convertDates() {
     Array.from(document.querySelectorAll('[data-processor="localdate"]')).forEach(function (element) {
