@@ -11,6 +11,10 @@
     z-index: $zindex-popover;
 }
 .alert-pagegroup {
+    padding-left: 20px;
+    padding-right: 20px;
+    max-width: 600px;
+    margin: 0 auto;
     position: relative;
     .alert {
         border: 0;
