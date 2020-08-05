@@ -35,7 +35,8 @@ This package is used across various TYPO3 Symfony Applications to ensure a strea
     - [Usage](#usage)
     - [Example](#example)
 - [JavaScript Libraries](#javascript-libraries)
-  - [Choices.js](#choicesjs)
+  - [Datepicker](#datepicker)
+  - [Choices](#choices)
 
 # Installation
 
@@ -493,7 +494,43 @@ if the function actually exists.
 
 # JavaScript Libraries
 
-## Choices.js
+## Datepicker
+
+The library can be enabled and configured through the attribute `data-datepicker`, pass the configuration as json encoded string.
+
+**Example HTML**
+
+```html
+<input
+    type='text'
+    name='date'
+    placeholder='yyyy-mm-dd'
+    data-datepicker='{"clearBtn":true}'
+    class="form-control"
+>
+```
+
+**Example FormBuilder**
+
+```php
+$builder->add('date', ChoiceType::class, [
+    'widget' => 'single_text',
+    'attr' => [
+        'placeholder' => 'yyyy-mm-dd',
+        'data-datepicker' => json_encode(
+            [
+                'clearBtn' => true,
+            ],
+            JSON_THROW_ON_ERROR
+        ),
+    ],
+    'html5' => false
+]);
+```
+
+Source: https://github.com/mymth/vanillajs-datepicker
+
+## Choices
 
 The library can be enabled and configured through the attribute `data-choicesjs`, pass the configuration as json encoded string.
 

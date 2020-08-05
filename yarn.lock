@@ -6952,6 +6952,11 @@ validate-npm-package-license@^3.0.1:
     spdx-correct "^3.0.0"
     spdx-expression-parse "^3.0.0"
 
+vanillajs-datepicker@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/vanillajs-datepicker/-/vanillajs-datepicker-1.0.3.tgz#d478479490084829602211786e35679617d0315d"
+  integrity sha512-DE0/KivlyluaIPsJHxKif73sDXsAFTst54Nq013S0GGrE9JY0JvbSys3T9B8cnm+tMFn+/RncxX5JIU9b1LOUA==
+
 vary@~1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"

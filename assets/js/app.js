@@ -12,6 +12,7 @@ import './libs/alert';
 import './libs/navbar';
 import './libs/aggregations';
 import './libs/charts';
+import './libs/datepicker';
 import './form/collection';
 import './form/choices';
 

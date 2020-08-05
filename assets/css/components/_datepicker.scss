@@ -1,0 +1,13 @@
+// Dependency
+@import '../../../node_modules/vanillajs-datepicker/sass/datepicker-bs4';
+
+.datepicker {
+    .datepicker-main {
+        padding: 1rem;
+    }
+    .datepicker-controls {
+        .btn {
+            display: inline-block;
+        }
+    }
+}
