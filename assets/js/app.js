@@ -37,6 +37,15 @@ function convertDates() {
         });
     });
 }
+function convertDatesNoTime() {
+    Array.from(document.querySelectorAll('[data-processor="localdate-notime"]')).forEach(function (element) {
+        const value = element.dataset.value;
+        element.textContent = DateTime.fromISO(value).toLocaleString({
+            month: '2-digit',
+            day: '2-digit',
+        });
+    });
+}
 function convertRelativeTime() {
     Array.from(document.querySelectorAll('[data-processor="relativetime"]')).forEach(function (element) {
         const value = element.dataset.value;
