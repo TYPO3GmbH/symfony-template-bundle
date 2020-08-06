@@ -24,8 +24,8 @@ import 'prismjs/components/prism-rest';
 
 import {DateTime} from 'luxon';
 
-function convertDates() {
-    Array.from(document.querySelectorAll('[data-processor="localdate"]')).forEach(function (element) {
+function convertDateTimes() {
+    Array.from(document.querySelectorAll('[data-processor="localdatetime"]')).forEach(function (element) {
         const value = element.dataset.value;
         element.textContent = DateTime.fromISO(value).toLocaleString({
             month: '2-digit',
@@ -37,12 +37,13 @@ function convertDates() {
         });
     });
 }
-function convertDatesNoTime() {
-    Array.from(document.querySelectorAll('[data-processor="localdate-notime"]')).forEach(function (element) {
+function convertDates() {
+    Array.from(document.querySelectorAll('[data-processor="localdate"]')).forEach(function (element) {
         const value = element.dataset.value;
         element.textContent = DateTime.fromISO(value).toLocaleString({
             month: '2-digit',
             day: '2-digit',
+            year: '2-digit',
         });
     });
 }
@@ -76,6 +77,7 @@ function initializeFileInput() {
 document.onreadystatechange = function () {
     if (document.readyState == "interactive") {
         convertDates();
+        convertDateTimes();
         convertRelativeTime();
         initializeExpander();
         initializeFileInput();

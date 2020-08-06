@@ -1,5 +1,5 @@
 {% if datetime %}
-    <span data-processor="localdate-notime" data-value="{{ datetime|date('Y-m-d\\TH:i:sP', "UTC") }}">
+    <span data-processor="localdate" data-value="{{ datetime|date('Y-m-d\\TH:i:sP', "UTC") }}">
         {{ datetime|date('m/d/y', "UTC") }}
     </span>
 {% endif %}

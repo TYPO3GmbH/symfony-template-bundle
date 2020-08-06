@@ -21,6 +21,7 @@ class DateTimeExtension extends AbstractExtension
         return [
             new TwigFunction('to_datetime', [$this, 'toDateTime']),
             new TwigFunction('localtime', [$this, 'localtime'], ['needs_environment' => true, 'is_safe' => ['html']]),
+            new TwigFunction('localdatetime', [$this, 'localdatetime'], ['needs_environment' => true, 'is_safe' => ['html']]),
             new TwigFunction('localdate', [$this, 'localdate'], ['needs_environment' => true, 'is_safe' => ['html']]),
             new TwigFunction('relativetime', [$this, 'relativetime'], ['needs_environment' => true, 'is_safe' => ['html']]),
         ];
@@ -32,9 +33,18 @@ class DateTimeExtension extends AbstractExtension
         return $datetime;
     }
 
+    /**
+     * @deprecated use localdatetime instead
+     */
     public function localtime(Environment $environment, \DateTimeInterface $datetime = null): string
     {
-        return $environment->render('@Template/extension/datetime/localtime.html.twig', ['datetime' => $datetime]);
+        trigger_deprecation('t3g/symfony-template-bundle', '2.11.2', 'localtime is deprecated, use localdatetime instead');
+        return $this->localdatetime($environment, $datetime);
+    }
+
+    public function localdatetime(Environment $environment, \DateTimeInterface $datetime = null): string
+    {
+        return $environment->render('@Template/extension/datetime/localdatetime.html.twig', ['datetime' => $datetime]);
     }
 
     public function localdate(Environment $environment, \DateTimeInterface $datetime = null): string
