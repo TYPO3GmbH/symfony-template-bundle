@@ -25,11 +25,19 @@ This package is used across various TYPO3 Symfony Applications to ensure a strea
   - [AvatarUtility::getAvatar(string $email, int $size)](#avatarutilitygetavatarstring-email-int-size)
   - [AvatarUtility::getAvatarUrl(string $email, int $size)](#avatarutilitygetavatarurlstring-email-int-size)
 - [Twig Extensions](#twig-extensions)
-  - [`autolink`](#autolink)
-  - [`avatar`](#avatar)
-  - [`markdown`](#markdown)
-  - [`template_function_exist`](#template_function_exist)
-  - [`template_function_call`](#template_function_call)
+  - [AutolinkExtension](#autolinkextension)
+    - [`autolink`](#autolink)
+  - [AvatarExtension](#avatarextension)
+    - [`avatar`](#avatar)
+  - [MarkdownExtension](#markdownextension)
+    - [`markdown`](#markdown)
+  - [TemplateExtension](#templateextension)
+    - [`template_function_exist`](#template_function_exist)
+    - [`template_function_call`](#template_function_call)
+  - [DateTimeExtension](#datetimeextension)
+    - [`to_datetime`](#to_datetime)
+    - [`localtime`](#localtime)
+    - [`relativetime`](#relativetime)
 - [Twig Tags](#twig-tags)
   - [`frame`](#frame)
     - [Usage](#usage)
@@ -379,7 +387,9 @@ echo AvatarUtility::getAvatarUrl('info@typo3.com', 32);
 
 # Twig Extensions
 
-## `autolink`
+## AutolinkExtension
+
+### `autolink`
 
 Twig filter to automaticly convert urls, emails and phone numbers to links.
 
@@ -407,7 +417,9 @@ or
 </p>
 ```
 
-## `avatar`
+## AvatarExtension
+
+### `avatar`
 
 Twig function to display avatars.
 
@@ -418,7 +430,9 @@ Twig function to display avatars.
 <img src="https://...avatar.png" class="avatar" height="32" width="32">
 ```
 
-## `markdown`
+## MarkdownExtension
+
+### `markdown`
 
 Twig function to render markdown as HTML.
 
@@ -426,7 +440,9 @@ Twig function to render markdown as HTML.
 {{ value|markdown }}
 ```
 
-## `template_function_exist`
+## TemplateExtension
+
+### `template_function_exist`
 
 A function to check if a function is available within the current Twig Environment.
 
@@ -436,7 +452,7 @@ A function to check if a function is available within the current Twig Environme
 {% endif %}
 ```
 
-## `template_function_call`
+### `template_function_call`
 
 Twig always checks for all functions with a template, also within a condition.
 This function is a wrapper around the original function call that is only executed
@@ -450,6 +466,31 @@ if the function actually exists.
 {{ encore_entry_link_tags(template.application.assets.encore_entrypoint) }}
 ```
 
+## DateTimeExtension
+
+### `to_datetime`
+
+Converts a unix timestamp to datetime object.
+
+```twig
+{{ to_datetime(timestamp) }}
+```
+
+### `localtime`
+
+Returns a localized string representing this date.
+
+```twig
+{{ localtime(datetimeObject) }}
+```
+
+### `relativetime`
+
+Returns a string representation of a this time relative to now, such as "in two days". Rounds down by default.
+
+```twig
+{{ relativetime(datetimeObject) }}
+```
 
 # Twig Tags
 
