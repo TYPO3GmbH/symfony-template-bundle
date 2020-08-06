@@ -36,7 +36,8 @@ This package is used across various TYPO3 Symfony Applications to ensure a strea
     - [`template_function_call`](#template_function_call)
   - [DateTimeExtension](#datetimeextension)
     - [`to_datetime`](#to_datetime)
-    - [`localtime`](#localtime)
+    - [`localdate`](#localdate)
+    - [`localdatetime`](#localdatetime)
     - [`relativetime`](#relativetime)
 - [Twig Tags](#twig-tags)
   - [`frame`](#frame)
@@ -476,12 +477,21 @@ Converts a unix timestamp to datetime object.
 {{ to_datetime(timestamp) }}
 ```
 
-### `localtime`
+### `localdate`
 
 Returns a localized string representing this date.
 
 ```twig
-{{ localtime(datetimeObject) }}
+{{ localdate(datetimeObject) }}
+```
+
+
+### `localdatetime`
+
+Returns a localized string representing this datetime.
+
+```twig
+{{ localdatetime(datetimeObject) }}
 ```
 
 ### `relativetime`
