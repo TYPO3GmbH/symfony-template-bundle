@@ -21,6 +21,7 @@ class DateTimeExtension extends AbstractExtension
         return [
             new TwigFunction('to_datetime', [$this, 'toDateTime']),
             new TwigFunction('localtime', [$this, 'localtime'], ['needs_environment' => true, 'is_safe' => ['html']]),
+            new TwigFunction('localdate', [$this, 'localdate'], ['needs_environment' => true, 'is_safe' => ['html']]),
             new TwigFunction('relativetime', [$this, 'relativetime'], ['needs_environment' => true, 'is_safe' => ['html']]),
         ];
     }
@@ -34,6 +35,11 @@ class DateTimeExtension extends AbstractExtension
     public function localtime(Environment $environment, \DateTimeInterface $datetime = null): string
     {
         return $environment->render('@Template/extension/datetime/localtime.html.twig', ['datetime' => $datetime]);
+    }
+
+    public function localdate(Environment $environment, \DateTimeInterface $datetime = null): string
+    {
+        return $environment->render('@Template/extension/datetime/localdate.html.twig', ['datetime' => $datetime]);
     }
 
     public function relativetime(Environment $environment, \DateTimeInterface $datetime = null): string
