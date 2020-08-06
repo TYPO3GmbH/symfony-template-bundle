@@ -5,7 +5,7 @@
             elementsWithDatepicker.forEach(function (element) {
                 const options = element.dataset.datepicker ? JSON.parse(element.dataset.datepicker) : {};
                 options.buttonClass = 'btn';
-                options.format = 'yyyy-MM-dd';
+                options.format = 'yyyy-mm-dd';
                 new Datepicker(element, options);
             });
         }).catch(error => 'An error occurred while loading the datepicker component');
