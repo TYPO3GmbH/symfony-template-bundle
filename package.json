@@ -26,6 +26,6 @@
     "dependencies": {
         "choices.js": "^9.0.1",
         "luxon": "^1.24.1",
-        "prismjs": "^1.20.0"
+        "prismjs": "^1.21.0"
     }
 }
