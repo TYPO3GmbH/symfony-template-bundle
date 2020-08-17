@@ -506,18 +506,18 @@ Returns a string representation of a this time relative to now, such as "in two 
 
 ## `frame`
 
-| Option          | Type                                 | Default |
-| --------------- | ------------------------------------ | ------- |
-| id              | string                               |         |
-| size            | small/default                        | default |
-| color           | default/primary/secondary/light/dark | default |
-| indent          | bool                                 | false   |
-| rulerBefore     | bool                                 | false   |
-| rulerAfter      | bool                                 | false   |
-| center          | bool                                 | false   |
-| backgroundImage | string                               |         |
-| height          | auto/small/medium/max                | auto    |
-| innerWidth      | small/medium/large/full/default      | default |
+| Option          | Type                                                            | Default |
+| --------------- | --------------------------------------------------------------- | ------- |
+| id              | string                                                          |         |
+| size            | small/default                                                   | default |
+| color           | default/primary/secondary/tertiary/quaternary/light/dark/white  | default |
+| indent          | bool                                                            | false   |
+| rulerBefore     | bool                                                            | false   |
+| rulerAfter      | bool                                                            | false   |
+| center          | bool                                                            | false   |
+| backgroundImage | string                                                          |         |
+| height          | auto/small/medium/max                                           | auto    |
+| innerWidth      | small/medium/large/full/default                                 | default |
 
 ### Usage
 

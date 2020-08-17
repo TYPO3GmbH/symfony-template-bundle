@@ -26,6 +26,16 @@ $frame-backgrounds: map-merge(
             link-color:                $link-alternate-color,
             link-hover-color:          $link-alternate-hover-color
         ),
+        tertiary: (
+            background:                theme-color('tertiary'),
+            link-color:                $link-alternate-color,
+            link-hover-color:          $link-alternate-hover-color
+        ),
+        quaternary: (
+            background:                theme-color('quaternary'),
+            link-color:                $link-alternate-color,
+            link-hover-color:          $link-alternate-hover-color
+        ),
         white: (
             background:                #ffffff,
             link-color:                $link-color,

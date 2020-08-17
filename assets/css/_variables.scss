@@ -13,8 +13,22 @@ $gray-800:          #363636;
 $gray-900:          #292929;
 $black:             #000000;
 
+$blue:              #268bd9;
+$indigo:            #5D4DB3;
+$purple:            #7F4DB3;
+$pink:              #BF4080;
+$red:               #CC3D33;
+$orange:            #FF8700;
+$yellow:            #FFD500;
+$green:             #6EB34D;
+$teal:              #33CC9E;
+$cyan:              #13ABEC;
+
 $primary:           #ff8700;
 $secondary:         #333333;
+$tertiary:          $blue;
+$quaternary:        $green;
+
 $success:           #5cb85c;
 $info:              #5bc0de;
 $warning:           #f0ad4e;
@@ -23,6 +37,8 @@ $danger:            #d9534f;
 $theme-colors: (
     primary: $primary,
     secondary: $secondary,
+    tertiary: $tertiary,
+    quaternary: $quaternary,
     success: $success,
     info: $info,
     warning: $warning,
@@ -36,11 +52,11 @@ $theme-colors: (
 
 $issue-colors: (
     default: $secondary,
-    bug: $danger,
-    feature: $success,
-    task: $info,
-    epic: #6610f2,
-    story: #ffc107
+    bug: $red,
+    feature: $green,
+    task: $blue,
+    epic: $indigo,
+    story: $yellow
 );
 
 $review-colors: (
