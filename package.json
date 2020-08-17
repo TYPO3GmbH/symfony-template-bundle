@@ -1,9 +1,9 @@
 {
     "devDependencies": {
-        "@fortawesome/fontawesome-free": "^5.13.0",
+        "@fortawesome/fontawesome-free": "^5.14.0",
         "@symfony/webpack-encore": "^0.30.2",
-        "autoprefixer": "^9.7.6",
-        "bootstrap": "^4.5.0",
+        "autoprefixer": "^9.8.6",
+        "bootstrap": "^4.5.2",
         "bootstrap-tagsinput": "^0.7.1",
         "chart.js": "^2.9.3",
         "core-js": "^3.6.5",
@@ -26,6 +26,6 @@
     "dependencies": {
         "choices.js": "^9.0.1",
         "luxon": "^1.24.1",
-        "prismjs": "^1.20.0"
+        "prismjs": "^1.21.0"
     }
 }
