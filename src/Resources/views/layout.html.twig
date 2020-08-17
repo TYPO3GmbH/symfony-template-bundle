@@ -48,7 +48,7 @@
 
         <main class="page-main">
             {% if block('headline') is defined %}
-                {% frame with { color: 'primary', size: 'small'} %}
+                {% frame with { color: headlineBlockBackground ?? 'primary', size: 'small'} %}
                     <h1 class="h4">{{ block('headline')|raw }}</h1>
                 {% endframe %}
             {% endif %}
