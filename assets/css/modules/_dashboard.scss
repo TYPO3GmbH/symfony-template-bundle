@@ -8,6 +8,10 @@ $dashboard-color: #2d2d2d;
 $dashboard-padding: 1rem;
 $dashboard-gutter: 10px;
 
+$dashboard-list-hover-bg: #efefef;
+$dashboard-list-hover-color: color-yiq($dashboard-list-hover-bg);
+$dashboard-list-icon-show: '<svg viewBox="0 0 16 16"><g fill="#{$dashboard-color}"><path d="M10.48 7.64a.506.506 0 0 1 0 .72L6.94 11.9c-.2.2-.5.2-.7 0l-.7-.7c-.2-.2-.2-.5 0-.7L8.04 8l-2.5-2.5c-.2-.2-.2-.5 0-.7l.7-.7c.2-.2.5-.2.7 0l3.54 3.54z"/></g></svg>';
+
 .dashboard {
     display: flex;
     flex-wrap: wrap;
@@ -64,5 +68,65 @@ $dashboard-gutter: 10px;
                 width: calc(100% / #{$grid-columns} * #{$i} - #{$dashboard-gutter});
             }
         }
+    }
+}
+
+//
+// List
+//
+.dashboard-list {
+    margin-left: -$dashboard-padding;
+    margin-right: -$dashboard-padding;
+    margin-bottom: 1rem;
+}
+.dashboard-list-entry {
+    position: relative;
+    display: flex;
+    padding: ($dashboard-padding / 2) $dashboard-padding;
+    padding-right: $dashboard-padding * 2.5;
+    align-items: center;
+    color: inherit;
+    border-top: 1px solid #e0e3e4;
+    line-height: 1.2;
+    &:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        right: .75rem;
+        display: block;
+        height: 16px;
+        width: 16px;
+        transform: translate(0, -50%);
+        background-image: url(svg-inline($dashboard-list-icon-show));
+    }
+    &:nth-child(odd) {
+        background-color: rgba(245, 245, 246, 0.5);
+    }
+    &:hover {
+        text-decoration: none;
+        border-top: 1px solid darken($dashboard-list-hover-bg, 5%);
+        background-color: $dashboard-list-hover-bg;
+        color: $dashboard-list-hover-color;
+    }
+    &:last-child {
+        border-bottom: 1px solid #e0e3e4;
+        &:hover {
+            border-bottom: 1px solid darken($dashboard-list-hover-bg, 5%);
+        }
+    }
+}
+.dashboard-list-entry-icon {
+    margin-right: .5rem;
+}
+.dashboard-list-entry-title {
+    flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.dashboard-list-entry-badge {
+    margin-left: .5rem;
+    .badge {
+        vertical-align: center;
     }
 }
