@@ -1,0 +1,93 @@
+//
+// Guide
+//
+.guide {
+
+}
+.guide-item {
+    position: relative;
+    padding: 2rem 2rem;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    + .guide-item {
+        margin-top: -2px;
+    }
+    &:before {
+        z-index: 1;
+        content: attr(data-number);
+        position: absolute;
+        top: 50%;
+        border-radius: 50%;
+        background-color: #313131;
+        color: #ffffff;
+        height: 3rem;
+        width: 3rem;
+        text-align: center;
+        font-size: 1.5rem;
+        line-height: 3rem;
+    }
+    &:nth-child(odd):before {
+        transform: translate(-50%, -50%);
+        left: 0;
+    }
+    &:nth-child(even):before {
+        transform: translate(50%, -50%);
+        right: 0;
+    }
+    &:after {
+        content: '';
+        z-index: 0;
+        position: absolute;
+        top: 0;
+        border: 2px dashed #313131;
+        height: 100%;
+        width: 50%;
+    }
+    &:nth-child(odd):after {
+        left: 0;
+        border-radius: 1rem 0 0 1rem;
+        border-right: none;
+    }
+    &:nth-child(even):after {
+        right: 0;
+        border-left: none;
+        border-radius: 0 1rem 1rem 0;
+    }
+    &:first-child:after {
+        border-top-left-radius: 0;
+        border-top: none;
+    }
+    &:last-child:after {
+        border-bottom: none;
+    }
+    &:nth-child(odd):last-child:after {
+        border-bottom-left-radius: 0;
+    }
+    &:nth-child(even):last-child:after {
+        border-bottom-right-radius: 0;
+    }
+}
+.guide-item-inner {
+    z-index: 1;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.guide-item:nth-child(even) {
+    .guide-item-inner {
+        flex-direction: row-reverse;
+    }
+}
+.guide-item-content {
+    padding: 0 1rem;
+    width: 50%;
+    min-width: 200px;
+    flex-grow: 1;
+    > *:first-child {
+        margin-top: 1rem;
+    }
+    > *:last-child {
+        margin-bottom: 1rem;
+    }
+}
