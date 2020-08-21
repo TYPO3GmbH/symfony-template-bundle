@@ -1,0 +1,109 @@
+//
+// Pricing
+//
+$pricing-padding: 1.25rem;
+$pricing-border-radius: .5rem;
+
+.pricing-grid {
+    position: relative;
+    display: flex;
+    margin: -10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.pricing-grid-item {
+    position: relative;
+    padding: 10px;
+    width: 250px;
+}
+.pricing {
+    padding: ($pricing-padding * 1.5) $pricing-padding;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    position: relative;
+    border-radius: $pricing-border-radius;
+    background-color: rgba(255, 255, 255, .75);
+    box-shadow: 0 .5rem 1rem rgba($black, 0);
+    transition: box-shadow ease-in-out .2s, background-color ease-in-out .2s;
+    &:hover,
+    &[data-active="true"] {
+        background-color: rgba(255, 255, 255, 1);
+        box-shadow: 0 .5rem 1rem rgba($black, .15);
+    }
+}
+.pricing-image {
+    overflow: hidden;
+    margin: -$pricing-padding;
+    margin-top: -($pricing-padding * 1.5);
+    margin-bottom: ($pricing-padding * 1.5);
+    border-top-left-radius: $pricing-border-radius;
+    border-top-right-radius: $pricing-border-radius;
+}
+.pricing-header {
+    text-align: center;
+    margin-bottom: $pricing-padding;
+}
+.pricing-header-title {
+    font-size: 1.35em;
+    margin-bottom: .25rem;
+}
+.pricing-header-subtitle {
+    font-size: 1.15em;
+    opacity: .5;
+    font-weight: normal;
+    margin-bottom: 0;
+}
+.pricing-content {
+    font-size: 75%;
+    margin-bottom: $pricing-padding;
+    text-align: center;
+    flex-grow: 1;
+    > *:first-child {
+        margin-top: 0;
+    }
+    > *:last-child {
+        margin-bottom: 0;
+    }
+}
+.pricing-items {
+    margin-bottom: $pricing-padding;
+    text-align: center;
+}
+.pricing-item {
+    line-height: 1;
+    small {
+        display: block;
+        margin-top: .25rem;
+        font-size: .75rem;
+    }
+    + .pricing-item {
+        margin-top: .5rem;
+    }
+}
+.pricing-item-main {
+    font-size: 1.75em;
+}
+.pricing-item-secondary {
+    font-size: 1.1em;
+}
+.pricing-footer {
+    text-align: center;
+}
+.pricing-select {
+    display: flex;
+    min-height: 38px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+.pricing-select-button {
+    @extend .btn;
+    @extend .btn-primary;
+    border-radius: 1.25rem;
+}
+.pricing-select-current {
+    line-height: 1.25;
+    display: inline-block;
+    color: theme-color('success');
+}
