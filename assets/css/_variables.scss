@@ -160,6 +160,13 @@ $progress-height:           2rem;
 $progress-border-radius:    4px;
 
 //
+// Select
+// --------------------------------------------------
+$custom-select-bg-size:             16px 16px;
+$custom-select-indicator-color:     $gray-800;
+$custom-select-indicator:           url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 16'><path fill='#{$custom-select-indicator-color}' d='M10.852 9.059L8 11.911 5.166 9.077l-.707.707L8 13.325l3.559-3.559zM11.515 6.19L8 2.675 4.468 6.207l.707.707L8 4.089l2.808 2.808z'/></svg>");
+
+//
 // Choices
 // --------------------------------------------------
 $choices-font-size-lg: $font-size-base;
