@@ -16,6 +16,8 @@
     padding-bottom: 2px;
 }
 .#{$choices-selector}__list--dropdown {
+    z-index: 2;
+    
     .#{$choices-selector}__list {
         max-height: 200px;
     }
