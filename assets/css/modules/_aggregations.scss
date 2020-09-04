@@ -44,7 +44,7 @@ $aggregation-breakpoint: 'lg';
 }
 @include media-breakpoint-up($aggregation-breakpoint) {
     .aggregations-toggle {
-        display: none!important;
+        display: none !important;
     }
     .aggregations {
         display: block;
@@ -57,7 +57,6 @@ $aggregation-breakpoint: 'lg';
     background-color: $aggregation-bg;
     border-radius: $aggregation-border-radius;
     box-shadow: $aggregation-shadow;
-
     > *:first-child {
         margin-top: 0;
     }
@@ -93,7 +92,7 @@ $aggregation-breakpoint: 'lg';
         pointer-events: none;
         display: block;
         content: "";
-        transition: all 0.15s ease-in-out;
+        transition: all .15s ease-in-out;
     }
     &:before {
         top: 50%;

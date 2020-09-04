@@ -7,7 +7,6 @@ $listbox-border-radius: 2px;
 $listbox-color: color-yiq($card-bg);
 $listbox-margin: $spacer;
 $listbox-padding: 1rem;
-
 .listbox {
     border-radius: $listbox-border-radius;
     color: $listbox-color;
@@ -43,7 +42,7 @@ $listbox-padding: 1rem;
     text-overflow: ellipsis;
 }
 .listbox-header-count {
-    opacity: 0.5;
+    opacity: .5;
     flex-shrink: 0;
     margin-left: .25rem;
 }

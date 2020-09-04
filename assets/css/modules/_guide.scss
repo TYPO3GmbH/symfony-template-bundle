@@ -1,12 +1,9 @@
 //
 // Guide
 //
-.guide {
-
-}
 .guide-item {
     position: relative;
-    padding: 2rem 2rem;
+    padding: 2rem;
     margin-left: 1.5rem;
     margin-right: 1.5rem;
     + .guide-item {

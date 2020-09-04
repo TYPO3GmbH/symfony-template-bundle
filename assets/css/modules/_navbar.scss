@@ -51,7 +51,7 @@ $navbar-heights: (
         align-items: center;
         display: flex;
         .btn {
-            margin-left: 0.55rem;
+            margin-left: .55rem;
         }
     }
     .dropdown-menu {
@@ -81,7 +81,7 @@ $navbar-heights: (
 .navbar-mainnavigation {
     padding-top: 0;
     padding-bottom: 0;
-    box-shadow: 0 1px 0 0 rgba(0,0,0,.15);
+    box-shadow: 0 1px 0 0 rgba(0, 0, 0, .15);
 }
 .navbar-collapse {
     padding-bottom: 1.25rem;
@@ -96,7 +96,6 @@ $navbar-heights: (
     display: inline-block;
     vertical-align: middle;
 }
-
 .nav-item-image {
     img {
         display: block;
@@ -104,7 +103,7 @@ $navbar-heights: (
 }
 .nav-item-icon + .nav-item-label,
 .nav-item-image + .nav-item-label {
-    margin-left: 0.25rem;
+    margin-left: .25rem;
 }
 
 //

@@ -6,7 +6,8 @@
     font-display: swap;
     src: url('../fonts/source-sans-pro-v13-latin-regular.eot');
     src:
-        local('Source Sans Pro Regular'), local('SourceSansPro-Regular'),
+        local('Source Sans Pro Regular'),
+        local('SourceSansPro-Regular'),
         url('../fonts/source-sans-pro-v13-latin-regular.eot?#iefix') format('embedded-opentype'),
         url('../fonts/source-sans-pro-v13-latin-regular.woff2') format('woff2'),
         url('../fonts/source-sans-pro-v13-latin-regular.woff') format('woff'),
@@ -22,7 +23,8 @@
     font-display: swap;
     src: url('../fonts/source-sans-pro-v13-latin-600.eot');
     src:
-        local('Source Sans Pro SemiBold'), local('SourceSansPro-SemiBold'),
+        local('Source Sans Pro SemiBold'),
+        local('SourceSansPro-SemiBold'),
         url('../fonts/source-sans-pro-v13-latin-600.eot?#iefix') format('embedded-opentype'),
         url('../fonts/source-sans-pro-v13-latin-600.woff2') format('woff2'),
         url('../fonts/source-sans-pro-v13-latin-600.woff') format('woff'),
@@ -38,7 +40,8 @@
     font-display: swap;
     src: url('../fonts/source-code-pro-v11-latin-regular.eot');
     src:
-        local('Source Code Pro Regular'), local('SourceCodePro-Regular'),
+        local('Source Code Pro Regular'),
+        local('SourceCodePro-Regular'),
         url('../fonts/source-code-pro-v11-latin-regular.eot?#iefix') format('embedded-opentype'),
         url('../fonts/source-code-pro-v11-latin-regular.woff2') format('woff2'),
         url('../fonts/source-code-pro-v11-latin-regular.woff') format('woff'),
@@ -54,10 +57,11 @@
     font-display: swap;
     src: url('../fonts/source-code-pro-v11-latin-600.eot');
     src:
-        local('Source Code Pro SemiBold'), local('SourceCodePro-SemiBold'),
+        local('Source Code Pro SemiBold'),
+        local('SourceCodePro-SemiBold'),
         url('../fonts/source-code-pro-v11-latin-600.eot?#iefix') format('embedded-opentype'),
         url('../fonts/source-code-pro-v11-latin-600.woff2') format('woff2'),
         url('../fonts/source-code-pro-v11-latin-600.woff') format('woff'),
         url('../fonts/source-code-pro-v11-latin-600.ttf') format('truetype'),
         url('../fonts/source-code-pro-v11-latin-600.svg#SourceCodePro') format('svg');
-  }
+}
