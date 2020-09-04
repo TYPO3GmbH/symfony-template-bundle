@@ -279,8 +279,7 @@ $card-link-hover-color: $link-hover-color !default;
 //
 .card-grid {
     display: grid;
-    grid-column-gap: $card-deck-margin;
-    grid-row-gap: $card-deck-margin;
+    grid-gap: $card-deck-margin;
     grid-template-columns: 1fr;
     margin-left: 0;
     margin-right: 0;
