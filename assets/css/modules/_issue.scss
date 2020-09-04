@@ -8,7 +8,6 @@ $issue-color: color-yiq($issue-bg);
 $issue-padding: 1rem;
 $issue-margin: $spacer;
 $issue-type-width: 1.25rem;
-
 .issue {
     position: relative;
     padding-left: $issue-type-width;
@@ -30,7 +29,7 @@ $issue-type-width: 1.25rem;
     display: block;
     text-transform: uppercase;
     line-height: $issue-type-width;
-    font-size: 0.875rem;
+    font-size: .875rem;
 }
 @each $color, $value in $issue-colors {
     .issue-type-#{$color} {
@@ -63,19 +62,19 @@ $issue-type-width: 1.25rem;
 .issue-headline {
     word-break: break-word;
     > a {
-        color: $issue-color!important;
+        color: $issue-color !important;
     }
 }
 .issue-id {
-    color: theme-color('primary')!important;
+    color: theme-color('primary') !important;
 }
 .issue-title {
-    color: $issue-color!important;
+    color: $issue-color !important;
 }
 
 // Data
 .issue-data {
-    border-top: 1px dashed rgba(0,0,0,.15);
+    border-top: 1px dashed rgba(0, 0, 0, .15);
     font-size: $font-size-sm;
     line-height: 1.2;
     display: flex;
@@ -103,13 +102,13 @@ $issue-type-width: 1.25rem;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    font-size: 0.875rem;
+    font-size: .875rem;
     line-height: 1.25;
-    margin-top: 0!important;
+    margin-top: 0 !important;
     background-color: darken($issue-bg, 2.5%);
 }
 .issue-meta-group {
-    margin: 0.25rem 0;
+    margin: .25rem 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -134,7 +133,7 @@ $issue-type-width: 1.25rem;
 }
 .issue-meta-item-icon,
 .issue-meta-item-avatar {
-    margin-right: 0.5rem;
+    margin-right: .5rem;
 }
 .issue-meta-item-body {
     display: inline-flex;

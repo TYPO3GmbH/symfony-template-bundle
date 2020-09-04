@@ -11,7 +11,7 @@
 .header-headline {
     font-size: 1.5rem;
     line-height: 1.2em;
-    margin-bottom: 0.25rem;
+    margin-bottom: .25rem;
     a {
         color: inherit;
     }
@@ -24,7 +24,7 @@
     .btn {
         text-align: left;
         display: block;
-        margin-top: 0.5rem;
+        margin-top: .5rem;
         @media (min-width: 350px) {
             display: inline-block;
         }

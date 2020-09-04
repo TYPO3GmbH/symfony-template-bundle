@@ -2,25 +2,24 @@
 // Datatable
 //
 $table-highlight: theme-color("primary");
-$table-text: #333;
+$table-text: #333333;
 $table-link-highlight: $link-color;
 $table-row-hover-bg: #efefef;
 $table-row-hover-color: color-yiq($table-row-hover-bg);
 $table-padding: 1em;
 $table-padding-x: $table-padding;
-$table-padding-y: $table-padding * 0.75;
+$table-padding-y: $table-padding * .75;
 $table-cell-padding: $table-padding-y $table-padding-x;
 
 $table-sorting-icon-size: 1em;
 $table-sorting-icon-none: '<svg viewBox="0 0 16 16"><g fill="#{$table-text}"><path d="M7 2h1v12H7z"/><path d="M9 12l-1.5 2L6 12H5l2.3 3c.1.1.3.1.4 0l2.3-3H9zM6 4l1.5-2L9 4h1L7.7 1c-.1-.1-.3-.1-.4 0L5 4h1z"/></g></svg>';
 $table-sorting-icon-ascending: '<svg viewBox="0 0 16 16"><g fill="#{$table-highlight}"><path d="M4 2h1v12H4z"/><path d="M6 12l-1.5 2L3 12H2l2.3 3c.1.1.3.1.4 0L7 12H6zM9 5h5V4H8v2h1zM9 8h3V7H8v2h1zM9 11h1v-1H8v2h1z"/></g></svg>';
 $table-sorting-icon-descending: '<svg viewBox="0 0 16 16"><g fill="#{$table-highlight}"><path d="M4 2h1v12H4z"/><path d="M3 4l1.5-2L6 4h1L4.7 1c-.1-.1-.3-.1-.4 0L2 4h1zM9 5h5V4H8v2h1zM9 8h3V7H8v2h1zM9 11h1v-1H8v2h1z"/></g></svg>';
-
 .datatable {
     overflow-x: auto;
     color: $table-text;
     max-width: 100%;
-    background: linear-gradient(to right, white 30%, rgba(255, 255, 255, 0)), linear-gradient(to right, rgba(255, 255, 255, 0), white 70%) 0 100%, radial-gradient(farthest-side at 0% 50%, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0)), radial-gradient(farthest-side at 100% 50%, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0)) 0 100%;
+    background: linear-gradient(to right, white 30%, rgba(255, 255, 255, 0)), linear-gradient(to right, rgba(255, 255, 255, 0), white 70%) 0 100%, radial-gradient(farthest-side at 0% 50%, rgba(0, 0, 0, .2), rgba(0, 0, 0, 0)), radial-gradient(farthest-side at 100% 50%, rgba(0, 0, 0, .2), rgba(0, 0, 0, 0)) 0 100%;
     background-repeat: no-repeat;
     background-color: white;
     background-size: 40px 100%, 40px 100%, 14px 100%, 14px 100%;
@@ -28,11 +27,9 @@ $table-sorting-icon-descending: '<svg viewBox="0 0 16 16"><g fill="#{$table-high
     background-attachment: local, local, scroll, scroll;
     margin-bottom: $spacer;
 }
-
 .datatable-table {
     min-width: 100%;
     border-collapse: collapse;
-
     th,
     td {
         &:first-child {
@@ -45,7 +42,6 @@ $table-sorting-icon-descending: '<svg viewBox="0 0 16 16"><g fill="#{$table-high
         white-space: nowrap;
         line-height: 1.2rem;
     }
-
     a:not(.datatable-action) {
         color: inherit;
         border-bottom: 1px solid $link-color;
@@ -54,12 +50,10 @@ $table-sorting-icon-descending: '<svg viewBox="0 0 16 16"><g fill="#{$table-high
             text-decoration: none;
         }
     }
-
     a.datatable-link-highlight {
         border-bottom: 0;
         color: $table-link-highlight;
     }
-
     tbody {
         th,
         td {
@@ -67,11 +61,11 @@ $table-sorting-icon-descending: '<svg viewBox="0 0 16 16"><g fill="#{$table-high
         }
         th {
             font-weight: normal;
-            background-color: rgba(0, 0, 0, 0.025);
+            background-color: rgba(0, 0, 0, .025);
         }
         tr {
             &:nth-child(odd) {
-                background-color: rgba(245, 245, 246, 0.5);
+                background-color: rgba(245, 245, 246, .5);
             }
             &:hover {
                 background-color: $table-row-hover-bg;
@@ -105,45 +99,36 @@ $table-sorting-icon-descending: '<svg viewBox="0 0 16 16"><g fill="#{$table-high
             }
         }
     }
-
     [data-type="uid"] {
         padding-right: 0 !important;
     }
-
     [data-type="icon"] {
         font-size: 1.25em;
         width: 1.25em + $table-padding;
         padding-right: 0 !important;
-
         a {
             border-bottom: none;
         }
     }
-
     [data-type="title"] {
         overflow: hidden;
         text-overflow: ellipsis;
         max-width: 300px;
     }
-
     [data-type="icon"] + [data-type="title"] {
         padding-left: $table-padding / 2;
     }
-
     [data-type="title"] + [data-type="badge"] {
         padding-left: 0;
     }
-
     [data-type="fill"] {
         width: 100%;
     }
-
     [data-type="number"],
     [data-type="actions"] {
         text-align: right;
     }
 }
-
 .datatable-table-compact {
     font-size: $font-size-sm;
     th,
@@ -156,13 +141,11 @@ $table-sorting-icon-descending: '<svg viewBox="0 0 16 16"><g fill="#{$table-high
         }
     }
 }
-
 .datatable-caption {
     caption-side: top;
     padding: $table-cell-padding;
     color: inherit;
 }
-
 .datatable-sorting {
     display: inline-block;
     position: relative;
@@ -174,44 +157,37 @@ $table-sorting-icon-descending: '<svg viewBox="0 0 16 16"><g fill="#{$table-high
     height: 1.5rem;
     width: 1.5rem;
     vertical-align: middle;
-    margin-left: 0.25rem;
-    border: none!important;
+    margin-left: .25rem;
+    border: none !important;
 }
-
 .datatable-sorting-icon {
     display: inline-block;
     vertical-align: middle;
     height: $table-sorting-icon-size;
     width: $table-sorting-icon-size;
 }
-
 .sortable {
     .datatable-sorting-icon {
         background-image: url(svg-inline($table-sorting-icon-none));
     }
 }
-
 .asc {
     .datatable-sorting-icon {
         background-image: url(svg-inline($table-sorting-icon-ascending));
     }
 }
-
 .desc {
     .datatable-sorting-icon {
         background-image: url(svg-inline($table-sorting-icon-descending));
     }
 }
-
 .datatable-text {
     line-height: 1.5;
     vertical-align: center;
-
     & + & {
-        margin-left: 0.25rem;
+        margin-left: .25rem;
     }
 }
-
 .datatable-action {
     display: inline-block;
     position: relative;
@@ -220,46 +196,37 @@ $table-sorting-icon-descending: '<svg viewBox="0 0 16 16"><g fill="#{$table-high
     padding: 5px 7px;
     border-radius: 2px;
     box-shadow: $box-shadow-sm;
-
     &:hover,
     &:focus {
         text-decoration: none;
     }
-
     &:focus {
         outline: 0;
     }
-
     &:disabled {
         opacity: .5;
         pointer-events: none;
     }
 }
-
 .datatable-action {
     background-color: theme-color('default');
     color: color-yiq(theme-color('default'));
-
     &:focus {
         box-shadow: 0 0 0 2px rgba(color-yiq(theme-color('default')), .5);
     }
-
     &:hover,
     &:focus {
         background-color: darken(theme-color('default'), 7.5%);
         color: color-yiq(theme-color('default'));
     }
 }
-
 @each $color, $value in $theme-colors {
     &.datatable-action-#{$color} {
         background-color: theme-color($color);
         color: color-yiq(theme-color($color));
-
         &:focus {
             box-shadow: 0 0 0 2px rgba(theme-color($color), .5);
         }
-
         &:hover,
         &:focus {
             background-color: darken(theme-color($color), 7.5%);
@@ -267,7 +234,6 @@ $table-sorting-icon-descending: '<svg viewBox="0 0 16 16"><g fill="#{$table-high
         }
     }
 }
-
 .datatable-visually-hidden {
     position: absolute !important;
     clip: rect(1px, 1px, 1px, 1px) !important;

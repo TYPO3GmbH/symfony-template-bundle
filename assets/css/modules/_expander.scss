@@ -10,7 +10,7 @@
 }
 .expander-checkbox:checked {
     ~ .expander-content {
-        height: auto!important;
+        height: auto !important;
         &:after {
             display: none;
         }
@@ -32,11 +32,12 @@
         display: block;
         content: '';
         height: 2rem;
-        background: linear-gradient(
-            to bottom,
-            rgba(255,255,255,0) 0%,
-            rgba(255,255,255,1) 100%
-        );
+        background:
+            linear-gradient(
+                to bottom,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 1) 100%
+            );
     }
 }
 .expander-content-inner {
@@ -49,7 +50,7 @@
 }
 .expander-toggle {
     order: 2;
-    margin-top: 0.5rem;
+    margin-top: .5rem;
     margin-bottom: 0;
     text-decoration: underline;
     cursor: pointer;

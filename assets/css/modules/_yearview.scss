@@ -8,7 +8,7 @@
 }
 .yearview-headline {
     font-size: 1.125rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: .5rem;
 }
 .yearview-year {
     display: grid;
@@ -45,8 +45,7 @@
     }
     @include media-breakpoint-up('xl') {
         grid-template-columns: repeat(12, minmax(0, 1fr));
-        grid-template-areas:
-            "jan feb mar apr may jun jul aug sep oct nov dec";
+        grid-template-areas: "jan feb mar apr may jun jul aug sep oct nov dec";
     }
 }
 .yearview-month {

@@ -3,11 +3,11 @@
 //
 .message {
     padding: 1.25rem 1.5rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: .5rem;
     border-left: 6px solid;
     display: flex;
     &:hover {
-        background-color: rgba(0,0,0,.05);
+        background-color: rgba(0, 0, 0, .05);
     }
 }
 @each $color, $value in $theme-colors {
@@ -34,12 +34,11 @@
     font-size: $small-font-size;
 }
 .message-detail-item {
-    margin-top: 0.15rem;
+    margin-top: .15rem;
     &:first-child {
-        margin-top: 0.5rem;
+        margin-top: .5rem;
     }
 }
-    
 .message-detail-key {
     &:after {
         content: ':';

@@ -7,7 +7,7 @@
 .form-buttons {
     margin-top: $spacer * 2.5;
     .btn + .btn {
-        margin-left: 0.25rem;
+        margin-left: .25rem;
     }
 }
 .form-buttons-text {
@@ -21,7 +21,7 @@
 //
 [data-formtype="collection"] {
     > .form-group {
-        border: 1px solid rgba(0,0,0,0.15);
+        border: 1px solid rgba(0, 0, 0, .15);
         padding: 1.5em;
         legend {
             width: auto;
@@ -59,7 +59,7 @@
 }
 .custom-control-label-count {
     flex-shrink: 0;
-    margin-left: 1rem
+    margin-left: 1rem;
 }
 
 // Forms in Cards

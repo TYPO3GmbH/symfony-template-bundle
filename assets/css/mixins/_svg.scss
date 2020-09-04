@@ -1,7 +1,7 @@
 //
 // SVG
 //
-@function svg-inline($string){
+@function svg-inline($string) {
     $result: $string;
     $result: str-replace($result, "<svg", "<svg xmlns='http://www.w3.org/2000/svg'");
     $result: str-replace($result, '%', '%25');

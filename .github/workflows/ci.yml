@@ -36,20 +36,11 @@ jobs:
         path: vendor
         key: ${{ matrix.php }}-composer-${{ matrix.symfony }}
 
-    - name: Cache yarn dependencies
-      uses: actions/cache@v1
-      with:
-        path: node_modules
-        key: yarn-${{ hashFiles('yarn.lock') }}
-
     - name: Install
       run: |
         sed -ri 's/"symfony\/framework-bundle": "(.+)"/"symfony\/framework-bundle": "'${{ matrix.symfony }}'"/' composer.json;
         composer update --prefer-dist --no-progress
         composer info
-
-    - name: Build Frontend
-      run: yarn install && yarn build
 
     - name: Lint
       run: composer t3g:test:php:lint
@@ -59,3 +50,18 @@ jobs:
 
     - name: Unit Tests
       run: composer t3g:test:php:unit
+
+    - name: Cache yarn dependencies
+      uses: actions/cache@v1
+      with:
+        path: node_modules
+        key: yarn-${{ hashFiles('yarn.lock') }}
+
+    - name: Frontend Install
+      run: yarn install
+
+    - name: Frontend Build
+      run: yarn build
+
+    - name: Frontend Stylelint
+      run: yarn stylelint

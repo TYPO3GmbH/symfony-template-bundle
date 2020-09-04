@@ -5,11 +5,10 @@
 .#{$choices-selector}__inner {
     padding: 2px 8px;
     min-height: 38px;
-
     .is-focused &,
     .is-open & {
         border-color: #ffc380;
-        box-shadow: 0 0 0 0.2rem rgba(255,135,0,.25);
+        box-shadow: 0 0 0 .2rem rgba(255, 135, 0, .25);
     }
 }
 .#{$choices-selector}[data-type*=select-one] .#{$choices-selector}__inner {
@@ -17,7 +16,7 @@
 }
 .#{$choices-selector}__list--dropdown {
     z-index: 2;
-    
+
     .#{$choices-selector}__list {
         max-height: 200px;
     }

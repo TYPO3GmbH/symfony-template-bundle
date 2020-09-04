@@ -41,8 +41,6 @@
         padding-bottom: ($spacer * 8);
     }
 }
-
-
 .content-section-collapsible {
     margin-top: -($spacer * 2);
     @include media-breakpoint-up(sm) {
@@ -86,8 +84,6 @@
 @each $color, $value in $theme-colors {
     @include make-section-collapsible($color);
 }
-
-
 .content-section-none {
     padding: 0;
 }
