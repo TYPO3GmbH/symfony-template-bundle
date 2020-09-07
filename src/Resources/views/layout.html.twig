@@ -56,7 +56,6 @@
                 {% block header %}{% endblock %}
             {% endif %}
 
-            {# flash messages on this page are NOT escaped !#}
             {% if app.request.hasPreviousSession %}
                 <div class="alert-pagegroup-container">
                     <div class="alert-pagegroup">
@@ -79,7 +78,7 @@
                                                     <i class="fas fa-info"></i>
                                                 {% endif %}
                                             </div>
-                                            <div class="alert-message">{{ flashMassage | raw }}</div>
+                                            <div class="alert-message">{{ flashMassage }}</div>
                                         </div>
                                     </div>
                                 {% endfor %}
