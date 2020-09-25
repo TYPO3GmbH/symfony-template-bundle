@@ -1,6 +1,13 @@
 //
 // Form
 //
+label {
+    &.required:after {
+        content: ' *';
+        opacity: 0.5;
+    }
+}
+
 .form-headline {
     margin-bottom: $spacer * 1.5;
 }
