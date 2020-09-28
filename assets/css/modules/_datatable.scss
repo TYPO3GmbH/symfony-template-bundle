@@ -188,7 +188,9 @@ $table-sorting-icon-descending: '<svg viewBox="0 0 16 16"><g fill="#{$table-high
     }
 }
 .datatable-action {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: .35em;
     position: relative;
     overflow: hidden;
     vertical-align: middle;
@@ -232,6 +234,9 @@ $table-sorting-icon-descending: '<svg viewBox="0 0 16 16"><g fill="#{$table-high
             color: color-yiq(theme-color($color));
         }
     }
+}
+.datatable-action-icon {
+    display: inline-flex;
 }
 .datatable-visually-hidden {
     position: absolute !important;
