@@ -27,7 +27,7 @@
                     <a class="navbar-brand" href="{{ path(template.application.routes.home) }}">
                         {% if template.application.theme.use_logo %}
                             <span class="navbar-brand-image">
-                                <img src="{{ asset('bundles/template/images/logo.svg') }}" width="100" height="26" alt="TYPO3 Logo">
+                                <img src="{{ asset('bundles/template/images/logo.svg', 'template') }}" width="100" height="26" alt="TYPO3 Logo">
                             </span>
                         {% else %}
                             <span class="navbar-brand-text">
