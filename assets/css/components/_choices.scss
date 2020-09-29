@@ -2,6 +2,9 @@
 @import '../../../node_modules/choices.js/src/styles/choices.scss';
 
 // Adjustments
+.#{$choices-selector} {
+    margin-bottom: 0;
+}
 .#{$choices-selector}__inner {
     padding: 2px 8px;
     min-height: 38px;
