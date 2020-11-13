@@ -189,6 +189,12 @@ class MenuBuilder extends TemplateMenuBuider
 Available methods to override `mainDefault`, `mainProfile` and `mainFooter`.
 
 
+### Dividing Menus
+
+```php
+$menu->addChild($this->getDivider());
+```
+
 # Page Template
 
 Extend Default Layout

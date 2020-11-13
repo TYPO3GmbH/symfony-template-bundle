@@ -2,7 +2,7 @@
   "entrypoints": {
     "app": {
       "css": [
-        "/bundles/template/app.db05e1b1.css"
+        "/bundles/template/app.4b0b186d.css"
       ],
       "js": [
         "/bundles/template/app.a2e3ee13.js"

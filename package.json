@@ -16,9 +16,9 @@
     },
     "license": "UNLICENSED",
     "browserslist": [
-        "last 2 versions",
-        "ios >= 8"
-    ],
+      "last 2 versions",
+      "ios >= 8"
+  ],
     "private": true,
     "scripts": {
         "build": "encore production --progress",

@@ -11,6 +11,7 @@ declare(strict_types=1);
 namespace T3G\Bundle\TemplateBundle\Menu;
 
 use Knp\Menu\FactoryInterface;
+use Knp\Menu\ItemInterface;
 use Knp\Menu\Matcher\MatcherInterface;
 use Knp\Menu\MenuFactory;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -133,5 +134,10 @@ class MenuBuilder
             );
         }
         return $menu;
+    }
+
+    public function getDivider(): ItemInterface
+    {
+        return new DividerItem($this->factory);
     }
 }
