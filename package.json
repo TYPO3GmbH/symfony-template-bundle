@@ -16,15 +16,16 @@
     },
     "license": "UNLICENSED",
     "browserslist": [
-      "last 2 versions",
-      "ios >= 8"
-  ],
+        "last 2 versions",
+        "ios >= 8"
+    ],
     "private": true,
     "scripts": {
         "build": "encore production --progress",
         "stylelint": "stylelint assets/css/*"
     },
     "dependencies": {
+        "@typo3/icons": "^2.0.4",
         "choices.js": "^9.0.1",
         "luxon": "^1.25.0",
         "prismjs": "^1.22.0",

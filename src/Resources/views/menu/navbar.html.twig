@@ -167,10 +167,15 @@
 {# icon #}
 {% block icon %}
     {% if item.getExtra('icon') %}
-        {% if item.getExtra('fab') %}
-            <span class="nav-item-icon"><i class="fab fa-{{ item.getExtra('icon') }}"></i></span>
+        {% set iconCategory = item.getExtra('icon')|split('-') %}
+        {% if iconCategory[0] in ['actions', 'apps', 'avatar', 'content', 'default', 'files', 'form', 'information', 'install', 'mimetypes', 'miscellaneous', 'module', 'modulegroup', 'overlay', 'spinner', 'status'] %}
+            {{ icon(item.getExtra('icon')) }}
         {% else %}
-            <span class="nav-item-icon"><i class="fa fa-{{ item.getExtra('icon') }}"></i></span>
+            {% if item.getExtra('fab') %}
+                <span class="nav-item-icon"><i class="fab fa-{{ item.getExtra('icon') }}"></i></span>
+            {% else %}
+                <span class="nav-item-icon"><i class="fa fa-{{ item.getExtra('icon') }}"></i></span>
+            {% endif %}
         {% endif %}
     {% endif %}
 {% endblock %}

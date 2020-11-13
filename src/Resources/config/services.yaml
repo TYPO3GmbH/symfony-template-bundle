@@ -27,6 +27,10 @@ services:
     tags:
       - name: twig.extension
 
+  T3G\Bundle\TemplateBundle\Twig\Extension\IconExtension:
+    tags:
+      - name: twig.extension
+
   T3G\Bundle\TemplateBundle\Twig\Extension\MarkdownExtension:
     tags:
       - name: twig.extension

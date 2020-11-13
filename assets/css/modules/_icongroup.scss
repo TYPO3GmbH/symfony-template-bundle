@@ -6,7 +6,7 @@
 // Variables
 //
 $icongroup-margin: ($grid-gutter-width / 2) !default;
-$icongroup-icon-size: 40px !default;
+$icongroup-icon-size: 32px !default;
 $icongroup-item-width: 50% !default;
 
 //
@@ -34,6 +34,9 @@ $icongroup-item-width: 50% !default;
     .icongroup-item {
         align-items: flex-start;
     }
+    .icongroup-item-icon {
+        margin-top: -($icongroup-icon-size / 8);
+    }
 }
 .icongroup-iconposition-left-center {
     .icongroup-item {
@@ -45,7 +48,7 @@ $icongroup-item-width: 50% !default;
         align-items: flex-start;
     }
     .icongroup-item-icon {
-        margin-left: $icongroup-margin;
+        margin-left: 1rem;
         margin-right: 0;
         order: 1;
     }
@@ -55,7 +58,7 @@ $icongroup-item-width: 50% !default;
         align-items: center;
     }
     .icongroup-item-icon {
-        margin-left: $icongroup-margin;
+        margin-left: 1rem;
         margin-right: 0;
         order: 1;
     }
@@ -66,7 +69,7 @@ $icongroup-item-width: 50% !default;
         flex-wrap: wrap;
     }
     .icongroup-item-text {
-        margin-top: $icongroup-margin;
+        margin-top: 1rem;
         width: 100%;
     }
     .icongroup-item-icon {
@@ -76,7 +79,7 @@ $icongroup-item-width: 50% !default;
 }
 .icongroup-iconposition-below {
     .icongroup-item-text {
-        margin-bottom: $icongroup-margin;
+        margin-bottom: 1rem;
     }
     .icongroup-item-icon {
         order: 1;
@@ -95,15 +98,10 @@ $icongroup-item-width: 50% !default;
     color: theme-color("primary");
     flex-shrink: 0;
     width: $icongroup-icon-size;
-    margin-right: $icongroup-margin;
+    margin-right: 1rem;
     span {
         font-size: $icongroup-icon-size;
         line-height: 1em;
-    }
-    svg {
-        display: block;
-        width: 100%;
-        height: auto;
     }
 }
 .icongroup-item-text {

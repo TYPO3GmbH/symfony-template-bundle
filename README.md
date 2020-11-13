@@ -29,6 +29,8 @@ This package is used across various TYPO3 Symfony Applications to ensure a strea
     - [`autolink`](#autolink)
   - [AvatarExtension](#avatarextension)
     - [`avatar`](#avatar)
+  - [IconExtension](#iconextension)
+    - [`icon`](#icon)
   - [MarkdownExtension](#markdownextension)
     - [`markdown`](#markdown)
   - [TemplateExtension](#templateextension)
@@ -435,6 +437,23 @@ Twig function to display avatars.
 ```
 ```html
 <img src="https://...avatar.png" class="avatar" height="32" width="32">
+```
+
+## IconExtension
+
+### `icon`
+
+Twig function to display typo3 icons.
+
+```twig
+{{ icon('actions-heart', 'auto') }}
+```
+```html
+<span class="icon icon-size-auto icon-state-default">
+    <span class="icon-markup">
+        <svg role="img" class="icon-color"><use xlink:href="/bundles/template/icons/sprites/actions.svg#actions-heart"></use></svg>
+    </span>
+</span>
 ```
 
 ## MarkdownExtension
