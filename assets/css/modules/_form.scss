@@ -67,6 +67,10 @@ label {
     flex-shrink: 0;
     margin-left: 1rem;
 }
+.checkbox-custom.custom-control-label.required:after {
+    position: static;
+    display: inline;
+}
 
 // Forms in Cards
 .card-body {
