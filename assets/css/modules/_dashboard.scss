@@ -126,6 +126,53 @@ $dashboard-list-icon-show: '<svg viewBox="0 0 16 16"><g fill="#{$dashboard-color
 .dashboard-list-entry-badge {
     margin-left: .5rem;
     .badge {
-        vertical-align: center;
+        vertical-align: middle;
     }
+}
+
+//
+// Dashboard Actions
+//
+.dashboard-actions {
+    margin-left: -$dashboard-padding;
+    margin-right: -$dashboard-padding;
+    margin-bottom: 1rem;
+}
+.dashboard-actions-entry {
+    position: relative;
+    display: flex;
+    padding: $dashboard-padding;
+    align-items: center;
+    color: inherit;
+    line-height: 1.2;
+    &:nth-child(odd) {
+        background-color: rgba(245, 245, 246, .5);
+    }
+    &:hover {
+        text-decoration: none;
+        color: $dashboard-list-hover-color;
+    }
+}
+.dashboard-actions-entry-icon {
+    margin-right: 1rem;
+}
+.dashboard-actions-entry-content {
+    flex-grow: 1;
+    > *:first-child {
+        margin-top: 0;
+    }
+    > *:last-child {
+        margin-bottom: 0;
+    }
+}
+.dashboard-actions-entry-content-section {
+    margin: .75rem 0;
+}
+.dashboard-actions-entry-title {
+    font-size: 1rem;
+    margin-bottom: 0;
+}
+.dashboard-actions-entry-subtitle {
+    font-size: .85rem;
+    margin-bottom: 0;
 }
