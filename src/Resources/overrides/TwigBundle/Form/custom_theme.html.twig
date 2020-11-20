@@ -1,5 +1,20 @@
 {% use "bootstrap_4_layout.html.twig" %}
 
+{% block linkbutton_widget -%}
+    {%- if label is empty -%}
+        {%- if label_format is not empty -%}
+            {% set label = label_format|replace({
+                '%name%': name,
+                '%id%': id,
+            }) %}
+        {%- elseif label is not same as(false) -%}
+            {% set label = name|humanize %}
+        {%- endif -%}
+    {%- endif -%}
+    {%- set attr = attr|merge({class: (attr.class|default('btn-secondary') ~ ' btn')|trim}) -%}
+    <a href="{{ url }}" {{ block('button_attributes') }}>{{ translation_domain is same as(false) or label is same as(false) ? label : label|trans(label_translation_parameters, translation_domain) }}</a>
+{%- endblock linkbutton_widget %}
+
 {%- block collection_widget -%}
     {%- set attr = attr|merge({'data-formtype': 'collection' }) -%}
     {% if prototype is defined and not prototype.rendered %}
