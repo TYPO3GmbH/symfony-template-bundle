@@ -137,6 +137,18 @@ $navbar-heights: (
             background-color: rgba(0, 0, 0, .15);
         }
     }
+    .navbar-nav:first-child:not(:last-child) {
+        .nav-item {
+            @include media-breakpoint-up(lg) {
+                border-bottom: 5px solid transparent;
+                border-top: 5px solid transparent;
+                &:hover,
+                &.active {
+                    border-bottom-color: $primary;
+                }
+            }
+        }
+    }
 }
 .navbar-collapse {
     padding-bottom: 1.25rem;
