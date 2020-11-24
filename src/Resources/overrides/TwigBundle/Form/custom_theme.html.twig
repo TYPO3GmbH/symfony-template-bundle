@@ -80,7 +80,7 @@
         <label{% with { attr: label_attr } %}{{ block('attributes') }}{% endwith %}>
             {{- label is not same as(false) ? (translation_domain is same as(false) ? label : label|trans(label_translation_parameters, translation_domain)) -}}
             {{- form_errors(form) -}}
-            {% if required %}
+            {% if required and not ('form-check-label' in label_attr.class) %}
                 <span class="asterisk">*</span>
             {% endif %}
         </label>

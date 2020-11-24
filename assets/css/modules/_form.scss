@@ -1,7 +1,8 @@
 //
 // Form
 //
-label {
+label,
+.col-form-label {
     &.required:after {
         content: ' *';
         opacity: .5;
@@ -20,6 +21,19 @@ label {
     display: inline-block;
     vertical-align: middle;
     margin-left: 1rem;
+}
+
+//
+// Disabled
+//
+.form-group [disabled=disabled] {
+    pointer-events: none;
+    label {
+        opacity: .5;
+    }
+    input[checked=checked] + label {
+        opacity: 1;
+    }
 }
 
 //
@@ -69,6 +83,9 @@ label {
 }
 .custom-control-label .asterisk {
     opacity: .5;
+}
+.form-check-label.required:after {
+    display: none;
 }
 .custom-control-label.required:after {
     content: '';
