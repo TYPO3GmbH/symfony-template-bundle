@@ -118,6 +118,15 @@ $navbar-heights: (
     display: flex;
     align-items: center;
 }
+.nav-item {
+    &.active {
+        > .nav-link {
+            .nav-item-label {
+                border-bottom: 1px dashed $primary;
+            }
+        }
+    }
+}
 
 //
 // Mainnavigation
@@ -155,6 +164,10 @@ $navbar-heights: (
     img {
         display: block;
     }
+}
+.nav-item-label {
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
 }
 
 //
