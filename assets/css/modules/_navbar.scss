@@ -118,6 +118,15 @@ $navbar-heights: (
     display: flex;
     align-items: center;
 }
+.nav-item {
+    &.active {
+        > .nav-link {
+            .nav-item-label {
+                border-bottom: 1px dashed $primary;
+            }
+        }
+    }
+}
 
 //
 // Mainnavigation
@@ -135,18 +144,6 @@ $navbar-heights: (
             height: 1px;
             width: 100%;
             background-color: rgba(0, 0, 0, .15);
-        }
-    }
-    .navbar-nav:first-child:not(:last-child) {
-        .nav-item {
-            @include media-breakpoint-up(lg) {
-                border-bottom: 5px solid transparent;
-                border-top: 5px solid transparent;
-                &:hover,
-                &.active {
-                    border-bottom-color: $primary;
-                }
-            }
         }
     }
 }
@@ -167,6 +164,10 @@ $navbar-heights: (
     img {
         display: block;
     }
+}
+.nav-item-label {
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
 }
 
 //
