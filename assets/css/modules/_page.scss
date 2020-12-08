@@ -21,6 +21,37 @@
     display: flex;
     flex-direction: column;
 }
+.page-main-container {
+    @include make-container-max-widths();
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
+    margin: 0 auto;
+    width: 100%;
+}
+.page-main-sidebar {
+    > *:last-child {
+        padding-bottom: 0;
+        margin-bottom: 0;
+    }
+}
+@media (min-width: 768px) {
+    .page-main-container {
+        flex-direction: row;
+    }
+    .page-main-content {
+        max-width: 100%;
+        flex-grow: 1;
+    }
+    .page-main-sidebar {
+        margin-top: 0;
+        width: 250px;
+        margin-right: 40px;
+        flex-shrink: 0;
+    }
+}
+
 .page-footer {
     flex-grow: 0;
     flex-shrink: 0;

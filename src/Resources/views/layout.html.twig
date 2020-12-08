@@ -46,7 +46,7 @@
             </nav>
         </header>
 
-        <main class="page-main">
+        <div class="page-main">
             {% if block('headline') is defined %}
                 {% frame with { color: headlineBlockBackground ?? 'primary', size: 'small'} %}
                     <h1 class="h4">{{ block('headline')|raw }}</h1>
@@ -88,8 +88,10 @@
                 </div>
             {% endif %}
 
-            {% block body %}{% endblock %}
-        </main>
+            {% if block('sidebar') is defined %}<div class="page-main-container"><aside class="page-main-sidebar">{{ block('sidebar')|raw }}</aside>{% endif %}
+            <main class="page-main-content">{% block body %}{% endblock %}</main>
+            {% if block('sidebar') is defined %}</div>{% endif %}
+        </div>
 
         <footer class="page-footer">
             {% block footer %}{% endblock %}

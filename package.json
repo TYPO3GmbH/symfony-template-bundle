@@ -25,7 +25,7 @@
         "stylelint": "stylelint assets/css/*"
     },
     "dependencies": {
-        "@typo3/icons": "^2.0.4",
+        "@typo3/icons": "^2.0.5",
         "choices.js": "^9.0.1",
         "luxon": "^1.25.0",
         "prismjs": "^1.22.0",

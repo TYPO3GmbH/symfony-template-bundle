@@ -1,0 +1,67 @@
+{% extends 'knp_menu.html.twig' %}
+
+{# list #}
+{% block list %}
+    {% if item.hasChildren and options.depth is not same as(0) and item.displayChildren %}
+        {# add defaults #}
+        {% set tag = 'div' %}
+        {% set classes = ['list-group'] %}
+        {# prepare attributes #}
+        {% set attributes = item.attributes %}
+        {% if classes is not empty %}
+            {% set attributes = attributes|merge({'class': classes|join(' ')}) %}
+        {% endif %}
+        {# render #}
+        {% import _self as knp_menu %}
+        <{{ tag }}{{ knp_menu.attributes(attributes) }}>
+            {{ block('children') }}
+        </{{ tag }}>
+    {% endif %}
+{% endblock %}
+
+{# item #}
+{% block item %}
+    {% if item.displayed %}
+        {# render #}
+        {% import _self as knp_menu %}
+        {% if item.uri is not empty and (not matcher.isCurrent(item) or options.currentAsLink) %}
+            {{ block('linkElement') }}
+        {% else %}
+            {{ block('spanElement') }}
+        {% endif %}
+        {{ block('list') }}
+    {% endif %}
+{% endblock %}
+
+{# linkElement #}
+{% block linkElement %}
+    {# add classes #}
+    {% set classes = ['list-group-item', 'list-group-item-action'] %}
+    {% if item.linkAttribute('class') %}
+        {% set classes = classes|merge([item.linkAttribute('class')]) %}
+    {% endif %}
+    {% if matcher.isCurrent(item) %}
+        {% set classes = classes|merge(['active']) %}
+    {% endif %}
+    {# prepare attributes #}
+    {% set linkAttributes = item.linkAttributes %}
+    {% if classes is not empty %}
+        {% set linkAttributes = linkAttributes|merge({'class': classes|join(' ')}) %}
+    {% endif %}
+    {# render #}
+    {% import _self as knp_menu %}
+    <a href="{{ item.uri }}"{{ knp_menu.attributes(linkAttributes) }}>
+        {{ block('icon') }}
+        {{ block('label') }}
+    </a>
+{% endblock %}
+
+{# icon #}
+{% block icon %}
+    {% if item.getExtra('icon') %}
+        {% set iconCategory = item.getExtra('icon')|split('-') %}
+        {% if iconCategory[0] in ['actions', 'apps', 'avatar', 'content', 'default', 'files', 'form', 'information', 'install', 'mimetypes', 'miscellaneous', 'module', 'modulegroup', 'overlay', 'spinner', 'status'] %}
+            {{ icon(item.getExtra('icon')) }}
+        {% endif %}
+    {% endif %}
+{% endblock %}
