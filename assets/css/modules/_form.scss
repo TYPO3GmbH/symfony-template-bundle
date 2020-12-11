@@ -1,11 +1,14 @@
 //
 // Form
 //
-label,
-.col-form-label {
-    &.required:after {
-        content: ' *';
-        opacity: .5;
+.form-group {
+    > label,
+    > legend.col-form-label {
+        &:not(.required):after {
+            content: ' - Optional';
+            font-style: italic;
+            opacity: .5;
+        }
     }
 }
 .form-headline {
