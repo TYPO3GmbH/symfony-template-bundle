@@ -84,16 +84,6 @@
     flex-shrink: 0;
     margin-left: 1rem;
 }
-.custom-control-label .asterisk {
-    opacity: .5;
-}
-.form-check-label.required:after {
-    display: none;
-}
-.custom-control-label.required:after {
-    content: '';
-    opacity: 1;
-}
 
 // Forms in Cards
 .card-body {
