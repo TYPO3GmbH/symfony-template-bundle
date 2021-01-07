@@ -294,14 +294,26 @@ $frame-backgrounds: map-merge(
 // Frame Header
 // --------------------------------------------------
 .frame-header {
-    *:last-child {
-        margin-bottom: $spacer;
+    margin-bottom: $spacer;
+    > *:last-child {
+        margin-bottom: 0;
     }
 }
-.frame-type-header {
-    .frame-header {
-        *:last-child {
-            margin-bottom: 0;
-        }
+.frame-header-permalink {
+    position: relative;
+    display: inline-flex;
+    vertical-align: middle;
+    color: inherit;
+    opacity: .25;
+    transition: opacity ease-in-out .3s;
+    visibility: hidden;
+    top: -.1em;
+    &:hover {
+        color: inherit;
+        text-decoration: none;
+        opacity: .75;
     }
+}
+*:hover > .frame-header-permalink {
+    visibility: visible;
 }

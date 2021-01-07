@@ -54,6 +54,9 @@ class BlockExtension extends AbstractExtension
         $attributes['center'] = $attributes['center'] ?? false;
         $attributes['height'] = $attributes['height'] ?? 'auto';
         $attributes['innerWidth'] = $attributes['innerWidth'] ?? 'default';
+        $attributes['title'] = $attributes['title'] ?? null;
+        $attributes['titleSize'] = (int)($attributes['titleSize'] ?? 2);
+        $attributes['titleAnchor'] = $attributes['titleAnchor'] ?? true;
 
         $classesOuter = [];
         $classesOuter[] = 'frame';
@@ -83,6 +86,14 @@ class BlockExtension extends AbstractExtension
             $classesInner[] = 'text-center';
         }
 
+        if (!$attributes['id']) {
+            $attributes['titleAnchor'] = false;
+        }
+
+        if ($attributes['titleSize'] < 1 || $attributes['titleSize'] > 6) {
+            $attributes['titleSize'] = 2;
+        }
+
         return $environment->render('@Template/extension/block/frame.html.twig', [
             'content' => $content,
             'id' => $attributes['id'],
@@ -90,6 +101,9 @@ class BlockExtension extends AbstractExtension
             'classesOuter' => implode(' ', $classesOuter),
             'classesContainer' => implode(' ', $classesContainer),
             'classesInner' => implode(' ', $classesInner),
+            'title' => $attributes['title'],
+            'titleSize' => $attributes['titleSize'],
+            'titleAnchor' => $attributes['titleAnchor'],
         ]);
     }
 }
