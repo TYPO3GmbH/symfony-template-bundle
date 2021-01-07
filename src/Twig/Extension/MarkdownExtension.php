@@ -22,9 +22,9 @@ class MarkdownExtension extends AbstractExtension
         ];
     }
 
-    public function parse(string $markdown): string
+    public function parse(string $markdown, bool $parseUrls = true): string
     {
-        $parsedown = new \Parsedown();
+        $parsedown = (new \Parsedown())->setUrlsLinked($parseUrls);
         return $parsedown->parse($markdown);
     }
 }
