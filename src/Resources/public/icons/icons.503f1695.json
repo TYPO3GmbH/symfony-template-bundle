@@ -72,6 +72,12 @@
       "svg": "svgs/actions/actions-arrow-up.svg",
       "sprite": "sprites/actions.svg#actions-arrow-up"
     },
+    "actions-badge": {
+      "identifier": "actions-badge",
+      "category": "actions",
+      "svg": "svgs/actions/actions-badge.svg",
+      "sprite": "sprites/actions.svg#actions-badge"
+    },
     "actions-ban": {
       "identifier": "actions-ban",
       "category": "actions",
@@ -786,6 +792,12 @@
       "svg": "svgs/actions/actions-fullscreen.svg",
       "sprite": "sprites/actions.svg#actions-fullscreen"
     },
+    "actions-gift-card": {
+      "identifier": "actions-gift-card",
+      "category": "actions",
+      "svg": "svgs/actions/actions-gift-card.svg",
+      "sprite": "sprites/actions.svg#actions-gift-card"
+    },
     "actions-gift": {
       "identifier": "actions-gift",
       "category": "actions",
@@ -1001,6 +1013,18 @@
       "category": "actions",
       "svg": "svgs/actions/actions-pause.svg",
       "sprite": "sprites/actions.svg#actions-pause"
+    },
+    "actions-percent-badge": {
+      "identifier": "actions-percent-badge",
+      "category": "actions",
+      "svg": "svgs/actions/actions-percent-badge.svg",
+      "sprite": "sprites/actions.svg#actions-percent-badge"
+    },
+    "actions-percent": {
+      "identifier": "actions-percent",
+      "category": "actions",
+      "svg": "svgs/actions/actions-percent.svg",
+      "sprite": "sprites/actions.svg#actions-percent"
     },
     "actions-placeholder-add": {
       "identifier": "actions-placeholder-add",
