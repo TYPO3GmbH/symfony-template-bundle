@@ -78,11 +78,71 @@
       "svg": "svgs/actions/actions-ban.svg",
       "sprite": "sprites/actions.svg#actions-ban"
     },
+    "actions-barcode-read": {
+      "identifier": "actions-barcode-read",
+      "category": "actions",
+      "svg": "svgs/actions/actions-barcode-read.svg",
+      "sprite": "sprites/actions.svg#actions-barcode-read"
+    },
+    "actions-barcode-scan": {
+      "identifier": "actions-barcode-scan",
+      "category": "actions",
+      "svg": "svgs/actions/actions-barcode-scan.svg",
+      "sprite": "sprites/actions.svg#actions-barcode-scan"
+    },
+    "actions-barcode": {
+      "identifier": "actions-barcode",
+      "category": "actions",
+      "svg": "svgs/actions/actions-barcode.svg",
+      "sprite": "sprites/actions.svg#actions-barcode"
+    },
     "actions-bolt": {
       "identifier": "actions-bolt",
       "category": "actions",
       "svg": "svgs/actions/actions-bolt.svg",
       "sprite": "sprites/actions.svg#actions-bolt"
+    },
+    "actions-brand-discord": {
+      "identifier": "actions-brand-discord",
+      "category": "actions",
+      "svg": "svgs/actions/actions-brand-discord.svg",
+      "sprite": "sprites/actions.svg#actions-brand-discord"
+    },
+    "actions-brand-facebook": {
+      "identifier": "actions-brand-facebook",
+      "category": "actions",
+      "svg": "svgs/actions/actions-brand-facebook.svg",
+      "sprite": "sprites/actions.svg#actions-brand-facebook"
+    },
+    "actions-brand-linkedin": {
+      "identifier": "actions-brand-linkedin",
+      "category": "actions",
+      "svg": "svgs/actions/actions-brand-linkedin.svg",
+      "sprite": "sprites/actions.svg#actions-brand-linkedin"
+    },
+    "actions-brand-slack": {
+      "identifier": "actions-brand-slack",
+      "category": "actions",
+      "svg": "svgs/actions/actions-brand-slack.svg",
+      "sprite": "sprites/actions.svg#actions-brand-slack"
+    },
+    "actions-brand-twitter": {
+      "identifier": "actions-brand-twitter",
+      "category": "actions",
+      "svg": "svgs/actions/actions-brand-twitter.svg",
+      "sprite": "sprites/actions.svg#actions-brand-twitter"
+    },
+    "actions-brand-typo3": {
+      "identifier": "actions-brand-typo3",
+      "category": "actions",
+      "svg": "svgs/actions/actions-brand-typo3.svg",
+      "sprite": "sprites/actions.svg#actions-brand-typo3"
+    },
+    "actions-brand-youtube": {
+      "identifier": "actions-brand-youtube",
+      "category": "actions",
+      "svg": "svgs/actions/actions-brand-youtube.svg",
+      "sprite": "sprites/actions.svg#actions-brand-youtube"
     },
     "actions-building": {
       "identifier": "actions-building",
@@ -726,6 +786,12 @@
       "svg": "svgs/actions/actions-fullscreen.svg",
       "sprite": "sprites/actions.svg#actions-fullscreen"
     },
+    "actions-gift": {
+      "identifier": "actions-gift",
+      "category": "actions",
+      "svg": "svgs/actions/actions-gift.svg",
+      "sprite": "sprites/actions.svg#actions-gift"
+    },
     "actions-git": {
       "identifier": "actions-git",
       "category": "actions",
@@ -761,6 +827,12 @@
       "category": "actions",
       "svg": "svgs/actions/actions-house.svg",
       "sprite": "sprites/actions.svg#actions-house"
+    },
+    "actions-id-badge": {
+      "identifier": "actions-id-badge",
+      "category": "actions",
+      "svg": "svgs/actions/actions-id-badge.svg",
+      "sprite": "sprites/actions.svg#actions-id-badge"
     },
     "actions-image": {
       "identifier": "actions-image",
@@ -960,6 +1032,12 @@
       "svg": "svgs/actions/actions-question.svg",
       "sprite": "sprites/actions.svg#actions-question"
     },
+    "actions-receipt": {
+      "identifier": "actions-receipt",
+      "category": "actions",
+      "svg": "svgs/actions/actions-receipt.svg",
+      "sprite": "sprites/actions.svg#actions-receipt"
+    },
     "actions-redo": {
       "identifier": "actions-redo",
       "category": "actions",
@@ -1056,12 +1134,6 @@
       "svg": "svgs/actions/actions-shield.svg",
       "sprite": "sprites/actions.svg#actions-shield"
     },
-    "actions-slack": {
-      "identifier": "actions-slack",
-      "category": "actions",
-      "svg": "svgs/actions/actions-slack.svg",
-      "sprite": "sprites/actions.svg#actions-slack"
-    },
     "actions-sort-amount-down": {
       "identifier": "actions-sort-amount-down",
       "category": "actions",
@@ -1128,6 +1200,12 @@
       "svg": "svgs/actions/actions-template.svg",
       "sprite": "sprites/actions.svg#actions-template"
     },
+    "actions-ticket": {
+      "identifier": "actions-ticket",
+      "category": "actions",
+      "svg": "svgs/actions/actions-ticket.svg",
+      "sprite": "sprites/actions.svg#actions-ticket"
+    },
     "actions-toggle-off": {
       "identifier": "actions-toggle-off",
       "category": "actions",
@@ -1151,12 +1229,6 @@
       "category": "actions",
       "svg": "svgs/actions/actions-trophy.svg",
       "sprite": "sprites/actions.svg#actions-trophy"
-    },
-    "actions-typo3": {
-      "identifier": "actions-typo3",
-      "category": "actions",
-      "svg": "svgs/actions/actions-typo3.svg",
-      "sprite": "sprites/actions.svg#actions-typo3"
     },
     "actions-undo": {
       "identifier": "actions-undo",
@@ -3554,6 +3626,8 @@
     "actions-system-cache-clear-impact-medium": "actions-bolt",
     "actions-system-cache-clear-impact-low": "actions-bolt",
     "actions-system-cache-clear-rte": "actions-bolt",
+    "actions-slack": "actions-brand-slack",
+    "actions-typo3": "actions-brand-typo3",
     "actions-edit-pick-date": "actions-calendar-alternative",
     "actions-move-to-bottom": "actions-caret-bar-bottom",
     "actions-move-to-top": "actions-caret-bar-top",
