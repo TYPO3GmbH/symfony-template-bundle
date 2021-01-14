@@ -1,17 +1,17 @@
 {
     "devDependencies": {
-        "@fortawesome/fontawesome-free": "^5.15.1",
+        "@fortawesome/fontawesome-free": "^5.15.2",
         "@symfony/webpack-encore": "^0.33.0",
         "autoprefixer": "^9.8.6",
         "bootstrap": "^4.5.3",
         "bootstrap-tagsinput": "^0.7.1",
         "chart.js": "^2.9.4",
-        "core-js": "^3.8.1",
+        "core-js": "^3.8.2",
         "jquery": "^3.5.1",
         "node-sass": "^5.0.0",
         "popper.js": "^1.16.1",
         "postcss-loader": "^4.1.0",
-        "sass-loader": "^10.1.0",
+        "sass-loader": "^10.1.1",
         "stylelint": "^13.8.0"
     },
     "license": "UNLICENSED",
@@ -28,7 +28,7 @@
         "@typo3/icons": "^2.1.0",
         "choices.js": "^9.0.1",
         "luxon": "^1.25.0",
-        "prismjs": "^1.22.0",
-        "vanillajs-datepicker": "^1.0.3"
+        "prismjs": "^1.23.0",
+        "vanillajs-datepicker": "^1.1.1"
     }
 }
