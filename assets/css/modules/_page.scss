@@ -59,7 +59,7 @@
     text-align: center;
     list-style: none;
     padding: 0;
-    font-size: 1.2em;
+    font-size: 1.25em;
     margin-bottom: 1rem;
     li {
         display: inline-block;
@@ -67,12 +67,13 @@
     }
     a {
         color: inherit;
-        display: block;
-        line-height: 2em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         width: 2em;
         height: 2em;
-        text-align: center;
         background-color: rgba(255, 255, 255, .1);
+        border-radius: 2px;
         &:hover {
             background-color: rgba(255, 255, 255, .2);
         }
