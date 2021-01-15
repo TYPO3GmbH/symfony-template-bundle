@@ -30,6 +30,12 @@ $dashboard-list-icon-show: '<svg viewBox="0 0 16 16"><g fill="#{$dashboard-color
     padding: $dashboard-padding;
     padding-bottom: 0;
     margin-bottom: 0;
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+    .icon {
+        color: $primary;
+    }
 }
 .dashboard-item-body {
     flex-grow: 1;
