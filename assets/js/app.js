@@ -63,23 +63,11 @@ function initializeExpander() {
         }
     });
 }
-function initializeFileInput() {
-    Array.from(document.querySelectorAll('.custom-file-input')).forEach(function (element) {
-        element.addEventListener("change", function() {
-            let fileName = this.value.split('\\').slice(-1)[0];
-            let nextElement = this.nextSibling;
-            if (nextElement.classList.contains('custom-file-label')) {
-                nextElement.textContent = fileName
-            }
-        });
-    });
-}
 document.onreadystatechange = function () {
     if (document.readyState == "interactive") {
         convertDates();
         convertDateTimes();
         convertRelativeTime();
         initializeExpander();
-        initializeFileInput();
     }
 }

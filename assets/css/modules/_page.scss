@@ -8,7 +8,7 @@
 }
 @each $color, $value in $theme-colors {
     .page-background-#{$color} {
-        color: color-yiq($value);
+        color: color-contrast($value);
         background-color: $value;
     }
 }

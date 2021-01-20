@@ -3,7 +3,7 @@
         "@fortawesome/fontawesome-free": "^5.15.2",
         "@symfony/webpack-encore": "^0.33.0",
         "autoprefixer": "^9.8.6",
-        "bootstrap": "^4.6.0",
+        "bootstrap": "^5.0.0-beta1",
         "bootstrap-tagsinput": "^0.7.1",
         "chart.js": "^2.9.4",
         "core-js": "^3.8.3",
@@ -25,6 +25,7 @@
         "stylelint": "stylelint assets/css/*"
     },
     "dependencies": {
+        "@popperjs/core": "^2.6.0",
         "@typo3/icons": "^2.1.1",
         "choices.js": "^9.0.1",
         "luxon": "^1.25.0",

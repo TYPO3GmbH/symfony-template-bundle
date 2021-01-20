@@ -8,7 +8,7 @@ $dashboard-color: #2d2d2d;
 $dashboard-padding: 1.25rem;
 $dashboard-gutter: 1rem;
 $dashboard-list-hover-bg: #efefef;
-$dashboard-list-hover-color: color-yiq($dashboard-list-hover-bg);
+$dashboard-list-hover-color: color-contrast($dashboard-list-hover-bg);
 $dashboard-list-icon-show: '<svg viewBox="0 0 16 16"><g fill="#{$dashboard-color}"><path d="M9.586 8L6.05 11.536l.707.707L11 8 6.757 3.757l-.707.707z"/></g></svg>';
 .dashboard {
     display: flex;

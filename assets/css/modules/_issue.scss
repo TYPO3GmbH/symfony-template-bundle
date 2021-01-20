@@ -4,7 +4,7 @@
 $issue-shadow: $box-shadow-sm;
 $issue-bg: #ffffff;
 $issue-border-radius: 2px;
-$issue-color: color-yiq($issue-bg);
+$issue-color: color-contrast($issue-bg);
 $issue-padding: 1rem;
 $issue-margin: $spacer;
 $issue-type-width: 1.25rem;
@@ -34,7 +34,7 @@ $issue-type-width: 1.25rem;
 @each $color, $value in $issue-colors {
     .issue-type-#{$color} {
         background-color: $value;
-        color: color-yiq($value);
+        color: color-contrast($value);
     }
 }
 .issue-type-title {
@@ -116,7 +116,7 @@ $issue-type-width: 1.25rem;
 .issue-meta-group-stacked {
     display: block;
     .issue-meta-item-label {
-        @extend .sr-only;
+        @extend .visually-hidden;
     }
 }
 .issue-meta-item {

@@ -90,7 +90,31 @@ $link-hover-color:              darken($link-color, 15%);
 $link-alternate-color:          #ffffff;
 $link-alternate-hover-color:    darken($link-alternate-color, 15%);
 
-$yiq-contrasted-threshold:      160;
+$min-contrast-ratio: 2.4;
+
+
+//
+// Grid breakpoints
+// --------------------------------------------------
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+);
+
+
+//
+// Grid containers
+// --------------------------------------------------
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px
+);
+
 
 //
 // Fonts
@@ -112,6 +136,12 @@ $font-size-sm:    $font-size-base * .875 !default;
 
 $headings-font-weight: $font-weight-bold;
 $headings-margin-bottom: .5em;
+
+//
+// Links
+// --------------------------------------------------
+$link-decoration: none;
+
 
 //
 // Navbar

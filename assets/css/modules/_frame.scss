@@ -17,22 +17,22 @@ $frame-backgrounds: () !default;
 $frame-backgrounds: map-merge(
     (
         primary: (
-            background:                theme-color('primary'),
+            background:                $primary,
             link-color:                $link-alternate-color,
             link-hover-color:          $link-alternate-hover-color
         ),
         secondary: (
-            background:                theme-color('secondary'),
+            background:                $secondary,
             link-color:                $link-alternate-color,
             link-hover-color:          $link-alternate-hover-color
         ),
         tertiary: (
-            background:                theme-color('tertiary'),
+            background:                $tertiary,
             link-color:                $link-alternate-color,
             link-hover-color:          $link-alternate-hover-color
         ),
         quaternary: (
-            background:                theme-color('quaternary'),
+            background:                $quaternary,
             link-color:                $link-alternate-color,
             link-hover-color:          $link-alternate-hover-color
         ),
@@ -42,12 +42,12 @@ $frame-backgrounds: map-merge(
             link-hover-color:          $link-hover-color
         ),
         light: (
-            background:                theme-color('light'),
+            background:                $light,
             link-color:                $link-color,
             link-hover-color:          $link-hover-color
         ),
         dark: (
-            background:                theme-color('dark'),
+            background:                $dark,
             link-color:                $link-alternate-color,
             link-hover-color:          $link-alternate-hover-color
         )
@@ -230,7 +230,7 @@ $frame-backgrounds: map-merge(
 @include make-frame-spacing('default');
 @mixin make-frame-background($name, $settings) {
     $background: map-get($settings, 'background');
-    $color: color-yiq($background);
+    $color: color-contrast($background);
     $link-color: map-get($settings, 'link-color');
     $link-hover-color: map-get($settings, 'link-hover-color');
     .frame-background-#{$name} {
@@ -239,7 +239,7 @@ $frame-backgrounds: map-merge(
         background-color: $background;
         a[class=""] {
             color: $link-color;
-            @include hover {
+            &:hover {
                 color: $link-hover-color;
             }
         }

@@ -35,7 +35,7 @@
                             </span>
                         {% endif %}
                     </a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainnavigation" aria-controls="mainnavigation" aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainnavigation" aria-controls="mainnavigation" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="mainnavigation">
@@ -64,9 +64,7 @@
                                 {% for flashMassage in flashMassages %}
                                     <div class="alert alert-{{ key }} alert-dismissible fade show" data-severity="{{ key }}" role="alert">
                                         <div class="alert-inner">
-                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                             <div class="alert-icon">
                                                 {% if key == "danger" %}
                                                     <i class="fas fa-exclamation"></i>

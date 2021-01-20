@@ -107,7 +107,7 @@
         getTemplateContent: function (entryPrototype, entryIndex) {
             const template = document.createElement('template')
             const entryHtml = entryPrototype
-                .replace(/__name__label__/g, `<span class="badge badge-success">New</span> ${entryIndex}`)
+                .replace(/__name__label__/g, `<span class="badge bg-success">New</span> ${entryIndex}`)
                 .replace(/__name__/g, entryIndex)
             template.innerHTML = entryHtml.trim()
             return template.content
