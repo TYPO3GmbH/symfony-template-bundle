@@ -5,6 +5,13 @@
 
     {% frame %}
         <h2>Status</h2>
+        <div class="card">
+            <div class="card-body">
+                {% for color in colors %}
+                    <span class="status status-{{ color }}">{{ color|upper }}</span>
+                {% endfor %}
+            </div>
+        </div>
     {% endframe %}
 
 {% endblock %}

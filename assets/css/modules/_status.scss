@@ -1,3 +1,9 @@
+//
+// Accordion
+//
+.status {
+    @extend .badge;
+}
 @each $color, $value in $status-colors {
     .status-#{$color} {
         background-color: $value;
