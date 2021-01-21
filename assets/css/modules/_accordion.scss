@@ -47,7 +47,7 @@
     top: 50%;
     right: $card-spacer-x;
     transform: translate(0, -50%);
-    color: theme-color('primary');
+    color: $primary;
     &:before,
     &:after {
         content: '';
