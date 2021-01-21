@@ -1,0 +1,17 @@
+{% extends '@Template/layout.html.twig' %}
+
+{% block sidebar %}
+    {% frame %}
+        <div class="list-group">
+            <a href="{{ path('_template_styleguide_component_accordion') }}" class="list-group-item list-group-item-action">Accordion</a>
+            <a href="{{ path('_template_styleguide_component_alert') }}" class="list-group-item list-group-item-action">Alert</a>
+            <a href="{{ path('_template_styleguide_component_badge') }}" class="list-group-item list-group-item-action">Badge</a>
+            <a href="{{ path('_template_styleguide_component_button') }}" class="list-group-item list-group-item-action">Button</a>
+            <a href="{{ path('_template_styleguide_component_frame') }}" class="list-group-item list-group-item-action">Frame</a>
+            <a href="{{ path('_template_styleguide_component_review') }}" class="list-group-item list-group-item-action">Review</a>
+            <a href="{{ path('_template_styleguide_component_issue') }}" class="list-group-item list-group-item-action">Issue</a>
+            <a href="{{ path('_template_styleguide_component_status') }}" class="list-group-item list-group-item-action">Status</a>
+            <a href="{{ path('_template_styleguide_component_progress') }}" class="list-group-item list-group-item-action">Progress</a>
+        </div>
+    {% endframe %}
+{% endblock %}

@@ -1,0 +1,91 @@
+{% extends '@Template/styleguide/layout.html.twig' %}
+{% block title %}Accordion{% endblock %}
+
+{% block body %}
+
+    {% frame %}
+        <h2>Default</h2>
+        {% set accordionId = 'accordionBasic' %}
+        <div class="accordion" id="{{ accordionId }}">
+            {% for key, item in data %}
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="{{ accordionId }}-heading-{{ key }}">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#{{ accordionId }}-collapse-{{ key }}" aria-expanded="false" aria-controls="{{ accordionId }}-collapse-{{ key }}">
+                            {{ item.title }} #{{ key }}
+                        </button>
+                    </h2>
+                    <div id="{{ accordionId }}-collapse-{{ key }}" class="accordion-collapse collapse" aria-labelledby="{{ accordionId }}-heading-{{ key }}" data-bs-parent="#{{ accordionId }}">
+                        <div class="accordion-body">{{ item.content }}</div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endframe %}
+
+    {% frame %}
+        <h2>Flush <code>.accordion-flush</code></h2>
+        {% set accordionId = 'accordionFlush' %}
+        <div class="accordion accordion-flush" id="{{ accordionId }}">
+            {% for key, item in data %}
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="{{ accordionId }}-heading-{{ key }}">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#{{ accordionId }}-collapse-{{ key }}" aria-expanded="false" aria-controls="{{ accordionId }}-collapse-{{ key }}">
+                            {{ item.title }} #{{ key }}
+                        </button>
+                    </h2>
+                    <div id="{{ accordionId }}-collapse-{{ key }}" class="accordion-collapse collapse" aria-labelledby="{{ accordionId }}-heading-{{ key }}" data-bs-parent="#{{ accordionId }}">
+                        <div class="accordion-body">{{ item.content }}</div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endframe %}
+
+    {% frame %}
+        <h2>Custom <code>.accordion-custom</code></h2>
+        {% set accordionId = 'accordionCustom' %}
+        <div class="accordion accordion-custom" id="{{ accordionId }}">
+            {% for key, item in data %}
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="{{ accordionId }}-heading-{{ key }}">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#{{ accordionId }}-collapse-{{ key }}" aria-expanded="false" aria-controls="{{ accordionId }}-collapse-{{ key }}">
+                            {{ item.title }} #{{ key }}
+                        </button>
+                    </h2>
+                    <div id="{{ accordionId }}-collapse-{{ key }}" class="accordion-collapse collapse" aria-labelledby="{{ accordionId }}-heading-{{ key }}" data-bs-parent="#{{ accordionId }}">
+                        <div class="accordion-body">{{ item.content }}</div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endframe %}
+
+    {% frame %}
+        <h2>Card</h2>
+        {% set accordionId = 'accordionCard' %}
+        <div class="accordion" id="{{ accordionId }}">
+            {% for key, item in data %}
+                <div class="accordion-item card">
+                    <div class="accordion-header card-header" id="{{ accordionId }}-heading-{{ key }}">
+                        <h4 class="accordion-title">
+                            <a href="#{{ accordionId }}-collapse-{{ key }}" class="accordion-title-link collapsed" data-bs-toggle="collapse" data-bs-parent="#{{ accordionId }}" aria-expanded="false" aria-controls="{{ accordionId }}-collapse-{{ key }}">
+                                <span class="accordion-title-link-text">{{ item.title }} #{{ key }}</span>
+                                <span class="accordion-title-link-state"></span>
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="{{ accordionId }}-collapse-{{ key }}" class="accordion-collapse collapse" aria-labelledby="{{ accordionId }}-heading-{{ key }}" data-parent="#{{ accordionId }}">
+                        <div class="accordion-body card-body">
+                            <div class="accordion-content">
+                                <div class="accordion-content-item accordion-content-text">
+                                    {{ item.content }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endframe %}
+
+{% endblock %}

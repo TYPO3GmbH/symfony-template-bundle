@@ -1,0 +1,13 @@
+{% extends '@Template/styleguide/layout.html.twig' %}
+{% block title %}Frame{% endblock %}
+
+{% block body %}
+
+    {% for color in colors %}
+        {% frame with { 'color': color } %}
+            <h2>Frame</h2>
+        {% endframe %}
+    {% endfor %}
+
+
+{% endblock %}

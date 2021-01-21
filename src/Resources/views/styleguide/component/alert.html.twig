@@ -1,0 +1,26 @@
+{% extends '@Template/styleguide/layout.html.twig' %}
+{% block title %}Alert{% endblock %}
+
+{% block body %}
+
+    {% frame %}
+        <h2>Alert</h2>
+        {% for color in colors %}
+            <div class="alert alert-{{ color }}" role="alert">
+                A simple {{ color }} alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+            </div>
+        {% endfor %}
+    {% endframe %}
+
+    {% frame %}
+        <h2>Alert Dismissible</h2>
+        {% for color in colors %}
+            <div class="alert alert-{{ color }} alert-dismissible fade show" role="alert">
+                <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endfor %}
+    {% endframe %}
+</div>
+
+{% endblock %}

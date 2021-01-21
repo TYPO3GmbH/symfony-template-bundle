@@ -92,29 +92,26 @@ $link-alternate-hover-color:    darken($link-alternate-color, 15%);
 
 $min-contrast-ratio: 2.4;
 
-
 //
 // Grid breakpoints
 // --------------------------------------------------
 $grid-breakpoints: (
-  xs: 0,
-  sm: 576px,
-  md: 768px,
-  lg: 992px,
-  xl: 1200px
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px
 );
-
 
 //
 // Grid containers
 // --------------------------------------------------
 $container-max-widths: (
-  sm: 540px,
-  md: 720px,
-  lg: 960px,
-  xl: 1140px
+    sm: 540px,
+    md: 720px,
+    lg: 960px,
+    xl: 1140px
 );
-
 
 //
 // Fonts
@@ -141,7 +138,6 @@ $headings-margin-bottom: .5em;
 // Links
 // --------------------------------------------------
 $link-decoration: none;
-
 
 //
 // Navbar

@@ -1,0 +1,39 @@
+_template_styleguide:
+  path: /styleguide/
+  controller: T3G\Bundle\TemplateBundle\Controller\StyleguideController::index
+
+_template_styleguide_component_accordion:
+  path: /styleguide/component/accordion
+  controller: T3G\Bundle\TemplateBundle\Controller\StyleguideController::componentAccordion
+
+_template_styleguide_component_alert:
+  path: /styleguide/component/alert
+  controller: T3G\Bundle\TemplateBundle\Controller\StyleguideController::componentAlert
+
+_template_styleguide_component_badge:
+  path: /styleguide/component/badge
+  controller: T3G\Bundle\TemplateBundle\Controller\StyleguideController::componentBadge
+
+_template_styleguide_component_button:
+  path: /styleguide/component/button
+  controller: T3G\Bundle\TemplateBundle\Controller\StyleguideController::componentButton
+
+_template_styleguide_component_frame:
+  path: /styleguide/component/frame
+  controller: T3G\Bundle\TemplateBundle\Controller\StyleguideController::componentFrame
+
+_template_styleguide_component_review:
+  path: /styleguide/component/review
+  controller: T3G\Bundle\TemplateBundle\Controller\StyleguideController::componentReview
+
+_template_styleguide_component_issue:
+  path: /styleguide/component/issue
+  controller: T3G\Bundle\TemplateBundle\Controller\StyleguideController::componentIssue
+
+_template_styleguide_component_status:
+  path: /styleguide/component/status
+  controller: T3G\Bundle\TemplateBundle\Controller\StyleguideController::componentStatus
+
+_template_styleguide_component_progress:
+  path: /styleguide/component/progress
+  controller: T3G\Bundle\TemplateBundle\Controller\StyleguideController::componentProgress

@@ -1,0 +1,68 @@
+{% extends '@Template/styleguide/layout.html.twig' %}
+{% block title %}Issue{% endblock %}
+
+{% block body %}
+
+    {% frame %}
+        <h2>Issue</h2>
+        {% for color in colors %}
+            <div class="issue issue-card">
+                <div class="issue-type issue-type-{{ color }}">
+                    <span class="issue-type-title">{{ color|upper }}</span>
+                </div>
+                <div class="issue-content">
+                    <div class="issue-status">
+                        <span class="badge bg-danger">NEW</span>
+                        <span class="badge bg-light text-dark">Form Framework</span>
+                    </div>
+                    <h4 class="issue-headline">
+                        <a href="#">
+                            <span class="issue-id">#12345</span>
+                            <span class="issue-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+                        </a>
+                    </h4>
+                </div>
+                <div class="issue-data">
+                    <div class="issue-data-item">
+                        <span class="issue-data-item-label">Assigned to</span>
+                        <span class="issue-data-item-value">Maxi Zimmermann</span>
+                    </div>
+                </div>
+                <div class="issue-meta">
+                    <div class="issue-meta-group">
+                        <div class="issue-meta-item issue-meta-author">
+                            <span class="issue-meta-item-avatar">
+                                <img src="{{ asset('bundles/template/icons/svgs/avatar/avatar-default.svg', 'template') }}" class="avatar" height="36" width="36">
+                            </span>
+                            <span class="issue-meta-item-body">
+                                <span class="issue-meta-item-label">Author</span>
+                                <span class="issue-meta-item-value">Max Mustermann</span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="issue-meta-group issue-meta-group-stacked">
+                        <div class="issue-meta-item issue-meta-created">
+                            <span class="issue-meta-item-icon">
+                                <i class="fas fa-fw fa-calendar-day"></i>
+                            </span>
+                            <span class="issue-meta-item-body">
+                                <span class="issue-meta-item-label">Created</span>
+                                <span class="issue-meta-item-value"><span data-processor="relativetime" data-value="2020-03-02T12:37:34+00:00">vor 10 Monaten</span></span>
+                            </span>
+                        </div>
+                        <div class="issue-meta-item issue-meta-updated">
+                            <span class="issue-meta-item-icon">
+                                <i class="fas fa-fw fa-sync"></i>
+                            </span>
+                            <span class="issue-meta-item-body">
+                                <span class="issue-meta-item-label">Updated</span>
+                                <span class="issue-meta-item-value"><span data-processor="relativetime" data-value="2020-03-02T13:13:16+00:00">vor 10 Monaten</span></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% endframe %}
+
+{% endblock %}
