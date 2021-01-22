@@ -141,4 +141,12 @@ class StyleguideController extends Controller
             'colors' => ThemeConstants::getThemeColors()
         ]);
     }
+
+    /**
+     * @return Response
+     */
+    public function componentGuide(): Response
+    {
+        return $this->render('@Template/styleguide/component/guide.html.twig');
+    }
 }
