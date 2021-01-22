@@ -41,9 +41,8 @@
         flex-direction: row;
     }
     .page-main-content {
-        overflow: hidden;
-        max-width: 100%;
-        flex-grow: 1;
+        flex: 1 1 0;
+        min-width: 0;
     }
     .page-main-sidebar {
         margin-top: 0;
