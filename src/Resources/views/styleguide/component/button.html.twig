@@ -1,0 +1,22 @@
+{% extends '@Template/styleguide/layout.html.twig' %}
+{% block title %}Button{% endblock %}
+
+{% block body %}
+
+    {% frame %}
+        <h2>Button</h2>
+        <div class="card">
+            <div class="card-body">
+                {% for color in colors %}
+                    <button type="button" class="btn btn-{{ color }}">{{ color }}</button>
+                {% endfor %}
+            </div>
+            <div class="card-body">
+                {% for color in colors %}
+                    <button type="button" class="btn btn-outline-{{ color }}">{{ color }}</button>
+                {% endfor %}
+            </div>
+        </div>
+    {% endframe %}
+
+{% endblock %}

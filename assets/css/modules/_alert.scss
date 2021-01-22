@@ -24,7 +24,7 @@
         box-shadow: 0 0 10px 4px rgba(0, 0, 0, .25);
         &:not(.alert-danger) {
             background-color: #ffffff;
-            color: color-yiq(#ffffff);
+            color: color-contrast(#ffffff);
         }
         &:first-child {
             margin-top: 1.75rem;
@@ -33,14 +33,14 @@
     .alert-inner {
         position: relative;
         display: flex;
-        padding: .75rem 0;
+        padding: $alert-padding-y 0;
     }
     .alert-icon {
         font-size: 12px;
         position: absolute;
         top: 0;
         left: 0;
-        padding: .95rem 0;
+        padding: $alert-padding-y * 1.25 0;
         text-align: center;
         width: 3.25rem;
         color: inherit;
@@ -63,7 +63,7 @@
     @each $color, $value in $theme-colors {
         .alert-#{$color} {
             .alert-icon {
-                color: color-yiq($value);
+                color: color-contrast($value);
             }
             .alert-icon:before {
                 background-color: $value;
@@ -101,7 +101,6 @@
 // Alert
 //
 .alert {
-    padding: .75rem 1rem;
     small {
         opacity: .5;
     }

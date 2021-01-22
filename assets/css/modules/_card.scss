@@ -10,13 +10,13 @@ $card-link-hover-color: $link-hover-color !default;
 // Card
 //
 .card {
-    color: color-yiq($card-bg);
+    color: color-contrast($card-bg);
     overflow: hidden;
     box-shadow: $box-shadow-sm;
     margin-bottom: $spacer * 2;
     a[class=""] {
         color: $card-link-color;
-        @include hover {
+        &:hover {
             color: $card-link-hover-color;
         }
     }
@@ -176,14 +176,14 @@ $card-link-hover-color: $link-hover-color !default;
 // Card Group Element
 //
 .card-group-element {
-    margin: -$card-deck-margin;
-    margin-bottom: -$card-deck-margin !important;
+    margin: -$card-group-margin;
+    margin-bottom: -$card-group-margin !important;
     display: flex;
     flex-wrap: wrap;
 }
 .card-group-element-item {
     width: 100%;
-    padding: $card-deck-margin;
+    padding: $card-group-margin;
     .card {
         height: 100%;
     }
@@ -242,16 +242,16 @@ $card-link-hover-color: $link-hover-color !default;
 //
 .card-deck-dashboard {
     .card {
-        margin-bottom: $card-deck-margin * 2;
+        margin-bottom: $card-group-margin * 2;
         flex-grow: 1;
         @include media-breakpoint-up('sm') {
-            min-width: calc(100% - #{$card-deck-margin} * 2);
+            min-width: calc(100% - #{$card-group-margin} * 2);
         }
         @include media-breakpoint-up('md') {
-            min-width: calc(50% - #{$card-deck-margin} * 2);
+            min-width: calc(50% - #{$card-group-margin} * 2);
         }
         @include media-breakpoint-up('lg') {
-            min-width: calc(33.33% - #{$card-deck-margin} * 2);
+            min-width: calc(33.33% - #{$card-group-margin} * 2);
         }
     }
 }
@@ -261,15 +261,15 @@ $card-link-hover-color: $link-hover-color !default;
 //
 .card-deck-boxed {
     .card {
-        margin-bottom: $card-deck-margin * 2;
+        margin-bottom: $card-group-margin * 2;
         @include media-breakpoint-up('sm') {
-            min-width: calc(100% - #{$card-deck-margin} * 2);
+            min-width: calc(100% - #{$card-group-margin} * 2);
         }
         @include media-breakpoint-up('md') {
-            min-width: calc(50% - #{$card-deck-margin} * 2);
+            min-width: calc(50% - #{$card-group-margin} * 2);
         }
         @include media-breakpoint-up('lg') {
-            min-width: calc(33.33% - #{$card-deck-margin} * 2);
+            min-width: calc(33.33% - #{$card-group-margin} * 2);
         }
     }
 }
@@ -279,7 +279,7 @@ $card-link-hover-color: $link-hover-color !default;
 //
 .card-grid {
     display: grid;
-    grid-gap: $card-deck-margin;
+    grid-gap: $card-group-margin;
     grid-template-columns: 1fr;
     margin-left: 0;
     margin-right: 0;

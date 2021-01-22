@@ -1,0 +1,58 @@
+{% extends '@Template/styleguide/layout.html.twig' %}
+{% block title %}Review{% endblock %}
+
+{% block body %}
+
+    {% frame %}
+        <h2>Review</h2>
+        {% for color in colors %}
+            <div class="review review-full review-type-{{ color }}">
+                <div class="review-header">
+                    <div class="review-issue">#12345</div>
+                    <div class="review-title"><a href="#">[{{ color|upper }}] Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></div>
+                </div>
+                <div class="review-data">
+                    <div class="review-data-item">
+                        <span class="review-data-item-label">Topic</span>
+                        <span class="review-data-item-value">no topic</span>
+                    </div>
+                    <div class="review-data-item">
+                        <span class="review-data-item-label">Target Release</span>
+                        <span class="review-data-item-value">
+                            <span class="badge bg-success">master</span>
+                            <span class="badge bg-danger">10.4</span>
+                            <span class="badge bg-info">9.5</span>
+                        </span>
+                    </div>
+                    <div class="review-data-item">
+                        <span class="review-data-item-label">Affected Files</span>
+                        <span class="review-data-item-value">6</span>
+                    </div>
+                    <div class="review-data-item">
+                        <span class="review-data-item-label">Patchsets</span>
+                        <span class="review-data-item-value">2</span>
+                    </div>
+                    <div class="review-data-item">
+                        <span class="review-data-item-label">Created</span>
+                        <span class="review-data-item-value">    <span data-processor="relativetime" data-value="2021-01-21T11:37:16+00:00">vor 1 Stunde</span></span>
+                    </div>
+                    <div class="review-data-item">
+                        <span class="review-data-item-label">Updated</span>
+                        <span class="review-data-item-value"><span data-processor="relativetime" data-value="2021-01-21T12:36:28+00:00">vor 27 Minuten</span></span>
+                    </div>
+                    <div class="review-data-item">
+                        <span class="review-data-item-label">Reviews</span>
+                        <span class="review-data-item-value"></span>
+                    </div>
+                    <div class="review-data-item">
+                        <span class="review-data-item-label">Verifies</span>
+                        <span class="review-data-item-value"></span>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+
+
+    {% endframe %}
+
+{% endblock %}

@@ -1,11 +1,11 @@
 //
 // Datatable
 //
-$table-highlight: theme-color("primary");
+$table-highlight: $primary;
 $table-text: #333333;
 $table-link-highlight: $link-color;
 $table-row-hover-bg: #efefef;
-$table-row-hover-color: color-yiq($table-row-hover-bg);
+$table-row-hover-color: color-contrast($table-row-hover-bg);
 $table-padding: 1em;
 $table-padding-x: $table-padding;
 $table-padding-y: $table-padding * .75;
@@ -77,22 +77,26 @@ $table-sorting-icon-descending: '<svg viewBox="0 0 16 16"><g fill="#{$table-high
             }
             @each $name, $value in $theme-colors {
                 &.datatable-severity-#{$name} {
-                    background-color: theme-color-level($name, -10);
-                    color: color-yiq(theme-color-level($name, -10));
+                    background-color: tint-color($value, 90%);
+                    color: color-contrast(tint-color($value, 90%));
                     th,
                     td {
-                        border-top: 1px solid darken(theme-color-level($name, -10), 5%);
+                        border-top: 1px solid darken(tint-color($value, 90%), 5%);
                     }
                     &:nth-child(odd) {
-                        background-color: theme-color-level($name, -8);
-                        color: color-yiq(theme-color-level($name, -8));
-                    }
-                    &:hover {
-                        background-color: theme-color($name);
-                        color: color-yiq(theme-color($name));
+                        background-color: tint-color($value, 80%);
+                        color: color-contrast(tint-color($value, 80%));
                         th,
                         td {
-                            border-top: 1px solid darken(theme-color($name), 5%);
+                            border-top: 1px solid darken(tint-color($value, 80%), 5%);
+                        }
+                    }
+                    &:hover {
+                        background-color: tint-color($value, 70%);
+                        color: color-contrast(tint-color($value, 70%));
+                        th,
+                        td {
+                            border-top: 1px solid darken(tint-color($value, 70%), 5%) !important;
                         }
                     }
                 }
@@ -210,28 +214,28 @@ $table-sorting-icon-descending: '<svg viewBox="0 0 16 16"><g fill="#{$table-high
     }
 }
 .datatable-action {
-    background-color: theme-color('default');
-    color: color-yiq(theme-color('default'));
+    background-color: $white;
+    color: color-contrast($white);
     &:focus {
-        box-shadow: 0 0 0 2px rgba(color-yiq(theme-color('default')), .5);
+        box-shadow: 0 0 0 2px rgba(color-contrast($white), .5);
     }
     &:hover,
     &:focus {
-        background-color: darken(theme-color('default'), 7.5%);
-        color: color-yiq(theme-color('default'));
+        background-color: darken($white, 7.5%);
+        color: color-contrast($white);
     }
 }
 @each $color, $value in $theme-colors {
     &.datatable-action-#{$color} {
-        background-color: theme-color($color);
-        color: color-yiq(theme-color($color));
+        background-color: $value;
+        color: color-contrast($value);
         &:focus {
-            box-shadow: 0 0 0 2px rgba(theme-color($color), .5);
+            box-shadow: 0 0 0 2px rgba($value, .5);
         }
         &:hover,
         &:focus {
-            background-color: darken(theme-color($color), 7.5%);
-            color: color-yiq(theme-color($color));
+            background-color: darken($value, 7.5%);
+            color: color-contrast($value);
         }
     }
 }

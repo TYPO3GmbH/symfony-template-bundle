@@ -4,7 +4,7 @@
 $listbox-shadow: $box-shadow-sm;
 $listbox-bg: #ffffff;
 $listbox-border-radius: 2px;
-$listbox-color: color-yiq($card-bg);
+$listbox-color: color-contrast($card-bg);
 $listbox-margin: $spacer;
 $listbox-padding: 1rem;
 .listbox {

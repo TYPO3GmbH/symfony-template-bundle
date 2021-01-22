@@ -26,12 +26,35 @@
 {%- endblock collection_widget -%}
 
 {%- block choice_widget_collapsed -%}
-    {%- set attr = attr|merge({class: ('custom-select')|trim}) -%}
+    {%- set attr = attr|merge({class: ('form-select')|trim}) -%}
     {{- parent() -}}
 {%- endblock choice_widget_collapsed -%}
 
+{% block form_widget_simple -%}
+    {% if type is not defined or type != 'hidden' %}
+        {%- set attr = attr|merge({class: (attr.class|default('') ~ ' form-control')|trim}) -%}
+    {% endif %}
+    {%- if type is defined and (type == 'range' or type == 'color') %}
+        {# Attribute "required" is not supported #}
+        {%- set required = false -%}
+    {% endif %}
+    {{- parent() -}}
+{%- endblock form_widget_simple %}
+
 {%- block form_label_errors -%}
 {%- endblock form_label_errors -%}
+
+{% block form_errors -%}
+    {%- if errors|length > 0 -%}
+        <span class="{% if form is not rootform %}invalid-feedback{% else %}alert alert-danger{% endif %} d-block">
+            {%- for error in errors -%}
+                <span class="d-block">
+                    <span class="form-error-icon badge bg-danger text-uppercase">{{ 'Error'|trans({}, 'validators') }}</span> <span class="form-error-message">{{ error.message }}</span>
+                </span>
+            {%- endfor -%}
+        </span>
+    {%- endif %}
+{%- endblock form_errors %}
 
 {%- block form_row -%}
     {%- set widget_attr = {} -%}
@@ -46,37 +69,30 @@
     </{{ element|default('div') }}>
 {%- endblock form_row -%}
 
+{% block radio_widget -%}
+    <div class="form-check">
+        <input class="form-check-input" type="radio" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} />
+        {{- form_label(form, null, { widget: true }) -}}
+    </div>
+{%- endblock radio_widget %}
+
+{% block checkbox_widget -%}
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} />
+        {{- form_label(form, null, { widget: true }) -}}
+    </div>
+{%- endblock checkbox_widget %}
+
 {% block checkbox_radio_label -%}
     {#- Do not display the label if widget is not defined in order to prevent double label rendering -#}
     {%- if widget is defined -%}
-        {% set is_parent_custom = parent_label_class is defined and ('checkbox-custom' in parent_label_class or 'radio-custom' in parent_label_class or 'switch-custom' in parent_label_class) %}
-        {% set is_custom = label_attr.class is defined and ('checkbox-custom' in label_attr.class or 'radio-custom' in label_attr.class or 'switch-custom' in label_attr.class) %}
-        {%- if is_parent_custom or is_custom -%}
-            {%- set label_attr = label_attr|merge({class: (label_attr.class|default('') ~ ' custom-control-label')|trim}) -%}
-        {%- else %}
-            {%- set label_attr = label_attr|merge({class: (label_attr.class|default('') ~ ' form-check-label')|trim}) -%}
-        {%- endif %}
-        {%- if not compound -%}
-            {% set label_attr = label_attr|merge({'for': id}) %}
-        {%- endif -%}
-        {%- if required -%}
-            {%- set label_attr = label_attr|merge({class: (label_attr.class|default('') ~ ' required')|trim}) -%}
-        {%- endif -%}
-        {%- if parent_label_class is defined -%}
-            {%- set label_attr = label_attr|merge({class: (label_attr.class|default('') ~ ' ' ~ parent_label_class)|replace({'checkbox-inline': '', 'radio-inline': '', 'checkbox-custom': '', 'radio-custom': ''})|trim}) -%}
-        {%- endif -%}
+        {%- set label_attr = label_attr|merge({class: (label_attr.class|default('') ~ ' form-check-label')|trim}) -%}
+        {%- if not compound -%}{% set label_attr = label_attr|merge({'for': id}) %}{%- endif -%}
+        {%- if required -%}{%- set label_attr = label_attr|merge({class: (label_attr.class|default('') ~ ' required')|trim}) -%}{%- endif -%}
         {%- if label is not same as(false) and label is empty -%}
-            {%- if label_format is not empty -%}
-                {%- set label = label_format|replace({
-                    '%name%': name,
-                    '%id%': id,
-                }) -%}
-            {%- else -%}
-                {%- set label = name|humanize -%}
-            {%- endif -%}
+            {%- if label_format is not empty -%}{%- set label = label_format|replace({'%name%': name, '%id%': id}) -%}
+            {%- else -%}{%- set label = name|humanize -%}{%- endif -%}
         {%- endif -%}
-
-        {{ widget|raw }}
         <label{% with { attr: label_attr } %}{{ block('attributes') }}{% endwith %}>
             {{- label is not same as(false) ? (translation_domain is same as(false) ? label : label|trans(label_translation_parameters, translation_domain)) -}}
             {{- form_errors(form) -}}

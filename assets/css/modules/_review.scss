@@ -4,7 +4,7 @@
 $review-shadow: $box-shadow-sm;
 $review-bg: #ffffff;
 $review-border-radius: 2px;
-$review-color: color-yiq($review-bg);
+$review-color: color-contrast($review-bg);
 $review-margin: $spacer;
 $review-padding: 1rem;
 .review {
@@ -54,7 +54,7 @@ $review-padding: 1rem;
 @each $color, $value in $theme-colors {
     .review-note-#{$color} {
         background-color: $value;
-        color: color-yiq($value);
+        color: color-contrast($value);
     }
 }
 .review-data {

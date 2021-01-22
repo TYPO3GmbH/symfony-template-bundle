@@ -32,7 +32,7 @@ $aggregation-breakpoint: 'lg';
 .aggregations-toggle {
     @extend .btn;
     @extend .btn-secondary;
-    @extend .btn-block;
+    display: block;
     cursor: pointer;
     justify-content: center;
 }

@@ -104,5 +104,5 @@ $pricing-border-radius: .5rem;
 .pricing-select-current {
     line-height: 1.25;
     display: inline-block;
-    color: theme-color('success');
+    color: $success;
 }

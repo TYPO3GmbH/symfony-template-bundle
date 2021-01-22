@@ -5,19 +5,10 @@
     position: relative;
     z-index: 1;
 }
-.accordion-item {
-    border-bottom: $card-border-width solid $card-border-color !important;
-    box-shadow: 0 2px 1px 0 rgba(0, 0, 0, .1);
-    margin-bottom: 0;
-}
-.accordion-item + .accordion-item {
-    margin-top: .25em;
-}
-.accordion-header {
-    background-color: transparent;
-    padding: 0;
-    border-bottom: 0;
-}
+
+//
+// Title
+//
 .accordion-title {
     font-size: ($font-size-base * 1.1);
     font-weight: normal;
@@ -47,7 +38,7 @@
     top: 50%;
     right: $card-spacer-x;
     transform: translate(0, -50%);
-    color: theme-color('primary');
+    color: $primary;
     &:before,
     &:after {
         content: '';
@@ -77,6 +68,65 @@
         }
     }
 }
+
+//
+// Custom
+//
+.accordion.accordion-custom {
+    .accordion-item {
+        background-color: #ffffff;
+        box-shadow: 0 2px 1px 0 rgba(0, 0, 0, .1);
+        margin-bottom: 0;
+        border-radius: 2px;
+    }
+    .accordion-button {
+        border-top-left-radius: 2px !important;
+        border-top-right-radius: 2px !important;
+        &.collapsed {
+            border-bottom-left-radius: 2px !important;
+            border-bottom-right-radius: 2px !important;
+        }
+    }
+    .accordion-item + .accordion-item {
+        margin-top: .5em;
+    }
+    .accordion-button {
+        border: 0;
+    }
+    .accordion-body,
+    .accordion-collapse {
+        border: 0;
+    }
+}
+
+//
+// Card
+//
+.accordion-item.card {
+    box-shadow: 0 2px 1px 0 rgba(0, 0, 0, .1);
+    border-bottom: 0;
+    margin-bottom: 0;
+    .accordion-header {
+        background-color: transparent;
+        padding: 0;
+        border-bottom: 0;
+    }
+    .accordion-collapse {
+        border: none;
+    }
+    .accordion-body {
+        border-top: 0;
+        padding-top: 0;
+        padding-bottom: $card-spacer-y;
+    }
+}
+.accordion-item.card + .accordion-item.card {
+    margin-top: .5em;
+}
+
+//
+// Content
+//
 .accordion-content {
     display: flex;
     flex-wrap: wrap;
@@ -95,14 +145,6 @@
         margin-bottom: 0;
     }
 }
-.accordion-body {
-    border-top: 0;
-    padding-top: 0;
-}
-
-//
-// Position
-//
 .accordion-content-right,
 .accordion-content-left {
     .accordion-content-item {

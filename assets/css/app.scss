@@ -13,6 +13,7 @@
 @import 'components/datepicker';
 
 // Mixins
+@import 'mixins/container';
 @import 'mixins/function';
 @import 'mixins/svg';
 
@@ -52,3 +53,4 @@
 @import 'modules/issue';
 @import 'modules/review';
 @import 'modules/status';
+@import 'modules/badge';

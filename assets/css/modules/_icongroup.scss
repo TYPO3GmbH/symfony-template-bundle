@@ -95,7 +95,7 @@ $icongroup-item-width: 50% !default;
     width: 100%;
 }
 .icongroup-item-icon {
-    color: theme-color("primary");
+    color: $primary;
     flex-shrink: 0;
     width: $icongroup-icon-size;
     margin-right: 1rem;

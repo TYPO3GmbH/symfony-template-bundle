@@ -1,0 +1,26 @@
+{% extends '@Template/styleguide/layout.html.twig' %}
+{% block title %}Badge{% endblock %}
+
+{% block body %}
+
+    {% frame %}
+        <h2>Badge</h2>
+        <div class="card">
+            <div class="card-body">
+                {% for color in colors %}
+                    <span class="badge badge-{{ color }}">{{ color }}</span>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                {% for color in colors %}
+                    <span class="badge badge-{{ color }} rounded-pill">{{ color }}</span>
+                {% endfor %}
+            </div>
+        </div>
+
+    {% endframe %}
+
+{% endblock %}
