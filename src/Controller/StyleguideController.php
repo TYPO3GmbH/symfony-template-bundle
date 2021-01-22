@@ -131,4 +131,14 @@ class StyleguideController extends Controller
             'colors' => ThemeConstants::getProgressColors()
         ]);
     }
+
+    /**
+     * @return Response
+     */
+    public function componentDataTable(): Response
+    {
+        return $this->render('@Template/styleguide/component/datatable.html.twig', [
+            'colors' => ThemeConstants::getThemeColors()
+        ]);
+    }
 }

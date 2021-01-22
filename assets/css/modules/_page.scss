@@ -41,6 +41,7 @@
         flex-direction: row;
     }
     .page-main-content {
+        overflow: hidden;
         max-width: 100%;
         flex-grow: 1;
     }

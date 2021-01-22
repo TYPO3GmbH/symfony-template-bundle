@@ -1,0 +1,118 @@
+{% extends '@Template/styleguide/layout.html.twig' %}
+{% block title %}DataTable{% endblock %}
+
+{% block body %}
+
+    {% frame %}
+        <h2>DataTable</h2>
+        <div class="card">
+            <div class="datatable">
+                <table class="datatable-table">
+                    <thead>
+                        <tr>
+                            <th colspan="3">
+                                Title
+                                <a class="datatable-sorting sortable" href="#" title="sort by Title in ascending order">
+                                    <span class="datatable-sorting-icon"></span>
+                                    <span class="datatable-sorting-label datatable-visually-hidden">sort by Title in ascending order</span>
+                                </a>
+                            </th>
+                            <th>
+                                Column
+                                <a class="datatable-sorting asc" href="#" title="sort by Title in descending order">
+                                    <span class="datatable-sorting-icon"></span>
+                                    <span class="datatable-sorting-label datatable-visually-hidden">sort by Title in descending  order</span>
+                                </a>
+                            </th>
+                            <th></th>
+                            <th>
+                                Actions
+                                <a class="datatable-sorting desc" href="#" title="sort by Actions in ascending order">
+                                    <span class="datatable-sorting-icon"></span>
+                                    <span class="datatable-sorting-label datatable-visually-hidden">sort by Title in ascending order</span>
+                                </a>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th data-type="icon">
+                                <a href="#" class="datatable-link-highlight">{{ icon('actions-brand-typo3') }}</a>
+                            </th>
+                            <th data-type="title">
+                                <a title="View" href="#">Lorem ipsum dolor sit amet.</a>
+                            </th>
+                            <th data-type="badge">
+                                <span class="badge badge-success">Badge</span>
+                            </th>
+                            <td>Proin massa risus commodo.</td>
+                            <td data-type="fill"></td>
+                            <td data-type="actions" data-label="Actions">
+                                <a class="datatable-action" title="View" href="#">
+                                    <span class="datatable-action-label">View</span>
+                                </a>
+                                <a class="datatable-action" title="View" href="#">
+                                    <span class="datatable-action-icon">{{ icon('actions-eye') }}</span>
+                                    <span class="datatable-action-label">View</span>
+                                </a>
+                                <a class="datatable-action" title="View" href="#">
+                                    <span class="datatable-action-icon">{{ icon('actions-eye') }}</span>
+                                    <span class="datatable-action-label datatable-visually-hidden">View</span>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    {% endframe %}
+
+    {% frame %}
+        <h2>Severity</h2>
+        <div class="card">
+            <div class="datatable">
+                <table class="datatable-table">
+                    <thead>
+                        <tr>
+                            <th colspan="3">Title</th>
+                            <th>Column</th>
+                            <th></th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for color in colors %}
+                        <tr class="datatable-severity-{{ color }}">
+                            <th data-type="icon">
+                                <a href="#" class="datatable-link-highlight">{{ icon('actions-brand-typo3') }}</a>
+                            </th>
+                            <th data-type="title">
+                                <a title="View" href="#">Lorem ipsum dolor sit amet.</a>
+                            </th>
+                            <th data-type="badge">
+                                <span class="badge badge-success">Badge</span>
+                            </th>
+                            <td>.datatable-severity-{{ color }}</td>
+                            <td data-type="fill"></td>
+                            <td data-type="actions" data-label="Actions">
+                                <a class="datatable-action" title="View" href="#">
+                                    <span class="datatable-action-label">View</span>
+                                </a>
+                                <a class="datatable-action" title="View" href="#">
+                                    <span class="datatable-action-icon">{{ icon('actions-eye') }}</span>
+                                    <span class="datatable-action-label">View</span>
+                                </a>
+                                <a class="datatable-action" title="View" href="#">
+                                    <span class="datatable-action-icon">{{ icon('actions-eye') }}</span>
+                                    <span class="datatable-action-label datatable-visually-hidden">View</span>
+                                </a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    {% endframe %}
+
+{% endblock %}

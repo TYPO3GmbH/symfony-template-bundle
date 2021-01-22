@@ -86,13 +86,17 @@ $table-sorting-icon-descending: '<svg viewBox="0 0 16 16"><g fill="#{$table-high
                     &:nth-child(odd) {
                         background-color: tint-color($value, 80%);
                         color: color-contrast(tint-color($value, 80%));
-                    }
-                    &:hover {
-                        background-color: $value;
-                        color: color-contrast($value);
                         th,
                         td {
-                            border-top: 1px solid darken($value, 5%);
+                            border-top: 1px solid darken(tint-color($value, 80%), 5%);
+                        }
+                    }
+                    &:hover {
+                        background-color: tint-color($value, 70%);
+                        color: color-contrast(tint-color($value, 70%));
+                        th,
+                        td {
+                            border-top: 1px solid darken(tint-color($value, 70%), 5%) !important;
                         }
                     }
                 }

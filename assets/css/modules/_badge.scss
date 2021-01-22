@@ -1,11 +1,8 @@
 //
 // Status
 //
-.status {
-    @extend .badge;
-}
-@each $color, $value in $status-colors {
-    .status-#{$color} {
+@each $color, $value in $theme-colors {
+    .badge-#{$color} {
         background-color: $value;
         color: color-contrast($value);
     }

@@ -37,3 +37,7 @@ _template_styleguide_component_status:
 _template_styleguide_component_progress:
   path: /styleguide/component/progress
   controller: T3G\Bundle\TemplateBundle\Controller\StyleguideController::componentProgress
+
+_template_styleguide_component_datatable:
+  path: /styleguide/component/datatable
+  controller: T3G\Bundle\TemplateBundle\Controller\StyleguideController::componentDataTable
