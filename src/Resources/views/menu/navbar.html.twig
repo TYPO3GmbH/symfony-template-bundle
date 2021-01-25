@@ -21,6 +21,7 @@
 
 {# root #}
 {% block root %}
+    {% set level = 0 %}
     {% set listAttributes = item.childrenAttributes %}
     {{ block('list') -}}
 {% endblock %}
@@ -30,7 +31,7 @@
 {% block list %}
     {% if item.hasChildren and options.depth is not same as(0) and item.displayChildren %}
         {# add defaults #}
-        {% set level = item.level + 1 %}
+        {% set level = level + 1 %}
         {% set tag = 'ul' %}
         {% set classes = ['navbar-nav'] %}
         {# dropdown #}
@@ -73,8 +74,6 @@
 {# item #}
 {% block item %}
     {% if item.displayed %}
-        {# add defaults #}
-        {% set level = item.level %}
         {# add classes #}
         {% if item.attribute('class') %}
             {% set classes = [item.attribute('class')] %}
@@ -123,7 +122,7 @@
         {% set classes = [item.linkAttribute('class')] %}
     {% else %}
         {% set classes = ['nav-link'] %}
-        {% if item.level > 1 %}
+        {% if level > 1 %}
             {% set classes = ['dropdown-item'] %}
             {% if matcher.isCurrent(item) %}
                 {% set classes = classes|merge(['active']) %}
@@ -154,7 +153,7 @@
     {% if not item.extra('divider') %}
         <span{{ knp_menu.attributes(item.labelAttributes) }}>{{ block('label') }}</span>
     {% else %}
-        {% if item.level > 1 %}
+        {% if level > 1 %}
             <div class="dropdown-divider"></div>
         {% endif %}
     {% endif %}
