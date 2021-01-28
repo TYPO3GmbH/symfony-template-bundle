@@ -117,11 +117,9 @@ $navbar-heights: (
     align-items: center;
 }
 .nav-item {
-    &.active {
-        > .nav-link {
-            .nav-item-label {
-                border-bottom: 1px dashed $primary;
-            }
+    > .nav-link.active {
+        .nav-item-label {
+            border-bottom: 1px dashed $primary;
         }
     }
 }

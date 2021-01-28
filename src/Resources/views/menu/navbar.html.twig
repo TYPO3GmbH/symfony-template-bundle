@@ -80,11 +80,6 @@
         {% else -%}
             {% set classes = ['nav-item'] %}
         {% endif %}
-        {% if matcher.isCurrent(item) %}
-            {% set classes = classes|merge(['active']) %}
-        {% elseif matcher.isAncestor(item, options.matchingDepth) %}
-            {% set classes = classes|merge(['active']) %}
-        {% endif %}
         {% if item.hasChildren and options.depth is not same as(0) and item.displayChildren %}
             {% set classes = classes|merge(['dropdown', 'dropdown-hover']) %}
         {% endif %}
@@ -124,10 +119,12 @@
         {% set classes = ['nav-link'] %}
         {% if level > 1 %}
             {% set classes = ['dropdown-item'] %}
-            {% if matcher.isCurrent(item) %}
-                {% set classes = classes|merge(['active']) %}
-            {% endif %}
         {% endif %}
+    {% endif %}
+    {% if matcher.isCurrent(item) %}
+        {% set classes = classes|merge(['active']) %}
+    {% elseif matcher.isAncestor(item, options.matchingDepth) %}
+        {% set classes = classes|merge(['active']) %}
     {% endif %}
     {% if item.hasChildren and options.depth is not same as(0) and item.displayChildren %}
         {% set classes = classes|merge(['dropdown-toggle']) %}

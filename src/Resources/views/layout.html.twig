@@ -39,8 +39,8 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="mainnavigation">
-                        {{ knp_menu_render('main-default') }}
-                        {{ knp_menu_render('main-profile') }}
+                        {{ knp_menu_render('main-default', {'depth': 2}) }}
+                        {{ knp_menu_render('main-profile', {'depth': 2}) }}
                     </div>
                 </div>
             </nav>
