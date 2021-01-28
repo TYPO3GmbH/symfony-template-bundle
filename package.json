@@ -26,7 +26,7 @@
     },
     "dependencies": {
         "@popperjs/core": "^2.6.0",
-        "@typo3/icons": "^2.1.1",
+        "@typo3/icons": "^2.2.1",
         "choices.js": "^9.0.1",
         "luxon": "^1.25.0",
         "prismjs": "^1.23.0",
