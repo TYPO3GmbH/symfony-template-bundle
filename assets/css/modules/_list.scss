@@ -3,15 +3,15 @@ ul.list-bubble {
     padding-left: 0;
     list-style: none;
     counter-reset: listStyle;
-    li {
+    > li {
         position: relative;
         padding-left: 2.25em;
         counter-increment: listStyle;
     }
-    li + li {
+    > li + li {
         margin-top: 1em;
     }
-    li:before {
+    > li:before {
         position: absolute;
         text-align: center;
         font-weight: bold;
