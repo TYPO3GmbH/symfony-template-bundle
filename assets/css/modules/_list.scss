@@ -27,7 +27,7 @@ ul.list-bubble {
     }
 }
 ul.list-bubble-alpha {
-    li:before {
+    > li:before {
         content: counter(listStyle, upper-alpha);
     }
 }
