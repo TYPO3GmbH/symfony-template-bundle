@@ -134,6 +134,9 @@
     {% if classes is not empty %}
         {% set linkAttributes = linkAttributes|merge({'class': classes|join(' ')}) %}
     {% endif %}
+    {% if item.hasChildren and options.depth is not same as(0) and item.displayChildren %}
+        {% set linkAttributes = linkAttributes|merge({'aria-expanded': 'false'}) %}
+    {% endif %}
     {# render #}
     {% import _self as knp_menu %}
     <a href="{{ item.uri }}"{{ knp_menu.attributes(linkAttributes) }}>

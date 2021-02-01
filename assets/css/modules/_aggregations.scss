@@ -38,12 +38,6 @@ $aggregation-breakpoint: 'lg';
     justify-content: center;
     margin-bottom: .5rem;
 }
-.aggregations-toggle-icon {
-    @extend .btn-icon;
-}
-.aggregations-toggle-text {
-    @extend .btn-text;
-}
 @include media-breakpoint-up($aggregation-breakpoint) {
     .aggregations-toggle {
         display: none !important;
