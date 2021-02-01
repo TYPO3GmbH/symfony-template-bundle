@@ -41,6 +41,11 @@
     {{- parent() -}}
 {%- endblock form_widget_simple %}
 
+{% block form_label -%}
+    {%- set label_attr = label_attr|merge({class: (label_attr.class|default('') ~ ' form-label')|trim}) -%}
+    {{- parent() -}}
+{%- endblock form_label %}
+
 {%- block form_label_errors -%}
 {%- endblock form_label_errors -%}
 
