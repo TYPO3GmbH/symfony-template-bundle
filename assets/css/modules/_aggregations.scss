@@ -33,8 +33,10 @@ $aggregation-breakpoint: 'lg';
     @extend .btn;
     @extend .btn-secondary;
     display: block;
+    width: 100%;
     cursor: pointer;
     justify-content: center;
+    margin-bottom: .5rem;
 }
 .aggregations-toggle-icon {
     @extend .btn-icon;

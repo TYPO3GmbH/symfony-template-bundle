@@ -6,6 +6,10 @@ _template_styleguide_component_accordion:
   path: /styleguide/component/accordion
   controller: T3G\Bundle\TemplateBundle\Controller\StyleguideController::componentAccordion
 
+_template_styleguide_component_aggregation:
+  path: /styleguide/component/aggregation
+  controller: T3G\Bundle\TemplateBundle\Controller\StyleguideController::componentAggregation
+
 _template_styleguide_component_alert:
   path: /styleguide/component/alert
   controller: T3G\Bundle\TemplateBundle\Controller\StyleguideController::componentAlert

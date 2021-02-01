@@ -66,22 +66,18 @@
 }
 
 //
-// Custom Forms
+// Form Check
 //
-.custom-control-label {
-    display: block;
-    max-width: 100%;
-}
-.custom-control-label-hascount {
+.form-check-label-hascount {
     display: flex;
 }
-.custom-control-label-title {
+.form-check-label-title {
     flex-grow: 1;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
 }
-.custom-control-label-count {
+.form-check-label-count {
     flex-shrink: 0;
     margin-left: 1rem;
 }

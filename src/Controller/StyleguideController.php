@@ -55,6 +55,16 @@ class StyleguideController extends Controller
     /**
      * @return Response
      */
+    public function componentAggregation(): Response
+    {
+        return $this->render('@Template/styleguide/component/aggregation.html.twig', [
+            'colors' => ThemeConstants::getThemeColors()
+        ]);
+    }
+
+    /**
+     * @return Response
+     */
     public function componentAlert(): Response
     {
         return $this->render('@Template/styleguide/component/alert.html.twig', [

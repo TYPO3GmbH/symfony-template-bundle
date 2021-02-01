@@ -1,0 +1,46 @@
+{% extends '@Template/styleguide/layout.html.twig' %}
+{% block title %}Aggregation{% endblock %}
+
+{% block body %}
+
+    {% frame %}
+        <div class="section-filter">
+            <input type="checkbox" id="toggleAggregations" class="aggregations-checkbox">
+            <label for="toggleAggregations" class="aggregations-toggle">
+                <span class="aggregations-toggle-icon"><i class="fas fa-filter"></i></span>
+                <span class="aggregations-toggle-text">
+                    <span class="aggregations-toggle-text-inactive">Show</span>
+                    <span class="sr-only">/</span>
+                    <span class="aggregations-toggle-text-active">Hide</span>
+                    Filter
+                </span>
+            </label>
+            <div class="aggregations" id="aggregations" role="tablist">
+                {% for aggregation in [1,2,3,4,5,6] %}
+                    <div class="aggregation">
+                        <div class="aggregation-title" id="aggregation-title-{{ aggregation }}">
+                            <a class="aggregation-title-link" data-bs-toggle="collapse" href="#collapse-{{ aggregation }}" aria-expanded="true" aria-controls="collapse-{{ aggregation }}">
+                                <span class="aggregation-title-text">Aggregation {{ aggregation }}</span>
+                                <span class="aggregation-title-badge"></span>
+                            </a>
+                        </div>
+                        <div id="collapse-{{ aggregation }}" class="collapse show" role="tabpanel" aria-labelledby="aggregation-title-{{ aggregation }}" data-parent="#aggregations" style="">
+                            <div class="aggregation-body">
+                                {% for entry in [1,2,3,4,5,6] %}
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="aggregationElement{{ entry }}">
+                                        <label class="form-check-label form-check-label-hascount" for="aggregationElement{{ entry }}">
+                                            <span class="form-check-label-title">Entry label {{ entry }}</span>
+                                            <span class="form-check-label-count">{{ entry }}</span>
+                                        </label>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% endframe %}
+
+{% endblock %}
