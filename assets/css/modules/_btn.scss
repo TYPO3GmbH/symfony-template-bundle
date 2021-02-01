@@ -12,22 +12,3 @@
         box-shadow: none;
     }
 }
-.btn-icon {
-    & + .btn-text {
-        padding-left: .5rem;
-    }
-}
-.btn-text {
-    & + .btn-icon {
-        padding-left: .5rem;
-    }
-}
-.btn-icon-right {
-    .btn-icon {
-        & + .btn-text {
-            padding-right: .35rem;
-            padding-left: 0;
-        }
-        order: 2;
-    }
-}
