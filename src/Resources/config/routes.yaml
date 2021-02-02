@@ -22,6 +22,10 @@ _template_styleguide_component_button:
   path: /styleguide/component/button
   controller: T3G\Bundle\TemplateBundle\Controller\StyleguideController::componentButton
 
+_template_styleguide_component_card:
+  path: /styleguide/component/card
+  controller: T3G\Bundle\TemplateBundle\Controller\StyleguideController::componentCard
+
 _template_styleguide_component_frame:
   path: /styleguide/component/frame
   controller: T3G\Bundle\TemplateBundle\Controller\StyleguideController::componentFrame

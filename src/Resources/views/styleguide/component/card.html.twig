@@ -1,0 +1,106 @@
+{% extends '@Template/styleguide/layout.html.twig' %}
+{% block title %}Card{% endblock %}
+
+{% block body %}
+
+    {% frame %}
+        <h2>Simple</h2>
+        {% example with { language: 'html' } %}
+<div class="card">
+    <div class="card-body">
+        <h3 class="card-title">Card title</h3>
+        <p class="card-text">
+            This is a wider card with supporting text below as a natural lead-in
+            to additional content. This content is a little bit longer.
+        </p>
+    </div>
+</div>
+        {% endexample %}
+    {% endframe %}
+
+    {% frame %}
+        <h2>Sidebar</h2>
+        {% example with { language: 'html' } %}
+<div class="card card-hassidebar">
+    <div class="card-sidebar">
+        <span>Sidebar</span>
+    </div>
+    <div class="card-body">
+        <h3 class="card-title">Card title</h3>
+        <p>
+            This is a wider card with supporting text below as a natural lead-in
+            to additional content. This content is a little bit longer.
+        </p>
+    </div>
+</div>
+        {% endexample %}
+    {% endframe %}
+
+    {% frame %}
+        <h2>Image</h2>
+        {% example with { language: 'html' } %}
+<div class="card">
+    <div class="card-img-top">
+        <img src="https://via.placeholder.com/380x100.png" />
+    </div>
+    <div class="card-body">
+        <h3 class="card-title">Card title</h3>
+        <p>
+            This is a wider card with supporting text below as a natural lead-in
+            to additional content. This content is a little bit longer.
+        </p>
+    </div>
+</div>
+        {% endexample %}
+    {% endframe %}
+
+    {% frame %}
+        <h2>Headerbar</h2>
+        {% example with { language: 'html' } %}
+<div class="card">
+    <div class="card-header">
+        <div class="card-header-bar">
+            <div class="card-header-title">
+                <h3>Card title</h3>
+            </div>
+            <div class="card-header-actions">
+                <a class="btn btn-light" title="Edit" href="#">
+                    {{ icon('actions-document-edit') }}
+                </a>
+                <a class="btn btn-light" title="delete" href="#">
+                    {{ icon('actions-delete') }}
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <p>
+            This is a wider card with supporting text below as a natural lead-in
+            to additional content. This content is a little bit longer.
+        </p>
+    </div>
+</div>
+        {% endexample %}
+    {% endframe %}
+
+    {% frame %}
+        <h2>Footer</h2>
+        {% example with { language: 'html' } %}
+<div class="card">
+    <div class="card-body">
+        <h3 class="card-title">Card title</h3>
+        <p>
+            This is a wider card with supporting text below as a natural lead-in
+            to additional content. This content is a little bit longer.
+        </p>
+    </div>
+    <div class="card-footer">
+        <a class="btn btn-light" title="Show" href="#">
+            Show
+        </a>
+    </div>
+</div>
+        {% endexample %}
+    {% endframe %}
+
+{% endblock %}
