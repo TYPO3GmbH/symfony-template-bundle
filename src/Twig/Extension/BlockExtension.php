@@ -10,6 +10,7 @@ declare(strict_types=1);
 
 namespace T3G\Bundle\TemplateBundle\Twig\Extension;
 
+use T3G\Bundle\TemplateBundle\Twig\TokenParser\ExampleTokenParser;
 use T3G\Bundle\TemplateBundle\Twig\TokenParser\FrameTokenParser;
 use Twig\Environment;
 use Twig\Extension\AbstractExtension;
@@ -20,15 +21,25 @@ class BlockExtension extends AbstractExtension
     public function getTokenParsers()
     {
         return [
-            new FrameTokenParser()
+            new ExampleTokenParser(),
+            new FrameTokenParser(),
         ];
     }
 
     public function getFunctions()
     {
         return [
+            new TwigFunction('example', [$this, 'exampleFunction'], ['needs_environment' => true, 'is_safe' => ['html']]),
             new TwigFunction('frame', [$this, 'frameFunction'], ['needs_environment' => true, 'is_safe' => ['html']])
         ];
+    }
+
+    public function exampleFunction(Environment $environment, string $content, array $attributes): string
+    {
+        return $environment->render('@Template/extension/block/example.html.twig', [
+            'content' => $content,
+            'language' => $attributes['language'] ?? 'none',
+        ]);
     }
 
     public function frameFunction(Environment $environment, string $content, array $attributes): string

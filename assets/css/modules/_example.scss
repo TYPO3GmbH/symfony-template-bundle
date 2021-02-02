@@ -1,0 +1,20 @@
+//
+// Example
+//
+.example {
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 4px;
+    overflow: hidden;
+}
+.example-render {
+    padding: 2rem;
+    > *:last-child {
+        margin-bottom: 0;
+    }
+}
+.example-code {
+    pre {
+        border-radius: 0;
+        margin: 0;
+    }
+}
