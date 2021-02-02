@@ -1,0 +1,137 @@
+{% extends '@Template/styleguide/layout.html.twig' %}
+{% block title %}Pricing{% endblock %}
+
+{% block body %}
+
+    {% frame %}
+        <h2>Single</h2>
+        {% example with { language: 'html' } %}
+<div class="pricing-grid">
+    <div class="pricing-grid-item">
+        <!-- START -->
+        <div class="pricing">
+            <img class="pricing-image" src="https://via.placeholder.com/230x100.png" />
+            <div class="pricing-header">
+                <div class="pricing-header-title">Product Name</div>
+                <div class="pricing-header-subtitle">Subtitle</div>
+            </div>
+            <div class="pricing-content">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Aenean mollis orci ac ante porta, non gravida lectus dapibus.
+                    Integer blandit non est in mollis. Donec blandit, ligula id
+                    consectetur placerat, felis odio sodales ante, a egestas
+                    augue ligula quis dolor.
+                </p>
+            </div>
+            <div class="pricing-items">
+                <div class="pricing-item pricing-item-secondary">
+                    €100.00
+                    <small>setup fee</small>
+                </div>
+                <div class="pricing-item pricing-item-main">
+                    €125.00
+                    <small>per year</small>
+                </div>
+            </div>
+            <div class="pricing-select">
+                <a class="pricing-select-button" href="#">Get Started</a>
+            </div>
+        </div>
+        <!-- END -->
+    </div>
+</div>
+        {% endexample %}
+    {% endframe %}
+
+    {% frame %}
+        <h2>Grid</h2>
+        {% example with { language: 'html' } %}
+<div class="pricing-grid">
+    <div class="pricing-grid-item">
+        <div class="pricing">
+            <div class="pricing-header">
+                <div class="pricing-header-title">Product Name</div>
+                <div class="pricing-header-subtitle">Subtitle</div>
+            </div>
+                <div class="pricing-content">
+                <p>
+                    Integer blandit non est in mollis. Donec blandit, ligula id
+                    consectetur placerat, felis odio sodales ante, a egestas
+                    augue ligula quis dolor.
+                </p>
+            </div>
+            <div class="pricing-items">
+                <div class="pricing-item pricing-item-secondary">
+                    €100.00
+                    <small>setup fee</small>
+                </div>
+                <div class="pricing-item pricing-item-main">
+                    €125.00
+                    <small>per year</small>
+                </div>
+            </div>
+            <div class="pricing-select">
+                <a class="pricing-select-button" href="#">Get Started</a>
+            </div>
+        </div>
+    </div>
+    <div class="pricing-grid-item">
+        <div class="pricing">
+            <div class="pricing-header">
+                <div class="pricing-header-title">Product Name</div>
+                <div class="pricing-header-subtitle">Subtitle</div>
+            </div>
+                <div class="pricing-content">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Aenean mollis orci ac ante porta, non gravida lectus dapibus.
+                    Integer blandit non est in mollis.
+                </p>
+            </div>
+            <div class="pricing-items">
+                <div class="pricing-item pricing-item-main">
+                    €125.00
+                    <small>per year</small>
+                </div>
+            </div>
+            <div class="pricing-select">
+                <span class="pricing-select-current">Get Started</span>
+            </div>
+        </div>
+    </div>
+    <div class="pricing-grid-item">
+        <div class="pricing">
+            <div class="pricing-header">
+                <div class="pricing-header-title">Product Name</div>
+                <div class="pricing-header-subtitle">Subtitle</div>
+            </div>
+                <div class="pricing-content">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Aenean mollis orci ac ante porta, non gravida lectus dapibus.
+                    Integer blandit non est in mollis. Donec blandit, ligula id
+                    consectetur placerat, felis odio sodales ante, a egestas
+                    augue ligula quis dolor.
+                </p>
+            </div>
+            <div class="pricing-items">
+                <div class="pricing-item pricing-item-secondary">
+                    €100.00
+                    <small>setup fee</small>
+                </div>
+                <div class="pricing-item pricing-item-main">
+                    €125.00
+                    <small>per year</small>
+                </div>
+            </div>
+            <div class="pricing-select">
+                <a class="pricing-select-button" href="#">Get Started</a>
+            </div>
+        </div>
+    </div>
+</div>
+        {% endexample %}
+    {% endframe %}
+
+{% endblock %}
