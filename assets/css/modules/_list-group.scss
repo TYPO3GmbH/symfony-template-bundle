@@ -2,11 +2,23 @@
 // Issue
 //
 .list-group {
-    border-radius: 2px;
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .15);
+    border-radius: 4px;
+    box-shadow: $box-shadow-sm;
 }
 .list-group-item {
     display: flex;
     align-items: center;
     gap: .35rem;
+}
+.card {
+    .list-group-item {
+        border-left: 0;
+        border-right: 0;
+        &:first-child {
+            border-top: 0;
+        }
+        &:last-child {
+            border-bottom: 0;
+        }
+    }
 }
