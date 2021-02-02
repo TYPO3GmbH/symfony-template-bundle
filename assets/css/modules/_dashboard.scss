@@ -1,7 +1,7 @@
 //
 // Dashboard
 //
-$dashboard-shadow:  0 2px 2px 0 rgba(0, 0, 0, .15);
+$dashboard-shadow:  $box-shadow-sm;
 $dashboard-bg: #ffffff;
 $dashboard-border-radius: 4px;
 $dashboard-color: #2d2d2d;
