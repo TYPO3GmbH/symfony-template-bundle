@@ -86,19 +86,21 @@ $card-link-hover-color: $link-hover-color !default;
 //
 // Badge
 //
-.card-badge-top,
-.card-badge-bottom {
+.card-badge {
     font-size: $font-size-sm;
     line-height: 1;
-    padding: .35rem .75rem;
-    margin: 0 auto;
+    padding: .5rem $card-spacer-x;
     text-transform: uppercase;
+    box-shadow: inset 0 -1px 1px 0 rgba(0, 0, 0, .15);
 }
 .card-badge-top {
+    margin: 0 auto;
     border-radius: 0 0 3px 3px;
 }
 .card-badge-bottom {
+    margin: 0 auto;
     border-radius: 3px 3px 0 0;
+    box-shadow: inset 0 1px 1px 0 rgba(0, 0, 0, .15);
 }
 @each $color, $value in $theme-colors {
     .card-badge-#{$color} {
