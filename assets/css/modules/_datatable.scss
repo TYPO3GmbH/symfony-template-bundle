@@ -33,10 +33,10 @@ $table-sorting-icon-descending: '<svg viewBox="0 0 16 16"><g fill="#{$table-high
     th,
     td {
         &:first-child {
-            padding-left: 1.5rem;
+            padding-left: 1.25rem;
         }
         &:last-child {
-            padding-right: 1.5rem;
+            padding-right: 1.25rem;
         }
         padding: $table-cell-padding;
         white-space: nowrap;

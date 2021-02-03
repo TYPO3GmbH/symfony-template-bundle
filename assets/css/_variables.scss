@@ -166,8 +166,10 @@ $box-shadow-sm: 0 1px 2px 1px rgba(0, 0, 0, .15);
 // Cards
 // --------------------------------------------------
 $card-border-width:         1px;
+$card-border-radius:        4px;
 $card-spacer-y:             1.25rem;
 $card-spacer-x:             1.25rem;
+$card-cap-bg:               rgba(0,0,0,.02);
 
 //
 // Table
