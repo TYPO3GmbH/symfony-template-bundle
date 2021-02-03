@@ -1,22 +1,21 @@
 //
 // Pricing
 //
-$pricing-padding: 1.25rem;
+$pricing-padding: 1.5rem;
 $pricing-border-radius: .5rem;
 .pricing-grid {
     position: relative;
     display: flex;
-    margin: -10px;
+    gap: 1rem;
     flex-wrap: wrap;
     justify-content: center;
 }
 .pricing-grid-item {
     position: relative;
-    padding: 10px;
-    width: 250px;
+    width: 230px;
 }
 .pricing {
-    padding: ($pricing-padding * 1.5) $pricing-padding;
+    padding: ($pricing-padding * 1.25) $pricing-padding;
     display: flex;
     height: 100%;
     flex-direction: column;
@@ -25,6 +24,7 @@ $pricing-border-radius: .5rem;
     background-color: rgba(255, 255, 255, .75);
     box-shadow: 0 .5rem 1rem rgba($black, 0);
     transition: box-shadow ease-in-out .2s, background-color ease-in-out .2s;
+    gap: $pricing-padding;
     &:hover,
     &[data-active="true"] {
         background-color: rgba(255, 255, 255, 1);
@@ -35,27 +35,27 @@ $pricing-border-radius: .5rem;
     overflow: hidden;
     margin: -$pricing-padding;
     margin-top: -($pricing-padding * 1.5);
-    margin-bottom: ($pricing-padding * 1.5);
+    margin-bottom: 0;
     border-top-left-radius: $pricing-border-radius;
     border-top-right-radius: $pricing-border-radius;
 }
 .pricing-header {
     text-align: center;
-    margin-bottom: $pricing-padding;
 }
 .pricing-header-title {
-    font-size: 1.35em;
-    margin-bottom: .25rem;
+    font-size: 1.375rem;
+    font-weight: bold;
+    line-height: 1.25;
 }
 .pricing-header-subtitle {
-    font-size: 1.15em;
-    opacity: .5;
+    font-size: 1.125rem;
     font-weight: normal;
+    line-height: 1.25;
+    opacity: .75;
     margin-bottom: 0;
 }
 .pricing-content {
     font-size: 75%;
-    margin-bottom: $pricing-padding;
     text-align: center;
     flex-grow: 1;
     > *:first-child {
@@ -66,22 +66,32 @@ $pricing-border-radius: .5rem;
     }
 }
 .pricing-items {
-    margin-bottom: $pricing-padding;
     text-align: center;
 }
 .pricing-item {
     line-height: 1;
+    .pricing-item-price {
+        font-weight: bold;
+        &[data-currency]:before {
+            margin-right: .2em;
+            font-size: .75em;
+            opacity: .75;
+            content: attr(data-currency);
+        }
+    }
+    .pricing-item-addition,
     small {
         display: block;
         margin-top: .25rem;
         font-size: .75rem;
+        opacity: .75;
     }
     + .pricing-item {
         margin-top: .5rem;
     }
 }
 .pricing-item-main {
-    font-size: 1.75em;
+    font-size: 1.5em;
 }
 .pricing-item-secondary {
     font-size: 1.1em;
@@ -99,6 +109,7 @@ $pricing-border-radius: .5rem;
 .pricing-select-button {
     @extend .btn;
     @extend .btn-primary;
+    font-size: .875rem;
     border-radius: 1.25rem;
 }
 .pricing-select-current {

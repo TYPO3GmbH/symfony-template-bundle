@@ -42,6 +42,10 @@ _template_styleguide_component_status:
   path: /styleguide/component/status
   controller: T3G\Bundle\TemplateBundle\Controller\StyleguideController::componentStatus
 
+_template_styleguide_component_optionswitch:
+  path: /styleguide/component/optionswitch
+  controller: T3G\Bundle\TemplateBundle\Controller\StyleguideController::componentOptionswitch
+
 _template_styleguide_component_pricing:
   path: /styleguide/component/pricing
   controller: T3G\Bundle\TemplateBundle\Controller\StyleguideController::componentPricing

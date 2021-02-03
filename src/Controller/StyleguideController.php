@@ -143,6 +143,14 @@ class StyleguideController extends Controller
     /**
      * @return Response
      */
+    public function componentOptionswitch(): Response
+    {
+        return $this->render('@Template/styleguide/component/optionswitch.html.twig');
+    }
+
+    /**
+     * @return Response
+     */
     public function componentPricing(): Response
     {
         return $this->render('@Template/styleguide/component/pricing.html.twig');
