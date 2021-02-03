@@ -142,4 +142,34 @@
         {% endexample %}
     {% endframe %}
 
+    {% frame %}
+        <h2>Grid</h2>
+        {% example with { language: 'html' } %}
+<div class="card-grid" data-grid-columns="2">
+    <div class="card">
+        <div class="card-body">
+            <h3 class="card-title">Card title</h3>
+            <p class="card-text">
+                This is a wider card with supporting text below as a natural lead-in
+                to additional content. This content is a little bit longer.
+            </p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <h3 class="card-title">Card title</h3>
+            <p class="card-text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur fringilla
+                enim eget magna placerat, ac vulputate odio imperdiet. Nullam placerat risus
+                augue, ac facilisis augue lacinia eget. Aliquam erat volutpat. Donec non ante
+                lorem. Proin felis ante, congue at maximus laoreet, elementum eget ligula.
+                Maecenas justo urna, congue nec sollicitudin ac, elementum vel lectus. Donec
+                commodo lobortis risus, id congue lacus tempus nec.
+            </p>
+        </div>
+    </div>
+</div>
+        {% endexample %}
+    {% endframe %}
+
 {% endblock %}
