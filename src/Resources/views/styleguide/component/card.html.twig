@@ -143,6 +143,28 @@
     {% endframe %}
 
     {% frame %}
+        <h2>Alerts</h2>
+        {% example with { language: 'html' } %}
+<div class="card">
+    <div class="card-alerts">
+        {% for color in colors -%}
+        <div class="alert alert-{{ color }}" role="alert">
+            A simple {{ color }} alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+        </div>
+        {% endfor %}
+    </div>
+    <div class="card-body">
+        <h3 class="card-title">Card title</h3>
+        <p>
+            This is a wider card with supporting text below as a natural lead-in
+            to additional content. This content is a little bit longer.
+        </p>
+    </div>
+</div>
+        {% endexample %}
+    {% endframe %}
+
+    {% frame %}
         <h2>Grid</h2>
         {% example with { language: 'html' } %}
 <div class="card-grid" data-grid-columns="2">

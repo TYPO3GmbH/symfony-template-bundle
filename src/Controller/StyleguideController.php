@@ -97,7 +97,9 @@ class StyleguideController extends Controller
      */
     public function componentCard(): Response
     {
-        return $this->render('@Template/styleguide/component/card.html.twig');
+        return $this->render('@Template/styleguide/component/card.html.twig', [
+            'colors' => ThemeConstants::getThemeColors()
+        ]);
     }
 
     /**

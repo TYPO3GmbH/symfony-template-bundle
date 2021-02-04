@@ -82,6 +82,19 @@ $card-link-hover-color: $link-hover-color !default;
 }
 
 //
+// Alert
+//
+.card-alerts {
+    .alert {
+        padding-left: $card-spacer-x;
+        padding-right: $card-spacer-x;
+        border: none;
+        border-radius: 0;
+        margin-bottom: 0;
+    }
+}
+
+//
 // Badge
 //
 .card-badge {
