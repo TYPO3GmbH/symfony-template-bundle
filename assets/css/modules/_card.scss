@@ -145,6 +145,13 @@ $card-link-hover-color: $link-hover-color !default;
             transform-origin: left top 0;
         }
     }
+    @each $color, $value in $theme-colors {
+        .card-sidebar-#{$color} {
+            border-right-color: shade-color($value, 25%);
+            background-color: $value;
+            color: color-contrast($value);
+        }
+    }
 }
 
 //
