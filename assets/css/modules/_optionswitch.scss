@@ -67,4 +67,10 @@
             }
         }
     }
+    &:disabled {
+        + .optionswitch-button {
+            opacity: .25;
+            cursor: not-allowed;
+        }
+    }
 }

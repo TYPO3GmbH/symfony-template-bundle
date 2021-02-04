@@ -4,8 +4,8 @@
 {% block body %}
 
     {% frame %}
+        <h2>Default</h2>
         {% example with { language: 'html' } %}
-
 <div class="optionswitch-container">
     <div class="optionswitch">
         <input type="radio" class="optionswitch-check" name="optionexample" id="optionexample-1" value="1" autocomplete="off" checked>
@@ -25,7 +25,31 @@
         </label>
     </div>
 </div>
+        {% endexample %}
+    {% endframe %}
 
+    {% frame %}
+        <h2>Disabled</h2>
+        {% example with { language: 'html' } %}
+<div class="optionswitch-container">
+    <div class="optionswitch">
+        <input type="radio" class="optionswitch-check" name="optionexampledisabled" id="optionexampledisabled-1" value="1" autocomplete="off" checked>
+        <label class="optionswitch-button" for="optionexampledisabled-1">
+            <span class="optionswitch-button-title">1 Year</span>
+            <span class="optionswitch-button-subline"></span>
+        </label>
+        <input type="radio" class="optionswitch-check" name="optionexampledisabled" id="optionexampledisabled-2" value="2" data-elts-multiplier="0.9" autocomplete="off">
+        <label class="optionswitch-button" for="optionexampledisabled-2">
+            <span class="optionswitch-button-title">2 Years</span>
+            <span class="optionswitch-button-subline">save 10%</span>
+        </label>
+        <input type="radio" class="optionswitch-check" name="optionexampledisabled" id="optionexampledisabled-3" value="3" data-elts-multiplier="0.85" autocomplete="off" disabled>
+        <label class="optionswitch-button" for="optionexampledisabled-3">
+            <span class="optionswitch-button-title">3 Years</span>
+            <span class="optionswitch-button-subline">save 15%</span>
+        </label>
+    </div>
+</div>
         {% endexample %}
     {% endframe %}
 
