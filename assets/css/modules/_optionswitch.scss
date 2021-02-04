@@ -23,7 +23,7 @@
     user-select: none;
     border-radius: 3px;
     line-height: 1.25;
-    border: 1px solid rgba(0,0,0,.1);
+    border: 1px solid rgba(0, 0, 0, .1);
     transition: all .3s ease-in-out;
     justify-content: center;
     text-align: center;
@@ -39,7 +39,7 @@
         border-radius: 50%;
         display: block;
         position: absolute;
-        transform: translate(-75%,-25%);
+        transform: translate(-75%, -25%);
         background-image: url(svg-inline('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g fill="#ffffff"><path d="M13.3 4.8l-.7-.7c-.2-.2-.5-.2-.7 0L6.5 9.5 4 6.9c-.2-.2-.5-.2-.7 0l-.6.7c-.2.2-.2.5 0 .7l3.6 3.6c.2.2.5.2.7 0l6.4-6.4c.1-.2.1-.5-.1-.7z"/></g></svg>'));
         background-size: 16px 16px;
         background-position: center;
