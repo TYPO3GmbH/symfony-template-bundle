@@ -151,18 +151,12 @@ $card-link-hover-color: $link-hover-color !default;
 // Header Bar
 //
 .card-header-bar {
+    display: flex;
+    gap: $spacer / 2;
+    flex-direction: column;
     @include media-breakpoint-up('sm') {
-        display: flex;
-        gap: $spacer;
+        flex-direction: row;
         align-items: center;
-        > * {
-            > *:first-child {
-                margin-top: 0;
-            }
-            > *:last-child {
-                margin-bottom: 0;
-            }
-        }
     }
 }
 .card-header-icon {
@@ -188,9 +182,11 @@ $card-link-hover-color: $link-hover-color !default;
 .card-header-title {
     flex-grow: 1;
     overflow: hidden;
+    > * {
+        margin-bottom: 0;
+    }
 }
 .card-header-actions {
-    margin-left: auto;
     flex-shrink: 0;
 }
 .card-header-form {
