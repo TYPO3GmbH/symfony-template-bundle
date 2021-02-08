@@ -40,8 +40,12 @@ $card-link-hover-color: $link-hover-color !default;
     h3,
     h4,
     h5 {
-        font-size: 1.2rem;
+        font-size: 1.125rem;
         font-weight: bold;
+        line-height: 1;
+        display: flex;
+        gap: .5rem;
+        align-items: center;
     }
     padding: 1rem $card-spacer-x;
 }
@@ -197,9 +201,7 @@ $card-link-hover-color: $link-hover-color !default;
     flex-shrink: 0;
 }
 .card-header-form {
-    > form {
-        margin-bottom: .5rem;
-    }
+    flex-grow: 1;
     > form > div {
         display: flex;
         margin: -.25rem;

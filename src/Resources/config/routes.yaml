@@ -61,3 +61,7 @@ _template_styleguide_component_datatable:
 _template_styleguide_component_guide:
   path: /styleguide/component/guide
   controller: T3G\Bundle\TemplateBundle\Controller\StyleguideController::componentGuide
+
+_template_styleguide_component_text:
+  path: /styleguide/component/text
+  controller: T3G\Bundle\TemplateBundle\Controller\StyleguideController::componentText

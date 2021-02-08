@@ -185,4 +185,12 @@ class StyleguideController extends Controller
     {
         return $this->render('@Template/styleguide/component/guide.html.twig');
     }
+
+    /**
+     * @return Response
+     */
+    public function componentText(): Response
+    {
+        return $this->render('@Template/styleguide/component/text.html.twig');
+    }
 }
