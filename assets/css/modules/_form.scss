@@ -30,7 +30,8 @@
 //
 // Inline
 //
-.form-inline {
+.form-inline,
+.form-inline > div {
     display: flex;
     gap: $spacer / 2;
     flex-wrap: wrap;
