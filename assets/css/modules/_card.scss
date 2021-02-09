@@ -58,7 +58,7 @@ $card-link-hover-color: $link-hover-color !default;
     }
 }
 .card-footer {
-    padding: $card-spacer-y $card-spacer-x;
+    padding: 1rem $card-spacer-x;
     .datatable + & {
         border-top: 1px solid rgba(0, 0, 0, .15);
     }
