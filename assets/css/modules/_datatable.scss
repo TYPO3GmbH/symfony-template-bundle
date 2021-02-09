@@ -127,6 +127,7 @@ $table-sorting-icon-descending: '<svg viewBox="0 0 16 16"><g fill="#{$table-high
     }
     [data-type="fill"] {
         width: 100%;
+        padding: 0 !important;
     }
     [data-type="text"] {
         white-space: normal;
