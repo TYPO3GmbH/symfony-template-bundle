@@ -1,0 +1,56 @@
+{% extends '@Template/styleguide/layout.html.twig' %}
+{% block title %}Form{% endblock %}
+
+{% block body %}
+
+    {% frame %}
+        <h2>Form</h2>
+        {% example with { language: 'html' } %}
+<form>
+    <div class="form-group">
+        <label for="exampleInputEmail1" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp1">
+        <div id="emailHelp1" class="form-text">We'll never share your email with anyone else.</div>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1">
+    </div>
+    <div class="form-group">
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        </div>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>
+        {% endexample %}
+    {% endframe %}
+
+    {% frame %}
+        <h2>Form Inline</h2>
+        {% example with { language: 'html' } %}
+<form class="form-inline">
+    <div class="form-group">
+        <label for="exampleInputText2" class="form-label sr-only">Search</label>
+        <input type="text" class="form-control" id="exampleInputText2">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputSelect2" class="form-label sr-only">Search</label>
+        <select id="exampleInputSelect2" class="form-select">
+            <option selected>All Options</option>
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
+            <option value="3">Option 3</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>
+        {% endexample %}
+    {% endframe %}
+
+{% endblock %}

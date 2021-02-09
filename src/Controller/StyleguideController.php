@@ -105,6 +105,14 @@ class StyleguideController extends Controller
     /**
      * @return Response
      */
+    public function componentForm(): Response
+    {
+        return $this->render('@Template/styleguide/component/form.html.twig');
+    }
+
+    /**
+     * @return Response
+     */
     public function componentFrame(): Response
     {
         return $this->render('@Template/styleguide/component/frame.html.twig', [
