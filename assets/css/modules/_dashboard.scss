@@ -64,6 +64,10 @@ $dashboard-list-icon-show: '<svg viewBox="0 0 16 16"><g fill="#{$dashboard-color
         border-bottom-style: solid;
     }
 }
+
+//
+// Widths
+//
 @each $breakpoint in map-keys($grid-breakpoints) {
     $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
     @include media-breakpoint-up($breakpoint, $grid-breakpoints) {

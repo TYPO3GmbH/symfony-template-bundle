@@ -113,13 +113,17 @@ $table-sorting-icon-descending: '<svg viewBox="0 0 16 16"><g fill="#{$table-high
         a {
             border-bottom: none;
         }
+        + [data-type="icon"] {
+            width: 1.25em + $table-padding / 2;
+        }
     }
     [data-type="title"] {
         overflow: hidden;
         text-overflow: ellipsis;
         max-width: 300px;
     }
-    [data-type="icon"] + [data-type="title"] {
+    [data-type="icon"] + [data-type="title"],
+    [data-type="icon"] + [data-type="icon"] {
         padding-left: $table-padding / 2;
     }
     [data-type="title"] + [data-type="badge"] {
