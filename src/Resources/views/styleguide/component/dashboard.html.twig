@@ -1,0 +1,219 @@
+{% extends '@Template/styleguide/layout.html.twig' %}
+{% block title %}Dashboard{% endblock %}
+
+{% block body %}
+
+    {% frame %}
+        <h2>Default</h2>
+        {% example with { language: 'html' } %}
+<div class="dashboard">
+    <div class="dashboard-item dashboard-item-w12 dashboard-item-md-w4">
+        <h3 class="dashboard-item-title">
+            {{ icon('actions-brand-typo3') }}
+            Item 1
+        </h3>
+        <div class="dashboard-item-body">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+    </div>
+    <div class="dashboard-item dashboard-item-w12 dashboard-item-md-w4">
+        <h3 class="dashboard-item-title">
+            {{ icon('actions-brand-twitter') }}
+            Item 2
+        </h3>
+        <div class="dashboard-item-body">
+            <p>Ut sed erat id nunc vestibulum rhoncus vitae in dolor. </p>
+        </div>
+    </div>
+    <div class="dashboard-item dashboard-item-w12 dashboard-item-md-w4">
+        <h3 class="dashboard-item-title">
+            {{ icon('actions-brand-facebook') }}
+            Item 3
+        </h3>
+        <div class="dashboard-item-body">
+            <p>Nam turpis diam, faucibus quis consectetur at, mollis at ligula.</p>
+        </div>
+    </div>
+    <div class="dashboard-item dashboard-item-w12 dashboard-item-md-w6">
+        <h3 class="dashboard-item-title">
+            {{ icon('actions-brand-discord') }}
+            Item 4
+        </h3>
+        <div class="dashboard-item-body">
+            <p>Nam turpis diam, faucibus quis consectetur at, mollis at ligula.</p>
+        </div>
+    </div>
+    <div class="dashboard-item dashboard-item-w12 dashboard-item-md-w6">
+        <h3 class="dashboard-item-title">
+            {{ icon('actions-brand-slack') }}
+            Item 5
+        </h3>
+        <div class="dashboard-item-body">
+            <p>Nam turpis diam, faucibus quis consectetur at, mollis at ligula.</p>
+        </div>
+    </div>
+</div>
+        {% endexample %}
+    {% endframe %}
+
+    {% frame %}
+        <h2>Simple</h2>
+        {% example with { language: 'html' } %}
+<div class="dashboard-item">
+    <h3 class="dashboard-item-title">
+        {{ icon('actions-brand-typo3') }}
+        Item 1
+    </h3>
+    <div class="dashboard-item-body">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
+    <div class="dashboard-item-footer">
+        <a href="#" class="dashboard-item-footer-link">Manage something</a>
+    </div>
+</div>
+        {% endexample %}
+    {% endframe %}
+
+
+    {% frame %}
+        <h2>List</h2>
+        {% example with { language: 'html' } %}
+<div class="dashboard-item">
+    <h3 class="dashboard-item-title">
+        {{ icon('actions-brand-typo3') }}
+        Item 1
+    </h3>
+    <div class="dashboard-item-body">
+        <div class="dashboard-list">
+            <a href="#" class="dashboard-list-entry">
+                <div class="dashboard-list-entry-icon">
+                    {{ icon('actions-brand-typo3') }}
+                </div>
+                <div class="dashboard-list-entry-title">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </div>
+                <div class="dashboard-list-entry-badge">
+                    <span class="badge badge-primary">DEMO</span>
+                </div>
+            </a>
+            <a href="#" class="dashboard-list-entry">
+                <div class="dashboard-list-entry-icon">
+                    {{ icon('actions-brand-typo3') }}
+                </div>
+                <div class="dashboard-list-entry-title">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </div>
+                <div class="dashboard-list-entry-badge">
+                    <span class="badge badge-primary">DEMO</span>
+                </div>
+            </a>
+            <a href="#" class="dashboard-list-entry">
+                <div class="dashboard-list-entry-icon">
+                    {{ icon('actions-brand-typo3') }}
+                </div>
+                <div class="dashboard-list-entry-title">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </div>
+                <div class="dashboard-list-entry-badge">
+                    <span class="badge badge-primary">DEMO</span>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="dashboard-item-footer">
+        <a href="#" class="dashboard-item-footer-link">Manage something</a>
+    </div>
+</div>
+        {% endexample %}
+    {% endframe %}
+
+    {% frame %}
+        <h2>Actions</h2>
+        {% example with { language: 'html' } %}
+<div class="dashboard-item">
+    <h3 class="dashboard-item-title">
+        {{ icon('actions-brand-typo3') }}
+        Item 1
+    </h3>
+    <div class="dashboard-item-body">
+        <div class="dashboard-actions">
+            <div class="dashboard-actions-entry">
+                <div class="dashboard-actions-entry-icon">
+                    {{ icon('actions-brand-typo3', 'large') }}
+                </div>
+                <div class="dashboard-actions-entry-content">
+                    <div class="dashboard-actions-entry-content-section dashboard-actions-entry-content-section--header">
+                        <h4 class="dashboard-actions-entry-title">Title</h4>
+                        <div class="dashboard-actions-entry-subtitle">Subtitle</div>
+                    </div>
+                    <div class="dashboard-actions-entry-content-section dashboard-actions-entry-content-section--footer">
+                        <a class="btn btn-primary btn-sm" href="#">Action 1</a>
+                        <a class="btn btn-light btn-sm" href="#">Action 2</a>
+                    </div>
+                </div>
+            </div>
+            <div class="dashboard-actions-entry">
+                <div class="dashboard-actions-entry-icon">
+                    {{ icon('actions-brand-discord', 'large') }}
+                </div>
+                <div class="dashboard-actions-entry-content">
+                    <div class="dashboard-actions-entry-content-section dashboard-actions-entry-content-section--header">
+                        <h4 class="dashboard-actions-entry-title">Title</h4>
+                        <div class="dashboard-actions-entry-subtitle">Subtitle</div>
+                    </div>
+                    <div class="dashboard-actions-entry-content-section dashboard-actions-entry-content-section--footer">
+                        <a class="btn btn-primary btn-sm" href="#">Action 1</a>
+                        <a class="btn btn-light btn-sm" href="#">Action 2</a>
+                    </div>
+                </div>
+            </div>
+            <div class="dashboard-actions-entry">
+                <div class="dashboard-actions-entry-icon">
+                    {{ icon('actions-brand-twitter', 'large') }}
+                </div>
+                <div class="dashboard-actions-entry-content">
+                    <div class="dashboard-actions-entry-content-section dashboard-actions-entry-content-section--header">
+                        <h4 class="dashboard-actions-entry-title">Title</h4>
+                        <div class="dashboard-actions-entry-subtitle">Subtitle</div>
+                    </div>
+                    <div class="dashboard-actions-entry-content-section dashboard-actions-entry-content-section--footer">
+                        <a class="btn btn-primary btn-sm" href="#">Action 1</a>
+                        <a class="btn btn-light btn-sm" href="#">Action 2</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        {% endexample %}
+    {% endframe %}
+
+    {% frame %}
+        <h2>Complex</h2>
+        {% example with { language: 'html' } %}
+<div class="dashboard-item">
+    <div class="dashboard-item-row dashboard-item-row-bordered">
+        <div class="dashboard-item-col dashboard-item-col-w12 dashboard-item-col-lg-w4">
+            <h3 class="dashboard-item-title">
+                {{ icon('actions-brand-typo3') }}
+                Item 1
+            </h3>
+            <div class="dashboard-item-body">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+        </div>
+        <div class="dashboard-item-col dashboard-item-col-w12 dashboard-item-col-lg-w8">
+            <h3 class="dashboard-item-title">
+                {{ icon('actions-brand-twitter') }}
+                Item 2
+            </h3>
+            <div class="dashboard-item-body">
+                <p>Nam turpis diam, faucibus quis consectetur at, mollis at ligula.</p>
+            </div>
+        </div>
+    </div>
+</div>
+        {% endexample %}
+    {% endframe %}
+
+{% endblock %}

@@ -182,8 +182,12 @@ $dashboard-list-icon-show: '<svg viewBox="0 0 16 16"><g fill="#{$dashboard-color
     align-items: center;
     color: inherit;
     line-height: 1.2;
+    border-top: 1px solid darken($dashboard-list-hover-bg, 5%);
     &:nth-child(odd) {
         background-color: rgba(245, 245, 246, .5);
+    }
+    &:last-child {
+        border-bottom: 1px solid darken($dashboard-list-hover-bg, 5%);
     }
     &:hover {
         text-decoration: none;
