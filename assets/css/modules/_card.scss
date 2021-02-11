@@ -46,6 +46,9 @@ $card-link-hover-color: $link-hover-color !default;
         display: flex;
         gap: .5rem;
         align-items: center;
+        .icon {
+            color: $primary;
+        }
     }
     padding: 1rem $card-spacer-x;
 }
@@ -159,8 +162,15 @@ $card-link-hover-color: $link-hover-color !default;
 }
 
 //
-// Header Bar
+// Header
 //
+.card-header-blend {
+    background: transparent;
+    border: none;
+    + .card-body {
+        padding-top: 0;
+    }
+}
 .card-header-bar {
     display: flex;
     gap: $spacer / 2;
@@ -174,15 +184,14 @@ $card-link-hover-color: $link-hover-color !default;
     position: relative;
     height: 2rem;
     width: 2rem;
-    margin-bottom: 1rem;
     @include media-breakpoint-up('sm') {
         width: 3rem;
         height: auto;
-        margin-bottom: 0;
     }
     flex-shrink: 0;
     font-size: 2rem;
     opacity: .75;
+    > span,
     i {
         position: absolute;
         top: 50%;
@@ -199,6 +208,8 @@ $card-link-hover-color: $link-hover-color !default;
 }
 .card-header-actions {
     flex-shrink: 0;
+    display: flex;
+    gap: .35rem;
 }
 .card-header-form {
     flex-grow: 1;
@@ -273,6 +284,29 @@ $card-link-hover-color: $link-hover-color !default;
         }
         @include media-breakpoint-up('xl') {
             width: calc(100% / 4);
+        }
+    }
+}
+
+//
+// Card Deck
+//
+.card-deck {
+    --card-deck-gap: #{$card-group-margin};
+    display: flex;
+    flex-wrap: wrap;
+    margin: calc(-1 * var(--card-deck-gap)) 0 0 calc(-1 * var(--card-deck-gap));
+    .card {
+        margin: var(--card-deck-gap) 0 0 var(--card-deck-gap);
+    }
+    @each $breakpoint in map-keys($grid-breakpoints) {
+        $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+        @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+            @for $i from 1 through $grid-columns {
+                .card-size#{$infix}-w#{$i} {
+                    width: calc(100% / #{$grid-columns} * #{$i} - var(--card-deck-gap));
+                }
+            }
         }
     }
 }

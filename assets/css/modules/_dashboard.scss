@@ -26,7 +26,7 @@ $dashboard-list-icon-show: '<svg viewBox="0 0 16 16"><g fill="#{$dashboard-color
     box-shadow: $dashboard-shadow;
 }
 .dashboard-item-title {
-    font-size: 1.2rem;
+    font-size: 1.125rem;
     padding: $dashboard-padding;
     padding-bottom: 0;
     margin-bottom: 0;
@@ -104,6 +104,17 @@ $dashboard-list-icon-show: '<svg viewBox="0 0 16 16"><g fill="#{$dashboard-color
                 width: calc(100% / #{$grid-columns} * #{$i});
             }
         }
+    }
+}
+
+//
+// Datatable
+//
+.dashboard-item-datatable {
+    margin-left: -$dashboard-padding;
+    margin-right: -$dashboard-padding;
+    > *:last-child {
+        margin-bottom: 0;
     }
 }
 

@@ -99,6 +99,9 @@
 <div class="card">
     <div class="card-header">
         <div class="card-header-bar">
+            <div class="card-header-icon">
+                {{ icon('actions-map') }}
+            </div>
             <div class="card-header-badge">
                 <span class="badge badge-primary">Badge</span>
             </div>
@@ -113,6 +116,30 @@
                 <a class="btn btn-light" title="delete" href="#">
                     {{ icon('actions-delete') }}
                 </a>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <p>
+            This is a wider card with supporting text below as a natural lead-in
+            to additional content. This content is a little bit longer.
+        </p>
+    </div>
+</div>
+        {% endexample %}
+
+        <div class="mt-3"></div>
+
+        {% example with { language: 'html' } %}
+<div class="card">
+    <div class="card-header card-header-blend">
+        <div class="card-header-bar">
+            <div class="card-header-title">
+                <h3>Card title</h3>
+                <a href="#">Manage Card</a>
+            </div>
+            <div class="card-header-badge">
+                <span class="badge badge-success">Active</span>
             </div>
         </div>
     </div>
@@ -208,6 +235,36 @@
             This is a wider card with supporting text below as a natural lead-in
             to additional content. This content is a little bit longer.
         </p>
+    </div>
+</div>
+        {% endexample %}
+    {% endframe %}
+
+    {% frame %}
+        <h2>Deck</h2>
+        {% example with { language: 'html' } %}
+<div class="card-deck">
+    <div class="card card-size-w12 card-size-lg-w6">
+        <div class="card-body">
+            <h3 class="card-title">Card title</h3>
+            <p class="card-text">
+                This is a wider card with supporting text below as a natural lead-in
+                to additional content. This content is a little bit longer.
+            </p>
+        </div>
+    </div>
+    <div class="card card-size-w12 card-size-lg-w6">
+        <div class="card-body">
+            <h3 class="card-title">Card title</h3>
+            <p class="card-text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur fringilla
+                enim eget magna placerat, ac vulputate odio imperdiet. Nullam placerat risus
+                augue, ac facilisis augue lacinia eget. Aliquam erat volutpat. Donec non ante
+                lorem. Proin felis ante, congue at maximus laoreet, elementum eget ligula.
+                Maecenas justo urna, congue nec sollicitudin ac, elementum vel lectus. Donec
+                commodo lobortis risus, id congue lacus tempus nec.
+            </p>
+        </div>
     </div>
 </div>
         {% endexample %}
