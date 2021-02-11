@@ -1001,10 +1001,10 @@
     "@types/webpack-sources" "*"
     source-map "^0.6.0"
 
-"@typo3/icons@^2.2.1":
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/@typo3/icons/-/icons-2.2.1.tgz#908047978e402cd9f2481733950d2a8c014949f5"
-  integrity sha512-eMfudrc/TILu/8ZJ34TuCky63cV8RzDdrqHuz4tDUPFp9xBv7GJIlKXauwa2UU9uZny2hCLqfu07Pv+euVmHdg==
+"@typo3/icons@^2.2.2":
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/@typo3/icons/-/icons-2.2.2.tgz#a2c848b00ce1abdc06729e30eb3f3adecd228a35"
+  integrity sha512-2AVtwSzKbhnofzAnKywwe3w0W3lBWXOajarFMqvl72SUR7U/jA+OzH2yX6WU/XkQcDBRfrJgSIG2HB93TZFJeA==
   dependencies:
     npm "^6.14.5"
 

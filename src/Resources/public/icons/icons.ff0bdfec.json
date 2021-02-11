@@ -252,6 +252,18 @@
       "svg": "svgs/actions/actions-chat.svg",
       "sprite": "sprites/actions.svg#actions-chat"
     },
+    "actions-check-badge-alt": {
+      "identifier": "actions-check-badge-alt",
+      "category": "actions",
+      "svg": "svgs/actions/actions-check-badge-alt.svg",
+      "sprite": "sprites/actions.svg#actions-check-badge-alt"
+    },
+    "actions-check-badge": {
+      "identifier": "actions-check-badge",
+      "category": "actions",
+      "svg": "svgs/actions/actions-check-badge.svg",
+      "sprite": "sprites/actions.svg#actions-check-badge"
+    },
     "actions-check-circle-alt": {
       "identifier": "actions-check-circle-alt",
       "category": "actions",
@@ -653,6 +665,12 @@
       "category": "actions",
       "svg": "svgs/actions/actions-envelope.svg",
       "sprite": "sprites/actions.svg#actions-envelope"
+    },
+    "actions-exchange": {
+      "identifier": "actions-exchange",
+      "category": "actions",
+      "svg": "svgs/actions/actions-exchange.svg",
+      "sprite": "sprites/actions.svg#actions-exchange"
     },
     "actions-exclamation-circle-alt": {
       "identifier": "actions-exclamation-circle-alt",
@@ -1169,6 +1187,12 @@
       "category": "actions",
       "svg": "svgs/actions/actions-question.svg",
       "sprite": "sprites/actions.svg#actions-question"
+    },
+    "actions-random": {
+      "identifier": "actions-random",
+      "category": "actions",
+      "svg": "svgs/actions/actions-random.svg",
+      "sprite": "sprites/actions.svg#actions-random"
     },
     "actions-receipt": {
       "identifier": "actions-receipt",
