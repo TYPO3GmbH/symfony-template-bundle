@@ -15,6 +15,8 @@ import './libs/charts';
 import './libs/datepicker';
 import './form/collection';
 import './form/choices';
+import './form/local_datalist';
+import './form/remote_datalist';
 
 // Syntax Highlighter
 import 'prismjs';
