@@ -104,3 +104,13 @@
         </label>
     {%- endif -%}
 {%- endblock checkbox_radio_label %}
+
+{% block datalist_widget %}
+    <input type="hidden" id="{{ id }}_value" name="{{ full_name }}"{%- if disabled %} disabled="disabled"{% endif -%}{%- if required %} required="required"{% endif -%} {% if value is not empty %}value="{{ value }}"{% endif %}>
+    <input class="form-control" list="{{ id }}_list" data-value-field="{{ id }}_value" {{ block('attributes') }}{% if value is not empty %}value="{{ value }}"{% endif %}>
+    <datalist id="{{ id }}_list">
+        {% for choice in choices %}
+            <option value="{{ choice }}"></option>
+        {% endfor %}
+    </datalist>
+{% endblock %}
