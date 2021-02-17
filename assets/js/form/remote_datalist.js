@@ -43,6 +43,7 @@
             }
 
             if (inputField.value.length < 3) {
+                inputField.dataset.lastSearch = '';
                 return;
             }
 
