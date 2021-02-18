@@ -356,6 +356,9 @@ $navbar-inner-heights: (
         transform: rotate(180deg);
     }
 }
+.dropdown-menu {
+    max-width: 280px;
+}
 .dropdown-header {
     font-weight: normal;
 }
@@ -366,4 +369,8 @@ $navbar-inner-heights: (
     .icon {
         opacity: .75;
     }
+}
+.dropdown-item-overflow {
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
