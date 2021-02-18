@@ -56,7 +56,7 @@
             const params = new URLSearchParams();
             params.set(inputField.dataset.searchParam, inputField.value);
 
-            const url = `${window.location.origin}/${inputField.dataset.sourceUrl}?${params.toString()}`;
+            const url = `${window.location.origin + inputField.dataset.sourceUrl}?${params.toString()}`;
             const response = await fetch(url, {
                 headers: {
                     'X-Requested-With': 'XMLHttpRequest'
