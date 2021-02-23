@@ -130,16 +130,17 @@ $dashboard-list-icon-show: '<svg viewBox="0 0 16 16"><g fill="#{$dashboard-color
     position: relative;
     display: flex;
     padding: ($dashboard-padding / 2) $dashboard-padding;
-    padding-right: $dashboard-padding * 2.5;
+    padding-right: $dashboard-padding * 2;
     align-items: center;
     color: inherit;
     border-top: 1px solid #e0e3e4;
     line-height: 1.2;
+    gap: .5rem;
     &:after {
         content: '';
         position: absolute;
         top: 50%;
-        right: 1rem;
+        right: .9rem;
         display: block;
         height: 16px;
         width: 16px;
@@ -170,6 +171,10 @@ $dashboard-list-icon-show: '<svg viewBox="0 0 16 16"><g fill="#{$dashboard-color
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+}
+.dashboard-list-entry-summary {
+    width: 74px;
+    flex-shrink: 0;
 }
 .dashboard-list-entry-badge {
     margin-left: .5rem;
