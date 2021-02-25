@@ -30,6 +30,7 @@
     padding-right: calc(#{$card-spacer-x} + 2em);
     position: relative;
     display: block;
+    width: 100%;
 }
 .accordion-title-link-state {
     position: absolute;
