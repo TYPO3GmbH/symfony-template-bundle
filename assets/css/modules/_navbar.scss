@@ -209,6 +209,7 @@ $navbar-inner-heights: (
         outline-offset: 1px;
         text-transform: none;
         box-shadow: none;
+        letter-spacing: initial;
         &:focus {
             outline: auto 5px -webkit-focus-ring-color;
         }
