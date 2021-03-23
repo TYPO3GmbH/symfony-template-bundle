@@ -21,6 +21,11 @@
     flex-direction: column;
     justify-content: center;
 }
+.switchto-user-avatar {
+    .avatar {
+        margin: 0 auto;
+    }
+}
 .switchto-user-name {
     margin-top: .5rem;
     line-height: 1.1em;
