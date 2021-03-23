@@ -1110,6 +1110,12 @@
       "svg": "svgs/actions/actions-pagetree.svg",
       "sprite": "sprites/actions.svg#actions-pagetree"
     },
+    "actions-paperplane": {
+      "identifier": "actions-paperplane",
+      "category": "actions",
+      "svg": "svgs/actions/actions-paperplane.svg",
+      "sprite": "sprites/actions.svg#actions-paperplane"
+    },
     "actions-paste-after": {
       "identifier": "actions-paste-after",
       "category": "actions",
@@ -1139,6 +1145,12 @@
       "category": "actions",
       "svg": "svgs/actions/actions-percent.svg",
       "sprite": "sprites/actions.svg#actions-percent"
+    },
+    "actions-phone": {
+      "identifier": "actions-phone",
+      "category": "actions",
+      "svg": "svgs/actions/actions-phone.svg",
+      "sprite": "sprites/actions.svg#actions-phone"
     },
     "actions-placeholder-add": {
       "identifier": "actions-placeholder-add",
