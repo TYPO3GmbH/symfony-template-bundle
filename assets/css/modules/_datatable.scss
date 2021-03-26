@@ -140,7 +140,8 @@ $table-sorting-icon-descending: '<svg viewBox="0 0 16 16"><g fill="#{$table-high
     }
     [data-type="fill"] {
         width: 100%;
-        padding: 0 !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
     }
     [data-type="text"] {
         white-space: normal;
@@ -207,6 +208,9 @@ $table-sorting-icon-descending: '<svg viewBox="0 0 16 16"><g fill="#{$table-high
     & + & {
         margin-left: .25rem;
     }
+}
+.datatable-fill-doubleheight {
+    height: 2.5rem;
 }
 .datatable-action {
     display: inline-flex;
