@@ -24,6 +24,7 @@ import 'prismjs/components/prism-nginx';
 import 'prismjs/components/prism-json';
 import 'prismjs/components/prism-rest';
 import 'prismjs/plugins/command-line/prism-command-line';
+import 'prismjs/plugins/keep-markup/prism-keep-markup';
 
 import {DateTime} from 'luxon';
 
