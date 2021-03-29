@@ -23,6 +23,7 @@ import 'prismjs';
 import 'prismjs/components/prism-nginx';
 import 'prismjs/components/prism-json';
 import 'prismjs/components/prism-rest';
+import 'prismjs/plugins/command-line/prism-command-line';
 
 import {DateTime} from 'luxon';
 
