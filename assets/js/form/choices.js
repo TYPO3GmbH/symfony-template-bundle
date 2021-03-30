@@ -4,7 +4,11 @@
         const Choices = require('choices.js');
         elementsWithChoicesJs.forEach(function (element) {
             const options = element.dataset.choicesjs ? JSON.parse(element.dataset.choicesjs) : {};
-            new Choices(element, options);
+            const choices = new Choices(element, options);
+            element.addEventListener('set-choices-value', function(e) {
+                const value = e.detail.value;
+                choices.setChoiceByValue(value);
+            });
         });
     }
 })();
