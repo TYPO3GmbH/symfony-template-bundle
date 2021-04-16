@@ -15,6 +15,13 @@
     <a href="{{ url }}" {{ block('button_attributes') }}>{{ translation_domain is same as(false) or label is same as(false) ? label : label|trans(label_translation_parameters, translation_domain) }}</a>
 {%- endblock linkbutton_widget %}
 
+{%- block widget_attributes -%}
+    id="{{ id }}" name="{{ full_name }}"
+    {%- if disabled %} disabled="disabled"{% endif -%}
+    {%- if required and attr['data-choicesjs'] is not defined %} required="required"{% endif -%}
+    {{ block('attributes') }}
+{%- endblock widget_attributes -%}
+
 {%- block collection_widget -%}
     {%- set attr = attr|merge({'data-formtype': 'collection' }) -%}
     {% if prototype is defined and not prototype.rendered %}
