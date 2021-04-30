@@ -24,6 +24,7 @@ class DateTimeExtension extends AbstractExtension
             new TwigFunction('localdatetime', [$this, 'localdatetime'], ['needs_environment' => true, 'is_safe' => ['html']]),
             new TwigFunction('localdate', [$this, 'localdate'], ['needs_environment' => true, 'is_safe' => ['html']]),
             new TwigFunction('relativetime', [$this, 'relativetime'], ['needs_environment' => true, 'is_safe' => ['html']]),
+            new TwigFunction('timediff', [$this, 'timediff'], ['needs_environment' => true, 'is_safe' => ['html']]),
         ];
     }
 
@@ -55,5 +56,54 @@ class DateTimeExtension extends AbstractExtension
     public function relativetime(Environment $environment, \DateTimeInterface $datetime = null): string
     {
         return $environment->render('@Template/extension/datetime/relativetime.html.twig', ['datetime' => $datetime]);
+    }
+
+    public function timediff(Environment $environment, \DateTimeInterface $datetime = null): string
+    {
+        if (null === $datetime) {
+            return '';
+        }
+
+        $timediff = null;
+        $now = new \DateTime('now');
+        $interval = $now->diff($datetime);
+
+        $format = [];
+        if ($interval->y !== 0) {
+            $format[] = '%y ' . $this->pluralize($interval->y, 'year', 'years');
+        }
+        if ($interval->m !== 0) {
+            $format[] = '%m ' . $this->pluralize($interval->m, 'month', 'months');
+        }
+        if ($interval->d !== 0) {
+            $format[] = '%d ' . $this->pluralize($interval->d, 'day', 'days');
+        }
+        if ($interval->h !== 0) {
+            $format[] = '%h ' . $this->pluralize($interval->h, 'hour', 'hours');
+        }
+        if ($interval->i !== 0) {
+            $format[] = '%i ' . $this->pluralize($interval->i, 'minute', 'minutes');
+        }
+
+        if ($interval->s !== 0) {
+            if (!count($format)) {
+                $format[] = 'less than a minute ago';
+            } else {
+                $format[] = '%s ' . $this->pluralize($interval->s, 'second', 'seconds');
+            }
+        }
+
+        if (count($format) > 1) {
+            $formatString = array_shift($format) . ' and ' . array_shift($format);
+        } else {
+            $formatString = array_pop($format);
+        }
+
+        return $environment->render('@Template/extension/datetime/timediff.html.twig', ['timediff' => $interval->format($formatString)]);
+    }
+
+    private function pluralize(int $number, string $singular, string $plural)
+    {
+        return $number > 1 ? $plural : $singular;
     }
 }

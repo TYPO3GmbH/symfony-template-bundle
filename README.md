@@ -7,6 +7,7 @@ This package is used across various TYPO3 Symfony Applications to ensure a strea
 - [Configuration](#configuration)
   - [Encore](#encore)
   - [Extending Menus](#extending-menus)
+    - [Dividing Menus](#dividing-menus)
 - [Page Template](#page-template)
   - [Available Blocks](#available-blocks)
     - [`title`](#title)
@@ -41,6 +42,7 @@ This package is used across various TYPO3 Symfony Applications to ensure a strea
     - [`localdate`](#localdate)
     - [`localdatetime`](#localdatetime)
     - [`relativetime`](#relativetime)
+    - [`timediff`](#timediff)
 - [Twig Tags](#twig-tags)
   - [`frame`](#frame)
     - [Usage](#usage)
@@ -525,6 +527,14 @@ Returns a string representation of a this time relative to now, such as "in two 
 
 ```twig
 {{ relativetime(datetimeObject) }}
+```
+
+### `timediff`
+
+Returns a string representing the difference between a date and now() such as "1 year and 11 months".
+
+```twig
+{{ timediff(datetimeObject) }}
 ```
 
 # Twig Tags
