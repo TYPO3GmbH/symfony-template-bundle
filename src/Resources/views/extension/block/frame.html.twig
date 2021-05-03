@@ -6,6 +6,14 @@
     {% endif %}
     <div class="{{ classesContainer }}">
         <div class="{{ classesInner }}">
+            {% if title %}
+                <header class="frame-header">
+                    <h{{ titleSize }}>
+                        {{ title|raw }}
+                        {% if titleAnchor %}<a class="frame-header-permalink" href="#{{ id }}" title="Permalink to this headline">{{ icon('actions-link', 'auto') }}</a>{% endif %}
+                    </h{{ titleSize }}>
+                </header>
+            {% endif %}
             {{ content|raw }}
         </div>
     </div>

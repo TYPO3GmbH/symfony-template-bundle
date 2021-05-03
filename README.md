@@ -553,6 +553,9 @@ Returns a string representing the difference between a date and now() such as "1
 | backgroundImage | string                                                          |         |
 | height          | auto/small/medium/max                                           | auto    |
 | innerWidth      | small/medium/large/full/default                                 | default |
+| title           | string                                                          |         |
+| titleSize       | int                                                             | 2       |
+| titleAnchor     | bool                                                            | true    |
 
 ### Usage
 

@@ -3,10 +3,29 @@
 
 {% block body %}
 
-    {% for color in colors %}
-        {% frame with { 'color': color } %}
-            <h2>Frame</h2>
-        {% endframe %}
-    {% endfor %}
+    {% frame %}
+        <h2>Basic Frames</h2>
+        {% for color in colors %}
+            {{ _self.basicFrame(color) }}
+        {% endfor %}
+    {% endframe %}
+
+    {% frame %}
+        <h2>Linked Frames</h2>
+        {% for color in colors %}
+            {{ _self.linkedFrame(color) }}
+        {% endfor %}
+    {% endframe %}
 
 {% endblock %}
+
+{% macro basicFrame(color) %}
+{% frame with { 'color': color } %}
+    <h2>Frame</h2>
+{% endframe %}
+{% endmacro %}
+
+{% macro linkedFrame(color) %}
+{% frame with { 'color': color, 'id': 'frame-' ~ color, 'title': color } %}
+{% endframe %}
+{% endmacro %}
