@@ -25,6 +25,13 @@ ul.list-bubble {
         background-color: #eaeaea;
         content: counter(listStyle, decimal);
     }
+    @each $color, $value in $theme-colors {
+        &.list-bubble-color-#{$color} > li:before,
+        > li.list-bubble-color-#{$color}:before {
+            color: color-contrast($value);
+            background-color: $value;
+        }
+    }
 }
 ul.list-bubble-alpha {
     > li:before {
