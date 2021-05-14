@@ -19,66 +19,80 @@ jobs:
             deprecations: 'max[self]=0'
           - symfony: '^5.0'
             deprecations: ''
-
     steps:
 
-    - name: Checkout
-      uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
 
-    - name: Setup PHP
-      uses: shivammathur/setup-php@v2
-      with:
-        php-version: ${{ matrix.php }}
-        extensions: mbstring, xml, ctype, iconv
-        coverage: none
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: mbstring, xml, ctype, iconv
+          coverage: none
 
-    - name: Cache composer dependencies
-      uses: actions/cache@v1
-      with:
-        path: vendor
-        key: ${{ matrix.php }}-composer-${{ matrix.symfony }}
+      - name: Cache composer dependencies
+        uses: actions/cache@v1
+        with:
+          path: vendor
+          key: ${{ matrix.php }}-composer-${{ matrix.symfony }}
 
-    - name: Install
-      run: |
-        sed -ri 's/"symfony\/framework-bundle": "(.+)"/"symfony\/framework-bundle": "'${{ matrix.symfony }}'"/' composer.json;
-        composer update --prefer-dist --no-progress
-        composer info
-        git checkout composer.json
+      - name: Install
+        run: |
+          sed -ri 's/"symfony\/framework-bundle": "(.+)"/"symfony\/framework-bundle": "'${{ matrix.symfony }}'"/' composer.json;
+          composer update --prefer-dist --no-progress
+          composer info
+          git checkout composer.json
 
-    - name: Lint
-      run: composer t3g:test:php:lint
+      - name: Lint
+        run: composer t3g:test:php:lint
 
-    - name: CGL
-      run: composer t3g:cgl
+      - name: CGL
+        run: composer t3g:cgl
 
-    - name: Unit Tests
-      run: composer t3g:test:php:unit
+      - name: Unit Tests
+        run: composer t3g:test:php:unit
 
-    - name: Cache yarn dependencies
-      uses: actions/cache@v1
-      with:
-        path: node_modules
-        key: yarn-${{ hashFiles('yarn.lock') }}
+      - name: Git Status
+        run: |
+          git status
+          git status | grep -q "nothing to commit, working tree clean"
 
-    - name: Frontend Install
-      run: yarn install
-
-    - name: Frontend Build
-      run: yarn build
-
-    - name: Frontend Stylelint
-      run: yarn stylelint
-
-    - name: Check for build result changes
-      run: |
-        git status
-        git status | grep -q "nothing to commit, working tree clean"
-
-  automerge:
-    needs: build-php
+  build-frontend:
+    name: Build Frontend
     runs-on: ubuntu-latest
     steps:
-      - uses: fastify/github-action-merge-dependabot@v2.0.0
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Cache yarn dependencies
+        uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: yarn-${{ hashFiles('yarn.lock') }}
+
+      - name: Install
+        run: yarn install
+
+      - name: Build
+        run: yarn build
+
+      - name: Stylelint
+        run: yarn stylelint
+
+      - name: Git Status
+        run: |
+          git status
+          git status | grep -q "nothing to commit, working tree clean"
+
+  automerge:
+    name: Merge
+    needs: [build-php, build-frontend]
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Merge
+        uses: fastify/github-action-merge-dependabot@v2.0.0
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           approve-only: true
