@@ -10,7 +10,6 @@
         "file-loader": "^6.0.0",
         "jquery": "^3.6.0",
         "node-sass": "^5.0.0",
-        "popper.js": "^1.16.1",
         "postcss": "^8.2.10",
         "postcss-loader": "^5.2.0",
         "sass-loader": "^11.1.1",
@@ -27,7 +26,7 @@
         "stylelint": "stylelint assets/css/*"
     },
     "dependencies": {
-        "@popperjs/core": "^2.9.1",
+        "@popperjs/core": "^2.9.2",
         "@typo3/icons": "^2.2.3",
         "choices.js": "^9.0.1",
         "luxon": "^1.27.0",
