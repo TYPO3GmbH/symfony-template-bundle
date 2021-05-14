@@ -65,3 +65,8 @@ jobs:
 
     - name: Frontend Stylelint
       run: yarn stylelint
+
+    - name: Check for build result changes
+      run: |
+        git status
+        git status | grep -q "nothing to commit, working tree clean"
