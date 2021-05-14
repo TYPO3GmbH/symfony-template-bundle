@@ -6,13 +6,13 @@ updates:
     schedule:
       interval: "daily"
     commit-message:
-      prefix: "[DEPENDENCY]"
-      prefix-development: "[DEPENDENCY-DEV]"
+      prefix: "[DEP]"
+      prefix-development: "[DEP-DEV]"
 
   - package-ecosystem: "composer"
     directory: "/"
     schedule:
       interval: "daily"
     commit-message:
-      prefix: "[DEPENDENCY]"
-      prefix-development: "[DEPENDENCY-DEV]"
+      prefix: "[DEP]"
+      prefix-development: "[DEP-DEV]"
