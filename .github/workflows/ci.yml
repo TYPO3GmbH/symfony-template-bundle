@@ -1,6 +1,8 @@
 name: CI
 
-on: [push, pull_request]
+on:
+  push:
+  pull_request:
 
 jobs:
   build-php:
@@ -71,3 +73,12 @@ jobs:
       run: |
         git status
         git status | grep -q "nothing to commit, working tree clean"
+
+  automerge:
+    needs: build-php
+    runs-on: ubuntu-latest
+    steps:
+      - uses: fastify/github-action-merge-dependabot@v2.0.0
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          approve-only: true
