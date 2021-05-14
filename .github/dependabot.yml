@@ -8,11 +8,3 @@ updates:
     commit-message:
       prefix: "[DEP]"
       prefix-development: "[DEP-DEV]"
-
-  - package-ecosystem: "composer"
-    directory: "/"
-    schedule:
-      interval: "daily"
-    commit-message:
-      prefix: "[DEP]"
-      prefix-development: "[DEP-DEV]"
