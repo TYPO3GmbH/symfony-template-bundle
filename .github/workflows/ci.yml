@@ -41,6 +41,7 @@ jobs:
         sed -ri 's/"symfony\/framework-bundle": "(.+)"/"symfony\/framework-bundle": "'${{ matrix.symfony }}'"/' composer.json;
         composer update --prefer-dist --no-progress
         composer info
+        git checkout composer.json
 
     - name: Lint
       run: composer t3g:test:php:lint
