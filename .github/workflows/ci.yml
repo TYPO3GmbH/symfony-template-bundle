@@ -84,15 +84,3 @@ jobs:
         run: |
           git status
           git status | grep -q "nothing to commit, working tree clean"
-
-  automerge:
-    name: Merge
-    needs: [build-php, build-frontend]
-    runs-on: ubuntu-latest
-    steps:
-
-      - name: Merge
-        uses: fastify/github-action-merge-dependabot@v2.0.0
-        with:
-          github-token: ${{secrets.GITHUB_TOKEN}}
-          approve-only: true
