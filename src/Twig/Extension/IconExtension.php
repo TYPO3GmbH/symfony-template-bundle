@@ -41,13 +41,14 @@ class IconExtension extends AbstractExtension
     {
         $identifier = $this->getAliasForIdentifier($identifier);
         $icon = $this->getIconForIdentifier($identifier) ?? $this->getNotFoundIcon();
+        $isSpinner = strpos($identifier, 'spinner-') === 0 ? true : false;
 
         if ($icon) {
             $url = explode('#', $icon['sprite']);
             $url[0] = $this->packages->getUrl('bundles/template/icons/' . $url[0], 'template');
             $url = implode('#', $url);
             $markup = [];
-            $markup[] = '<span class="icon icon-size-' . $size . ' icon-state-default">';
+            $markup[] = '<span class="icon icon-size-' . $size . ' icon-state-default' . ($isSpinner ? ' icon-spin' : '') . '">';
             $markup[] =     '<span class="icon-markup">';
             $markup[] =         '<svg role="img" class="icon-color"><use xlink:href="' . $url . '"></use></svg>';
             $markup[] =     '</span>';

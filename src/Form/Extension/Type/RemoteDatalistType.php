@@ -28,17 +28,21 @@ class RemoteDatalistType extends AbstractType
             ->setDefaults([
                 'choices' => [],
                 'search_param' => 'term',
+                'search_placeholder' => 'Search...',
+                'preview_value' => '',
             ]);
     }
 
     public function buildView(FormView $view, FormInterface $form, array $options): void
     {
         $view->vars['choices'] = $options['choices'];
+        $view->vars['preview_value'] = $options['preview_value'];
         $view->vars['attr'] = array_merge($view->vars['attr'], [
-            'autocomplete' => 'off',
+            'autocomplete' => 'disabled',
+            'placeholder' => $options['search_placeholder'],
             'data-last-search' => '',
             'data-source-url' => $options['source_url'],
-            'data-search-param' => $options['search_param']
+            'data-search-param' => $options['search_param'],
         ]);
     }
 

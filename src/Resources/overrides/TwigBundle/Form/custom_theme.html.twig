@@ -113,11 +113,21 @@
 {%- endblock checkbox_radio_label %}
 
 {% block datalist_widget %}
-    <input type="hidden" id="{{ id }}_value" name="{{ full_name }}"{%- if disabled %} disabled="disabled"{% endif -%}{%- if required %} required="required"{% endif -%} {% if value is not empty %}value="{{ value }}"{% endif %}>
-    <input class="form-control" list="{{ id }}_list" data-value-field="{{ id }}_value" {{ block('attributes') }}{% if value is not empty %}{% endif %}>
-    <datalist id="{{ id }}_list">
-        {% for choice in choices %}
-            <option value="{{ choice }}"></option>
-        {% endfor %}
-    </datalist>
+    <div class="input-group">
+        <input class="form-control" list="{{ id }}_list" data-preview-field="{{ id }}_preview" data-value-field="{{ id }}_value" {{ block('attributes') }}>
+        <datalist id="{{ id }}_list">
+            {% for choice in choices %}
+                <option value="{{ choice }}"></option>
+            {% endfor %}
+        </datalist>
+        <div class="input-group-text">
+            <span data-icon="search" class="d-flex">{{ icon('actions-search') }}</span>
+            <span data-icon="loading" class="d-flex d-none">{{ icon('spinner-circle') }}</span>
+        </div>
+    </div>
+    <div class="input-group mt-1">
+        <input placeholder="Nothing selected" value="{{ preview_value }}" class="form-control" type="text" readonly="true" id="{{ id }}_preview">
+        <button class="btn btn-input-group-clear" type="button" onclick="document.getElementById('{{ id }}_preview').value = ''; document.getElementById('{{ id }}_value').value = '';">{{ icon('actions-close') }}</button>
+    </div>
+    <input type="hidden" readonly="true" id="{{ id }}_value" name="{{ full_name }}"{%- if disabled %} disabled="disabled"{% endif -%}{%- if required %} required="required"{% endif -%} {% if value is not empty %}value="{{ value }}"{% endif %}>
 {% endblock %}

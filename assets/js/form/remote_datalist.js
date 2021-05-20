@@ -21,15 +21,19 @@
 
             const option = connectedDatalist.querySelector('[value="' + inputField.value + '"]')
             if (null !== option) {
-                const optionValue = option.dataset.value;
-
+                inputField.value = '';
                 const valueField = document.getElementById(inputField.dataset.valueField);
-                valueField.value = optionValue;
+                valueField.value = option.dataset.value;
+                const previewField = document.getElementById(inputField.dataset.previewField);
+                previewField.value = option.value;
             }
         });
 
         remoteDatalistInput.addEventListener('input', debounce(async function (e) {
             const inputField = e.target;
+            const inputParent = inputField.parentElement;
+            const iconLoading = inputParent.querySelector('[data-icon="loading"]');
+            const iconSearch = inputParent.querySelector('[data-icon="search"]');
             const connectedDatalist = document.getElementById(inputField.getAttribute('list'));
 
             if (typeof e.which === 'undefined') {
@@ -53,6 +57,9 @@
                 return;
             }
 
+            iconSearch.classList.add('d-none');
+            iconLoading.classList.remove('d-none');
+
             const params = new URLSearchParams();
             params.set(inputField.dataset.searchParam, inputField.value);
 
@@ -64,6 +71,8 @@
             });
 
             if (!response.ok) {
+                iconSearch.classList.remove('d-none');
+                iconLoading.classList.add('d-none');
                 throw Error(response.statusText);
             }
 
@@ -76,6 +85,8 @@
                 optionElement.value = entry.label;
                 connectedDatalist.appendChild(optionElement);
             }
+            iconSearch.classList.remove('d-none');
+            iconLoading.classList.add('d-none');
         }, 500));
     }
 })();
