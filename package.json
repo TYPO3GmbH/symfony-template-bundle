@@ -6,7 +6,7 @@
         "bootstrap": "^5.0.1",
         "bootstrap-tagsinput": "^0.7.1",
         "chart.js": "^3.3.2",
-        "core-js": "^3.12.1",
+        "core-js": "^3.13.1",
         "file-loader": "^6.2.0",
         "jquery": "^3.6.0",
         "node-sass": "^6.0.0",
