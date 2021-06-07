@@ -9,11 +9,11 @@
 
 namespace T3G\Bundle\TemplateBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use T3G\Bundle\TemplateBundle\ThemeConstants;
 
-class StyleguideController extends Controller
+class StyleguideController extends AbstractController
 {
     /**
      * @return Response

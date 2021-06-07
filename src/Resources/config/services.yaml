@@ -6,6 +6,12 @@ services:
     autowire: true
     autoconfigure: true
 
+  T3G\Bundle\TemplateBundle\:
+    resource: '../../../src/'
+    exclude:
+      - '../../../src/DependencyInjection/'
+      - '../../../src/Tests/'
+
   T3G\Bundle\TemplateBundle\Twig\Extension\GlobalVariablesExtension:
     arguments: ["%t3g.template.config%"]
     tags:
