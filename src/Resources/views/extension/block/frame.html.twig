@@ -1,7 +1,7 @@
 <div{% if id %} id="{{ id }}"{% endif %} class="{{ classesOuter }}">
     {% if backgroundImage %}
         <div class="frame-backgroundimage-container">
-            <div class="frame-backgroundimage frame-backgroundimage-fade" style="background-image: url({{ backgroundImage }});"></div>
+            <div class="frame-backgroundimage frame-backgroundimage-fade" style="background-image: url('{{ backgroundImage }}');"></div>
         </div>
     {% endif %}
     <div class="{{ classesContainer }}">
