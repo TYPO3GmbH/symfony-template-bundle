@@ -106,12 +106,12 @@ $frame-backgrounds: map-merge(
 // CSS Variables
 // --------------------------------------------------
 :root {
-    --frame-color:                  #{$frame-color};
-    --frame-link-color:             #{$link-color};
-    --frame-link-hover-color:       #{$link-hover-color};
-    --frame-background:             #{$frame-background};
-    --frame-spacing:                #{$frame-inner-spacing};
-    --frame-spacing-small:          #{$frame-inner-spacing-small};
+    --frame-color: #{$frame-color};
+    --frame-link-color: #{$link-color};
+    --frame-link-hover-color: #{$link-hover-color};
+    --frame-background: #{$frame-background};
+    --frame-spacing: #{$frame-inner-spacing};
+    --frame-spacing-small: #{$frame-inner-spacing-small};
     --frame-embedded-border-radius: #{$frame-embedded-border-radius};
 }
 @each $breakpoint in map-keys($frame-inner-spacing-scaling) {
@@ -335,8 +335,7 @@ $frame-backgrounds: map-merge(
         margin-top: calc(-1 * var(--frame-spacing));
     }
 }
-.frame-layout-embedded:not(.frame-ruler-after) +
-.frame-layout-embedded:not(.frame-ruler-before) {
+.frame-layout-embedded:not(.frame-ruler-after) + .frame-layout-embedded:not(.frame-ruler-before) {
     margin-top: calc(-1 * var(--frame-spacing));
 }
 

@@ -43,7 +43,7 @@ class TemplateExtensionTest extends TestCase
         $this->assertEquals(false, $config['assets']['encore_entrypoint']);
         $this->assertEquals(false, $config['theme']['use_logo']);
         $this->assertEquals('lg', $config['theme']['navbar_breakpoint']);
-        $this->assertEquals('light', $config['theme']['background']);
+        $this->assertEquals('lighter', $config['theme']['background']);
         $this->assertEquals(
             implode(
                 "\n",
