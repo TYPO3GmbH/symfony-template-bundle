@@ -116,7 +116,7 @@ class Configuration implements ConfigurationInterface
                                     ->cannotBeEmpty()
                                 ->end()
                                 ->scalarNode('background')
-                                    ->defaultValue('light')
+                                    ->defaultValue('lighter')
                                     ->example('none')
                                 ->end()
                             ->end()

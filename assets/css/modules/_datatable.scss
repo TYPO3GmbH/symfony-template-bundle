@@ -246,18 +246,18 @@ $table-sorting-icon-descending: '<svg viewBox="0 0 16 16"><g fill="#{$table-high
         background-color: darken($white, 7.5%);
         color: color-contrast($white);
     }
-}
-@each $color, $value in $theme-colors {
-    &.datatable-action-#{$color} {
-        background-color: $value;
-        color: color-contrast($value);
-        &:focus {
-            box-shadow: 0 0 0 2px rgba($value, .5);
-        }
-        &:hover,
-        &:focus {
-            background-color: darken($value, 7.5%);
+    @each $color, $value in $theme-colors {
+        &.datatable-action-#{$color} {
+            background-color: $value;
             color: color-contrast($value);
+            &:focus {
+                box-shadow: 0 0 0 2px rgba($value, .5);
+            }
+            &:hover,
+            &:focus {
+                background-color: darken($value, 7.5%);
+                color: color-contrast($value);
+            }
         }
     }
 }

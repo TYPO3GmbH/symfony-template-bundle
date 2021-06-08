@@ -1,9 +1,13 @@
 //
 // Variables
 // --------------------------------------------------
-$frame-inner-spacing:         1.75rem !default;
-$frame-inner-spacing-scaling: () !default;
-$frame-inner-spacing-scaling: map-merge(
+$frame-color:                   $body-color !default;
+$frame-background:              transparent !default;
+$frame-embedded-border-radius:  .5rem !default;
+$frame-inner-spacing:           1.75rem !default;
+$frame-inner-spacing-small:     .75rem !default;
+$frame-inner-spacing-scaling:   () !default;
+$frame-inner-spacing-scaling:   map-merge(
     (
         xs: 1,
         sm: 1.2,
@@ -16,44 +20,106 @@ $frame-inner-spacing-scaling: map-merge(
 $frame-backgrounds: () !default;
 $frame-backgrounds: map-merge(
     (
-        primary: (
-            background:                $primary,
-            link-color:                $link-alternate-color,
-            link-hover-color:          $link-alternate-hover-color
+        'primary': (
+            'background':       $primary,
+            'color':            color-contrast($primary),
+            'link-color':       color-contrast($primary),
+            'link-hover-color': color-contrast($primary)
         ),
-        secondary: (
-            background:                $secondary,
-            link-color:                $link-alternate-color,
-            link-hover-color:          $link-alternate-hover-color
+        'primary-gradient': (
+            'background':       linear-gradient(135deg, shade-color($primary, 15%) 15%, tint-color($primary, 15%)  85%),
+            'color':            color-contrast($primary),
+            'link-color':       color-contrast($primary),
+            'link-hover-color': color-contrast($primary)
         ),
-        tertiary: (
-            background:                $tertiary,
-            link-color:                $link-alternate-color,
-            link-hover-color:          $link-alternate-hover-color
+        'secondary': (
+            'background':       $secondary,
+            'color':            color-contrast($secondary),
+            'link-color':       $link-color,
+            'link-hover-color': $link-hover-color
         ),
-        quaternary: (
-            background:                $quaternary,
-            link-color:                $link-alternate-color,
-            link-hover-color:          $link-alternate-hover-color
+        'secondary-gradient': (
+            'background':       linear-gradient(135deg, shade-color($secondary, 15%) 15%, tint-color($secondary, 15%)  85%),
+            'color':            color-contrast($secondary),
+            'link-color':       $link-color,
+            'link-hover-color': $link-hover-color
         ),
-        white: (
-            background:                #ffffff,
-            link-color:                $link-color,
-            link-hover-color:          $link-hover-color
+        'tertiary': (
+            'background':       $tertiary,
+            'color':            color-contrast($tertiary),
+            'link-color':       $link-color,
+            'link-hover-color': $link-hover-color
         ),
-        light: (
-            background:                $light,
-            link-color:                $link-color,
-            link-hover-color:          $link-hover-color
+        'tertiary-gradient': (
+            'background':       linear-gradient(135deg, shade-color($tertiary, 15%) 15%, tint-color($tertiary, 15%)  85%),
+            'color':            color-contrast($tertiary),
+            'link-color':       $link-color,
+            'link-hover-color': $link-hover-color
         ),
-        dark: (
-            background:                $dark,
-            link-color:                $link-alternate-color,
-            link-hover-color:          $link-alternate-hover-color
-        )
+        'quaternary': (
+            'background':       $quaternary,
+            'color':            color-contrast($quaternary),
+            'link-color':       $link-color,
+            'link-hover-color': $link-hover-color
+        ),
+        'quaternary-gradient': (
+            'background':       linear-gradient(135deg, shade-color($quaternary, 15%) 15%, tint-color($quaternary, 15%)  85%),
+            'color':            color-contrast($quaternary),
+            'link-color':       $link-color,
+            'link-hover-color': $link-hover-color
+        ),
+        'white': (
+            'background':       #ffffff,
+            'color':            color-contrast(#ffffff),
+            'link-color':       $link-color,
+            'link-hover-color': $link-hover-color
+        ),
+        'lighter': (
+            'background':       $lighter,
+            'color':            color-contrast($lighter),
+            'link-color':       $link-color,
+            'link-hover-color': $link-hover-color
+        ),
+        'light': (
+            'background':       $light,
+            'color':            color-contrast($light),
+            'link-color':       $link-color,
+            'link-hover-color': $link-hover-color
+        ),
+        'dark': (
+            'background':       $dark,
+            'color':            color-contrast($dark),
+            'link-color':       $link-color,
+            'link-hover-color': $link-hover-color
+        ),
+        'darker': (
+            'background':       $darker,
+            'color':            color-contrast($darker),
+            'link-color':       $link-color,
+            'link-hover-color': $link-hover-color
+        ),
     ),
     $frame-backgrounds
 );
+
+//
+// CSS Variables
+// --------------------------------------------------
+:root {
+    --frame-color:                  #{$frame-color};
+    --frame-link-color:             #{$link-color};
+    --frame-link-hover-color:       #{$link-hover-color};
+    --frame-background:             #{$frame-background};
+    --frame-spacing:                #{$frame-inner-spacing};
+    --frame-spacing-small:          #{$frame-inner-spacing-small};
+    --frame-embedded-border-radius: #{$frame-embedded-border-radius};
+}
+@each $breakpoint in map-keys($frame-inner-spacing-scaling) {
+    :root {
+        --frame-spacing-#{$breakpoint}: #{$frame-inner-spacing * map-get($frame-inner-spacing-scaling, $breakpoint)};
+        --frame-spacing-small-#{$breakpoint}: #{$frame-inner-spacing-small * map-get($frame-inner-spacing-scaling, $breakpoint)};
+    }
+}
 
 //
 // Container
@@ -65,21 +131,25 @@ $frame-backgrounds: map-merge(
         padding-left: 0;
         padding-right: 0;
     }
-}
-.frame-container-default {
-    @include make-container-max-widths();
-}
-.frame-container-large {
-    max-width: 1600px;
-}
-.frame-container-medium {
-    max-width: 870px;
-}
-.frame-container-small {
-    max-width: 600px;
-}
-.frame-container-full {
-    max-width: none;
+    &-default {
+        @each $breakpoint, $container-max-width in $container-max-widths {
+            @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+                max-width: $container-max-width;
+            }
+        }
+    }
+    &-full {
+        max-width: 100%;
+    }
+    &-large {
+        max-width: 1600px;
+    }
+    &-medium {
+        max-width: 870px;
+    }
+    &-small {
+        max-width: 600px;
+    }
 }
 
 //
@@ -87,20 +157,65 @@ $frame-backgrounds: map-merge(
 // --------------------------------------------------
 .frame {
     position: relative;
-    @each $breakpoint in map-keys($frame-inner-spacing-scaling) {
-        @include media-breakpoint-up($breakpoint) {
-            $scaling: map-get($frame-inner-spacing-scaling, $breakpoint);
-            padding-top: ($frame-inner-spacing * $scaling);
-            padding-bottom: ($frame-inner-spacing * $scaling);
+    padding-top: var(--frame-spacing);
+    padding-bottom: var(--frame-spacing);
+    color: var(--frame-color);
+    background: var(--frame-background);
+    a[class=""],
+    a:not([class]) {
+        color: var(--frame-link-color);
+        &:hover {
+            color: var(--frame-link-hover-color);
         }
     }
-    > *:last-child {
-        margin-bottom: 0;
+    @each $breakpoint in map-keys($frame-inner-spacing-scaling) {
+        @include media-breakpoint-up($breakpoint) {
+            --frame-spacing: var(--frame-spacing-#{$breakpoint});
+        }
     }
 }
 .frame-inner {
     > *:last-child {
         margin-bottom: 0;
+    }
+}
+
+//
+// Layout
+//
+.frame-layout-embedded {
+    background: transparent;
+    .frame-group-container {
+        @include make-container();
+        @each $breakpoint, $container-max-width in $container-max-widths {
+            @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+                max-width: $container-max-width;
+            }
+        }
+        &-full {
+            max-width: 100%;
+        }
+        &-large {
+            max-width: 1600px;
+        }
+        &-medium {
+            max-width: 870px;
+        }
+        &-small {
+            max-width: 600px;
+        }
+    }
+    .frame-group-inner {
+        position: relative;
+        border-radius: var(--frame-embedded-border-radius);
+        background: var(--frame-background);
+        padding: var(--frame-spacing);
+    }
+    .frame-container {
+        padding: 0;
+    }
+    .frame-backgroundimage-container {
+        border-radius: var(--frame-embedded-border-radius);
     }
 }
 
@@ -113,12 +228,6 @@ $frame-backgrounds: map-merge(
 }
 .frame-ruler-after {
     border-bottom: 1px solid rgba(0, 0, 0, .125);
-    @each $breakpoint in map-keys($frame-inner-spacing-scaling) {
-        @include media-breakpoint-up($breakpoint) {
-            $scaling: map-get($frame-inner-spacing-scaling, $breakpoint);
-            margin-bottom: ($frame-inner-spacing * $scaling);
-        }
-    }
 }
 .frame-indent {
     .frame-inner {
@@ -159,11 +268,10 @@ $frame-backgrounds: map-merge(
 // Size
 // --------------------------------------------------
 .frame-size-small {
-    padding-top: .5rem;
-    padding-bottom: .5rem;
-    @include media-breakpoint-up('sm') {
-        padding-top: 1rem;
-        padding-bottom: 1rem;
+    @each $breakpoint in map-keys($frame-inner-spacing-scaling) {
+        @include media-breakpoint-up($breakpoint) {
+            --frame-spacing: var(--frame-spacing-small-#{$breakpoint});
+        }
     }
 }
 
@@ -214,40 +322,22 @@ $frame-backgrounds: map-merge(
         }
     }
 }
-.frame-collapsible {
-    @each $breakpoint in map-keys($frame-inner-spacing-scaling) {
-        @include media-breakpoint-up($breakpoint) {
-            $scaling: map-get($frame-inner-spacing-scaling, $breakpoint);
-            margin-top: -($frame-inner-spacing * $scaling);
-        }
-    }
-}
-@mixin make-frame-spacing($name) {
-    .frame-size-default.frame-background-#{$name}:not(.frame-ruler-after):not(.frame-has-backgroundimage) + .frame-size-default.frame-background-#{$name}:not(.frame-ruler-before):not(.frame-has-backgroundimage) {
-        @extend .frame-collapsible;
-    }
-}
-@include make-frame-spacing('default');
-@mixin make-frame-background($name, $settings) {
-    $background: map-get($settings, 'background');
-    $color: color-contrast($background);
-    $link-color: map-get($settings, 'link-color');
-    $link-hover-color: map-get($settings, 'link-hover-color');
+@each $name, $settings in $frame-backgrounds {
     .frame-background-#{$name} {
         @extend %frame-has-backgroundimage;
-        color: $color;
-        background-color: $background;
-        a[class=""] {
-            color: $link-color;
-            &:hover {
-                color: $link-hover-color;
-            }
-        }
+        --frame-color: #{map-get($settings, 'color')};
+        --frame-background: #{map-get($settings, 'background')};
+        --frame-link-color: #{map-get($settings, 'link-color')};
+        --frame-link-hover-color: #{map-get($settings, 'link-hover-color')};
     }
-    @include make-frame-spacing($name);
+    .frame-size-default.frame-background-#{$name}:not(.frame-ruler-after):not(.frame-has-backgroundimage) +
+    .frame-size-default.frame-background-#{$name}:not(.frame-ruler-before):not(.frame-has-backgroundimage) {
+        margin-top: calc(-1 * var(--frame-spacing));
+    }
 }
-@each $name, $settings in $frame-backgrounds {
-    @include make-frame-background($name, $settings);
+.frame-layout-embedded:not(.frame-ruler-after) +
+.frame-layout-embedded:not(.frame-ruler-before) {
+    margin-top: calc(-1 * var(--frame-spacing));
 }
 
 //

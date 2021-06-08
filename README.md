@@ -541,21 +541,27 @@ Returns a string representing the difference between a date and now() such as "1
 
 ## `frame`
 
-| Option          | Type                                                            | Default |
-| --------------- | --------------------------------------------------------------- | ------- |
-| id              | string                                                          |         |
-| size            | small/default                                                   | default |
-| color           | default/primary/secondary/tertiary/quaternary/light/dark/white  | default |
-| indent          | bool                                                            | false   |
-| rulerBefore     | bool                                                            | false   |
-| rulerAfter      | bool                                                            | false   |
-| center          | bool                                                            | false   |
-| backgroundImage | string                                                          |         |
-| height          | auto/small/medium/max                                           | auto    |
-| innerWidth      | small/medium/large/full/default                                 | default |
-| title           | string                                                          |         |
-| titleSize       | int                                                             | 2       |
-| titleAnchor     | bool                                                            | true    |
+| Option                    | Type                                                            | Default |
+| ------------------------- | --------------------------------------------------------------- | ------- |
+| id                        | string                                                          |         |
+| layout                    | embedded/default                                                | default |
+| size                      | small/default                                                   | default |
+| color                     | default/primary/secondary/tertiary/quaternary/light/dark/white  | default |
+| indent                    | bool/left/right                                                 | false   |
+| rulerBefore               | bool                                                            | false   |
+| rulerAfter                | bool                                                            | false   |
+| center                    | bool                                                            | false   |
+| backgroundImage           | string                                                          |         |
+| backgroundImageFade       | bool                                                            | true    |
+| backgroundImageBlur       | bool                                                            | false   |
+| backgroundImageParallax   | bool                                                            | false   |
+| backgroundImageGrayscale  | bool                                                            | false   |
+| backgroundImageSepia      | bool                                                            | false   |
+| height                    | auto/small/medium/max                                           | auto    |
+| innerWidth                | small/medium/large/full/default                                 | default |
+| title                     | string                                                          |         |
+| titleSize                 | int                                                             | 2       |
+| titleAnchor               | bool                                                            | true    |
 
 ### Usage
 

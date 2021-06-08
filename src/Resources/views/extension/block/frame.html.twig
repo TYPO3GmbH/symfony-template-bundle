@@ -1,20 +1,24 @@
 <div{% if id %} id="{{ id }}"{% endif %} class="{{ classesOuter }}">
-    {% if backgroundImage %}
-        <div class="frame-backgroundimage-container">
-            <div class="frame-backgroundimage frame-backgroundimage-fade" style="background-image: url('{{ backgroundImage }}');"></div>
-        </div>
-    {% endif %}
-    <div class="{{ classesContainer }}">
-        <div class="{{ classesInner }}">
-            {% if title %}
-                <header class="frame-header">
-                    <h{{ titleSize }}>
-                        {{ title|raw }}
-                        {% if titleAnchor %}<a class="frame-header-permalink" href="#{{ id }}" title="Permalink to this headline">{{ icon('actions-link', 'auto') }}</a>{% endif %}
-                    </h{{ titleSize }}>
-                </header>
+    <div class="{{ groupContainerClasses }}">
+        <div class="frame-group-inner">
+            {% if backgroundImage %}
+                <div class="frame-backgroundimage-container">
+                    <div class="{{ backgroundImageClasses }}" style="background-image: url('{{ backgroundImage }}');"></div>
+                </div>
             {% endif %}
-            {{ content|raw }}
+            <div class="{{ classesContainer }}">
+                <div class="{{ classesInner }}">
+                    {% if title %}
+                        <header class="frame-header">
+                            <h{{ titleSize }}>
+                                {{ title|raw }}
+                                {% if titleAnchor %}<a class="frame-header-permalink" href="#{{ id }}" title="Permalink to this headline">{{ icon('actions-link', 'auto') }}</a>{% endif %}
+                            </h{{ titleSize }}>
+                        </header>
+                    {% endif %}
+                    {{ content|raw }}
+                </div>
+            </div>
         </div>
     </div>
 </div>

@@ -45,7 +45,15 @@ class BlockExtension extends AbstractExtension
     public function frameFunction(Environment $environment, string $content, array $attributes): string
     {
         $attributes['id'] = $attributes['id'] ?? null;
+        $attributes['layout'] = $attributes['layout'] ?? 'default';
+
         $attributes['backgroundImage'] = $attributes['backgroundImage'] ?? null;
+        $attributes['backgroundImageFade'] = (bool) ($attributes['backgroundImageFade'] ?? true);
+        $attributes['backgroundImageBlur'] = (bool) ($attributes['backgroundImageBlur'] ?? false);
+        $attributes['backgroundImageParallax'] = (bool) ($attributes['backgroundImageParallax'] ?? false);
+        $attributes['backgroundImageGrayscale'] = (bool) ($attributes['backgroundImageGrayscale'] ?? false);
+        $attributes['backgroundImageSepia'] = (bool) ($attributes['backgroundImageSepia'] ?? false);
+
         $attributes['size'] = $attributes['size'] ?? 'default';
         $attributes['color'] = $attributes['color'] ?? 'default';
         $attributes['indent'] = $attributes['indent'] ?? false;
@@ -58,13 +66,26 @@ class BlockExtension extends AbstractExtension
         $attributes['titleSize'] = (int)($attributes['titleSize'] ?? 2);
         $attributes['titleAnchor'] = $attributes['titleAnchor'] ?? true;
 
+        $groupContainerClasses = [];
+        $groupContainerClasses[] = 'frame-group-container';
+        $groupContainerClasses[] = 'frame-group-container-' . $attributes['innerWidth'];
+
         $classesOuter = [];
         $classesOuter[] = 'frame';
+        $classesOuter[] = 'frame-layout-' . $attributes['layout'];
         $classesOuter[] = 'frame-size-' . $attributes['size'];
         $classesOuter[] = 'frame-height-' . $attributes['height'];
+
         if ($attributes['indent']) {
-            $classesOuter[] = 'frame-indent';
+            if ($attributes['indent'] === 'left') {
+                $classesOuter[] = 'frame-indent-left';
+            } elseif ($attributes['indent'] === 'right') {
+                $classesOuter[] = 'frame-indent-right';
+            } else {
+                $classesOuter[] = 'frame-indent';
+            }
         }
+
         $classesOuter[] = 'frame-background-' . $attributes['color'];
         $classesOuter[] = $attributes['backgroundImage'] ? 'frame-has-backgroundimage' : 'frame-no-backgroundimage';
         if ($attributes['rulerBefore']) {
@@ -79,6 +100,24 @@ class BlockExtension extends AbstractExtension
         $classesContainer = [];
         $classesContainer[] = 'frame-container';
         $classesContainer[] = 'frame-container-' . $attributes['innerWidth'];
+
+        $backgroundImageClasses = [];
+        $backgroundImageClasses[] = 'frame-backgroundimage';
+        if ($attributes['backgroundImageFade']) {
+            $backgroundImageClasses[] = 'frame-backgroundimage-fade';
+        }
+        if ($attributes['backgroundImageBlur']) {
+            $backgroundImageClasses[] = 'frame-backgroundimage-blur';
+        }
+        if ($attributes['backgroundImageParallax']) {
+            $backgroundImageClasses[] = 'frame-backgroundimage-parallax';
+        }
+        if ($attributes['backgroundImageGrayscale']) {
+            $backgroundImageClasses[] = 'frame-backgroundimage-grayscale';
+        }
+        if ($attributes['backgroundImageSepia']) {
+            $backgroundImageClasses[] = 'frame-backgroundimage-sepia';
+        }
 
         $classesInner = [];
         $classesInner[] = 'frame-inner';
@@ -97,7 +136,9 @@ class BlockExtension extends AbstractExtension
         return $environment->render('@Template/extension/block/frame.html.twig', [
             'content' => $content,
             'id' => $attributes['id'],
+            'groupContainerClasses' => implode(' ', $groupContainerClasses),
             'backgroundImage' => $attributes['backgroundImage'],
+            'backgroundImageClasses' => implode(' ', $backgroundImageClasses),
             'classesOuter' => implode(' ', $classesOuter),
             'classesContainer' => implode(' ', $classesContainer),
             'classesInner' => implode(' ', $classesInner),

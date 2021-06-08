@@ -24,9 +24,10 @@ class ThemeConstants
             'danger',
             'notice',
             'default',
+            'lighter',
             'light',
             'dark',
-            'darkest',
+            'darker',
         ];
     }
 
@@ -38,8 +39,10 @@ class ThemeConstants
             'tertiary',
             'quaternary',
             'white',
+            'lighter',
             'light',
             'dark',
+            'darker',
         ];
     }
 
