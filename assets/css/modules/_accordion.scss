@@ -132,6 +132,9 @@
     display: flex;
     flex-wrap: wrap;
     gap: $card-spacer-x;
+    + .accordion-content {
+        margin-top: $card-spacer-x;
+    }
 }
 .accordion-content-item {
     flex-grow: 1;
