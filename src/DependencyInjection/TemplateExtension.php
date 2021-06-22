@@ -25,6 +25,7 @@ class TemplateExtension extends Extension implements PrependExtensionInterface
 
         $container->setParameter('t3g.template.config', $config);
         $container->setParameter('t3g.template.config.menu.class', $config['application']['menu']['class']);
+        $container->setParameter('t3g.template.config.security', $config['application']['security']);
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loader->load('services.yaml');

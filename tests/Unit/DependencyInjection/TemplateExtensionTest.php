@@ -40,6 +40,8 @@ class TemplateExtensionTest extends TestCase
         $this->assertEquals('https://typo3.com/legal-notice', $config['routes']['legal']);
         $this->assertEquals('https://jira.typo3.com/servicedesk/customer/portal/2', $config['routes']['feedback']);
         $this->assertEquals('T3G\Bundle\TemplateBundle\Menu\MenuBuilder', $config['menu']['class']);
+        $this->assertEquals([], $config['security']['headers']);
+        $this->assertEquals(['report_only' => true, 'rules' => []], $config['security']['content_security_policy']);
         $this->assertEquals(false, $config['assets']['encore_entrypoint']);
         $this->assertEquals(false, $config['theme']['use_logo']);
         $this->assertEquals('lg', $config['theme']['navbar_breakpoint']);
