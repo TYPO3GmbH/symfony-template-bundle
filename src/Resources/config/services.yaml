@@ -12,6 +12,11 @@ services:
       - '../../../src/DependencyInjection/'
       - '../../../src/Tests/'
 
+  T3G\Bundle\TemplateBundle\EventSubscriber\SecurityHeadersResponseSubscriber:
+    class: T3G\Bundle\TemplateBundle\EventSubscriber\SecurityHeadersResponseSubscriber
+    arguments:
+      $configuration: '%t3g.template.config.security%'
+
   T3G\Bundle\TemplateBundle\Twig\Extension\GlobalVariablesExtension:
     arguments: ["%t3g.template.config%"]
     tags:
