@@ -29,7 +29,7 @@
         "@popperjs/core": "^2.9.2",
         "@typo3/icons": "^2.2.3",
         "choices.js": "^9.0.1",
-        "luxon": "^1.27.0",
+        "luxon": "^2.0.1",
         "prismjs": "^1.24.1",
         "vanillajs-datepicker": "^1.1.4"
     }
