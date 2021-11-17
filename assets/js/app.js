@@ -33,10 +33,9 @@ import 'prismjs/plugins/keep-markup/prism-keep-markup';
 import {DateTime} from 'luxon';
 
 function convertDateTimes() {
-    let locale = document.querySelector('html').attributes.lang?.value ?? 'en';
     Array.from(document.querySelectorAll('[data-processor="localdatetime"]')).forEach(function (element) {
         let value = element.dataset.value;
-        let text = DateTime.fromISO(value).setLocale(locale).toLocaleString({
+        let text = DateTime.fromISO(value).toLocaleString({
             month: '2-digit',
             day: '2-digit',
             year: '2-digit',
@@ -48,10 +47,9 @@ function convertDateTimes() {
     });
 }
 function convertDates() {
-    let locale = document.querySelector('html').attributes.lang?.value ?? 'en';
     Array.from(document.querySelectorAll('[data-processor="localdate"]')).forEach(function (element) {
         let value = element.dataset.value;
-        let text = DateTime.fromISO(value).setLocale(locale).toLocaleString({
+        let text = DateTime.fromISO(value).toLocaleString({
             month: '2-digit',
             day: '2-digit',
             year: '2-digit',
@@ -60,10 +58,9 @@ function convertDates() {
     });
 }
 function convertRelativeTime() {
-    let locale = document.querySelector('html').attributes.lang?.value ?? 'en';
     Array.from(document.querySelectorAll('[data-processor="relativetime"]')).forEach(function (element) {
         let value = element.dataset.value;
-        let text = DateTime.fromISO(value).setLocale(locale).toRelative();
+        let text = DateTime.fromISO(value).toRelative();
         element.textContent = text;
     });
 }
