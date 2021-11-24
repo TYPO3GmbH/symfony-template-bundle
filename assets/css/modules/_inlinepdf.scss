@@ -1,0 +1,19 @@
+//
+// Inline PDF
+//
+.inline-pdf {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding-bottom: 60%;
+    iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+.inline-pdf-a4 {
+    padding-bottom: 141.4%;
+}

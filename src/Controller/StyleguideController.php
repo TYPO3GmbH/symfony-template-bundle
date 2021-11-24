@@ -11,6 +11,9 @@ namespace T3G\Bundle\TemplateBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use T3G\Bundle\TemplateBundle\Pdf\AssociationLayoutPdf;
+use T3G\Bundle\TemplateBundle\Pdf\GmbhLayoutPdf;
+use T3G\Bundle\TemplateBundle\Pdf\SimplePdf;
 use T3G\Bundle\TemplateBundle\ThemeConstants;
 
 class StyleguideController extends AbstractController
@@ -208,5 +211,29 @@ class StyleguideController extends AbstractController
     public function componentText(): Response
     {
         return $this->render('@Template/styleguide/component/text.html.twig');
+    }
+
+    /**
+     * @return Response
+     */
+    public function componentPdfGmbH(): Response
+    {
+        $pdf = new SimplePdf(new GmbhLayoutPdf());
+        $pdf->addPage();
+        return $this->render('@Template/styleguide/component/pdf.html.twig', [
+            'pdf' => $pdf
+        ]);
+    }
+
+    /**
+     * @return Response
+     */
+    public function componentPdfAssoc(): Response
+    {
+        $pdf = new SimplePdf(new AssociationLayoutPdf());
+        $pdf->addPage();
+        return $this->render('@Template/styleguide/component/pdf.html.twig', [
+            'pdf' => $pdf
+        ]);
     }
 }
