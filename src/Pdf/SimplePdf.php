@@ -61,15 +61,13 @@ class SimplePdf
 
     public function setBadge(string $path)
     {
-        if ($this->pdf instanceof GmbhLayoutPdf) {
-            $this->pdf->ImageSVG(
-                $path,
-                158,
-                10,
-                40,
-                40
-            );
-        }
+        $this->pdf->ImageSVG(
+            $path,
+            158,
+            10,
+            40,
+            40
+        );
     }
 
     public function addDate(\DateTimeInterface $date)
@@ -137,8 +135,13 @@ class SimplePdf
         $this->pdf->writeHTML($html, false, false, true, false, '');
     }
 
-    public function output(string $filename, string $destination = 'D')
+    public function output(string $filename, string $destination = 'I')
     {
-        $this->pdf->Output($filename, $destination);
+        return $this->pdf->Output($filename, $destination);
+    }
+
+    public function __toString(): string
+    {
+        return (string) $this->pdf->Output('doc.pdf', 'S');
     }
 }

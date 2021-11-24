@@ -73,3 +73,11 @@ _template_styleguide_component_guide:
 _template_styleguide_component_text:
   path: /styleguide/component/text
   controller: T3G\Bundle\TemplateBundle\Controller\StyleguideController::componentText
+
+_template_styleguide_component_pdf_gmbh:
+  path: /styleguide/component/pdf/gmbh
+  controller: T3G\Bundle\TemplateBundle\Controller\StyleguideController::componentPdfGmbH
+
+_template_styleguide_component_pdf_assoc:
+  path: /styleguide/component/pdf/assoc
+  controller: T3G\Bundle\TemplateBundle\Controller\StyleguideController::componentPdfAssoc
