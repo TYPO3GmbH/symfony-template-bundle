@@ -29,7 +29,7 @@
         "stylelint": "stylelint assets/css/*"
     },
     "dependencies": {
-        "@popperjs/core": "^2.10.2",
+        "@popperjs/core": "^2.11.0",
         "@typo3/icons": "^2.5.0",
         "choices.js": "^9.0.1",
         "luxon": "^2.1.1",
