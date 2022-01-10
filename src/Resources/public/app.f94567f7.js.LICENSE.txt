@@ -5,19 +5,10 @@
   */
 
 /*!
- * Chart.js v3.6.2
+ * Chart.js v3.7.0
  * https://www.chartjs.org
  * (c) 2021 Chart.js Contributors
  * Released under the MIT License
- */
-
-/*!
- * Fuse.js v3.4.5 - Lightweight fuzzy-search (http://fusejs.io)
- * 
- * Copyright (c) 2012-2017 Kirollos Risk (http://kiro.me)
- * All Rights Reserved. Apache Software License 2.0
- * 
- * http://www.apache.org/licenses/LICENSE-2.0
  */
 
 /*!
@@ -45,7 +36,7 @@
  * Date: 2021-03-02T17:08Z
  */
 
-/*! choices.js v9.0.1 | © 2019 Josh Johnson | https://github.com/jshjohnson/Choices#readme */
+/*! choices.js v10.0.0 | © 2022 Josh Johnson | https://github.com/jshjohnson/Choices#readme */
 
 /**
  * Prism: Lightweight, robust, elegant syntax highlighting
