@@ -9,7 +9,7 @@
         "core-js": "^3.20.2",
         "file-loader": "^6.2.0",
         "jquery": "^3.6.0",
-        "sass": "^1.47.0",
+        "sass": "^1.48.0",
         "postcss": "^8.4.5",
         "postcss-loader": "^6.2.1",
         "postcss-scss": "^4.0.3",
