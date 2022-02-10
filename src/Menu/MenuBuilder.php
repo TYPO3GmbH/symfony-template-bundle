@@ -14,7 +14,7 @@ use Knp\Menu\FactoryInterface;
 use Knp\Menu\ItemInterface;
 use Knp\Menu\Matcher\MatcherInterface;
 use Knp\Menu\MenuFactory;
-use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -24,53 +24,22 @@ use Symfony\Contracts\Translation\TranslatorInterface;
  */
 class MenuBuilder
 {
-    /**
-     * @var ContainerInterface
-     */
-    public $container;
+    public ParameterBagInterface $parameters;
+    public MenuFactory $factory;
+    public MatcherInterface $matcher;
+    public AuthorizationCheckerInterface $authorizationChecker;
+    public TokenStorageInterface $tokenStorage;
+    public TranslatorInterface $translator;
 
-    /**
-     * @var MenuFactory
-     */
-    public $factory;
-
-    /**
-     * @var MatcherInterface
-     */
-    public $matcher;
-
-    /**
-     * @var AuthorizationCheckerInterface
-     */
-    public $authorizationChecker;
-
-    /**
-     * @var TokenStorageInterface
-     */
-    public $tokenStorage;
-
-    /**
-     * @var TranslatorInterface
-     */
-    public $translator;
-
-    /**
-     * @param ContainerInterface $container
-     * @param FactoryInterface $factory
-     * @param MatcherInterface $matcher
-     * @param AuthorizationCheckerInterface $authorizationChecker
-     * @param TokenStorageInterface $tokenStorage
-     * @param TranslatorInterface $translator
-     */
     public function __construct(
-        ContainerInterface $container,
+        ParameterBagInterface $parameters,
         FactoryInterface $factory,
         MatcherInterface $matcher,
         AuthorizationCheckerInterface $authorizationChecker,
         TokenStorageInterface $tokenStorage,
         TranslatorInterface $translator
     ) {
-        $this->container = $container;
+        $this->parameters = $parameters;
         $this->factory = $factory;
         $this->matcher = $matcher;
         $this->authorizationChecker = $authorizationChecker;
@@ -78,33 +47,21 @@ class MenuBuilder
         $this->translator = $translator;
     }
 
-    /**
-     * @param array $options
-     * @return \Knp\Menu\ItemInterface|\Knp\Menu\MenuItem
-     */
-    public function mainDefault(array $options)
+    public function mainDefault(array $options): ItemInterface
     {
         $menu = $this->factory->createItem('root');
         return $menu;
     }
 
-    /**
-     * @param array $options
-     * @return \Knp\Menu\ItemInterface|\Knp\Menu\MenuItem
-     */
-    public function mainProfile(array $options)
+    public function mainProfile(array $options): ItemInterface
     {
         $menu = $this->factory->createItem('root');
         return $menu;
     }
 
-    /**
-     * @param array $options
-     * @return \Knp\Menu\ItemInterface|\Knp\Menu\MenuItem
-     */
-    public function mainFooter(array $options)
+    public function mainFooter(array $options): ItemInterface
     {
-        $config = $this->container->getParameter('t3g.template.config');
+        $config = $this->parameters->get('t3g.template.config');
         $menu = $this->factory->createItem('root');
         if (!empty($config['application']['routes']['privacy'])) {
             $menu->addChild(
