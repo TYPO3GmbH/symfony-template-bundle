@@ -16,14 +16,14 @@ jobs:
       fail-fast: false
       matrix:
         php: ['7.4', '8.0', '8.1']
-        symfony: ['^4.4', '^5.0', '^6.0']
+        symfony: ['^4.4', '^5.4', '^6.0']
         exclude:
           - symfony: '^6.0'
             php: '7.4'
         include:
           - symfony: '^4.4'
             deprecations: 'max[self]=0'
-          - symfony: '^5.0'
+          - symfony: '^5.4'
             deprecations: ''
     steps:
 
