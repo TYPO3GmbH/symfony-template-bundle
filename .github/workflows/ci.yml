@@ -45,7 +45,14 @@ jobs:
 
       - name: Install
         run: |
+          sed -ri 's/"symfony\/dependency-injection": "(.+)"/"symfony\/dependency-injection": "'${{ matrix.symfony }}'"/' composer.json;
+          sed -ri 's/"symfony\/form": "(.+)"/"symfony\/form": "'${{ matrix.symfony }}'"/' composer.json;
           sed -ri 's/"symfony\/framework-bundle": "(.+)"/"symfony\/framework-bundle": "'${{ matrix.symfony }}'"/' composer.json;
+          sed -ri 's/"symfony\/http-kernel": "(.+)"/"symfony\/http-kernel": "'${{ matrix.symfony }}'"/' composer.json;
+          sed -ri 's/"symfony\/security-bundle": "(.+)"/"symfony\/security-bundle": "'${{ matrix.symfony }}'"/' composer.json;
+          sed -ri 's/"symfony\/translation": "(.+)"/"symfony\/translation": "'${{ matrix.symfony }}'"/' composer.json;
+          sed -ri 's/"symfony\/twig-bundle": "(.+)"/"symfony\/twig-bundle": "'${{ matrix.symfony }}'"/' composer.json;
+          sed -ri 's/"symfony\/phpunit-bridge": "(.+)"/"symfony\/phpunit-bridge": "'${{ matrix.symfony }}'"/' composer.json;
           composer update --prefer-dist --no-progress
           composer info
           git checkout composer.json
