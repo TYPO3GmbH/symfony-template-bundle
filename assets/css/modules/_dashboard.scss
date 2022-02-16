@@ -10,6 +10,7 @@ $dashboard-gutter: 1rem;
 $dashboard-list-hover-bg: #efefef;
 $dashboard-list-hover-color: color-contrast($dashboard-list-hover-bg);
 $dashboard-list-icon-show: '<svg viewBox="0 0 16 16"><g fill="#{$dashboard-color}"><path d="M9.586 8L6.05 11.536l.707.707L11 8 6.757 3.757l-.707.707z"/></g></svg>';
+$dashboard-list-icon-external: '<svg viewBox="0 0 16 16"><g fill="#{$dashboard-color}"><path d="M10.05 8.657l-.707-.707L14.293 3l.706.707z"/><path d="M13 8.536V12H3V5h6.464l1-1H2.5a.5.5 0 0 0-.5.5v8a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 .5-.5V7.535l-1 1.001zM15.573 6.573l-4.146-4.146A.25.25 0 0 1 11.604 2h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177z"/></g></svg>';
 .dashboard {
     display: flex;
     flex-wrap: wrap;
@@ -126,26 +127,32 @@ $dashboard-list-icon-show: '<svg viewBox="0 0 16 16"><g fill="#{$dashboard-color
     margin-right: -$dashboard-padding;
     margin-bottom: 1rem;
 }
+.dashboard-item-body:last-child {
+    .dashboard-list:last-child {
+        .dashboard-list-entry:last-child {
+            border-bottom: none;
+        }
+        margin-bottom: -$dashboard-padding;
+    }
+}
 .dashboard-list-entry {
     position: relative;
     display: flex;
     padding: ($dashboard-padding / 2) $dashboard-padding;
-    padding-right: $dashboard-padding * 2;
     align-items: center;
     color: inherit;
     border-top: 1px solid #e0e3e4;
     line-height: 1.2;
-    gap: .5rem;
+    gap: .75rem;
     &:after {
         content: '';
-        position: absolute;
-        top: 50%;
-        right: .9rem;
         display: block;
         height: 16px;
         width: 16px;
-        transform: translate(0, -50%);
         background-image: url(svg-inline($dashboard-list-icon-show));
+        flex-shrink: 0;
+        flex-grow: 0;
+        margin-right: -.3rem;
     }
     &:nth-child(odd) {
         background-color: rgba(245, 245, 246, .5);
@@ -162,15 +169,24 @@ $dashboard-list-icon-show: '<svg viewBox="0 0 16 16"><g fill="#{$dashboard-color
             border-bottom: 1px solid darken($dashboard-list-hover-bg, 5%);
         }
     }
+    &-external {
+        &:after {
+            background-image: url(svg-inline($dashboard-list-icon-external));
+            margin-right: 0;
+        }
+    }
 }
 .dashboard-list-entry-icon {
-    margin-right: .5rem;
+    line-height: 1;
 }
 .dashboard-list-entry-title {
     flex-grow: 1;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+}
+.dashboard-list-entry-content {
+    flex-grow: 1;
 }
 .dashboard-list-entry-summary {
     width: 74px;
@@ -191,6 +207,14 @@ $dashboard-list-icon-show: '<svg viewBox="0 0 16 16"><g fill="#{$dashboard-color
     margin-right: -$dashboard-padding;
     margin-bottom: 1rem;
 }
+.dashboard-item-body:last-child {
+    .dashboard-actions:last-child {
+        .dashboard-actions-entry:last-child {
+            border-bottom: none;
+        }
+        margin-bottom: -$dashboard-padding;
+    }
+}
 .dashboard-actions-entry {
     position: relative;
     display: flex;
@@ -198,6 +222,7 @@ $dashboard-list-icon-show: '<svg viewBox="0 0 16 16"><g fill="#{$dashboard-color
     align-items: center;
     color: inherit;
     line-height: 1.2;
+    gap: .75rem;
     border-top: 1px solid darken($dashboard-list-hover-bg, 5%);
     &:nth-child(odd) {
         background-color: rgba(245, 245, 246, .5);
@@ -209,9 +234,6 @@ $dashboard-list-icon-show: '<svg viewBox="0 0 16 16"><g fill="#{$dashboard-color
         text-decoration: none;
         color: $dashboard-list-hover-color;
     }
-}
-.dashboard-actions-entry-icon {
-    margin-right: 1rem;
 }
 .dashboard-actions-entry-content {
     flex-grow: 1;

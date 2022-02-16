@@ -2,10 +2,10 @@
   "entrypoints": {
     "app": {
       "css": [
-        "/bundles/template/app.ac6ef3a5.css"
+        "/bundles/template/app.0ae8c466.css"
       ],
       "js": [
-        "/bundles/template/app.2040cc76.js"
+        "/bundles/template/app.f60603d0.js"
       ]
     },
     "webfont": {
