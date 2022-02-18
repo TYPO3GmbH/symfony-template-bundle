@@ -34,7 +34,7 @@
         "@typo3/icons": "^2.5.0",
         "choices.js": "^10.1.0",
         "luxon": "^2.3.0",
-        "prismjs": "^1.26.0",
+        "prismjs": "^1.27.0",
         "vanillajs-datepicker": "^1.2.0"
     }
 }
