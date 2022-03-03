@@ -78,20 +78,22 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Cache yarn dependencies
-        uses: actions/cache@v1
+      - name: NPM Cache
+        uses: actions/cache@v2
         with:
-          path: node_modules
-          key: yarn-${{ hashFiles('yarn.lock') }}
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
 
-      - name: Install
-        run: yarn install
+      - name: NPM Install
+        run: npm ci
 
-      - name: Build
-        run: yarn build
+      - name: NPM Build
+        run: npm run build
 
       - name: Stylelint
-        run: yarn stylelint
+        run: npm run stylelint
 
       - name: Git Status
         run: |
