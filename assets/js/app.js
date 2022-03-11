@@ -9,6 +9,7 @@ import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap-tagsinput/dist/bootstrap-tagsinput';
 import './libs/alert';
+import './libs/popover';
 import './libs/navbar';
 import './libs/aggregations';
 import './libs/charts';
