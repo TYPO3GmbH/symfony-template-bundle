@@ -13,7 +13,7 @@
         "postcss": "^8.4.12",
         "postcss-loader": "^6.2.1",
         "postcss-scss": "^4.0.3",
-        "sass": "^1.49.9",
+        "sass": "^1.49.10",
         "sass-loader": "^12.6.0",
         "stylelint": "^14.6.0",
         "stylelint-order": "^5.0.0",
