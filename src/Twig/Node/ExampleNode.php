@@ -30,27 +30,28 @@ class ExampleNode extends Node implements NodeOutputInterface
 
     public function compile(Compiler $compiler)
     {
+        $attributeStorageName = uniqid($this->tagName);
         $compiler->addDebugInfo($this);
 
         if ($this->hasNode('attributes')) {
             $compiler
-                ->write('$attributes = ')
+                ->write('$' . $attributeStorageName . ' = ')
                 ->subcompile($this->getNode('attributes'))
                 ->raw(';' . PHP_EOL)
-                ->write('if (!is_array($attributes)) {' . PHP_EOL)
+                ->write('if (!is_array($' . $attributeStorageName . ')) {' . PHP_EOL)
                 ->indent()
                 ->write("throw new UnexpectedValueException('{% {$this->tagName} with x %}: x is not an array');" . PHP_EOL)
                 ->outdent()
                 ->write('}' . PHP_EOL);
         } else {
-            $compiler->write('$attributes = [];' . PHP_EOL);
+            $compiler->write('$' . $attributeStorageName . ' = [];' . PHP_EOL);
         }
 
         $compiler
             ->write('ob_start();' . PHP_EOL)
             ->subcompile($this->getNode('body'))
             ->write('$content = ob_get_clean();' . PHP_EOL)
-            ->write('echo $this->env->getExtension(\'T3G\Bundle\TemplateBundle\Twig\Extension\BlockExtension\')->exampleFunction($this->env, $content, $attributes);' . PHP_EOL)
+            ->write('echo $this->env->getExtension(\'T3G\Bundle\TemplateBundle\Twig\Extension\BlockExtension\')->exampleFunction($this->env, $content, $' . $attributeStorageName . ');' . PHP_EOL)
         ;
     }
 }
