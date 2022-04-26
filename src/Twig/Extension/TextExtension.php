@@ -10,12 +10,20 @@ declare(strict_types=1);
 
 namespace T3G\Bundle\TemplateBundle\Twig\Extension;
 
+use T3G\Bundle\TemplateBundle\Twig\TokenParser\ExpandTokenParser;
 use Twig\Environment;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
 class TextExtension extends AbstractExtension
 {
+    public function getTokenParsers()
+    {
+        return [
+            new ExpandTokenParser(),
+        ];
+    }
+
     public function getFunctions(): array
     {
         return [

@@ -47,6 +47,9 @@ This package is used across various TYPO3 Symfony Applications to ensure a strea
   - [`frame`](#frame)
     - [Usage](#usage)
     - [Example](#example)
+  - [`expand`](#expand)
+    - [Usage](#usage-1)
+    - [Example](#example-1)
 - [JavaScript Libraries](#javascript-libraries)
   - [Datepicker](#datepicker)
   - [Choices](#choices)
@@ -581,6 +584,36 @@ Returns a string representing the difference between a date and now() such as "1
 <div id="identifier" class="frame frame-size-default frame-background-primary frame-no-backgroundimage frame-space-before-none frame-space-after-none">
     <div class="frame-container">
         <div class="frame-inner text-center">
+            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+    </div>
+</div>
+```
+
+## `expand`
+
+### Usage
+
+```twig
+{% expand %}Inner Content{% endexpand %}
+```
+
+### Example
+
+```twig
+{% expand %}
+    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+{% endexpand %}
+```
+
+```html
+<div class="expander">
+    <input class="expander-checkbox" type="checkbox" id="expander-6267e5f76fa06">
+    <label for="expander-6267e5f76fa06" class="expander-toggle">
+        Show more
+    </label>
+    <div class="expander-content">
+        <div class="expander-content-inner">
             <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </div>
     </div>
