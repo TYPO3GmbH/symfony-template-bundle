@@ -1,17 +1,14 @@
 // Dependency
 @import '../../../node_modules/@yaireo/tagify/src/tagify.scss';
-
 .tagify {
     --input-color: #{$input-color};
     --tag-pad: calc(.5em - .5px) .5em;
     --tags-border-color: #{$input-border-color};
     --tags-focus-border-color: #{$input-focus-border-color};
-
     &--focus {
         box-shadow: $input-focus-box-shadow;
         outline: 0;
     }
-
     .tagify__tag,
     .tagify__input {
         line-height: 1;
