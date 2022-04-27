@@ -14,6 +14,7 @@ import './libs/navbar';
 import './libs/aggregations';
 import './libs/charts';
 import './libs/datepicker';
+import './libs/taginput';
 import './form/collection';
 import './form/choices';
 import './form/local_datalist';

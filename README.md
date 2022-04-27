@@ -53,6 +53,7 @@ This package is used across various TYPO3 Symfony Applications to ensure a strea
 - [JavaScript Libraries](#javascript-libraries)
   - [Datepicker](#datepicker)
   - [Choices](#choices)
+  - [Taginput](#taginput)
 
 # Installation
 
@@ -697,3 +698,25 @@ $builder->add('country', ChoiceType::class, [
 ```
 
 Source: https://github.com/jshjohnson/Choices
+
+
+## Taginput
+
+The library can be enabled and configured through the attribute `data-taginput`, pass the configuration as json encoded string.
+
+**Example FormBuilder**
+
+```php
+$builder->add('usernames', TextType::class, [
+    'attr' => [
+        'data-taginput' => json_encode([], JSON_THROW_ON_ERROR),
+    ],
+]);
+
+$usernames = array_map(
+    function($item) { return $item['value']; },
+    json_decode($form->getData()['usernames'], true)
+);
+```
+
+Source: https://github.com/yairEO/tagify
