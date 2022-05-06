@@ -35,7 +35,7 @@
         "@yaireo/tagify": "^4.12.0",
         "choices.js": "^10.1.0",
         "flatpickr": "^4.6.13",
-        "luxon": "^2.3.1",
+        "luxon": "^2.3.2",
         "prismjs": "^1.27.0"
     }
 }
