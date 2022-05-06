@@ -32,7 +32,9 @@ if (elementsWithDateTimepicker.length >= 1) {
     elementsWithDateTimepicker.forEach(function (element) {
 
         // Convert from UTC to LocalTime before initiating the Datetimepicker
-        element.value = DateTime.fromISO(element.value, {zone: 'UTC'}).toLocal().toFormat('yyyy-MM-dd HH:mm ZZ');
+        if (element.value) {
+            element.value = DateTime.fromISO(element.value, {zone: 'UTC'}).toLocal().toFormat('yyyy-MM-dd HH:mm ZZ');
+        }
 
         const options = element.dataset.datepicker ? JSON.parse(element.dataset.datepicker) : {};
         options.enableTime = true;
