@@ -633,8 +633,18 @@ The library can be enabled and configured through the attribute `data-datepicker
 <input
     type='text'
     name='date'
-    placeholder='yyyy-mm-dd'
-    data-datepicker='{"clearBtn":true}'
+    placeholder='Select Date...'
+    data-datepicker='{}'
+    class="form-control"
+>
+```
+
+```html
+<input
+    type='text'
+    name='date'
+    placeholder='Select Datetime...'
+    data-datetimepicker='{}'
     class="form-control"
 >
 ```
@@ -642,14 +652,12 @@ The library can be enabled and configured through the attribute `data-datepicker
 **Example FormBuilder**
 
 ```php
-$builder->add('date', ChoiceType::class, [
+$builder->add('date', DateType::class, [
     'widget' => 'single_text',
     'attr' => [
-        'placeholder' => 'yyyy-mm-dd',
+        'placeholder' => 'Select Date...',
         'data-datepicker' => json_encode(
-            [
-                'clearBtn' => true,
-            ],
+            [],
             JSON_THROW_ON_ERROR
         ),
     ],
@@ -657,7 +665,21 @@ $builder->add('date', ChoiceType::class, [
 ]);
 ```
 
-Source: https://github.com/mymth/vanillajs-datepicker
+```php
+$builder->add('date', DateTimeType::class, [
+    'widget' => 'single_text',
+    'attr' => [
+        'placeholder' => 'Select Datetime...',
+        'data-datetimepicker' => json_encode(
+            [],
+            JSON_THROW_ON_ERROR
+        ),
+    ],
+    'html5' => false
+]);
+```
+
+Source: https://flatpickr.js.org/
 
 ## Choices
 

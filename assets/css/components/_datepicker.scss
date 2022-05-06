@@ -1,12 +1,33 @@
 // Dependency
-@import 'datepicker/datepicker-bs5.scss';
-.datepicker {
-    .datepicker-main {
-        padding: 1rem;
-    }
-    .datepicker-controls {
-        .btn {
-            display: inline-block;
+.flatpickr-calendar {
+    .flatpickr-months {
+        padding: .5rem;
+        background: #eceef1;
+        .flatpickr-next-month,
+        .flatpickr-prev-month {
+            position: relative;
         }
+    }
+    .flatpickr-current-month {
+        padding: 0;
+        width: auto;
+        display: flex;
+        gap: 1rem;
+        .flatpickr-monthDropdown-months {
+            padding: 0;
+        }
+        .numInputWrapper {
+            display: flex;
+            input {
+                padding: 0;
+            }
+        }
+    }
+    .flatpickr-weekdays,
+    .flatpickr-days .dayContainer {
+        padding: .5rem;
+    }
+    .flatpickr-months svg {
+        display: block;
     }
 }
