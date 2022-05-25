@@ -17,14 +17,14 @@ class AssociationLayoutPdf extends Fpdi
 {
     public function setupPage(): void
     {
-        $this->pdf->SetCellPadding(0);
-        $this->pdf->SetMargins(25, 40, 20, true);
-        $this->pdf->SetHeaderMargin(5);
-        $this->pdf->SetFooterMargin(25);
-        $this->pdf->SetAutoPageBreak(true, 45);
+        $this->SetCellPadding(0);
+        $this->SetMargins(25, 40, 20, true);
+        $this->SetHeaderMargin(5);
+        $this->SetFooterMargin(25);
+        $this->SetAutoPageBreak(true, 45);
 
-        $this->pdf->SetCreator('TYPO3 Association');
-        $this->pdf->SetAuthor('TYPO3 Association');
+        $this->SetCreator('TYPO3 Association');
+        $this->SetAuthor('TYPO3 Association');
     }
 
     public function getSenderAddress(): string
