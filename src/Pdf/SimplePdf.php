@@ -43,20 +43,13 @@ class SimplePdf
         $this->pdf->setFooterFont([$this->fonts['SourceSansPro-Light'], '', 8]);
         $this->pdf->SetFont($this->fonts['SourceSansPro-Regular'], 10);
         $this->pdf->setCellHeightRatio(1.25);
-
-        // Spacings
-        $this->pdf->SetCellPadding(0);
-        $this->pdf->SetMargins(25, 40, 20, true);
-        $this->pdf->SetHeaderMargin(5);
-        $this->pdf->SetFooterMargin(25);
-
-        $this->pdf->SetAutoPageBreak(true, 45);
         $this->pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
-
         $this->pdf->SetLineStyle(['color' => $this->colors['light']]);
         $this->pdf->SetTextColor(...$this->colors['text']);
-        $this->pdf->SetCreator('TYPO3 GmbH');
-        $this->pdf->SetAuthor('TYPO3 GmbH');
+
+        if (method_exists($this->pdf, 'setupPage')) {
+            $this->pdf->setupPage();
+        }
     }
 
     public function setBadge(string $path)
@@ -95,9 +88,9 @@ class SimplePdf
         $this->pdf->setPrintFooter($value);
     }
 
-    public function addPage()
+    public function addPage(string $orientation = 'P', $format = 'A4')
     {
-        $this->pdf->AddPage('A4');
+        $this->pdf->AddPage($orientation, $format);
         $this->pdf->SetFontSize(10);
     }
 
@@ -133,6 +126,11 @@ class SimplePdf
         }
         $html = implode("\n", $data);
         $this->pdf->writeHTML($html, false, false, true, false, '');
+    }
+
+    public function getPdf(): Fpdi
+    {
+        return $this->pdf;
     }
 
     public function output(string $filename, string $destination = 'I')
