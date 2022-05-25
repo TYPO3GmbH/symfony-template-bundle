@@ -15,6 +15,18 @@ use setasign\Fpdi\Tcpdf\Fpdi;
 
 class GmbhLayoutPdf extends Fpdi
 {
+    public function setupPage(): void
+    {
+        $this->pdf->SetCellPadding(0);
+        $this->pdf->SetMargins(25, 40, 20, true);
+        $this->pdf->SetHeaderMargin(5);
+        $this->pdf->SetFooterMargin(25);
+        $this->pdf->SetAutoPageBreak(true, 45);
+
+        $this->pdf->SetCreator('TYPO3 GmbH');
+        $this->pdf->SetAuthor('TYPO3 GmbH');
+    }
+
     public function getSenderAddress(): string
     {
         return '

@@ -15,6 +15,18 @@ use setasign\Fpdi\Tcpdf\Fpdi;
 
 class AssociationLayoutPdf extends Fpdi
 {
+    public function setupPage(): void
+    {
+        $this->pdf->SetCellPadding(0);
+        $this->pdf->SetMargins(25, 40, 20, true);
+        $this->pdf->SetHeaderMargin(5);
+        $this->pdf->SetFooterMargin(25);
+        $this->pdf->SetAutoPageBreak(true, 45);
+
+        $this->pdf->SetCreator('TYPO3 Association');
+        $this->pdf->SetAuthor('TYPO3 Association');
+    }
+
     public function getSenderAddress(): string
     {
         return '
