@@ -11,13 +11,18 @@ $dashboard-list-hover-bg: #efefef;
 $dashboard-list-hover-color: color-contrast($dashboard-list-hover-bg);
 $dashboard-list-icon-show: '<svg viewBox="0 0 16 16"><g fill="#{$dashboard-color}"><path d="M9.586 8L6.05 11.536l.707.707L11 8 6.757 3.757l-.707.707z"/></g></svg>';
 $dashboard-list-icon-external: '<svg viewBox="0 0 16 16"><g fill="#{$dashboard-color}"><path d="M10.05 8.657l-.707-.707L14.293 3l.706.707z"/><path d="M13 8.536V12H3V5h6.464l1-1H2.5a.5.5 0 0 0-.5.5v8a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 .5-.5V7.535l-1 1.001zM15.573 6.573l-4.146-4.146A.25.25 0 0 1 11.604 2h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177z"/></g></svg>';
+:root {
+    --dashboard-padding: #{$dashboard-padding};
+    --dashboard-gutter: #{$dashboard-gutter};
+    --dashboard-item-title-icon-color: #{$primary};
+}
 .dashboard {
     display: flex;
     flex-wrap: wrap;
-    margin: -($dashboard-gutter / 2);
+    margin: calc(var(--dashboard-gutter) * -1 / 2);
 }
 .dashboard-item {
-    margin: $dashboard-gutter / 2;
+    margin: calc(var(--dashboard-gutter) / 2);
     display: flex;
     flex-direction: column;
     border-radius: $dashboard-border-radius;
@@ -25,28 +30,33 @@ $dashboard-list-icon-external: '<svg viewBox="0 0 16 16"><g fill="#{$dashboard-c
     background-color: $dashboard-bg;
     overflow: hidden;
     box-shadow: $dashboard-shadow;
+    @each $name, $value in $theme-colors {
+        &.dashboard-item-severity-#{$name} {
+            --dashboard-item-title-icon-color: #{$value};
+        }
+    }
 }
 .dashboard-item-title {
     font-size: 1.125rem;
-    padding: $dashboard-padding;
+    padding: var(--dashboard-padding);
     padding-bottom: 0;
     margin-bottom: 0;
     display: flex;
     gap: .5rem;
     align-items: center;
     .icon {
-        color: $primary;
+        --icon-color-primary: var(--dashboard-item-title-icon-color);
     }
 }
 .dashboard-item-body {
     flex-grow: 1;
-    padding: $dashboard-padding;
+    padding: var(--dashboard-padding);
     > *:last-child {
         margin-bottom: 0;
     }
 }
 .dashboard-item-footer {
-    padding: $dashboard-padding;
+    padding: var(--dashboard-padding);
     padding-top: 0;
     > *:last-child {
         margin-bottom: 0;
@@ -74,7 +84,7 @@ $dashboard-list-icon-external: '<svg viewBox="0 0 16 16"><g fill="#{$dashboard-c
     @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
         @for $i from 1 through $grid-columns {
             .dashboard-item#{$infix}-w#{$i} {
-                width: calc(100% / #{$grid-columns} * #{$i} - #{$dashboard-gutter});
+                width: calc(100% / #{$grid-columns} * #{$i} - var(--dashboard-gutter));
             }
         }
     }
@@ -112,8 +122,8 @@ $dashboard-list-icon-external: '<svg viewBox="0 0 16 16"><g fill="#{$dashboard-c
 // Datatable
 //
 .dashboard-item-datatable {
-    margin-left: -$dashboard-padding;
-    margin-right: -$dashboard-padding;
+    margin-left: calc(var(--dashboard-padding) * -1);
+    margin-right: calc(var(--dashboard-padding) * -1);
     > *:last-child {
         margin-bottom: 0;
     }
@@ -123,8 +133,8 @@ $dashboard-list-icon-external: '<svg viewBox="0 0 16 16"><g fill="#{$dashboard-c
 // List
 //
 .dashboard-list {
-    margin-left: -$dashboard-padding;
-    margin-right: -$dashboard-padding;
+    margin-left: calc(var(--dashboard-padding) * -1);
+    margin-right: calc(var(--dashboard-padding) * -1);
     margin-bottom: 1rem;
 }
 .dashboard-item-body:last-child {
@@ -132,13 +142,13 @@ $dashboard-list-icon-external: '<svg viewBox="0 0 16 16"><g fill="#{$dashboard-c
         .dashboard-list-entry:last-child {
             border-bottom: none;
         }
-        margin-bottom: -$dashboard-padding;
+        margin-bottom: calc(var(--dashboard-padding) * -1);
     }
 }
 .dashboard-list-entry {
     position: relative;
     display: flex;
-    padding: ($dashboard-padding / 2) $dashboard-padding;
+    padding: calc(var(--dashboard-padding) / 2) var(--dashboard-padding);
     align-items: center;
     color: inherit;
     border-top: 1px solid #e0e3e4;
@@ -203,8 +213,8 @@ $dashboard-list-icon-external: '<svg viewBox="0 0 16 16"><g fill="#{$dashboard-c
 // Dashboard Actions
 //
 .dashboard-actions {
-    margin-left: -$dashboard-padding;
-    margin-right: -$dashboard-padding;
+    margin-left: calc(var(--dashboard-padding) * -1);
+    margin-right: calc(var(--dashboard-padding) * -1);
     margin-bottom: 1rem;
 }
 .dashboard-item-body:last-child {
@@ -212,13 +222,13 @@ $dashboard-list-icon-external: '<svg viewBox="0 0 16 16"><g fill="#{$dashboard-c
         .dashboard-actions-entry:last-child {
             border-bottom: none;
         }
-        margin-bottom: -$dashboard-padding;
+        margin-bottom: calc(var(--dashboard-padding) * -1);
     }
 }
 .dashboard-actions-entry {
     position: relative;
     display: flex;
-    padding: $dashboard-padding;
+    padding: var(--dashboard-padding);
     align-items: center;
     color: inherit;
     line-height: 1.2;
