@@ -49,13 +49,3 @@ if (elementsWithDateTimepicker.length >= 1) {
         new flatpickr(element, options);
     });
 }
-
-// As the flatpickr set the readonly property, and we don't want that styling, we remove this property again
-const datetimepickerFields = document.querySelectorAll('[data-datetimepicker]');
-if (datetimepickerFields.length >= 1) {
-    datetimepickerFields.forEach(function (element) {
-        if(element.attributes['readonly'].value == 'readonly') {
-            element.removeAttribute('readonly')
-        }
-    });
-}

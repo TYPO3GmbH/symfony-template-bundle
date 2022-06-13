@@ -31,3 +31,7 @@
         display: block;
     }
 }
+
+.flatpickr-input[readonly] {
+    background-color: white;
+}
