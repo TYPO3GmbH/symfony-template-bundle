@@ -31,3 +31,7 @@
         display: block;
     }
 }
+// Reset styling for flatpick-input[readonly] to remove the "readonly"-styling
+.flatpickr-input[readonly]:not([disabled]) {
+    background-color: $input-bg;
+}
