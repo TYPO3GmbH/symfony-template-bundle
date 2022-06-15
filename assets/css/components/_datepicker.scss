@@ -32,9 +32,6 @@
     }
 }
 // Reset styling for flatpick-input[readonly] to remove the "readonly"-styling
-.flatpickr-input[readonly] {
+.flatpickr-input[readonly]:not([disabled]) {
     background-color: $input-bg;
-    &:disabled {
-        background-color: $input-disabled-bg;
-    }
 }
