@@ -22,3 +22,13 @@
         display: none;
     }
 }
+
+.user-exam-actions {
+    display: flex;
+    align-items: first;
+}
+
+.btn-delete-exam {
+    padding: 0.4rem;
+    margin-left: 3px;
+}
