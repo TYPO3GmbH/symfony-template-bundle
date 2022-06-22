@@ -61,7 +61,7 @@
         <span class="{% if form is not rootform %}invalid-feedback{% else %}alert alert-danger{% endif %} d-block">
             {%- for error in errors -%}
                 <span class="d-block">
-                    <span class="form-error-icon badge bg-danger text-uppercase">{{ 'Error'|trans({}, 'validators') }}</span> <span class="form-error-message">{{ error.message }}</span>
+                    <span class="form-error-icon badge badge-danger text-uppercase">{{ 'Error'|trans({}, 'validators') }}</span> <span class="form-error-message">{{ error.message }}</span>
                 </span>
             {%- endfor -%}
         </span>
@@ -107,7 +107,6 @@
         {%- endif -%}
         <label{% with { attr: label_attr } %}{{ block('attributes') }}{% endwith %}>
             {{- label is not same as(false) ? (translation_domain is same as(false) ? label : label|trans(label_translation_parameters, translation_domain)) -}}
-            {{- form_errors(form) -}}
         </label>
     {%- endif -%}
 {%- endblock checkbox_radio_label %}
