@@ -32,7 +32,7 @@ import 'prismjs/components/prism-rest';
 import 'prismjs/plugins/command-line/prism-command-line';
 import 'prismjs/plugins/keep-markup/prism-keep-markup';
 
-import {DateTime} from 'luxon';
+import {DateTime, Duration} from 'luxon';
 
 function convertDateTimes() {
     Array.from(document.querySelectorAll('[data-processor="localdatetime"]')).forEach(function (element) {
@@ -62,7 +62,18 @@ function convertDates() {
 function convertRelativeTime() {
     Array.from(document.querySelectorAll('[data-processor="relativetime"]')).forEach(function (element) {
         let value = element.dataset.value;
-        let text = DateTime.fromISO(value).toRelative();
+        const dtTarget = DateTime.fromISO(value);
+        const diff = dtTarget.diffNow(['years', 'months', 'days', 'hours', 'minutes', 'seconds']);
+        const configPrototype = {
+            years: diff.years,
+            months: diff.months,
+            days: diff.days,
+            hours: diff.hours,
+            minutes: diff.minutes,
+        };
+        // Remove "0" values
+        const durationConfig = Object.fromEntries(Object.entries(configPrototype).filter(([_, v]) => v !== 0));
+        let text = Duration.fromObject(durationConfig).toHuman();
         element.textContent = text;
     });
 }
