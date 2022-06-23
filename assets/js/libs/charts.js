@@ -1,28 +1,28 @@
-(function() {
-    'use strict';
+import { Chart, registerables } from 'chart.js';
+Chart.register(...registerables);
 
-    const Selectors = {
-        chartContainer: 'canvas.js-chart'
-    };
+const Charts = {
+    options: {
+        selector: 'canvas.js-chart'
+    },
+    initialize: function () {
+        if (document.querySelectorAll(this.options.selector).length > 0) {
+            Charts.setup();
+        }
+    },
+    setup: function () {
+        const charts = Array.from(document.querySelectorAll(this.options.selector));
+        for (let canvas of charts) {
+            Charts.loadChart(canvas);
+        }
+    },
+    loadChart: function (canvas) {
+        const chartType = canvas.dataset.chartType;
+        const sourceUrl = canvas.dataset.src || null;
+        const dataSet = JSON.parse(canvas.dataset.dataset || '{}');
+        const options = JSON.parse(canvas.dataset.options || '{}');
 
-    const Charts = {
-        initialize: function () {
-            if (document.querySelectorAll(Selectors.chartContainer).length > 0) {
-                require('chart.js');
-                Charts.setup();
-            }
-        },
-        setup: function () {
-            const charts = Array.from(document.querySelectorAll(Selectors.chartContainer));
-            for (let canvas of charts) {
-                Charts.loadChart(canvas);
-            }
-        },
-        loadChart: function (canvas) {
-            const chartType = canvas.dataset.chartType;
-            const sourceUrl = canvas.dataset.src;
-            const options = JSON.parse(canvas.dataset.options || '{}');
-
+        if (sourceUrl) {
             Charts.fetchData(sourceUrl).done(function(response) {
                 new Chart(canvas, {
                     type: chartType,
@@ -36,15 +36,23 @@
                     }, options)
                 });
             });
-        },
-        fetchData: function (src) {
-            return $.ajax(src, {
-                dataType: 'json'
+        } else if (dataSet) {
+            new Chart(canvas, {
+                type: chartType,
+                data: dataSet,
+                options: Object.assign({
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    tooltips: {
+                        mode: 'index'
+                    }
+                }, options)
             });
         }
-    };
+    },
+    fetchData: function (src) {
+        return fetch(src).json();
+    }
+};
 
-    $(function () {
-        Charts.initialize();
-    });
-})();
+Charts.initialize();
