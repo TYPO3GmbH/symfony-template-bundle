@@ -16,42 +16,36 @@ const Charts = {
             Charts.loadChart(canvas);
         }
     },
-    loadChart: function (canvas) {
-        const chartType = canvas.dataset.chartType;
-        const sourceUrl = canvas.dataset.src || null;
-        const dataSet = JSON.parse(canvas.dataset.dataset || '{}');
-        const options = JSON.parse(canvas.dataset.options || '{}');
+    loadChart: async function (canvas) {
+        let chartType = canvas.dataset.chartType;
+        let sourceUrl = canvas.dataset.src || null;
+        let dataSet = JSON.parse(canvas.dataset.dataset || '{}');
+        let options = JSON.parse(canvas.dataset.options || '{}');
 
         if (sourceUrl) {
-            Charts.fetchData(sourceUrl).done(function(response) {
-                new Chart(canvas, {
-                    type: chartType,
-                    data: response,
-                    options: Object.assign({
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        tooltips: {
-                            mode: 'index'
-                        }
-                    }, options)
-                });
-            });
-        } else if (dataSet) {
-            new Chart(canvas, {
-                type: chartType,
-                data: dataSet,
-                options: Object.assign({
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    tooltips: {
-                        mode: 'index'
-                    }
-                }, options)
-            });
+            dataSet = await this.fetchData(sourceUrl);
         }
+
+        new Chart(canvas, {
+            type: chartType,
+            data: dataSet,
+            options: Object.assign({
+                responsive: true,
+                maintainAspectRatio: false,
+                tooltips: {
+                    mode: 'index'
+                }
+            }, options)
+        });
     },
-    fetchData: function (src) {
-        return fetch(src).json();
+    fetchData: async function (src) {
+        let response = await fetch(src, {
+            headers: {
+              'Accept': 'application/json'
+            }
+        });
+        let data = await response.json();
+        return data;
     }
 };
 
