@@ -22,12 +22,22 @@ class SimplePdf
         'light' => [242, 242, 242],
     ];
     private $fonts;
+    private $fontSizeDefault = 10;
+    private $fontSizeAddress = 8;
     private ?string $overlay = null;
 
     public function __construct(?Fpdi $layout = null)
     {
         $this->pdf = $layout ?? new GmbhLayoutPdf();
         $this->setUp();
+    }
+
+    public function setFontSizeDefault(float $size): void {
+        $this->fontSizeDefault = $size;
+    }
+
+    public function setFontSizeAddress(float $size): void {
+        $this->fontSizeAddress = $size;
     }
 
     public function setUp(): void
@@ -91,13 +101,14 @@ class SimplePdf
     public function addPage(string $orientation = 'P', $format = 'A4')
     {
         $this->pdf->AddPage($orientation, $format);
-        $this->pdf->SetFontSize(10);
+        $this->pdf->SetFontSize($this->fontSizeDefault);
     }
 
     public function addAddressBlock(string $address)
     {
         if (method_exists($this->pdf, 'getSenderAddress')) {
             $this->pdf->SetFontSize(8);
+            $this->pdf->SetFontSize($this->fontSizeAddress);
             $senderData = explode("\n", trim($this->pdf->getSenderAddress()));
             foreach ($senderData as $senderLine => $senderValue) {
                 $senderData[$senderLine] = trim($senderValue);
@@ -106,7 +117,7 @@ class SimplePdf
             $this->pdf->writeHTML(implode(' <span style="color: #ff8700;">|</span> ', $senderData));
             $this->pdf->SetY($this->pdf->GetY() + 5);
         }
-        $this->pdf->SetFontSize(10);
+        $this->pdf->SetFontSize($this->fontSizeDefault);
 
         $data = explode("\n", $address);
         foreach ($data as $line => $value) {
@@ -119,7 +130,7 @@ class SimplePdf
 
     public function addHTML(string $html)
     {
-        $this->pdf->SetFontSize(10);
+        $this->pdf->SetFontSize($this->fontSizeDefault);
         $data = explode("\n", $html);
         foreach ($data as $line => $value) {
             $data[$line] = trim($value);
