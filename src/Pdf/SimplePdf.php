@@ -32,11 +32,13 @@ class SimplePdf
         $this->setUp();
     }
 
-    public function setFontSizeDefault(float $size): void {
+    public function setFontSizeDefault(float $size): void
+    {
         $this->fontSizeDefault = $size;
     }
 
-    public function setFontSizeAddress(float $size): void {
+    public function setFontSizeAddress(float $size): void
+    {
         $this->fontSizeAddress = $size;
     }
 
