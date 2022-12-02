@@ -54,7 +54,7 @@ class TemplateExtensionTest extends TestCase
                     'Phone: +49 (0)211 20 54 36 0, Web: www.typo3.com, Email: info@typo3.com',
                     '',
                     'Court of registration: Amtsgericht Düsseldorf HRB 77950',
-                    'CEO: Mathias Schreiber',
+                    'CEO: Daniel Fau,  (CTO & Procuration) Frank Nägler',
                     'Supervisory Board: Olivier Dobberkau, Ric van Westhreenen, Stefan Busemann'
                 ]
             ),

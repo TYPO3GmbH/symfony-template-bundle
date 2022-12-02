@@ -51,7 +51,7 @@ class AutolinkExtensionTest extends TestCase
                         'Phone: +49 (0)211 205436-0, Web: www.typo3.com, Email: info@typo3.com',
                         '',
                         'Court of registration: Amtsgericht Düsseldorf HRB 77950',
-                        'CEO: Mathias Schreiber',
+                        'CEO: Daniel Fau,  (CTO & Procuration) Frank Nägler',
                         'Supervisory Board: Olivier Dobberkau, Ric van Westhreenen, Stefan Busemann',
                     ]
                 ),
@@ -62,7 +62,7 @@ class AutolinkExtensionTest extends TestCase
                         'Phone: <a href="tel:+492112054360">+49 (0)211 205436-0</a>, Web: <a href="https://www.typo3.com" target="_blank" rel="noopener">www.typo3.com</a>, Email: <a href="mailto:info@typo3.com">info@typo3.com</a>',
                         '',
                         'Court of registration: Amtsgericht Düsseldorf HRB 77950',
-                        'CEO: Mathias Schreiber',
+                        'CEO: Daniel Fau,  (CTO & Procuration) Frank Nägler',
                         'Supervisory Board: Olivier Dobberkau, Ric van Westhreenen, Stefan Busemann',
                     ]
                 )
@@ -76,7 +76,7 @@ class AutolinkExtensionTest extends TestCase
                         'Phone: +49 (0)211 205436-0, Web: www.typo3.com, Email: info@typo3.com<br>',
                         '<br>',
                         'Court of registration: Amtsgericht Düsseldorf HRB 77950<br>',
-                        'CEO: Mathias Schreiber<br>',
+                        'CEO: Daniel Fau,  (CTO & Procuration) Frank Nägler<br>',
                         'Supervisory Board: Olivier Dobberkau, Ric van Westhreenen, Stefan Busemann',
                         '</p>'
                     ]
@@ -89,7 +89,7 @@ class AutolinkExtensionTest extends TestCase
                         'Phone: <a href="tel:+492112054360">+49 (0)211 205436-0</a>, Web: <a href="https://www.typo3.com" target="_blank" rel="noopener">www.typo3.com</a>, Email: <a href="mailto:info@typo3.com">info@typo3.com</a><br>',
                         '<br>',
                         'Court of registration: Amtsgericht Düsseldorf HRB 77950<br>',
-                        'CEO: Mathias Schreiber<br>',
+                        'CEO: Daniel Fau,  (CTO & Procuration) Frank Nägler<br>',
                         'Supervisory Board: Olivier Dobberkau, Ric van Westhreenen, Stefan Busemann',
                         '</p>',
                     ]
