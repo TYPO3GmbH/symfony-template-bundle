@@ -7,6 +7,20 @@ on:
       - develop
   pull_request:
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  actions: read
+  checks: write
+  contents: read
+  id-token: write
+  packages: read
+  pull-requests: write
+  repository-projects: read
+  statuses: write
+
 jobs:
   build-php:
     name: Build ${{ matrix.php }} / ${{ matrix.symfony }}
@@ -26,9 +40,10 @@ jobs:
           - symfony: '^5.4'
             deprecations: ''
     steps:
-
       - name: Checkout
         uses: actions/checkout@v3
+
+      - uses: ouzi-dev/commit-status-updater@v2
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
@@ -37,20 +52,20 @@ jobs:
           extensions: mbstring, xml, ctype, iconv
           coverage: none
 
-      - name: Get Composer Cache Directory
+      - name: Setup Composer cache
         id: composer-cache
         run: |
           echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
 
-      - name: Cache composer dependencies
+      - name: Recover Composer caches
         uses: actions/cache@v3
         with:
           path: ${{ steps.composer-cache.outputs.dir }}
-          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock', '**/composer.json') }}
           restore-keys: |
             ${{ runner.os }}-composer-
 
-      - name: Install
+      - name: Install dependencies (Composer)
         run: |
           sed -ri 's/"symfony\/dependency-injection": "(.+)"/"symfony\/dependency-injection": "'${{ matrix.symfony }}'"/' composer.json;
           sed -ri 's/"symfony\/form": "(.+)"/"symfony\/form": "'${{ matrix.symfony }}'"/' composer.json;
@@ -78,6 +93,11 @@ jobs:
           git status
           git status | grep -q "nothing to commit, working tree clean"
 
+      - uses: ouzi-dev/commit-status-updater@v2
+        if: always()
+        with:
+          status: "${{ job.status }}"
+
   build-frontend:
     name: Build Frontend
     runs-on: ubuntu-latest
@@ -85,18 +105,26 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: NPM Cache
+      - uses: ouzi-dev/commit-status-updater@v2
+
+      - name: Setup npm cache
+        id: npm-cache-dir
+        shell: bash
+        run: |
+          echo "dir=$(npm config get cache)" >> ${GITHUB_OUTPUT}
+
+      - name: Recover npm caches
         uses: actions/cache@v3
         with:
-          path: ~/.npm
+          path: ${{ steps.npm-cache-dir.outputs.dir }}
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
 
-      - name: NPM Install
+      - name: Install dependencies (npm)
         run: npm ci
 
-      - name: NPM Build
+      - name: Build frontend artifacts
         run: npm run build
 
       - name: Stylelint
@@ -106,3 +134,8 @@ jobs:
         run: |
           git status
           git status | grep -q "nothing to commit, working tree clean"
+
+      - uses: ouzi-dev/commit-status-updater@v2
+        if: always()
+        with:
+          status: "${{ job.status }}"

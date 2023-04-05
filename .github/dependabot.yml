@@ -8,3 +8,27 @@ updates:
     commit-message:
       prefix: "[DEP]"
       prefix-development: "[DEP-DEV]"
+
+  - package-ecosystem: "composer"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    registries:
+      - composer
+    commit-message:
+      prefix: "[DEP]"
+      prefix-development: "[DEP-DEV]"
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    commit-message:
+      prefix: "[DEP]"
+
+registries:
+  composer:
+    type: composer-repository
+    url: https://repo.packagist.com/typo3gmbh/
+    username: token
+    password: ${{secrets.PACKAGIST_AUTH_TOKEN}}
