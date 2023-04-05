@@ -11,16 +11,6 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
-permissions:
-  actions: read
-  checks: write
-  contents: read
-  id-token: write
-  packages: read
-  pull-requests: write
-  repository-projects: read
-  statuses: write
-
 jobs:
   build-php:
     name: Build ${{ matrix.php }} / ${{ matrix.symfony }}
@@ -42,8 +32,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-
-      - uses: ouzi-dev/commit-status-updater@v2
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
@@ -93,19 +81,12 @@ jobs:
           git status
           git status | grep -q "nothing to commit, working tree clean"
 
-      - uses: ouzi-dev/commit-status-updater@v2
-        if: always()
-        with:
-          status: "${{ job.status }}"
-
   build-frontend:
     name: Build Frontend
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-
-      - uses: ouzi-dev/commit-status-updater@v2
 
       - name: Setup npm cache
         id: npm-cache-dir
@@ -134,8 +115,3 @@ jobs:
         run: |
           git status
           git status | grep -q "nothing to commit, working tree clean"
-
-      - uses: ouzi-dev/commit-status-updater@v2
-        if: always()
-        with:
-          status: "${{ job.status }}"
