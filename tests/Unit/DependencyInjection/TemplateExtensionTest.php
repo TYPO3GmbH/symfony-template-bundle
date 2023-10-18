@@ -38,7 +38,7 @@ class TemplateExtensionTest extends TestCase
         $this->assertEquals('app_index', $config['routes']['home']);
         $this->assertEquals('https://typo3.com/privacy-policy', $config['routes']['privacy']);
         $this->assertEquals('https://typo3.com/legal-notice', $config['routes']['legal']);
-        $this->assertEquals('https://jira.typo3.com/servicedesk/customer/portal/2', $config['routes']['feedback']);
+        $this->assertEquals('https://support.typo3.com', $config['routes']['feedback']);
         $this->assertEquals('T3G\Bundle\TemplateBundle\Menu\MenuBuilder', $config['menu']['class']);
         $this->assertEquals([], $config['security']['headers']);
         $this->assertEquals(['report_only' => true, 'rules' => []], $config['security']['content_security_policy']);

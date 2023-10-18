@@ -101,7 +101,7 @@ template:
             home: app_index
             privacy: https://typo3.com/privacy-policy
             legal: https://typo3.com/legal-notice
-            feedback: https://jira.typo3.com/servicedesk/customer/portal/2
+            feedback: https://support.typo3.com
         menu:
             # Example: App\Menu\MenuBuilder
             class: T3G\Bundle\TemplateBundle\Menu\MenuBuilder
