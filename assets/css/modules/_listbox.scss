@@ -1,18 +1,19 @@
 //
 // Listbox
 //
-$listbox-shadow: $box-shadow-sm;
-$listbox-bg: #ffffff;
-$listbox-border-radius: 2px;
-$listbox-color: color-contrast($card-bg);
-$listbox-margin: $spacer;
-$listbox-padding: 1rem;
 .listbox {
-    border-radius: $listbox-border-radius;
-    color: $listbox-color;
-    background-color: $listbox-bg;
+    --listbox-color: var(--#{$prefix}card-color);
+    --listbox-bg: var(--#{$prefix}card-bg);
+    --listbox-header-color: var(--#{$prefix}card-color);
+    --listbox-header-bg: color-mix(in srgb, var(--listbox-bg), black 2.5);
+    --listbox-shadow: #{$box-shadow-sm};
+    --listbox-padding: 1rem;
+    --listbox-radius: 2px;
+    border-radius: var(--listbox-radius);
+    color: var(--listbox-color);
+    background: var(--listbox-bg);
     overflow: hidden;
-    box-shadow: $listbox-shadow;
+    box-shadow: var(--listbox-shadow);
     display: flex;
     flex-direction: column;
 }
@@ -23,8 +24,9 @@ $listbox-padding: 1rem;
 .listbox-header {
     display: flex;
     justify-content: space-between;
-    padding: ($listbox-padding / 2) $listbox-padding;
-    background-color: darken($card-bg, 2.5%);
+    padding: calc(var(--listbox-padding) / 2) var(--listbox-padding);
+    color: var(--listbox-header-color);
+    background: var(--listbox-header-bg);
     a,
     a:hover {
         font-weight: bold;
@@ -48,12 +50,12 @@ $listbox-padding: 1rem;
 }
 .listbox-entries {
     flex-grow: 1;
-    padding: ($listbox-padding / 2) 0;
+    padding: calc(var(--listbox-padding) / 2) 0;
 }
 .listbox-item {
     display: flex;
     justify-content: space-between;
-    padding: ($listbox-padding / 4) $listbox-padding;
+    padding: calc(var(--listbox-padding) / 4) var(--listbox-padding);
 }
 .listbox-item-name {
     flex-grow: 1;

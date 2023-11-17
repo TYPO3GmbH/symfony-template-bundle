@@ -1,23 +1,23 @@
 {
     "devDependencies": {
-        "@fortawesome/fontawesome-free": "^6.4.0",
-        "@symfony/webpack-encore": "^4.3.0",
-        "autoprefixer": "^10.4.14",
-        "bootstrap": "^5.2.3",
+        "@fortawesome/fontawesome-free": "^6.4.2",
+        "@symfony/webpack-encore": "^4.5.0",
+        "autoprefixer": "^10.4.16",
+        "bootstrap": "^5.3.2",
         "bootstrap-tagsinput": "^0.7.1",
         "chart.js": "^3.9.1",
-        "core-js": "^3.33.0",
+        "core-js": "^3.33.2",
         "eslint-webpack-plugin": "^4.0.1",
         "file-loader": "^6.2.0",
         "jquery": "^3.7.1",
         "postcss": "^8.4.31",
-        "postcss-loader": "^7.3.2",
+        "postcss-loader": "^7.3.3",
         "postcss-scss": "^4.0.9",
-        "sass": "^1.69.4",
+        "sass": "^1.69.5",
         "sass-loader": "^13.3.1",
-        "stylelint": "^15.10.1",
+        "stylelint": "^15.11.0",
         "stylelint-order": "^6.0.3",
-        "stylelint-scss": "^5.0.0"
+        "stylelint-scss": "^5.3.1"
     },
     "license": "UNLICENSED",
     "browserslist": [
@@ -31,11 +31,11 @@
     },
     "dependencies": {
         "@popperjs/core": "^2.11.8",
-        "@typo3/icons": "^3.6.0",
-        "@yaireo/tagify": "^4.17.8",
+        "@typo3/icons": "^4.1.0",
+        "@yaireo/tagify": "^4.17.9",
         "choices.js": "^10.2.0",
         "flatpickr": "^4.6.13",
-        "luxon": "^3.3.0",
+        "luxon": "^3.4.4",
         "prismjs": "^1.29.0"
     }
 }

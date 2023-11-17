@@ -18,8 +18,8 @@ $navbar-inner-heights: (
 .navbar-mainnavigation {
     @each $breakpoint in map-keys($navbar-heights) {
         @include media-breakpoint-up($breakpoint) {
-            padding-top: (map-get($navbar-heights, $breakpoint) - map-get($navbar-inner-heights, $breakpoint)) / 2;
-            padding-bottom: (map-get($navbar-heights, $breakpoint) - map-get($navbar-inner-heights, $breakpoint)) / 2;
+            padding-top: calc((map-get($navbar-heights, $breakpoint) - map-get($navbar-inner-heights, $breakpoint)) / 2);
+            padding-bottom: calc((map-get($navbar-heights, $breakpoint) - map-get($navbar-inner-heights, $breakpoint)) / 2);
         }
     }
 }

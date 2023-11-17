@@ -33,11 +33,11 @@
 .form-inline,
 .form-inline > div {
     display: flex;
-    gap: $spacer / 2;
+    gap: calc(#{$spacer} / 2);
     flex-wrap: wrap;
     .form-group {
         display: flex;
-        gap: $spacer / 4;
+        gap: calc(#{$spacer} / 4);
         align-items: center;
         margin: 0;
     }

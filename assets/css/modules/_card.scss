@@ -10,7 +10,6 @@ $card-link-hover-color: $link-hover-color !default;
 // Card
 //
 .card {
-    color: color-contrast($card-bg);
     overflow: hidden;
     box-shadow: $box-shadow-sm;
     margin-bottom: $spacer * 2;
@@ -189,7 +188,7 @@ $card-link-hover-color: $link-hover-color !default;
 }
 .card-header-bar {
     display: flex;
-    gap: $spacer / 2;
+    gap: calc(#{$spacer} / 2);
     flex-direction: column;
     @include media-breakpoint-up('sm') {
         flex-direction: row;

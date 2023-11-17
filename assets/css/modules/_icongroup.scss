@@ -1,24 +1,26 @@
 //
-// Icon Group
-//
-
-//
 // Variables
-//
-$icongroup-margin: ($grid-gutter-width / 2) !default;
-$icongroup-icon-size: 32px !default;
-$icongroup-item-width: 50% !default;
+// --------------------------------------------------
+:root {
+    --icongroup-gap: #{$grid-gutter-width};
+    --icongroup-columns: 1;
+    --icongroup-icon-color: #{$primary};
+    --icongroup-icon-size: 40px;
+    --icongroup-icon-gap: calc(var(--icongroup-gap) / 2);
+}
 
 //
 // Component
-//
+// --------------------------------------------------
 .icongroup {
     display: flex;
     flex-wrap: wrap;
-    margin: -$icongroup-margin !important;
+    gap: var(--icongroup-gap);
 }
 
+//
 // Alignment
+// --------------------------------------------------
 .icongroup-align-left {
     justify-content: flex-start;
 }
@@ -29,13 +31,12 @@ $icongroup-item-width: 50% !default;
     justify-content: flex-end;
 }
 
+//
 // Icon Position
+// --------------------------------------------------
 .icongroup-iconposition-left-top {
     .icongroup-item {
         align-items: flex-start;
-    }
-    .icongroup-item-icon {
-        margin-top: -($icongroup-icon-size / 8);
     }
 }
 .icongroup-iconposition-left-center {
@@ -48,8 +49,6 @@ $icongroup-item-width: 50% !default;
         align-items: flex-start;
     }
     .icongroup-item-icon {
-        margin-left: 1rem;
-        margin-right: 0;
         order: 1;
     }
 }
@@ -58,8 +57,6 @@ $icongroup-item-width: 50% !default;
         align-items: center;
     }
     .icongroup-item-icon {
-        margin-left: 1rem;
-        margin-right: 0;
         order: 1;
     }
 }
@@ -69,7 +66,6 @@ $icongroup-item-width: 50% !default;
         flex-wrap: wrap;
     }
     .icongroup-item-text {
-        margin-top: 1rem;
         width: 100%;
     }
     .icongroup-item-icon {
@@ -78,31 +74,27 @@ $icongroup-item-width: 50% !default;
     }
 }
 .icongroup-iconposition-below {
-    .icongroup-item-text {
-        margin-bottom: 1rem;
-    }
     .icongroup-item-icon {
         order: 1;
     }
 }
 
+//
 // Items
+// --------------------------------------------------
 .icongroup-item {
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
-    margin: $icongroup-margin;
-    width: 100%;
+    width: calc((100% / var(--icongroup-columns)) - (var(--icongroup-gap) * (var(--icongroup-columns) - 1)) / var(--icongroup-columns));
+    gap: var(--icongroup-icon-gap);
 }
 .icongroup-item-icon {
-    color: $primary;
     flex-shrink: 0;
-    width: $icongroup-icon-size;
-    margin-right: 1rem;
-    span {
-        font-size: $icongroup-icon-size;
-        line-height: 1em;
-    }
+    font-size: var(--icongroup-icon-size);
+    color: var(--icongroup-icon-color);
+    width: var(--icongroup-icon-size);
+    height: var(--icongroup-icon-size);
 }
 .icongroup-item-text {
     flex-grow: 1;
@@ -118,33 +110,29 @@ $icongroup-item-width: 50% !default;
     font-size: 1em;
 }
 
+//
 // Columns
+// --------------------------------------------------
 .icongroup-columns-auto {
     .icongroup-item {
         width: auto;
     }
 }
 .icongroup-columns-2 {
-    .icongroup-item {
-        @include media-breakpoint-up('sm') {
-            width: calc(100% / 2 - #{$icongroup-margin} * 2);
-        }
+    @include media-breakpoint-up('sm') {
+        --icongroup-columns: 2;
     }
 }
 .icongroup-columns-3 {
-    .icongroup-item {
-        @include media-breakpoint-up('md') {
-            width: calc(100% / 3 - #{$icongroup-margin} * 2);
-        }
+    @include media-breakpoint-up('md') {
+        --icongroup-columns: 3;
     }
 }
 .icongroup-columns-4 {
-    .icongroup-item {
-        @include media-breakpoint-up('sm') {
-            width: calc(100% / 2 - #{$icongroup-margin} * 2);
-        }
-        @include media-breakpoint-up('xl') {
-            width: calc(100% / 4 - #{$icongroup-margin} * 2);
-        }
+    @include media-breakpoint-up('sm') {
+        --icongroup-columns: 2;
+    }
+    @include media-breakpoint-up('xl') {
+        --icongroup-columns: 4;
     }
 }
