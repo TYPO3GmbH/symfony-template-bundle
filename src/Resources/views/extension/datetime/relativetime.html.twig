@@ -1,5 +1,6 @@
 {% if datetime %}
-    <span data-processor="relativetime" data-value="{{ datetime|date('Y-m-d\\TH:i:sP', "UTC") }}">
+    <span data-processor="relativetime" data-value="{{ datetime|date('Y-m-d\\TH:i:sP', "UTC") }}"
+          {% if units %}data-units="{{ units|join(',') }}"{% endif %}>
         {{ datetime|date('m/d/y, H:i', "UTC") }}
     </span>
 {% endif %}

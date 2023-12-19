@@ -5,7 +5,6 @@ import '@fortawesome/fontawesome-free/css/solid.min.css';
 import '../css/app.scss';
 
 // Load the JS stuff
-import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap-tagsinput/dist/bootstrap-tagsinput';
 import './libs/alert';
@@ -61,9 +60,13 @@ function convertDates() {
 }
 function convertRelativeTime() {
     Array.from(document.querySelectorAll('[data-processor="relativetime"]')).forEach(function (element) {
+        let options = {};
+        let unitsValue = element.dataset.units;
+        if (typeof unitsValue === 'string') {
+            options.unit = unitsValue.split(',');
+        }
         let value = element.dataset.value;
-        let text = DateTime.fromISO(value).toRelative();
-        element.textContent = text;
+        element.textContent = DateTime.fromISO(value).toRelative(options);
     });
 }
 function initializeExpander() {
