@@ -527,10 +527,26 @@ Returns a localized string representing this datetime.
 
 ### `relativetime`
 
-Returns a string representation of a this time relative to now, such as "in two days". Rounds down by default.
+Returns a string representation of a time relative to now, such as "in two days". Rounds down by default.
+
+| Option | Type  | Default |
+|--------|-------|---------|
+| units  | array | []      |
+
+For possible values see [luxon documentation](https://moment.github.io/luxon/api-docs/index.html#datetimetorelative).
+
+### Usage
 
 ```twig
 {{ relativetime(datetimeObject) }}
+```
+
+### Example
+
+With specific time units.
+
+```twig
+{{ relativetime(datetimeObject, ['minutes', 'seconds']) }}
 ```
 
 ### `timediff`

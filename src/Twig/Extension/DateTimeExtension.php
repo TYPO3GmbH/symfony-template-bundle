@@ -53,9 +53,9 @@ class DateTimeExtension extends AbstractExtension
         return $environment->render('@Template/extension/datetime/localdate.html.twig', ['datetime' => $datetime]);
     }
 
-    public function relativetime(Environment $environment, \DateTimeInterface $datetime = null): string
+    public function relativetime(Environment $environment, \DateTimeInterface $datetime = null, ?array $units = null): string
     {
-        return $environment->render('@Template/extension/datetime/relativetime.html.twig', ['datetime' => $datetime]);
+        return $environment->render('@Template/extension/datetime/relativetime.html.twig', ['datetime' => $datetime, 'units' => $units]);
     }
 
     public function timediff(Environment $environment, \DateTimeInterface $datetime = null): string
