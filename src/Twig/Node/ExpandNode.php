@@ -16,9 +16,9 @@ use Twig\Node\NodeOutputInterface;
 
 class ExpandNode extends Node implements NodeOutputInterface
 {
-    protected $tagName = 'expand';
+    protected string $tagName = 'expand';
 
-    public function __construct(Node $body = null, Node $attributes = null, int $lineno, string $tag = null)
+    public function __construct(Node $body, ?Node $attributes, int $lineno, string $tag = null)
     {
         $nodes = ['body' => $body];
         if ($attributes !== null) {
@@ -30,7 +30,7 @@ class ExpandNode extends Node implements NodeOutputInterface
 
     public function compile(Compiler $compiler)
     {
-        $attributeStorageName = uniqid($this->tagName);
+        $attributeStorageName = $this->tagName . hash('xxh3', uniqid($this->tagName, true));
         $compiler->addDebugInfo($this);
 
         if ($this->hasNode('attributes')) {
@@ -48,10 +48,12 @@ class ExpandNode extends Node implements NodeOutputInterface
         }
 
         $compiler
-            ->write('ob_start();' . PHP_EOL)
+            ->write('$content = implode("", iterator_to_array((function () use (&$context, $macros, $blocks) {' . PHP_EOL)
+            ->indent()
             ->subcompile($this->getNode('body'))
-            ->write('$content = ob_get_clean();' . PHP_EOL)
-            ->write('echo $this->env->getExtension(\'T3G\Bundle\TemplateBundle\Twig\Extension\TextExtension\')->expand($this->env, $content, $' . $attributeStorageName . ');' . PHP_EOL)
+            ->outdent()
+            ->write('})(), false));' . PHP_EOL)
+            ->write('yield $this->env->getExtension(\'T3G\Bundle\TemplateBundle\Twig\Extension\TextExtension\')->expand($this->env, $content, $' . $attributeStorageName . ');' . PHP_EOL)
         ;
     }
 }
