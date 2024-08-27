@@ -11,6 +11,7 @@ declare(strict_types=1);
 namespace T3G\Bundle\TemplateBundle\Twig\Node;
 
 use Twig\Compiler;
+use Twig\Environment;
 use Twig\Node\Node;
 use Twig\Node\NodeOutputInterface;
 
@@ -47,9 +48,7 @@ class ExpandNode extends Node implements NodeOutputInterface
             $compiler->write('$' . $attributeStorageName . ' = [];' . PHP_EOL);
         }
 
-        $environment = $compiler->getEnvironment();
-
-        if (method_exists($environment, 'useYield') && $environment->useYield()) {
+        if (version_compare(Environment::VERSION, '3.9.0', '>=')) {
             // twig >= 3.9
             $compiler
                 ->write('$content = implode("", iterator_to_array((function () use (&$context, $macros, $blocks) {' . PHP_EOL)
