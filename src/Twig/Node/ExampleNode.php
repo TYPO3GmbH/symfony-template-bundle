@@ -47,13 +47,26 @@ class ExampleNode extends Node implements NodeOutputInterface
             $compiler->write('$' . $attributeStorageName . ' = [];' . PHP_EOL);
         }
 
-        $compiler
-            ->write('$content = implode("", iterator_to_array((function () use (&$context, $macros, $blocks) {' . PHP_EOL)
-            ->indent()
-            ->subcompile($this->getNode('body'))
-            ->outdent()
-            ->write('})(), false));' . PHP_EOL)
-            ->write('yield $this->env->getExtension(\'T3G\Bundle\TemplateBundle\Twig\Extension\BlockExtension\')->exampleFunction($this->env, $content, $' . $attributeStorageName . ');' . PHP_EOL)
-        ;
+        $environment = $compiler->getEnvironment();
+
+        if (method_exists($environment, 'useYield') && $environment->useYield()) {
+            // twig >= 3.9
+            $compiler
+                ->write('$content = implode("", iterator_to_array((function () use (&$context, $macros, $blocks) {' . PHP_EOL)
+                ->indent()
+                ->subcompile($this->getNode('body'))
+                ->outdent()
+                ->write('})(), false));' . PHP_EOL)
+                ->write('yield $this->env->getExtension(\'T3G\Bundle\TemplateBundle\Twig\Extension\BlockExtension\')->exampleFunction($this->env, $content, $' . $attributeStorageName . ');' . PHP_EOL)
+            ;
+        } else {
+            // twig < 3.9
+            $compiler
+                ->write('ob_start();' . PHP_EOL)
+                ->subcompile($this->getNode('body'))
+                ->write('$content = ob_get_clean();' . PHP_EOL)
+                ->write('echo $this->env->getExtension(\'T3G\Bundle\TemplateBundle\Twig\Extension\BlockExtension\')->exampleFunction($this->env, $content, $' . $attributeStorageName . ');' . PHP_EOL)
+            ;
+        }
     }
 }
