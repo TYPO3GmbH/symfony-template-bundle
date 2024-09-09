@@ -11,14 +11,15 @@ declare(strict_types=1);
 namespace T3G\Bundle\TemplateBundle\Twig\Node;
 
 use Twig\Compiler;
+use Twig\Environment;
 use Twig\Node\Node;
 use Twig\Node\NodeOutputInterface;
 
 class ExpandNode extends Node implements NodeOutputInterface
 {
-    protected $tagName = 'expand';
+    protected string $tagName = 'expand';
 
-    public function __construct(Node $body = null, Node $attributes = null, int $lineno, string $tag = null)
+    public function __construct(Node $body, ?Node $attributes, int $lineno, string $tag = null)
     {
         $nodes = ['body' => $body];
         if ($attributes !== null) {
@@ -30,7 +31,7 @@ class ExpandNode extends Node implements NodeOutputInterface
 
     public function compile(Compiler $compiler)
     {
-        $attributeStorageName = uniqid($this->tagName);
+        $attributeStorageName = $this->tagName . hash('xxh3', uniqid($this->tagName, true));
         $compiler->addDebugInfo($this);
 
         if ($this->hasNode('attributes')) {
@@ -47,11 +48,24 @@ class ExpandNode extends Node implements NodeOutputInterface
             $compiler->write('$' . $attributeStorageName . ' = [];' . PHP_EOL);
         }
 
-        $compiler
-            ->write('ob_start();' . PHP_EOL)
-            ->subcompile($this->getNode('body'))
-            ->write('$content = ob_get_clean();' . PHP_EOL)
-            ->write('echo $this->env->getExtension(\'T3G\Bundle\TemplateBundle\Twig\Extension\TextExtension\')->expand($this->env, $content, $' . $attributeStorageName . ');' . PHP_EOL)
-        ;
+        if (version_compare(Environment::VERSION, '3.9.0', '>=')) {
+            // twig >= 3.9
+            $compiler
+                ->write('$content = implode("", iterator_to_array((function () use (&$context, $macros, $blocks) {' . PHP_EOL)
+                ->indent()
+                ->subcompile($this->getNode('body'))
+                ->outdent()
+                ->write('})(), false));' . PHP_EOL)
+                ->write('yield $this->env->getExtension(\'T3G\Bundle\TemplateBundle\Twig\Extension\TextExtension\')->expand($this->env, $content, $' . $attributeStorageName . ');' . PHP_EOL)
+            ;
+        } else {
+            // twig < 3.9
+            $compiler
+                ->write('ob_start();' . PHP_EOL)
+                ->subcompile($this->getNode('body'))
+                ->write('$content = ob_get_clean();' . PHP_EOL)
+                ->write('echo $this->env->getExtension(\'T3G\Bundle\TemplateBundle\Twig\Extension\TextExtension\')->expand($this->env, $content, $' . $attributeStorageName . ');' . PHP_EOL)
+            ;
+        }
     }
 }
