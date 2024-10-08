@@ -11,6 +11,7 @@ namespace T3G\Bundle\TemplateBundle\Tests\Unit\DependencyInjection;
 
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
+use T3G\Bundle\TemplateBundle\ConfigurationSet\T3gConfigurationSet;
 use T3G\Bundle\TemplateBundle\DependencyInjection\TemplateExtension;
 
 class TemplateExtensionTest extends TestCase
@@ -87,6 +88,7 @@ class TemplateExtensionTest extends TestCase
             [
                 'config' => [
                     'application' => [
+                        'organization' => T3gConfigurationSet::IDENTIFIER,
                         'copyright' => [
                             'author' => 'Author',
                             'url' => 'https://example.org',
