@@ -11,7 +11,7 @@ declare(strict_types=1);
 
 namespace T3G\Bundle\TemplateBundle\ConfigurationSet;
 
-class T3AConfigurationSet extends AbstractConfigurationSet
+class T3aConfigurationSet extends AbstractConfigurationSet
 {
     public const IDENTIFIER = 't3a';
     public static string $author = 'TYPO3 GmbH';
