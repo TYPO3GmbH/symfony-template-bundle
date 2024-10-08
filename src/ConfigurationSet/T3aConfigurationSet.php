@@ -14,10 +14,10 @@ namespace T3G\Bundle\TemplateBundle\ConfigurationSet;
 class T3aConfigurationSet extends AbstractConfigurationSet
 {
     public const IDENTIFIER = 't3a';
-    public static string $author = 'TYPO3 GmbH';
-    public static string $url = 'https://typo3.com';
-    public static string $footer = "TYPO3 GmbH, Emanuel-Leutze-Straße 11, DE-40547 Düsseldorf, Germany\nPhone: +49 (0)211 20 54 36 0, Web: www.typo3.com, Email: info@typo3.com\n\nCourt of registration: Amtsgericht Düsseldorf HRB 77950\nCEO: Daniel Fau,  (CTO & Procuration) Frank Nägler\nSupervisory Board: Olivier Dobberkau, Ric van Westhreenen, Stefan Busemann";
-    public static string $privacyRoute = 'https://typo3.com/privacy-policy';
-    public static string $legalRoute = 'https://typo3.com/legal-notice';
-    public static string $feedbackRoute = 'https://support.typo3.com';
+    public static string $author = 'TYPO3 Association';
+    public static string $url = 'https://typo3.org';
+    public static string $footer = "TYPO3 Association, Sihlbruggstrasse 105, 6340 Baar, Switzerland\nPhone: +41 41 511 00 35, Fax: +41 41 511 00 39, Email: backoffice@typo3.org";
+    public static string $privacyRoute = 'https://typo3.org/privacy-policy';
+    public static string $legalRoute = 'https://typo3.org/legal-notice';
+    public static string $feedbackRoute = 'https://typo3.org/help';
 }
