@@ -13,8 +13,8 @@ namespace T3G\Bundle\TemplateBundle\Factory;
 
 use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 use T3G\Bundle\TemplateBundle\ConfigurationSet\AbstractConfigurationSet;
-use T3G\Bundle\TemplateBundle\ConfigurationSet\T3a;
-use T3G\Bundle\TemplateBundle\ConfigurationSet\T3g;
+use T3G\Bundle\TemplateBundle\ConfigurationSet\T3AConfigurationSet;
+use T3G\Bundle\TemplateBundle\ConfigurationSet\T3GConfigurationSet;
 
 class ConfigurationSetFactory extends AbstractConfigurationSet
 {
@@ -25,8 +25,8 @@ class ConfigurationSetFactory extends AbstractConfigurationSet
         }
 
         return match ($organizationIdentifier) {
-            T3a::IDENTIFIER => new T3a(),
-            T3g::IDENTIFIER => new T3g(),
+            T3AConfigurationSet::IDENTIFIER => new T3AConfigurationSet(),
+            T3GConfigurationSet::IDENTIFIER => new T3GConfigurationSet(),
             default => throw new InvalidConfigurationException(
                 'Unknown organization key "' . $organizationIdentifier . '"'
             ),

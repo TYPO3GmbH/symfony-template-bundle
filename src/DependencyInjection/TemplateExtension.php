@@ -28,7 +28,7 @@ class TemplateExtension extends Extension implements PrependExtensionInterface
 
         if (is_string($organizationIdentifier)) {
             $organization = ConfigurationSetFactory::fromOrganizationIdentifier($organizationIdentifier);
-            $organization::overruleConfiguration($config);
+            $organization::apply($config);
         }
 
         $container->setParameter('t3g.template.config', $config);

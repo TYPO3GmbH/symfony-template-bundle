@@ -20,13 +20,22 @@ abstract class AbstractConfigurationSet
     public static string $legalRoute;
     public static string $feedbackRoute;
 
-    public static function overruleConfiguration(array &$config): void
+    public static function apply(array &$config, bool $overwrite = false): void
     {
-        $config['application']['copyright']['author'] ??= static::$author;
-        $config['application']['copyright']['url'] ??= static::$url;
-        $config['application']['email']['legal_footer'] ??= static::$footer;
-        $config['application']['routes']['privacy'] ??= static::$privacyRoute;
-        $config['application']['routes']['legal'] ??= static::$legalRoute;
-        $config['application']['routes']['feedback'] ??= static::$feedbackRoute;
+        if ($overwrite) {
+            $config['application']['copyright']['author'] = static::$author;
+            $config['application']['copyright']['url'] = static::$url;
+            $config['application']['email']['legal_footer'] = static::$footer;
+            $config['application']['routes']['privacy'] = static::$privacyRoute;
+            $config['application']['routes']['legal'] = static::$legalRoute;
+            $config['application']['routes']['feedback'] = static::$feedbackRoute;
+        } else {
+            $config['application']['copyright']['author'] ??= static::$author;
+            $config['application']['copyright']['url'] ??= static::$url;
+            $config['application']['email']['legal_footer'] ??= static::$footer;
+            $config['application']['routes']['privacy'] ??= static::$privacyRoute;
+            $config['application']['routes']['legal'] ??= static::$legalRoute;
+            $config['application']['routes']['feedback'] ??= static::$feedbackRoute;
+        }
     }
 }
