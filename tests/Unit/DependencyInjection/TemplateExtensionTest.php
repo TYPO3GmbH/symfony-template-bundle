@@ -61,4 +61,47 @@ class TemplateExtensionTest extends TestCase
             $config['email']['legal_footer']
         );
     }
+
+    /**
+     * @dataProvider overruleDataProvider
+     */
+    public function testOverrule(array $configs)
+    {
+        $container = new ContainerBuilder();
+        $loader = new TemplateExtension();
+        $loader->load([$configs], $container);
+
+        $config = $container->getParameter('t3g.template.config')['application'];
+
+        $this->assertEquals('Author', $config['copyright']['author']);
+        $this->assertEquals('https://example.org', $config['copyright']['url']);
+        $this->assertEquals('Footer', $config['email']['legal_footer']);
+        $this->assertEquals('app_privacy', $config['routes']['privacy']);
+        $this->assertEquals('app_legal', $config['routes']['legal']);
+        $this->assertEquals('app_feedback', $config['routes']['feedback']);
+    }
+
+    public function overruleDataProvider(): array
+    {
+        return [
+            [
+                'config' => [
+                    'application' => [
+                        'copyright' => [
+                            'author' => 'Author',
+                            'url' => 'https://example.org',
+                        ],
+                        'email' => [
+                            'legal_footer' => 'Footer'
+                        ],
+                        'routes' => [
+                            'privacy' => 'app_privacy',
+                            'legal' => 'app_legal',
+                            'feedback' => 'app_feedback',
+                        ],
+                    ],
+                ],
+            ],
+        ];
+    }
 }

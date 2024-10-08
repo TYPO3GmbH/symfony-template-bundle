@@ -15,6 +15,7 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
 use Symfony\Component\DependencyInjection\Loader;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
+use T3G\Bundle\TemplateBundle\Factory\ConfigurationSetFactory;
 
 class TemplateExtension extends Extension implements PrependExtensionInterface
 {
@@ -22,6 +23,13 @@ class TemplateExtension extends Extension implements PrependExtensionInterface
     {
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
+
+        $organizationIdentifier = $config['application']['organization'];
+
+        if (is_string($organizationIdentifier)) {
+            $organization = ConfigurationSetFactory::fromOrganizationIdentifier($organizationIdentifier);
+            $organization::overruleConfiguration($config);
+        }
 
         $container->setParameter('t3g.template.config', $config);
         $container->setParameter('t3g.template.config.menu.class', $config['application']['menu']['class']);
