@@ -11,6 +11,7 @@ namespace T3G\Bundle\TemplateBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
+use T3G\Bundle\TemplateBundle\ConfigurationSet\T3gConfigurationSet;
 
 class Configuration implements ConfigurationInterface
 {
@@ -30,31 +31,25 @@ class Configuration implements ConfigurationInterface
                             ->example('intercept')
                             ->defaultValue(false)
                         ->end()
+                        ->scalarNode('configurationSet')
+                            ->example(T3gConfigurationSet::class)
+                            ->defaultValue(T3gConfigurationSet::class)
+                        ->end()
                         ->arrayNode('copyright')->addDefaultsIfNotSet()
                             ->children()
                                 ->scalarNode('author')
-                                    ->defaultValue('TYPO3 GmbH')
                                     ->example('TYPO3 GmbH')
-                                    ->cannotBeEmpty()
+                                    ->defaultNull()
                                 ->end()
                                 ->scalarNode('url')
-                                    ->defaultValue('https://typo3.com')
                                     ->example('https://typo3.com')
-                                    ->cannotBeEmpty()
+                                    ->defaultNull()
                                 ->end()
                             ->end()
                         ->end()
                         ->arrayNode('email')->addDefaultsIfNotSet()
                             ->children()
                                 ->scalarNode('legal_footer')
-                                    ->defaultValue(implode("\n", [
-                                        'TYPO3 GmbH, Emanuel-Leutze-Straße 11, DE-40547 Düsseldorf, Germany',
-                                        'Phone: +49 (0)211 20 54 36 0, Web: www.typo3.com, Email: info@typo3.com',
-                                        '',
-                                        'Court of registration: Amtsgericht Düsseldorf HRB 77950',
-                                        'CEO: Daniel Fau,  (CTO & Procuration) Frank Nägler',
-                                        'Supervisory Board: Olivier Dobberkau, Ric van Westhreenen, Stefan Busemann'
-                                    ]))
                                     ->example(implode("\n", [
                                         'TYPO3 GmbH, Emanuel-Leutze-Straße 11, DE-40547 Düsseldorf, Germany',
                                         'Phone: +49 (0)211 20 54 36 0, Web: www.typo3.com, Email: info@typo3.com',
@@ -63,7 +58,7 @@ class Configuration implements ConfigurationInterface
                                         'CEO: Daniel Fau,  (CTO & Procuration) Frank Nägler',
                                         'Supervisory Board: Olivier Dobberkau, Ric van Westhreenen, Stefan Busemann'
                                     ]))
-                                    ->cannotBeEmpty()
+                                    ->defaultNull()
                                 ->end()
                             ->end()
                         ->end()
@@ -75,16 +70,15 @@ class Configuration implements ConfigurationInterface
                                     ->cannotBeEmpty()
                                 ->end()
                                 ->scalarNode('privacy')
-                                    ->defaultValue('https://typo3.com/privacy-policy')
                                     ->example('https://typo3.com/privacy-policy')
                                 ->end()
                                 ->scalarNode('legal')
-                                    ->defaultValue('https://typo3.com/legal-notice')
                                     ->example('https://typo3.com/legal-notice')
+                                    ->defaultNull()
                                 ->end()
                                 ->scalarNode('feedback')
-                                    ->defaultValue('https://support.typo3.com')
                                     ->example('https://support.typo3.com')
+                                    ->defaultNull()
                                 ->end()
                             ->end()
                         ->end()
