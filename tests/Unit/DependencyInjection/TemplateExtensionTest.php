@@ -10,6 +10,7 @@
 namespace T3G\Bundle\TemplateBundle\Tests\Unit\DependencyInjection;
 
 use PHPUnit\Framework\TestCase;
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use T3G\Bundle\TemplateBundle\ConfigurationSet\T3gConfigurationSet;
 use T3G\Bundle\TemplateBundle\DependencyInjection\TemplateExtension;
@@ -80,6 +81,21 @@ class TemplateExtensionTest extends TestCase
         $this->assertEquals('app_privacy', $config['routes']['privacy']);
         $this->assertEquals('app_legal', $config['routes']['legal']);
         $this->assertEquals('app_feedback', $config['routes']['feedback']);
+    }
+
+    public function testExceptionOnInvalidConfigurationSet()
+    {
+        $this->expectException(InvalidConfigurationException::class);
+
+        $container = new ContainerBuilder();
+        $loader = new TemplateExtension();
+        $loader->load([
+            'config' => [
+                'application' => [
+                    'configurationSet' => 'MyInvalidConfigurationSet'
+                ]
+            ]
+        ], $container);
     }
 
     public function overruleDataProvider(): array

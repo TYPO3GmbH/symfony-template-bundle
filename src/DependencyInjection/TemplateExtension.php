@@ -29,7 +29,7 @@ class TemplateExtension extends Extension implements PrependExtensionInterface
         if (!is_a($configurationSetClassName, AbstractConfigurationSet::class, true)) {
             throw new InvalidConfigurationException(
                 sprintf(
-                    't3g.template.config.application.configurationSet must extend %s. %s given.',
+                    't3g.template.config.application.configurationSet must extend %s. "%s" given.',
                     AbstractConfigurationSet::class,
                     $configurationSetClassName
                 )
