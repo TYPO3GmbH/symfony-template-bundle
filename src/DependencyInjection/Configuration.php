@@ -11,6 +11,7 @@ namespace T3G\Bundle\TemplateBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
+use T3G\Bundle\TemplateBundle\ConfigurationSet\T3gConfigurationSet;
 
 class Configuration implements ConfigurationInterface
 {
@@ -30,9 +31,9 @@ class Configuration implements ConfigurationInterface
                             ->example('intercept')
                             ->defaultValue(false)
                         ->end()
-                        ->scalarNode('organization')
-                            ->example('t3g')
-                            ->defaultValue('t3g')
+                        ->scalarNode('configurationSet')
+                            ->example(T3gConfigurationSet::class)
+                            ->defaultValue(T3gConfigurationSet::class)
                         ->end()
                         ->arrayNode('copyright')->addDefaultsIfNotSet()
                             ->children()

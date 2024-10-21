@@ -13,7 +13,6 @@ namespace T3G\Bundle\TemplateBundle\ConfigurationSet;
 
 class T3gConfigurationSet extends AbstractConfigurationSet
 {
-    public const IDENTIFIER = 't3g';
     public static string $author = 'TYPO3 GmbH';
     public static string $url = 'https://typo3.com';
     public static string $footer = "TYPO3 GmbH, Emanuel-Leutze-Straße 11, DE-40547 Düsseldorf, Germany\nPhone: +49 (0)211 20 54 36 0, Web: www.typo3.com, Email: info@typo3.com\n\nCourt of registration: Amtsgericht Düsseldorf HRB 77950\nCEO: Daniel Fau,  (CTO & Procuration) Frank Nägler\nSupervisory Board: Olivier Dobberkau, Ric van Westhreenen, Stefan Busemann";

@@ -88,7 +88,7 @@ class TemplateExtensionTest extends TestCase
             [
                 'config' => [
                     'application' => [
-                        'organization' => T3gConfigurationSet::IDENTIFIER,
+                        'configurationSet' => T3gConfigurationSet::class,
                         'copyright' => [
                             'author' => 'Author',
                             'url' => 'https://example.org',

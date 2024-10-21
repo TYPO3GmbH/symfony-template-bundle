@@ -10,12 +10,13 @@ declare(strict_types=1);
 
 namespace T3G\Bundle\TemplateBundle\DependencyInjection;
 
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
 use Symfony\Component\DependencyInjection\Loader;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
-use T3G\Bundle\TemplateBundle\Factory\ConfigurationSetFactory;
+use T3G\Bundle\TemplateBundle\ConfigurationSet\AbstractConfigurationSet;
 
 class TemplateExtension extends Extension implements PrependExtensionInterface
 {
@@ -23,13 +24,19 @@ class TemplateExtension extends Extension implements PrependExtensionInterface
     {
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
+        $configurationSetClassName = $config['application']['configurationSet'];
 
-        $organizationIdentifier = $config['application']['organization'];
-
-        if (is_string($organizationIdentifier)) {
-            $organization = ConfigurationSetFactory::fromOrganizationIdentifier($organizationIdentifier);
-            $organization::apply($config);
+        if (!is_a($configurationSetClassName, AbstractConfigurationSet::class, true)) {
+            throw new InvalidConfigurationException(
+                sprintf(
+                    't3g.template.config.application.configurationSet must extend %s. %s given.',
+                    AbstractConfigurationSet::class,
+                    $configurationSetClassName
+                )
+            );
         }
+
+        call_user_func_array($configurationSetClassName . '::apply', [&$config]);
 
         $container->setParameter('t3g.template.config', $config);
         $container->setParameter('t3g.template.config.menu.class', $config['application']['menu']['class']);
