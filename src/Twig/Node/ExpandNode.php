@@ -48,6 +48,7 @@ class ExpandNode extends Node implements NodeOutputInterface
             $compiler->write('$' . $attributeStorageName . ' = [];' . PHP_EOL);
         }
 
+        // @TODO: drop version check when removing twig < 3.9 support
         if (version_compare(Environment::VERSION, '3.9.0', '>=')) {
             // twig >= 3.9
             $compiler
