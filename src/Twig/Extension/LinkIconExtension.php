@@ -34,8 +34,8 @@ class LinkIconExtension extends AbstractExtension
 
     public function getLinkIconIdentifier(string $icon): string
     {
-        if (class_exists('T3G\DatahubApiLibrary\Enum\LinkIcons')) {
-            return \T3G\DatahubApiLibrary\Enum\LinkIcons::getIconIdentifier($icon);
+        if (class_exists('T3G\DatahubApiLibrary\Enum\LinkTypes')) {
+            return \T3G\DatahubApiLibrary\Enum\LinkTypes::getIconIdentifier($icon);
         }
 
         $this->logger->warning('Tried to get link icon identifier without t3g/datahub-api-library installed.', ['icon' => $icon]);
@@ -45,8 +45,8 @@ class LinkIconExtension extends AbstractExtension
 
     public function getLinkIconName(string $icon): string
     {
-        if (class_exists('T3G\DatahubApiLibrary\Enum\LinkIcons')) {
-            return \T3G\DatahubApiLibrary\Enum\LinkIcons::getName($icon);
+        if (class_exists('T3G\DatahubApiLibrary\Enum\LinkTypes')) {
+            return \T3G\DatahubApiLibrary\Enum\LinkTypes::getName($icon);
         }
 
         $this->logger->warning('Tried to get link icon name without t3g/datahub-api-library installed.', ['icon' => $icon]);
