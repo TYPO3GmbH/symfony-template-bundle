@@ -72,15 +72,10 @@
             const templateContent = this.getTemplateContent(entryPrototype, entryIndex);
             entryAddButton.parentElement.insertBefore(templateContent, entryAddButton);
             this.refresh(collectionElement);
-
-            const event = new CustomEvent('entry-added', {detail: entryAddButton.previousElementSibling});
-            entryAddButton.parentElement.dispatchEvent(event);
         },
         removeEntry: function (entryRemoveButton) {
             const collectionElement = entryRemoveButton.parentElement.parentElement;
-            const entryToRemove = entryRemoveButton.parentElement;
-            const parentElement = entryToRemove.parentElement;
-            entryToRemove.remove();
+            entryRemoveButton.parentElement.remove();
             this.refresh(collectionElement);
         },
         refresh: function(collectionElement) {
