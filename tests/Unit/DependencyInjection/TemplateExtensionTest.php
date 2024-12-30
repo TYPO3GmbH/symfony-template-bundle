@@ -10,7 +10,9 @@
 namespace T3G\Bundle\TemplateBundle\Tests\Unit\DependencyInjection;
 
 use PHPUnit\Framework\TestCase;
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
+use T3G\Bundle\TemplateBundle\ConfigurationSet\T3gConfigurationSet;
 use T3G\Bundle\TemplateBundle\DependencyInjection\TemplateExtension;
 
 class TemplateExtensionTest extends TestCase
@@ -60,5 +62,64 @@ class TemplateExtensionTest extends TestCase
             ),
             $config['email']['legal_footer']
         );
+    }
+
+    /**
+     * @dataProvider overruleDataProvider
+     */
+    public function testOverrule(array $configs)
+    {
+        $container = new ContainerBuilder();
+        $loader = new TemplateExtension();
+        $loader->load([$configs], $container);
+
+        $config = $container->getParameter('t3g.template.config')['application'];
+
+        $this->assertEquals('Author', $config['copyright']['author']);
+        $this->assertEquals('https://example.org', $config['copyright']['url']);
+        $this->assertEquals('Footer', $config['email']['legal_footer']);
+        $this->assertEquals('app_privacy', $config['routes']['privacy']);
+        $this->assertEquals('app_legal', $config['routes']['legal']);
+        $this->assertEquals('app_feedback', $config['routes']['feedback']);
+    }
+
+    public function testExceptionOnInvalidConfigurationSet()
+    {
+        $this->expectException(InvalidConfigurationException::class);
+
+        $container = new ContainerBuilder();
+        $loader = new TemplateExtension();
+        $loader->load([
+            'config' => [
+                'application' => [
+                    'configurationSet' => 'MyInvalidConfigurationSet'
+                ]
+            ]
+        ], $container);
+    }
+
+    public function overruleDataProvider(): array
+    {
+        return [
+            [
+                'config' => [
+                    'application' => [
+                        'configurationSet' => T3gConfigurationSet::class,
+                        'copyright' => [
+                            'author' => 'Author',
+                            'url' => 'https://example.org',
+                        ],
+                        'email' => [
+                            'legal_footer' => 'Footer'
+                        ],
+                        'routes' => [
+                            'privacy' => 'app_privacy',
+                            'legal' => 'app_legal',
+                            'feedback' => 'app_feedback',
+                        ],
+                    ],
+                ],
+            ],
+        ];
     }
 }
