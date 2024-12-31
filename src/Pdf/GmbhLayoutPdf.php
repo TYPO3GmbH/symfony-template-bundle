@@ -12,6 +12,7 @@ declare(strict_types=1);
 namespace T3G\Bundle\TemplateBundle\Pdf;
 
 use setasign\Fpdi\Tcpdf\Fpdi;
+use T3G\Bundle\TemplateBundle\ConfigurationSet\T3gConfigurationSet;
 
 class GmbhLayoutPdf extends Fpdi
 {
@@ -23,18 +24,25 @@ class GmbhLayoutPdf extends Fpdi
         $this->SetFooterMargin(25);
         $this->SetAutoPageBreak(true, 45);
 
-        $this->SetCreator('TYPO3 GmbH');
-        $this->SetAuthor('TYPO3 GmbH');
+        $this->SetCreator(T3gConfigurationSet::$author);
+        $this->SetAuthor(T3gConfigurationSet::$author);
     }
 
     public function getSenderAddress(): string
     {
-        return '
-            TYPO3 GmbH
-            Emanuel-Leutze-Str. 11
-            40547 Düsseldorf
-            Germany
-        ';
+        return sprintf(
+            '
+            %s
+            %s
+            %s %s
+            %s
+        ',
+            T3gConfigurationSet::$author,
+            T3gConfigurationSet::$street,
+            T3gConfigurationSet::$zip,
+            T3gConfigurationSet::$city,
+            T3gConfigurationSet::$country
+        );
     }
 
     public function Header()
@@ -108,7 +116,14 @@ class GmbhLayoutPdf extends Fpdi
             0,
             29.7,
             270.1,
-            'TYPO3 GmbH<br>Emanuel-Leutze-Str. 11<br>40547 Düsseldorf<br>Germany'
+            sprintf(
+                '%s<br>%s<br>%s %s<br>%s',
+                T3gConfigurationSet::$author,
+                T3gConfigurationSet::$street,
+                T3gConfigurationSet::$zip,
+                T3gConfigurationSet::$city,
+                T3gConfigurationSet::$country
+            )
         );
 
         // Contact

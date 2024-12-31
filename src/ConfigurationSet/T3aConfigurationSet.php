@@ -15,7 +15,12 @@ class T3aConfigurationSet extends AbstractConfigurationSet
 {
     public static string $author = 'TYPO3 Association';
     public static string $url = 'https://typo3.org';
-    public static string $footer = "TYPO3 Association, Rathausstrasse 14, 6340 Baar, Switzerland\nPhone: +41 41 511 00 35, Fax: +41 41 511 00 39, Email: backoffice@typo3.org";
+    public static string $street = 'Rathausstrasse 14';
+    public static string $zip = '6340';
+    public static string $city = 'Baar';
+    public static string $country = 'Switzerland';
+    public static string $countryIso2Code = 'CH';
+    public static string $footerAddition = "\nPhone: +41 41 511 00 35, Fax: +41 41 511 00 39, Email: backoffice@typo3.org";
     public static string $privacyRoute = 'https://typo3.org/privacy-policy';
     public static string $legalRoute = 'https://typo3.org/legal-notice';
     public static string $feedbackRoute = 'https://typo3.org/help';
