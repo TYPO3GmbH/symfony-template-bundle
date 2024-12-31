@@ -31,7 +31,7 @@ class AssociationLayoutPdf extends Fpdi
     {
         return '
             TYPO3 Association
-            Sihlbruggstrasse 105
+            Rathausstrasse 14
             6340 Baar
             Switzerland
         ';
@@ -112,7 +112,7 @@ class AssociationLayoutPdf extends Fpdi
                 '<br>',
                 [
                     'TYPO3 Association',
-                    'Sihlbruggstrasse 105',
+                    'Rathausstrasse 14',
                     '6340 Baar',
                     'Switzerland',
                 ]
