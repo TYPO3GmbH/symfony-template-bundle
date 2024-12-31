@@ -12,6 +12,7 @@ declare(strict_types=1);
 namespace T3G\Bundle\TemplateBundle\Pdf;
 
 use setasign\Fpdi\Tcpdf\Fpdi;
+use T3G\Bundle\TemplateBundle\ConfigurationSet\T3aConfigurationSet;
 
 class AssociationLayoutPdf extends Fpdi
 {
@@ -23,18 +24,25 @@ class AssociationLayoutPdf extends Fpdi
         $this->SetFooterMargin(25);
         $this->SetAutoPageBreak(true, 45);
 
-        $this->SetCreator('TYPO3 Association');
-        $this->SetAuthor('TYPO3 Association');
+        $this->SetCreator(T3aConfigurationSet::$author);
+        $this->SetAuthor(T3aConfigurationSet::$author);
     }
 
     public function getSenderAddress(): string
     {
-        return '
-            TYPO3 Association
-            Rathausstrasse 14
-            6340 Baar
-            Switzerland
-        ';
+        return sprintf(
+            '
+            %s
+            %s
+            %s %s
+            %s
+        ',
+            T3aConfigurationSet::$author,
+            T3aConfigurationSet::$street,
+            T3aConfigurationSet::$zip,
+            T3aConfigurationSet::$city,
+            T3aConfigurationSet::$country
+        );
     }
 
     public function Header()
@@ -111,10 +119,10 @@ class AssociationLayoutPdf extends Fpdi
             implode(
                 '<br>',
                 [
-                    'TYPO3 Association',
-                    'Rathausstrasse 14',
-                    '6340 Baar',
-                    'Switzerland',
+                    T3aConfigurationSet::$author,
+                    T3aConfigurationSet::$street,
+                    sprintf('%s %s', T3aConfigurationSet::$zip, T3aConfigurationSet::$city),
+                    T3aConfigurationSet::$country,
                 ]
             )
         );

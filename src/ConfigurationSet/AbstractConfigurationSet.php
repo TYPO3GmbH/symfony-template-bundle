@@ -15,7 +15,12 @@ abstract class AbstractConfigurationSet
 {
     public static string $author;
     public static string $url;
-    public static string $footer;
+    public static string $street;
+    public static string $zip;
+    public static string $city;
+    public static string $country;
+    public static string $countryIso2Code;
+    public static string $footerAddition;
     public static string $privacyRoute;
     public static string $legalRoute;
     public static string $feedbackRoute;
@@ -25,17 +30,31 @@ abstract class AbstractConfigurationSet
         if ($overwrite) {
             $config['application']['copyright']['author'] = static::$author;
             $config['application']['copyright']['url'] = static::$url;
-            $config['application']['email']['legal_footer'] = static::$footer;
+            $config['application']['email']['legal_footer'] = static::getFooter();
             $config['application']['routes']['privacy'] = static::$privacyRoute;
             $config['application']['routes']['legal'] = static::$legalRoute;
             $config['application']['routes']['feedback'] = static::$feedbackRoute;
         } else {
             $config['application']['copyright']['author'] ??= static::$author;
             $config['application']['copyright']['url'] ??= static::$url;
-            $config['application']['email']['legal_footer'] ??= static::$footer;
+            $config['application']['email']['legal_footer'] ??= static::getFooter();
             $config['application']['routes']['privacy'] ??= static::$privacyRoute;
             $config['application']['routes']['legal'] ??= static::$legalRoute;
             $config['application']['routes']['feedback'] ??= static::$feedbackRoute;
         }
+    }
+
+    public static function getFooter(): string
+    {
+        return sprintf(
+            '%s, %s, %s-%s %s, %s%s',
+            static::$author,
+            static::$street,
+            static::$countryIso2Code,
+            static::$zip,
+            static::$city,
+            static::$country,
+            static::$footerAddition
+        );
     }
 }
