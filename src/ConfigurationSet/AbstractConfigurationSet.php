@@ -34,6 +34,11 @@ abstract class AbstractConfigurationSet
             $config['application']['routes']['privacy'] = static::$privacyRoute;
             $config['application']['routes']['legal'] = static::$legalRoute;
             $config['application']['routes']['feedback'] = static::$feedbackRoute;
+            $config['application']['address']['street'] = static::$street;
+            $config['application']['address']['zip'] = static::$zip;
+            $config['application']['address']['city'] = static::$city;
+            $config['application']['address']['country'] = static::$country;
+            $config['application']['address']['countryIso2Code'] = static::$countryIso2Code;
         } else {
             $config['application']['copyright']['author'] ??= static::$author;
             $config['application']['copyright']['url'] ??= static::$url;
@@ -41,6 +46,11 @@ abstract class AbstractConfigurationSet
             $config['application']['routes']['privacy'] ??= static::$privacyRoute;
             $config['application']['routes']['legal'] ??= static::$legalRoute;
             $config['application']['routes']['feedback'] ??= static::$feedbackRoute;
+            $config['application']['address']['street'] ??= static::$street;
+            $config['application']['address']['zip'] ??= static::$zip;
+            $config['application']['address']['city'] ??= static::$city;
+            $config['application']['address']['country'] ??= static::$country;
+            $config['application']['address']['countryIso2Code'] ??= static::$countryIso2Code;
         }
     }
 

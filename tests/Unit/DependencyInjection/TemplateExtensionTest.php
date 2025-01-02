@@ -62,6 +62,11 @@ class TemplateExtensionTest extends TestCase
             ),
             $config['email']['legal_footer']
         );
+        $this->assertEquals('Emanuel-Leutze-Straße 11', $config['address']['street']);
+        $this->assertEquals('40547', $config['address']['zip']);
+        $this->assertEquals('Düsseldorf', $config['address']['city']);
+        $this->assertEquals('Germany', $config['address']['country']);
+        $this->assertEquals('DE', $config['address']['countryIso2Code']);
     }
 
     /**
@@ -81,6 +86,7 @@ class TemplateExtensionTest extends TestCase
         $this->assertEquals('app_privacy', $config['routes']['privacy']);
         $this->assertEquals('app_legal', $config['routes']['legal']);
         $this->assertEquals('app_feedback', $config['routes']['feedback']);
+        $this->assertEquals('12345', $config['address']['zip']);
     }
 
     public function testExceptionOnInvalidConfigurationSet()
@@ -116,6 +122,9 @@ class TemplateExtensionTest extends TestCase
                             'privacy' => 'app_privacy',
                             'legal' => 'app_legal',
                             'feedback' => 'app_feedback',
+                        ],
+                        'address' => [
+                            'zip' => '12345',
                         ],
                     ],
                 ],
