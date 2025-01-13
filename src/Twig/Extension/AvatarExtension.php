@@ -23,12 +23,18 @@ class AvatarExtension extends AbstractExtension
     {
         return [
             new TwigFunction('avatar', [$this, 'render'], ['is_safe' => ['html']]),
+            new TwigFunction('avatarUrl', [$this, 'renderUrl'], ['is_safe' => ['html']]),
         ];
     }
 
     public function render(string $value, int $size = 36): string
     {
         return AvatarUtility::getAvatar($value, $size);
+    }
+
+    public function renderUrl(string $value, int $size = 36): string
+    {
+        return AvatarUtility::getAvatarUrl($value, $size);
     }
 
     public function getName(): string
