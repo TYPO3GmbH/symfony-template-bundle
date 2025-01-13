@@ -11,6 +11,7 @@
     {% if template.application.assets.encore_entrypoint and template_function_exist('encore_entry_link_tags') %}
         {{ template_function_call('encore_entry_link_tags', template.application.assets.encore_entrypoint) }}
     {% endif %}
+    {% block metatags %}{% endblock %}
     {% block stylesheets %}{% endblock %}
     <script src="https://cdn.typo3.com/typo3infrastructure/universe/dist/webcomponents-loader.js"></script>
     <script type="module" src="https://cdn.typo3.com/typo3infrastructure/universe/dist/typo3-universe.js"></script>
