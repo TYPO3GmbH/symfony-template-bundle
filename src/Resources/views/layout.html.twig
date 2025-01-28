@@ -40,8 +40,8 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="mainnavigation">
-                        {{ knp_menu_render('main-default', {'depth': 2}) }}
-                        {{ knp_menu_render('main-profile', {'depth': 2}) }}
+                        {{ knp_menu_render('main-default', {'depth': 2, 'allow_safe_labels': true}) }}
+                        {{ knp_menu_render('main-profile', {'depth': 2, 'allow_safe_labels': true}) }}
                     </div>
                 </div>
             </nav>
@@ -120,7 +120,7 @@
                         <span>© {{ "now"|date("Y") }} <a href="{{ template.application.copyright.url }}" target="_blank">{{ template.application.copyright.author }}</a>.</span>
                     </div>
                     <div class="page-footer-menu">
-                        {{ knp_menu_render('main-footer') }}
+                        {{ knp_menu_render('main-footer', {'allow_safe_labels': true}) }}
                     </div>
                 </div>
             {% endframe %}
