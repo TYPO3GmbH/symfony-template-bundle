@@ -41,7 +41,7 @@ class LinkTypeExtension extends AbstractExtension
 
         $this->logger->warning('Tried to get link type identifier without t3g/datahub-api-library installed.', ['type' => $type]);
 
-        return $type;
+        return '';
     }
 
     public function getLinkTypeName(string $type): string
