@@ -93,6 +93,9 @@ class EntityListPagination extends AbstractPagination implements SlidingPaginati
         return false;
     }
 
+    /**
+     * This method is adapted from knplabs/knp-paginator-bundle SlidingPagination.
+     */
     #[\Override]
     public function getPaginationData(): array
     {
