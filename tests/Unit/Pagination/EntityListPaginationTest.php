@@ -39,7 +39,7 @@ class EntityListPaginationTest extends TestCase
                     5,
                     'route',
                     ['page' => 1],
-                    [new \stdClass(), new \stdClass(), new \stdClass(), new \stdClass(), new \stdClass(), new \stdClass(), new \stdClass(), new \stdClass(), new \stdClass(), new \stdClass()],
+                    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
                     []
                 ],
                 'expectation' => [
@@ -71,7 +71,7 @@ class EntityListPaginationTest extends TestCase
                     5,
                     'route',
                     ['page' => 3],
-                    [new \stdClass(), new \stdClass(), new \stdClass(), new \stdClass(), new \stdClass(), new \stdClass(), new \stdClass(), new \stdClass(), new \stdClass(), new \stdClass()],
+                    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
                     []
                 ],
                 'expectation' => [
@@ -104,7 +104,7 @@ class EntityListPaginationTest extends TestCase
                     5,
                     'route',
                     ['page' => 3],
-                    [new \stdClass(), new \stdClass(), new \stdClass(), new \stdClass()],
+                    [1, 2, 3, 4],
                     []
                 ],
                 'expectation' => [
