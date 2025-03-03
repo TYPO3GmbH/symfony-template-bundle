@@ -183,4 +183,14 @@ class EntityListPagination extends AbstractPagination implements SlidingPaginati
     {
         return $this->customParameters;
     }
+
+    public function getTotalItemCount(): int
+    {
+        return $this->getTotal();
+    }
+
+    public function getPageCount(): int
+    {
+        return $this->getPages();
+    }
 }
