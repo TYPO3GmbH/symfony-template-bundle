@@ -8,6 +8,12 @@
     ],
     "homepage": "http://www.typo3.com",
     "license": "MIT",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git@github.com:TYPO3GmbH/lib-datahub-api.git"
+        }
+    ],
     "minimum-stability": "stable",
     "authors": [
         {
@@ -37,7 +43,8 @@
         "friendsofphp/php-cs-fixer": "^3.0",
         "overtrue/phplint": "^5.5.0",
         "symfony/phpunit-bridge": "^5.4 || ^6.4",
-        "symfony/webpack-encore-bundle": "^1.13"
+        "symfony/webpack-encore-bundle": "^1.13",
+        "t3g/datahub-api-library": "^3.0.0"
     },
     "suggest": {
         "symfony/webpack-encore-bundle": "Needed to support encore entrypoints."

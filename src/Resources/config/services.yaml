@@ -17,6 +17,11 @@ services:
     arguments:
       $configuration: '%t3g.template.config.security%'
 
+  T3G\Bundle\TemplateBundle\Pagination\EntityListPaginator:
+    class: T3G\Bundle\TemplateBundle\Pagination\EntityListPaginator
+    arguments:
+      $template: '%knp_paginator.template.pagination%'
+
   T3G\Bundle\TemplateBundle\Twig\Extension\GlobalVariablesExtension:
     arguments: ["%t3g.template.config%"]
     tags:
