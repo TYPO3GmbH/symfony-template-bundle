@@ -58,6 +58,12 @@ jobs:
           composer update --prefer-dist --no-progress
           composer info
           git checkout composer.json
+        env:
+          COMPOSER_AUTH: '{
+            "github-oauth": {
+              "github.com": "${{ secrets.ACTIONS_TOKEN }}"
+            }
+          }'
 
       - name: Lint
         run: composer t3g:test:php:lint
