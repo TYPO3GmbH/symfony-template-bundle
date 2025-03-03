@@ -2,6 +2,13 @@
 
 declare(strict_types=1);
 
+/*
+ * This file is part of the package t3g/symfony-template-bundle.
+ *
+ * For the full copyright and license information, please read the
+ * LICENSE file that was distributed with this source code.
+ */
+
 namespace T3G\Bundle\TemplateBundle\Tests\Unit\Pagination;
 
 use PHPUnit\Framework\TestCase;
@@ -61,7 +68,7 @@ class EntityListPaginatorTest extends TestCase
             $data[$i] = $object;
         }
 
-        return new class (['totalRecordCount' => $totalRecordCount], [], $data) extends AbstractPaginatedList {
+        return new class(['totalRecordCount' => $totalRecordCount], [], $data) extends AbstractPaginatedList {
             public function getData(): array
             {
                 return $this->data;
