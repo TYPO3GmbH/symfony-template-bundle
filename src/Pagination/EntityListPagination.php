@@ -107,7 +107,7 @@ class EntityListPagination extends AbstractPagination implements SlidingPaginati
             $this->pageRange = $pageCount;
         }
 
-        $delta = \ceil($this->pageRange / 2);
+        $delta = (int) \ceil($this->pageRange / 2);
 
         if ($current - $delta > $pageCount - $this->pageRange) {
             $pages = \range($pageCount - $this->pageRange + 1, $pageCount);
@@ -120,7 +120,7 @@ class EntityListPagination extends AbstractPagination implements SlidingPaginati
             $pages = \range($offset + 1, $offset + $this->pageRange);
         }
 
-        $proximity = \floor($this->pageRange / 2);
+        $proximity = (int) \floor($this->pageRange / 2);
 
         $startPage = $current - $proximity;
         $endPage = $current + $proximity;
