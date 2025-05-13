@@ -97,4 +97,28 @@ class MenuBuilder
     {
         return new DividerItem($this->factory);
     }
+
+    protected function addAccountItems(ItemInterface $menu, string $logoutRoute = 'logout'): void
+    {
+        $menu->addChild(
+            'account_management',
+            [
+                'label' => 'Account management',
+                'uri' => 'https://login.typo3.com/realms/TYPO3/account',
+                'extras' => [
+                    'icon' => 'actions-university',
+                ],
+            ]
+        );
+        $menu->addChild(
+            'logout',
+            [
+                'label' => 'Sign out',
+                'route' => $logoutRoute,
+                'extras' => [
+                    'icon' => 'actions-logout',
+                ],
+            ]
+        );
+    }
 }
