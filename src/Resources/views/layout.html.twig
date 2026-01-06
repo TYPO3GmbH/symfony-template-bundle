@@ -13,8 +13,8 @@
     {% endif %}
     {% block metatags %}{% endblock %}
     {% block stylesheets %}{% endblock %}
-    <script src="https://cdn.typo3.com/typo3infrastructure/universe/dist/webcomponents-loader.js"></script>
-    <script type="module" src="https://cdn.typo3.com/typo3infrastructure/universe/dist/typo3-universe.js"></script>
+    <script src="https://cdn.typo3.com/typo3infrastructure/universe/dist/webcomponents-loader.js" async defer></script>
+    <script type="module" src="https://cdn.typo3.com/typo3infrastructure/universe/dist/typo3-universe.js" async></script>
 </head>
 <body>
     <div class="page-wrapper{% if template.application.theme.background %} page-background-{{ template.application.theme.background }}{% endif %}">
