@@ -2,19 +2,21 @@ version: 2
 updates:
 
   - package-ecosystem: "npm"
+    versioning-strategy: lockfile-only
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     commit-message:
       prefix: "[DEP]"
       prefix-development: "[DEP-DEV]"
 
   - package-ecosystem: "composer"
+    versioning-strategy: lockfile-only
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     registries:
-      - composer
+      - private-packagist
     commit-message:
       prefix: "[DEP]"
       prefix-development: "[DEP-DEV]"
@@ -22,12 +24,12 @@ updates:
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "monthly"
     commit-message:
       prefix: "[DEP]"
 
 registries:
-  composer:
+  private-packagist:
     type: composer-repository
     url: https://repo.packagist.com/typo3gmbh/
     username: token
