@@ -1,4 +1,8 @@
-var Encore = require('@symfony/webpack-encore');
+const Encore = require('@symfony/webpack-encore');
+
+if (!Encore.isRuntimeEnvironmentConfigured()) {
+    Encore.configureRuntimeEnvironment(process.env.NODE_ENV || 'dev');
+}
 
 Encore
     .setOutputPath('./src/Resources/public/')
@@ -10,14 +14,14 @@ Encore
         resolveUrlLoader: false
     })
     .enablePostCssLoader()
-    .enableSourceMaps(false)
-    .enableVersioning(true)
+    .enableSourceMaps(!Encore.isProduction())
+    .enableVersioning(Encore.isProduction())
     .disableSingleRuntimeChunk()
     .autoProvidejQuery()
 
-    .configureBabel(() => {}, {
-        useBuiltIns: 'usage',
-        corejs: 3
+    .configureBabelPresetEnv((config) => {
+        config.useBuiltIns = 'usage';
+        config.corejs = '3.38';
     })
     .addEntry('app', './assets/js/app.js')
     .addStyleEntry('webfont', './assets/css/webfont.scss')
