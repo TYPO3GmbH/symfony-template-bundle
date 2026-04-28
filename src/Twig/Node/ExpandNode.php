@@ -29,7 +29,7 @@ class ExpandNode extends Node implements NodeOutputInterface
         parent::__construct($nodes, [], $lineno, $tag);
     }
 
-    public function compile(Compiler $compiler)
+    public function compile(Compiler $compiler): void
     {
         $attributeStorageName = $this->tagName . hash('xxh3', uniqid($this->tagName, true));
         $compiler->addDebugInfo($this);
