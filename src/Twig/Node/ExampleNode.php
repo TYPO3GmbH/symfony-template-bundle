@@ -10,10 +10,12 @@ declare(strict_types=1);
 
 namespace T3G\Bundle\TemplateBundle\Twig\Node;
 
+use Twig\Attribute\YieldReady;
 use Twig\Compiler;
 use Twig\Node\Node;
 use Twig\Node\NodeOutputInterface;
 
+#[YieldReady]
 class ExampleNode extends Node implements NodeOutputInterface
 {
     protected string $tagName = 'example';
@@ -51,7 +53,7 @@ class ExampleNode extends Node implements NodeOutputInterface
             ->write('ob_start();' . PHP_EOL)
             ->subcompile($this->getNode('body'))
             ->write('$content = ob_get_clean();' . PHP_EOL)
-            ->write('echo $this->env->getExtension(\'T3G\Bundle\TemplateBundle\Twig\Extension\BlockExtension\')->exampleFunction($this->env, $content, $' . $attributeStorageName . ');' . PHP_EOL)
+            ->write('yield $this->env->getExtension(\'T3G\Bundle\TemplateBundle\Twig\Extension\BlockExtension\')->exampleFunction($this->env, $content, $' . $attributeStorageName . ');' . PHP_EOL)
         ;
     }
 }
