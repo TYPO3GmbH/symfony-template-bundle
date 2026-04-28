@@ -15,7 +15,7 @@ use T3G\Bundle\TemplateBundle\ConfigurationSet\T3gConfigurationSet;
 
 class Configuration implements ConfigurationInterface
 {
-    public function getConfigTreeBuilder()
+    public function getConfigTreeBuilder(): TreeBuilder
     {
         $treeBuilder = new TreeBuilder('template');
         $treeBuilder->getRootNode()
