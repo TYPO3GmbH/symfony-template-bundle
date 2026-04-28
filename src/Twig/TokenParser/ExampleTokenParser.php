@@ -11,12 +11,13 @@ declare(strict_types=1);
 namespace T3G\Bundle\TemplateBundle\Twig\TokenParser;
 
 use T3G\Bundle\TemplateBundle\Twig\Node\ExampleNode;
+use Twig\Node\Node;
 use Twig\Token;
 use Twig\TokenParser\AbstractTokenParser;
 
 final class ExampleTokenParser extends AbstractTokenParser
 {
-    public function parse(Token $token)
+    public function parse(Token $token): Node
     {
         $stream = $this->parser->getStream();
 
@@ -32,12 +33,12 @@ final class ExampleTokenParser extends AbstractTokenParser
         return new ExampleNode($body, $attributes, $token->getLine(), $this->getTag());
     }
 
-    public function decideTagEnd(Token $token)
+    public function decideTagEnd(Token $token): bool
     {
         return $token->test('endexample');
     }
 
-    public function getTag()
+    public function getTag(): string
     {
         return 'example';
     }

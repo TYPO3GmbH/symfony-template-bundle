@@ -11,12 +11,13 @@ declare(strict_types=1);
 namespace T3G\Bundle\TemplateBundle\Twig\TokenParser;
 
 use T3G\Bundle\TemplateBundle\Twig\Node\FrameNode;
+use Twig\Node\Node;
 use Twig\Token;
 use Twig\TokenParser\AbstractTokenParser;
 
 final class FrameTokenParser extends AbstractTokenParser
 {
-    public function parse(Token $token)
+    public function parse(Token $token): Node
     {
         $stream = $this->parser->getStream();
 
@@ -32,12 +33,12 @@ final class FrameTokenParser extends AbstractTokenParser
         return new FrameNode($body, $attributes, $token->getLine(), $this->getTag());
     }
 
-    public function decideFrameEnd(Token $token)
+    public function decideFrameEnd(Token $token): bool
     {
         return $token->test('endframe');
     }
 
-    public function getTag()
+    public function getTag(): string
     {
         return 'frame';
     }
