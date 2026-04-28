@@ -102,7 +102,7 @@ class DateTimeExtension extends AbstractExtension
         return $environment->render('@Template/extension/datetime/timediff.html.twig', ['timediff' => $interval->format($formatString)]);
     }
 
-    private function pluralize(int $number, string $singular, string $plural)
+    private function pluralize(int $number, string $singular, string $plural): string
     {
         return $number > 1 ? $plural : $singular;
     }

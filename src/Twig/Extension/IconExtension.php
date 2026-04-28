@@ -70,7 +70,7 @@ class IconExtension extends AbstractExtension
         return $this->getIconData()['icons'][$identifier] ?? null;
     }
 
-    private function getNotFoundIcon(): array
+    private function getNotFoundIcon(): ?array
     {
         return $this->getIconData()['icons']['default-not-found'] ?? null;
     }

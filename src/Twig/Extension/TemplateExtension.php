@@ -33,7 +33,7 @@ class TemplateExtension extends AbstractExtension
     {
         $function = $environment->getFunction($name);
         if ($function === false) {
-            return null;
+            return '';
         }
         return $function->getCallable()(...$arguments);
     }

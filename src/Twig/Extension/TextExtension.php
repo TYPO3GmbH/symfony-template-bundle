@@ -17,7 +17,7 @@ use Twig\TwigFunction;
 
 class TextExtension extends AbstractExtension
 {
-    public function getTokenParsers()
+    public function getTokenParsers(): array
     {
         return [
             new ExpandTokenParser(),

@@ -18,7 +18,7 @@ use Twig\TwigFunction;
 
 class BlockExtension extends AbstractExtension
 {
-    public function getTokenParsers()
+    public function getTokenParsers(): array
     {
         return [
             new ExampleTokenParser(),
@@ -26,7 +26,7 @@ class BlockExtension extends AbstractExtension
         ];
     }
 
-    public function getFunctions()
+    public function getFunctions(): array
     {
         return [
             new TwigFunction('example', [$this, 'exampleFunction'], ['needs_environment' => true, 'is_safe' => ['html']]),
