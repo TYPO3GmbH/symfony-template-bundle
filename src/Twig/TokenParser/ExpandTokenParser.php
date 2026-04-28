@@ -23,7 +23,7 @@ final class ExpandTokenParser extends AbstractTokenParser
 
         $attributes = null;
         if ($stream->nextIf(Token::NAME_TYPE, 'with')) {
-            $attributes = $this->parser->getExpressionParser()->parseExpression();
+            $attributes = $this->parser->parseExpression();
         }
 
         $stream->expect(Token::BLOCK_END_TYPE);
