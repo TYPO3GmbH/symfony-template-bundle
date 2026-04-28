@@ -11,7 +11,6 @@ declare(strict_types=1);
 namespace T3G\Bundle\TemplateBundle\Twig\Node;
 
 use Twig\Compiler;
-use Twig\Environment;
 use Twig\Node\Node;
 use Twig\Node\NodeOutputInterface;
 
