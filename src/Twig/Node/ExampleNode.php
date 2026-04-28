@@ -19,14 +19,14 @@ class ExampleNode extends Node implements NodeOutputInterface
 {
     protected string $tagName = 'example';
 
-    public function __construct(Node $body, ?Node $attributes, int $lineno, string $tag = null)
+    public function __construct(Node $body, ?Node $attributes, int $lineno)
     {
         $nodes = ['body' => $body];
         if ($attributes !== null) {
             $nodes['attributes'] = $attributes;
         }
 
-        parent::__construct($nodes, [], $lineno, $tag);
+        parent::__construct($nodes, [], $lineno);
     }
 
     public function compile(Compiler $compiler): void
