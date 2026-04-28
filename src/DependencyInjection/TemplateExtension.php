@@ -13,9 +13,9 @@ namespace T3G\Bundle\TemplateBundle\DependencyInjection;
 use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
 use Symfony\Component\DependencyInjection\Loader;
-use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use T3G\Bundle\TemplateBundle\ConfigurationSet\AbstractConfigurationSet;
 
 class TemplateExtension extends Extension implements PrependExtensionInterface
