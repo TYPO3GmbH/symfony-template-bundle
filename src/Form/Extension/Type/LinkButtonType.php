@@ -18,7 +18,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class LinkButtonType extends AbstractType implements ButtonTypeInterface
 {
-    public function buildView(FormView $view, FormInterface $form, array $options)
+    public function buildView(FormView $view, FormInterface $form, array $options): void
     {
         $view->vars = array_replace(
             $view->vars,
@@ -26,17 +26,17 @@ class LinkButtonType extends AbstractType implements ButtonTypeInterface
         );
     }
 
-    public function configureOptions(OptionsResolver $resolver)
+    public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefined(['url']);
     }
 
-    public function getParent()
+    public function getParent(): string
     {
         return ButtonType::class;
     }
 
-    public function getBlockPrefix()
+    public function getBlockPrefix(): string
     {
         return 'linkbutton';
     }
