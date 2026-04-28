@@ -37,28 +37,28 @@ class DateTimeExtension extends AbstractExtension
     /**
      * @deprecated use localdatetime instead
      */
-    public function localtime(Environment $environment, \DateTimeInterface $datetime = null): string
+    public function localtime(Environment $environment, ?\DateTimeInterface $datetime = null): string
     {
         trigger_deprecation('t3g/symfony-template-bundle', '2.11.2', 'localtime is deprecated, use localdatetime instead');
         return $this->localdatetime($environment, $datetime);
     }
 
-    public function localdatetime(Environment $environment, \DateTimeInterface $datetime = null): string
+    public function localdatetime(Environment $environment, ?\DateTimeInterface $datetime = null): string
     {
         return $environment->render('@Template/extension/datetime/localdatetime.html.twig', ['datetime' => $datetime]);
     }
 
-    public function localdate(Environment $environment, \DateTimeInterface $datetime = null): string
+    public function localdate(Environment $environment, ?\DateTimeInterface $datetime = null): string
     {
         return $environment->render('@Template/extension/datetime/localdate.html.twig', ['datetime' => $datetime]);
     }
 
-    public function relativetime(Environment $environment, \DateTimeInterface $datetime = null, ?array $units = null): string
+    public function relativetime(Environment $environment, ?\DateTimeInterface $datetime = null, ?array $units = null): string
     {
         return $environment->render('@Template/extension/datetime/relativetime.html.twig', ['datetime' => $datetime, 'units' => $units]);
     }
 
-    public function timediff(Environment $environment, \DateTimeInterface $datetime = null): string
+    public function timediff(Environment $environment, ?\DateTimeInterface $datetime = null): string
     {
         if (null === $datetime) {
             return '';

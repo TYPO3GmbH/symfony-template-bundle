@@ -24,12 +24,12 @@ class TemplateExtension extends AbstractExtension
         ];
     }
 
-    public function functionExist(Environment $environment, string $name = null): bool
+    public function functionExist(Environment $environment, ?string $name = null): bool
     {
         return $environment->getFunction($name) ? true : false;
     }
 
-    public function functionCall(Environment $environment, string $name = null, ...$arguments): string
+    public function functionCall(Environment $environment, ?string $name = null, ...$arguments): string
     {
         $function = $environment->getFunction($name);
         if ($function === false) {

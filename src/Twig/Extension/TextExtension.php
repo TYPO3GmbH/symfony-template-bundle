@@ -31,7 +31,7 @@ class TextExtension extends AbstractExtension
         ];
     }
 
-    public function expand(Environment $environment, string $content = null): string
+    public function expand(Environment $environment, ?string $content = null): string
     {
         return $environment->render('@Template/extension/text/expand.html.twig', [
             'id' => uniqid(),
