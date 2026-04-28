@@ -48,25 +48,11 @@ class FrameNode extends Node implements NodeOutputInterface
             $compiler->write('$' . $attributeStorageName . ' = [];' . PHP_EOL);
         }
 
-        // @TODO: drop version check when removing twig < 3.9 support
-        if (version_compare(Environment::VERSION, '3.9.0', '>=')) {
-            // twig >= 3.9
-            $compiler
-                ->write('$content = implode("", iterator_to_array((function () use (&$context, $macros, $blocks) {' . PHP_EOL)
-                ->indent()
-                ->subcompile($this->getNode('body'))
-                ->outdent()
-                ->write('})(), false));' . PHP_EOL)
-                ->write('yield $this->env->getExtension(\'T3G\Bundle\TemplateBundle\Twig\Extension\BlockExtension\')->frameFunction($this->env, $content, $' . $attributeStorageName . ');' . PHP_EOL)
-            ;
-        } else {
-            // twig < 3.9
-            $compiler
-                ->write('ob_start();' . PHP_EOL)
-                ->subcompile($this->getNode('body'))
-                ->write('$content = ob_get_clean();' . PHP_EOL)
-                ->write('echo $this->env->getExtension(\'T3G\Bundle\TemplateBundle\Twig\Extension\BlockExtension\')->frameFunction($this->env, $content, $' . $attributeStorageName . ');' . PHP_EOL)
-            ;
-        }
+        $compiler
+            ->write('ob_start();' . PHP_EOL)
+            ->subcompile($this->getNode('body'))
+            ->write('$content = ob_get_clean();' . PHP_EOL)
+            ->write('echo $this->env->getExtension(\'T3G\Bundle\TemplateBundle\Twig\Extension\BlockExtension\')->frameFunction($this->env, $content, $' . $attributeStorageName . ');' . PHP_EOL)
+        ;
     }
 }
