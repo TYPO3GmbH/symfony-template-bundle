@@ -1,10 +1,13 @@
 //
 // Syntax
 //
+pre {
+    border-radius: $border-radius;
+}
+
 .modal-content {
     pre[class*="language-"] {
         margin: 0;
-        border-radius: 0;
     }
 }
 pre[class*="language-"] {
