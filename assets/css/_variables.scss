@@ -181,9 +181,37 @@ $dropdown-link-hover-bg: $gray-100;
 //
 // Border Radius
 //
-$border-radius:             2px;
-$border-radius-lg:          2px;
-$border-radius-sm:          2px;
+$border-radius:             .25rem;
+$border-radius-sm:          .5rem;
+$border-radius-lg:          1rem;
+
+//
+// Forms and Buttons
+//
+$input-btn-padding-y: 0.5625rem;
+$input-btn-padding-x: 1rem;
+$input-btn-font-size: 1.125rem;
+$input-btn-border-width: 0.125rem;
+
+$btn-font-size: 1.1875rem;
+$btn-line-height: 1;
+$btn-font-weight: 700;
+$btn-box-shadow: unset;
+$btn-border-radius: $border-radius;
+$btn-border-radius-sm: $btn-border-radius;
+$btn-border-radius-lg: $btn-border-radius;
+$btn-hover-bg-shade-amount: 0%;
+$btn-hover-bg-tint-amount: 0%;
+$btn-hover-border-shade-amount: 50%;
+$btn-hover-border-tint-amount: 0%;
+$btn-hover-shadow:
+    0 25px 10px rgba(0, 0, 0, 0.01),
+    0 14px 8px rgba(0, 0, 0, 0.05),
+    0 6px 6px rgba(0, 0, 0, 0.09),
+    0 2px 3px rgba(0, 0, 0, 0.1);
+
+$input-border-radius: $border-radius-sm;
+$form-check-input-border-radius: $border-radius-sm;
 
 //
 // Pagination
@@ -200,7 +228,7 @@ $box-shadow-sm: 0 1px 2px 1px rgba(0, 0, 0, .15);
 // Cards
 // --------------------------------------------------
 $card-border-width:         1px;
-$card-border-radius:        4px;
+$card-border-radius:        $border-radius-lg;
 $card-spacer-y:             1.25rem;
 $card-spacer-x:             1.25rem;
 $card-cap-bg:               rgba(0, 0, 0, .025);
@@ -220,13 +248,13 @@ $grid-gutter-width: 40px;
 // Progress
 // --------------------------------------------------
 $progress-height:           2rem;
-$progress-border-radius:    4px;
+$progress-border-radius:    $border-radius;
 
 //
 // Modal
 // --------------------------------------------------
 $modal-inner-padding:               1.5rem;
-$modal-content-border-radius:       4px;
+$modal-content-border-radius:       $border-radius-lg;
 
 //
 // Select
@@ -246,4 +274,4 @@ $choices-bg-color: #ffffff;
 $choices-text-color: #494949;
 $choices-keyline-color: #cecece;
 $choices-primary-color: $primary;
-$choices-border-radius: $border-radius;
+$choices-border-radius: $border-radius-sm;

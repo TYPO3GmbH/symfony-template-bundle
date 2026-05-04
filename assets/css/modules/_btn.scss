@@ -3,11 +3,13 @@
 //
 .btn:not(.btn-link) {
     display: inline-flex;
-    letter-spacing: .5px;
-    text-transform: uppercase;
-    &:not(:focus) {
-        box-shadow: $box-shadow-sm;
+    align-items: center;
+
+    &:hover,
+    &:focus {
+        box-shadow: $btn-hover-shadow;
     }
+
     .input-group & {
         box-shadow: none;
     }
