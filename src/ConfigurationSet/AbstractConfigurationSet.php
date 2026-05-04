@@ -11,8 +11,12 @@ declare(strict_types=1);
 
 namespace T3G\Bundle\TemplateBundle\ConfigurationSet;
 
+use Symfony\Component\DependencyInjection\Attribute\AutoconfigureTag;
+
+#[AutoconfigureTag('t3g.configuration_set')]
 abstract class AbstractConfigurationSet
 {
+    public static string $key;
     public static string $author;
     public static string $url;
     public static string $street;
@@ -24,6 +28,17 @@ abstract class AbstractConfigurationSet
     public static string $privacyRoute;
     public static string $legalRoute;
     public static string $feedbackRoute;
+    public static string $vatId;
+
+    final public static function getKey(): string
+    {
+        return static::$key;
+    }
+
+    public function getProperties(): array
+    {
+        return get_class_vars(static::class);
+    }
 
     public static function apply(array &$config, bool $overwrite = false): void
     {
