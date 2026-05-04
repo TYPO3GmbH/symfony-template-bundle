@@ -11,7 +11,7 @@ $card-link-hover-color: $link-hover-color !default;
 //
 .card {
     overflow: hidden;
-    box-shadow: $box-shadow-sm;
+    box-shadow: $card-box-shadow;
     margin-bottom: $spacer * 2;
     border: none;
     a[class=""] {
