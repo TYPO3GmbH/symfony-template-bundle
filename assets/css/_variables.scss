@@ -152,6 +152,14 @@ $h4-font-size: 1.25rem;
 $h5-font-size: 1rem;
 $h6-font-size: .8125rem;
 
+$font-size-base-responsive: clamp(1rem, calc(0.9605rem + 0.1976vw), 1.125rem);
+$h1-font-size-responsive: clamp(1.625rem, calc(1.4867rem + 1.5768vw), 2.7994rem);
+$h2-font-size-responsive: clamp(1.5rem, calc(1.3707rem + 1.1557vw), 2.3328rem);
+$h3-font-size-responsive: clamp(1.375rem, calc(1.2593rem + 0.8224vw), 1.944rem);
+$h4-font-size-responsive: clamp(1.125rem, calc(1.1536rem + 0.5603vw), 1.62rem);
+$h5-font-size-responsive: clamp(1rem, calc(1.0539rem + 0.3557vw), 1.35rem);
+$h6-font-size-responsive: clamp(1rem, calc(0.9605rem + 0.1976vw), 1.125rem);
+
 $font-size-base:  1rem;
 $font-size-lg:    $font-size-base * 1.25 !default;
 $font-size-sm:    $font-size-base * .875 !default;

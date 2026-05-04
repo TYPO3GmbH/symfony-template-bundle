@@ -1,6 +1,34 @@
 //
 // Text
 //
+body {
+    font-size: $font-size-base-responsive;
+}
+
+h1 {
+    font-size: $h1-font-size-responsive;
+}
+
+h2 {
+    font-size: $h2-font-size-responsive;
+}
+
+h3 {
+    font-size: $h3-font-size-responsive;
+}
+
+h4 {
+    font-size: $h4-font-size-responsive;
+}
+
+h5 {
+    font-size: $h5-font-size-responsive;
+}
+
+h6 {
+    font-size: $h6-font-size-responsive;
+}
+
 .text-inherit {
     color: inherit !important;
     &:hover {
