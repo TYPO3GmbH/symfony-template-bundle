@@ -214,55 +214,38 @@ $table-sorting-icon-descending: '<svg viewBox="0 0 16 16"><g fill="#{$table-high
     height: 2.5rem;
 }
 .datatable-action {
+    @extend .btn;
+    @extend .btn-sm;
+
+    --#{$prefix}btn-color: #{$body-color};
+    --#{$prefix}btn-bg: #{$white};
+    --#{$prefix}btn-border-color: #{$gray-400};
+    --#{$prefix}btn-hover-color: #{$body-color};
+    --#{$prefix}btn-hover-bg: #{$white};
+    --#{$prefix}btn-hover-border-color: var(--#{$prefix}btn-border-color);
+    --#{$prefix}btn-active-color: #{$white};
+    --#{$prefix}btn-active-bg: #{$black};
+    --#{$prefix}btn-active-border-color: #{$black};
+
     display: inline-flex;
     align-items: center;
     gap: .35em;
-    position: relative;
-    overflow: hidden;
     vertical-align: middle;
-    padding: 5px 7px;
-    border-radius: 2px;
-    box-shadow: $box-shadow-sm;
-    border: none;
+
     &:hover,
     &:focus {
+        box-shadow: $btn-hover-shadow;
         text-decoration: none;
     }
-    &:focus {
-        outline: 0;
-    }
-    &:disabled {
-        opacity: .5;
-        pointer-events: none;
-    }
-}
-.datatable-action {
-    background-color: $white;
-    color: color-contrast($white);
-    &:focus {
-        box-shadow: 0 0 0 2px rgba(color-contrast($white), .5);
-    }
-    &:hover,
-    &:focus {
-        background-color: darken($white, 7.5%);
-        color: color-contrast($white);
-    }
+
     @each $color, $value in $theme-colors {
         &.datatable-action-#{$color} {
-            background-color: $value;
-            color: color-contrast($value);
-            &:focus {
-                box-shadow: 0 0 0 2px rgba($value, .5);
-            }
-            &:hover,
-            &:focus {
-                background-color: darken($value, 7.5%);
-                color: color-contrast($value);
-            }
+            @extend .btn-#{$color};
         }
     }
 }
-.datatable-action-text {
+.datatable-action-text,
+.datatable-action-label {
     font-size: .8em;
 }
 .datatable-action-icon {
