@@ -251,10 +251,10 @@ $pagination-hover-color:    #313131;
 // --------------------------------------------------
 $box-shadow-sm: 0 6px 11px rgba(0, 0, 0, 0.15);
 $box-shadow-card:
-    0 25px 10px rgba(0, 0, 0, 0.01),
-    0 14px 8px rgba(0, 0, 0, 0.02),
-    0 6px 6px rgba(0, 0, 0, 0.05),
-    0 2px 3px rgba(0, 0, 0, 0.07);
+    0 22px 10px rgba(0, 0, 0, 0.01),
+    0 12px 8px rgba(0, 0, 0, 0.02),
+    0 4px 6px rgba(0, 0, 0, 0.05),
+    0 0 3px rgba(0, 0, 0, 0.08);
 
 //
 // Cards
@@ -266,6 +266,13 @@ $card-spacer-x:             1.25rem;
 $card-cap-bg:               rgba(0, 0, 0, .025);
 $card-border-color:         rgba(0, 0, 0, .05);
 $card-box-shadow:           $box-shadow-card;
+
+//
+// Accordion
+// --------------------------------------------------
+$accordion-border-radius:        $border-radius-lg;
+$accordion-inner-border-radius:  $accordion-border-radius;
+$accordion-button-border-radius: $accordion-border-radius;
 
 //
 // List Group
