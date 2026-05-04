@@ -190,11 +190,12 @@ $border-radius-lg:          1rem;
 //
 $input-btn-padding-y: 0.5625rem;
 $input-btn-padding-x: 1rem;
-$input-btn-font-size: 1.125rem;
+$input-btn-font-size: 1.1875rem;
+$input-btn-line-height: 1;
 $input-btn-border-width: 0.125rem;
 
-$btn-font-size: 1.1875rem;
-$btn-line-height: 1;
+$btn-font-size: $input-btn-font-size;
+$btn-line-height: $input-btn-line-height;
 $btn-font-weight: 700;
 $btn-box-shadow: unset;
 $btn-border-radius: $border-radius;
