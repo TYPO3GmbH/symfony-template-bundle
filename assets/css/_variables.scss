@@ -113,6 +113,7 @@ $link-alternate-color:          #ffffff;
 $link-alternate-hover-color:    darken($link-alternate-color, 15%);
 
 $min-contrast-ratio: 2.4;
+$spacer-responsive: clamp(0.75rem, calc(0.75rem + 0.625vw), 1.5625rem);
 
 //
 // Grid breakpoints
@@ -167,6 +168,10 @@ $link-decoration: none;
 // Navbar
 //
 $navbar-border-radius: 0;
+$navbar-mainnavigation-logo-width: 110px;
+$navbar-mainnavigation-logo-height: 30px;
+$navbar-nav-link-padding-x: 0;
+$nav-link-padding-y: 0;
 
 //
 // Dropdown

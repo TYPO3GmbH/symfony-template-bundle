@@ -1,27 +1,6 @@
-//
-// Navbar Heights
-//
-$navbar-heights: (
-    xs: 60px,
-    sm: 60px,
-    md: 60px,
-    lg: 90px,
-    xl: 90px
-) !default;
-$navbar-inner-heights: (
-    xs: 34px,
-    sm: 34px,
-    md: 34px,
-    lg: 48px,
-    xl: 48px
-) !default;
 .navbar-mainnavigation {
-    @each $breakpoint in map-keys($navbar-heights) {
-        @include media-breakpoint-up($breakpoint) {
-            padding-top: calc((map-get($navbar-heights, $breakpoint) - map-get($navbar-inner-heights, $breakpoint)) / 2);
-            padding-bottom: calc((map-get($navbar-heights, $breakpoint) - map-get($navbar-inner-heights, $breakpoint)) / 2);
-        }
-    }
+    padding-top: calc(#{$spacer-responsive} * 2);
+    padding-bottom: calc(#{$spacer-responsive} * 2);
 }
 
 //
@@ -34,8 +13,9 @@ $navbar-inner-heights: (
     }
     .navbar-nav {
         margin-left: auto;
+        gap: $spacer-responsive;
         &:first-child:not(:last-child) {
-            margin-left: 0;
+            margin-left: calc(#{$spacer-responsive} * 2);
         }
         &:last-child {
             .nav-item:last-child {
@@ -157,6 +137,7 @@ $navbar-inner-heights: (
     gap: .4rem;
     display: flex;
     align-items: center;
+    line-height: 1;
     .icon {
         opacity: .75;
     }
@@ -166,7 +147,41 @@ $navbar-inner-heights: (
 // Mainnavigation
 //
 .navbar-mainnavigation {
-    box-shadow: 0 1px 0 0 rgba(0, 0, 0, .15);
+    box-shadow: none;
+
+    > .container {
+        align-items: flex-end;
+        min-height: 41px;
+    }
+
+    @include media-breakpoint-down(lg) {
+        > .container {
+            max-width: unset;
+            padding-left: calc(#{$spacer-responsive} * 2);
+            padding-right: calc(#{$spacer-responsive} * 2);
+        }
+
+        .navbar-collapse {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            z-index: $zindex-dropdown;
+            width: 100%;
+            padding: calc(#{$spacer-responsive} * 2);
+            background: $white;
+            border-top: 1px solid $gray-400;
+            box-shadow:
+                43px 82px 37px rgba(0, 0, 0, 0.01),
+                24px 46px 31px rgba(0, 0, 0, 0.05),
+                11px 20px 23px rgba(0, 0, 0, 0.09),
+                3px 5px 13px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-nav {
+            gap: calc(#{$spacer-responsive} * 2);
+        }
+    }
 }
 
 //
@@ -246,6 +261,7 @@ $navbar-inner-heights: (
 // Brand
 //
 .navbar-brand {
+    margin: 0;
     padding: 0;
     display: flex;
     align-items: center;
@@ -261,8 +277,10 @@ $navbar-inner-heights: (
 .navbar-brand-image {
     display: block;
     img {
-        margin-top: -6px;
         display: block;
+        width: $navbar-mainnavigation-logo-width;
+        height: $navbar-mainnavigation-logo-height;
+        margin-bottom: 4px;
     }
 }
 
@@ -271,8 +289,8 @@ $navbar-inner-heights: (
 //
 .navbar-toggler {
     padding: 0;
-    margin-left: -6px;
-    margin-right: -6px;
+    margin-left: auto;
+    margin-right: 0;
     height: 34px;
     width: 34px;
     position: relative;
@@ -290,7 +308,7 @@ $navbar-inner-heights: (
     top: 0;
     background-image: none !important;
     display: inline-block;
-    width: 22px;
+    width: 16px;
     height: 2px;
     background-color: currentColor;
 }
@@ -318,11 +336,11 @@ $navbar-inner-heights: (
     }
     .navbar-toggler-icon:before {
         transform: rotate(0);
-        top: -6px;
+        top: -4px;
     }
     .navbar-toggler-icon:after {
         transform: rotate(0);
-        top: 6px;
+        top: 4px;
     }
 }
 .navbar-toggler-alternative {
