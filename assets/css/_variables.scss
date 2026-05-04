@@ -107,8 +107,8 @@ $progress-colors: (
     done: $success
 );
 
-$link-color:                    $primary;
-$link-hover-color:              darken($link-color, 15%);
+$link-color:                    $black;
+$link-hover-color:              $gray-900;
 $link-alternate-color:          #ffffff;
 $link-alternate-hover-color:    darken($link-alternate-color, 15%);
 
@@ -233,6 +233,11 @@ $card-spacer-y:             1.25rem;
 $card-spacer-x:             1.25rem;
 $card-cap-bg:               rgba(0, 0, 0, .025);
 $card-border-color:         rgba(0, 0, 0, .05);
+
+//
+// List Group
+// --------------------------------------------------
+$list-group-border-radius:  $border-radius-lg;
 
 //
 // Table
