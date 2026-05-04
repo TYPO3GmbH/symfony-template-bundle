@@ -6,12 +6,24 @@
     z-index: 1;
 }
 .accordion:not(.accordion-flush) {
-    .accordion-item {
+    .accordion-item:first-of-type {
+        overflow: hidden;
+    }
+
+    .accordion-item:last-of-type {
+        overflow: hidden;
+    }
+}
+.accordion.accordion-custom,
+.accordion .accordion-item.card {
+    .accordion-item,
+    &.accordion-item {
         border-radius: $accordion-border-radius;
         overflow: hidden;
     }
 
-    .accordion-button {
+    .accordion-button,
+    .accordion-title-link {
         border-top-left-radius: $accordion-button-border-radius !important;
         border-top-right-radius: $accordion-button-border-radius !important;
 
