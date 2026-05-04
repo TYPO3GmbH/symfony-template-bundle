@@ -51,14 +51,14 @@ $frame-backgrounds: map-merge(
         'secondary': (
             'background':       $secondary,
             'color':            color-contrast($secondary),
-            'link-color':       $link-color,
-            'link-hover-color': $link-hover-color
+            'link-color':       color-contrast($secondary),
+            'link-hover-color': color-contrast($secondary)
         ),
         'secondary-gradient': (
             'background':       linear-gradient(135deg, shade-color($secondary, 15%) 15%, tint-color($secondary, 15%)  85%),
             'color':            color-contrast($secondary),
-            'link-color':       $link-color,
-            'link-hover-color': $link-hover-color
+            'link-color':       color-contrast($secondary),
+            'link-hover-color': color-contrast($secondary)
         ),
         'tertiary': (
             'background':       $tertiary,
@@ -107,14 +107,14 @@ $frame-backgrounds: map-merge(
         'dark': (
             'background':       $dark,
             'color':            color-contrast($dark),
-            'link-color':       $link-color,
-            'link-hover-color': $link-hover-color
+            'link-color':       color-contrast($dark),
+            'link-hover-color': color-contrast($dark)
         ),
         'darker': (
             'background':       $darker,
             'color':            color-contrast($darker),
-            'link-color':       $link-color,
-            'link-hover-color': $link-hover-color
+            'link-color':       color-contrast($darker),
+            'link-hover-color': color-contrast($darker)
         ),
     ),
     $frame-backgrounds
