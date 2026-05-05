@@ -45,8 +45,8 @@ h6 {
     opacity: .5;
 }
 
-.page-main p a:not(.btn):not(.dropdown-item),
-.page-main li a:not(.btn):not(.dropdown-item) {
+.page-main p a:not(.btn):not(.dropdown-item):not(.page-link),
+.page-main li a:not(.btn):not(.dropdown-item):not(.page-link) {
     text-decoration-line: underline;
     text-decoration-color: $primary;
     text-decoration-thickness: 2px;
@@ -60,8 +60,8 @@ h6 {
     }
 }
 
-.page-main .frame[class*="frame-background-"] p a:not(.btn):not(.dropdown-item),
-.page-main .frame[class*="frame-background-"] li a:not(.btn):not(.dropdown-item) {
+.page-main .frame[class*="frame-background-"] p a:not(.btn):not(.dropdown-item):not(.page-link),
+.page-main .frame[class*="frame-background-"] li a:not(.btn):not(.dropdown-item):not(.page-link) {
     color: var(--frame-link-color);
     text-decoration-line: underline;
     text-decoration-color: var(--frame-link-color);
@@ -73,10 +73,10 @@ h6 {
     }
 }
 
-.page-main .frame[class*="frame-background-"] .card-inverse p a:not(.btn):not(.dropdown-item),
-.page-main .frame[class*="frame-background-"] .card-inverse li a:not(.btn):not(.dropdown-item),
-.page-main .card-inverse a:not(.btn):not(.dropdown-item),
-.page-main .card-inverse li a:not(.btn):not(.dropdown-item) {
+.page-main .frame[class*="frame-background-"] .card-inverse p a:not(.btn):not(.dropdown-item):not(.page-link),
+.page-main .frame[class*="frame-background-"] .card-inverse li a:not(.btn):not(.dropdown-item):not(.page-link),
+.page-main .card-inverse a:not(.btn):not(.dropdown-item):not(.page-link),
+.page-main .card-inverse li a:not(.btn):not(.dropdown-item):not(.page-link) {
     color: $white;
     text-decoration-color: $white;
 
