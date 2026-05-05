@@ -1,28 +1,36 @@
 {% extends '@Template/layout.html.twig' %}
 
 {% block sidebar %}
-    {% frame %}
+    <div class="position-sticky mb-5" style="top: 1rem;">
+        {% frame %}
+        {% set styleguideNavigation = {
+            '_template_styleguide_component_accordion': 'Accordion',
+            '_template_styleguide_component_aggregation': 'Aggregation',
+            '_template_styleguide_component_alert': 'Alert',
+            '_template_styleguide_component_badge': 'Badge',
+            '_template_styleguide_component_button': 'Button',
+            '_template_styleguide_component_card': 'Card',
+            '_template_styleguide_component_dashboard': 'Dashboard',
+            '_template_styleguide_component_datatable': 'DataTable',
+            '_template_styleguide_component_form': 'Form',
+            '_template_styleguide_component_frame': 'Frame',
+            '_template_styleguide_component_guide': 'Guide',
+            '_template_styleguide_component_issue': 'Issue',
+            '_template_styleguide_component_optionswitch': 'Optionswitch',
+            '_template_styleguide_component_pricing': 'Pricing',
+            '_template_styleguide_component_progress': 'Progress',
+            '_template_styleguide_component_review': 'Review',
+            '_template_styleguide_component_status': 'Status',
+            '_template_styleguide_component_text': 'Text',
+            '_template_styleguide_component_pdf_gmbh': 'PDF GmbH',
+            '_template_styleguide_component_pdf_assoc': 'PDF Assoc'
+        } %}
+        {% set currentRoute = app.request.attributes.get('_route') %}
         <div class="list-group">
-            <a href="{{ path('_template_styleguide_component_accordion') }}" class="list-group-item list-group-item-action">Accordion</a>
-            <a href="{{ path('_template_styleguide_component_aggregation') }}" class="list-group-item list-group-item-action">Aggregation</a>
-            <a href="{{ path('_template_styleguide_component_alert') }}" class="list-group-item list-group-item-action">Alert</a>
-            <a href="{{ path('_template_styleguide_component_badge') }}" class="list-group-item list-group-item-action">Badge</a>
-            <a href="{{ path('_template_styleguide_component_button') }}" class="list-group-item list-group-item-action">Button</a>
-            <a href="{{ path('_template_styleguide_component_card') }}" class="list-group-item list-group-item-action">Card</a>
-            <a href="{{ path('_template_styleguide_component_dashboard') }}" class="list-group-item list-group-item-action">Dashboard</a>
-            <a href="{{ path('_template_styleguide_component_datatable') }}" class="list-group-item list-group-item-action">DataTable</a>
-            <a href="{{ path('_template_styleguide_component_form') }}" class="list-group-item list-group-item-action">Form</a>
-            <a href="{{ path('_template_styleguide_component_frame') }}" class="list-group-item list-group-item-action">Frame</a>
-            <a href="{{ path('_template_styleguide_component_guide') }}" class="list-group-item list-group-item-action">Guide</a>
-            <a href="{{ path('_template_styleguide_component_issue') }}" class="list-group-item list-group-item-action">Issue</a>
-            <a href="{{ path('_template_styleguide_component_optionswitch') }}" class="list-group-item list-group-item-action">Optionswitch</a>
-            <a href="{{ path('_template_styleguide_component_pricing') }}" class="list-group-item list-group-item-action">Pricing</a>
-            <a href="{{ path('_template_styleguide_component_progress') }}" class="list-group-item list-group-item-action">Progress</a>
-            <a href="{{ path('_template_styleguide_component_review') }}" class="list-group-item list-group-item-action">Review</a>
-            <a href="{{ path('_template_styleguide_component_status') }}" class="list-group-item list-group-item-action">Status</a>
-            <a href="{{ path('_template_styleguide_component_text') }}" class="list-group-item list-group-item-action">Text</a>
-            <a href="{{ path('_template_styleguide_component_pdf_gmbh') }}" class="list-group-item list-group-item-action">PDF GmbH</a>
-            <a href="{{ path('_template_styleguide_component_pdf_assoc') }}" class="list-group-item list-group-item-action">PDF Assoc</a>
+            {% for route, label in styleguideNavigation %}
+                <a href="{{ path(route) }}" class="list-group-item list-group-item-action{% if currentRoute == route %} active{% endif %}"{% if currentRoute == route %} aria-current="page"{% endif %}>{{ label }}</a>
+            {% endfor %}
         </div>
-    {% endframe %}
+        {% endframe %}
+    </div>
 {% endblock %}
