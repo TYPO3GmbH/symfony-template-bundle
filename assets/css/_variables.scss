@@ -210,8 +210,11 @@ $input-btn-padding-x-lg: 1.25rem;
 $input-btn-font-size-lg: 1.375rem;
 $input-btn-line-height-lg: 1;
 
+$btn-padding-y: $input-btn-padding-y;
+$btn-padding-x: $input-btn-padding-x;
 $btn-font-size: $input-btn-font-size;
 $btn-line-height: $input-btn-line-height;
+$btn-border-width: $input-btn-border-width;
 $btn-padding-y-sm: $input-btn-padding-y-sm;
 $btn-padding-x-sm: $input-btn-padding-x-sm;
 $btn-font-size-sm: $input-btn-font-size-sm;
@@ -235,9 +238,33 @@ $btn-hover-shadow:
     0 6px 6px rgba(0, 0, 0, 0.09),
     0 2px 3px rgba(0, 0, 0, 0.1);
 
+$input-padding-y: $input-btn-padding-y;
+$input-padding-x: $input-btn-padding-x;
+$input-font-size: $input-btn-font-size;
+$input-line-height: $input-btn-line-height;
+$input-padding-y-sm: $input-btn-padding-y-sm;
+$input-padding-x-sm: $input-btn-padding-x-sm;
+$input-font-size-sm: $input-btn-font-size-sm;
+$input-padding-y-lg: $input-btn-padding-y-lg;
+$input-padding-x-lg: $input-btn-padding-x-lg;
+$input-font-size-lg: $input-btn-font-size-lg;
+$input-border-width: $input-btn-border-width;
 $input-border-radius: $border-radius-sm;
 $input-border-radius-sm: $btn-border-radius-sm;
 $input-border-radius-lg: $btn-border-radius-lg;
+
+$form-select-padding-y: $input-padding-y;
+$form-select-padding-x: $input-padding-x;
+$form-select-font-size: $input-font-size;
+$form-select-line-height: $input-line-height;
+$form-select-border-width: $input-border-width;
+$form-select-padding-y-sm: $input-padding-y-sm;
+$form-select-padding-x-sm: $input-padding-x-sm;
+$form-select-font-size-sm: $input-font-size-sm;
+$form-select-padding-y-lg: $input-padding-y-lg;
+$form-select-padding-x-lg: $input-padding-x-lg;
+$form-select-font-size-lg: $input-font-size-lg;
+
 $form-check-input-border-radius: $border-radius-sm;
 
 //
