@@ -159,20 +159,40 @@
     .nav-link,
     .nav-item > .btn,
     .nav-item-image {
-        align-items: center;
+        @include media-breakpoint-up(lg) {
+            align-items: center;
+        }
     }
 
-    .nav-item-label {
-        color: #000000;
-        font-size: 16px;
-        line-height: 1;
+    .nav-item > .nav-link,
+    .nav-item > .btn {
+        .nav-item-label {
+            color: $black;
+            font-size: 16px;
+            line-height: 1;
+        }
     }
 
-    .nav-link.active,
+    .dropdown-item {
+        .nav-item-label {
+            line-height: 1;
+        }
+    }
+
+    .nav-link.active {
+        .nav-item-label {
+            font-weight: 700;
+        }
+    }
+
     .dropdown-item.active {
         .nav-item-label {
             font-weight: 700;
         }
+    }
+
+    .nav-item-label {
+        line-height: 1;
     }
 
     @include media-breakpoint-down(lg) {
@@ -200,7 +220,9 @@
         }
 
         .navbar-nav {
-            gap: calc(#{$spacer-responsive} * 2);
+            @include media-breakpoint-up(lg) {
+                gap: calc(#{$spacer-responsive} * 2);
+            }
         }
     }
 }
