@@ -58,7 +58,18 @@ class TemplateExtension extends Extension implements PrependExtensionInterface
                                 'json_manifest_path' => '%kernel.project_dir%/public/bundles/template/manifest.json'
                             ]
                         ]
-                    ]
+                    ],
+                    'cache' => [
+                        'pools' => [
+                            'template_bundle_icons.cache' =>  [
+                                'default_lifetime' => 86400,
+                                'adapters' => [
+                                    'cache.adapter.array',
+                                    'cache.adapter.filesystem',
+                                ],
+                            ],
+                        ],
+                    ],
                 ]
             );
         }
