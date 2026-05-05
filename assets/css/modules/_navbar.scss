@@ -163,7 +163,16 @@
     }
 
     .nav-item-label {
+        color: #000000;
+        font-size: 16px;
         line-height: 1;
+    }
+
+    .nav-link.active,
+    .dropdown-item.active {
+        .nav-item-label {
+            font-weight: 700;
+        }
     }
 
     @include media-breakpoint-down(lg) {
