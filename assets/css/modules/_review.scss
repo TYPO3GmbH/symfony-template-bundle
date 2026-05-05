@@ -1,20 +1,20 @@
 //
 // Review
 //
-$review-shadow: $box-shadow-sm;
 $review-bg: #ffffff;
-$review-border-radius: 2px;
+$review-border-radius: $border-radius;
 $review-color: color-contrast($review-bg);
-$review-margin: $spacer;
+$review-margin: $spacer * 2;
 $review-padding: 1rem;
 .review {
+    container-type: inline-size;
     border-left: 5px solid darken($review-bg, 20%);
     position: relative;
     border-radius: $review-border-radius;
     color: $review-color;
     background-color: $review-bg;
     overflow: hidden;
-    box-shadow: $review-shadow;
+    box-shadow: $card-box-shadow;
     margin-bottom: $review-margin;
 }
 @each $color, $value in $review-colors {
@@ -24,20 +24,21 @@ $review-padding: 1rem;
 }
 .review-header {
     display: flex;
+    gap: calc(#{$spacer} / 2);
     padding: 1rem $review-padding;
     background-color: darken($review-bg, 2.5%);
 }
 .review-issue {
-    padding-right: .25rem;
+    font-size: $h5-font-size-responsive;
 }
 .review-branch {
-    padding-left: .25rem;
     .badge {
         display: block;
     }
 }
 .review-title {
     flex-grow: 1;
+    font-size: $h5-font-size-responsive;
     word-break: break-word;
     a {
         color: inherit;
@@ -59,8 +60,6 @@ $review-padding: 1rem;
 }
 .review-data {
     border-top: 1px dashed rgba(0, 0, 0, .15);
-    font-size: $font-size-sm;
-    line-height: 1.2;
     display: flex;
     flex-wrap: wrap;
     padding: 1rem 0;
@@ -93,8 +92,34 @@ $review-padding: 1rem;
         align-items: center;
     }
     .review-title {
-        font-size: 1rem;
         width: 100%;
         order: 1;
+    }
+}
+
+@container (max-width: 720px) {
+    .review-header,
+    .review-actions {
+        padding-left: calc(#{$review-padding} * .75);
+        padding-right: calc(#{$review-padding} * .75);
+    }
+
+    .review-data-item {
+        padding-left: calc(#{$review-padding} * .75);
+        padding-right: calc(#{$review-padding} * .75);
+    }
+}
+
+@container (max-width: 520px) {
+    .review-data,
+    .review-note {
+        font-size: $font-size-sm;
+        line-height: 1.25;
+    }
+
+    .review-card {
+        .review-title {
+            font-size: 1rem;
+        }
     }
 }
