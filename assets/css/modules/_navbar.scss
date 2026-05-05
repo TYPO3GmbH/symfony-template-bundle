@@ -150,7 +150,6 @@
     box-shadow: none;
 
     > .container {
-        align-items: flex-end;
         min-height: 41px;
     }
 
@@ -160,7 +159,7 @@
     .nav-link,
     .nav-item > .btn,
     .nav-item-image {
-        align-items: flex-end;
+        align-items: center;
     }
 
     .nav-item-label {
@@ -282,7 +281,7 @@
 .navbar-brand-text {
     gap: .4rem;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     > .icon {
         --icon-size: 30px;
     }
