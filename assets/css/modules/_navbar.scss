@@ -154,6 +154,19 @@
         min-height: 41px;
     }
 
+    .navbar-collapse,
+    .navbar-nav,
+    .nav-item,
+    .nav-link,
+    .nav-item > .btn,
+    .nav-item-image {
+        align-items: flex-end;
+    }
+
+    .nav-item-label {
+        line-height: 1;
+    }
+
     @include media-breakpoint-down(lg) {
         > .container {
             max-width: unset;
