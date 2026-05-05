@@ -5,7 +5,7 @@ $aggregation-shadow: $box-shadow-sm;
 $aggregation-padding: $card-spacer-y $card-spacer-x;
 $aggregation-margin: $spacer;
 $aggregation-bg: #ffffff;
-$aggregation-border-radius: 2px;
+$aggregation-border-radius: $card-border-radius;
 $aggregation-breakpoint: 'lg';
 
 // Toggle
