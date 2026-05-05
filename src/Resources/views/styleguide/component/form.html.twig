@@ -53,4 +53,22 @@
         {% endexample %}
     {% endframe %}
 
+    {% frame %}
+        <h2>Input Group</h2>
+        {% example with { language: 'html' } %}
+<form>
+    <div class="input-group">
+        <input type="text" name="query" placeholder="Issue ID or Searchwords" class="form-control" value="">
+        <span class="input-group-text">
+            <span class="form-check">
+                <input class="form-check-input" type="checkbox" id="customControlAutosizing" name="searchClosed" value="1" aria-label="Search in closed tickets, too">
+                <label class="form-check-label" for="customControlAutosizing">Closed Tickets</label>
+            </span>
+        </span>
+        <button type="submit" class="btn btn-success">{{ icon('actions-search') }}</button>
+    </div>
+</form>
+        {% endexample %}
+    {% endframe %}
+
 {% endblock %}

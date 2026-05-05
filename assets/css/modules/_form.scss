@@ -27,8 +27,21 @@
     margin-left: 1rem;
 }
 
-input.form-control {
+input.form-control:not(.input-group .form-control) {
     height: $input-height;
+}
+
+.input-group-text {
+    .form-check {
+        display: flex;
+        align-items: center;
+        gap: .5rem;
+        min-height: 0;
+        margin-bottom: 0;
+    }
+    .form-check-input {
+        margin-top: 0;
+    }
 }
 
 //
