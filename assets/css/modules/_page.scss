@@ -29,6 +29,13 @@
     padding: 0 20px;
     margin: 0 auto;
     width: 100%;
+
+    .frame-container,
+    .frame-group-container {
+        max-width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+    }
 }
 .page-main-sidebar {
     > *:last-child {
