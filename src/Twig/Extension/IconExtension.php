@@ -19,15 +19,11 @@ use Twig\TwigFunction;
 
 class IconExtension extends AbstractExtension
 {
-    private $kernel;
-    private $cache;
-    private $packages;
-
-    public function __construct(KernelInterface $kernel, CacheInterface $cache, Packages $packages)
-    {
-        $this->kernel = $kernel;
-        $this->cache = $cache;
-        $this->packages = $packages;
+    public function __construct(
+        private readonly KernelInterface $kernel,
+        private readonly CacheInterface $templateBundleIconsCache,
+        private readonly Packages $packages
+    ) {
     }
 
     public function getFunctions(): array
@@ -78,21 +74,17 @@ class IconExtension extends AbstractExtension
     private function getIconData(): array
     {
         $iconDataFileBaseName = basename($this->packages->getUrl('bundles/template/icons/icons.json', 'template'));
-        $iconDataCache = $this->cache->getItem('icon.data-' . $iconDataFileBaseName);
-        if (!$iconDataCache->isHit()) {
+        return $this->templateBundleIconsCache->get('icon.data-' . $iconDataFileBaseName, function () use ($iconDataFileBaseName) {
+            $iconDataJsonDecoded = [
+                'icons' => [],
+                'aliases' => [],
+            ];
             $iconDataJson = file_get_contents($this->kernel->locateResource('@TemplateBundle/Resources/public/icons/' . $iconDataFileBaseName));
             if (false !== $iconDataJson) {
-                $iconDataJsonDecoded = json_decode($iconDataJson, true);
-                if (JSON_ERROR_NONE !== json_last_error()) {
-                    $iconDataJsonDecoded = [
-                        'icons' => [],
-                        'aliases' => [],
-                    ];
-                }
+                $iconDataJsonDecoded = json_decode($iconDataJson, true, 512, JSON_THROW_ON_ERROR);
             }
-            $iconDataCache->set($iconDataJsonDecoded);
-        }
 
-        return $iconDataCache->get();
+            return $iconDataJsonDecoded;
+        });
     }
 }
