@@ -307,16 +307,17 @@
     padding: 0;
     display: flex;
     align-items: center;
+    margin-top: -18px;
 }
 .navbar-brand-text {
     gap: .4rem;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     > .icon {
-        --icon-size: 30px;
+        --icon-size: 34.29px;
     }
     .icon-color {
-        color: $primary;
+        color: $typo3orange;
     }
 }
 .navbar-brand-name {

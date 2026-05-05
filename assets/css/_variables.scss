@@ -23,13 +23,14 @@ $indigo:            #5d4db3;
 $purple:            #7f4db3;
 $pink:              #bf4080;
 $red:               #cc3d33;
-$orange:            #ff8700;
+$orange:            #ED6D05;
+$typo3orange:       #ff8700;
 $yellow:            #ffd500;
 $green:             #6eb34d;
 $teal:              #33cc9e;
 $cyan:              #13abec;
 
-$primary:           #ff8700;
+$primary:           #ED6D05;
 $primary-dark:      shade-color($primary, 20%);
 $primary-light:     tint-color($primary, 20%);
 
@@ -184,6 +185,8 @@ $navbar-nav-link-padding-x: 0;
 // Dropdown
 // --------------------------------------------------
 $dropdown-link-hover-bg: $gray-100;
+$dropdown-padding-y: .1rem;
+$dropdown-item-padding-y: .25rem;
 
 //
 // Border Radius

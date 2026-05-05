@@ -14,7 +14,7 @@ $dashboard-list-icon-external: '<svg viewBox="0 0 16 16"><g fill="#{$dashboard-c
 :root {
     --dashboard-padding: #{$dashboard-padding};
     --dashboard-gutter: #{$dashboard-gutter};
-    --dashboard-item-title-icon-color: #{$primary};
+    --dashboard-item-title-icon-color: #{$typo3orange};
 }
 .dashboard {
     display: flex;
