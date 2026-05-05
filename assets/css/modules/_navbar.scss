@@ -294,6 +294,9 @@
     }
 }
 .nav-item-image {
+    margin-top: calc(-1 * var(--bs-navbar-toggler-padding-y));
+    margin-bottom: calc(-1 * var(--bs-navbar-toggler-padding-y));
+
     img {
         display: block;
     }
