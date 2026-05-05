@@ -1,6 +1,7 @@
 //
 // Buttons
 //
+.btn-default,
 .btn:not(.btn-link):not(.btn-input-group-clear):not(.btn-primary):not(.btn-secondary):not(.btn-tertiary):not(.btn-quaternary):not(.btn-success):not(.btn-info):not(.btn-warning):not(.btn-danger):not(.btn-notice):not(.btn-default):not(.btn-light):not(.btn-lighter):not(.btn-dark):not(.btn-darker):not(.btn-outline-primary):not(.btn-outline-secondary):not(.btn-outline-tertiary):not(.btn-outline-quaternary):not(.btn-outline-success):not(.btn-outline-info):not(.btn-outline-warning):not(.btn-outline-danger):not(.btn-outline-notice):not(.btn-outline-default):not(.btn-outline-light):not(.btn-outline-lighter):not(.btn-outline-dark):not(.btn-outline-darker) {
     --#{$prefix}btn-color: #{$body-color};
     --#{$prefix}btn-bg: #{$white};
@@ -11,6 +12,13 @@
     --#{$prefix}btn-active-color: #{$white};
     --#{$prefix}btn-active-bg: #{$black};
     --#{$prefix}btn-active-border-color: #{$black};
+}
+
+.btn-notice,
+.btn-light,
+.btn-lighter {
+    --#{$prefix}btn-border-color: #{$gray-400};
+    --#{$prefix}btn-hover-border-color: var(--#{$prefix}btn-border-color);
 }
 
 .btn:not(.btn-link) {
