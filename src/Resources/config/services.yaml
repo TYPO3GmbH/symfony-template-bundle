@@ -18,7 +18,8 @@ services:
       $configuration: '%t3g.template.config.security%'
 
   T3G\Bundle\TemplateBundle\Twig\Extension\GlobalVariablesExtension:
-    arguments: ["%t3g.template.config%"]
+    arguments:
+      $config: "%t3g.template.config%"
     tags:
       - name: twig.extension
 

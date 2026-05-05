@@ -10,25 +10,29 @@ declare(strict_types=1);
 
 namespace T3G\Bundle\TemplateBundle\Twig\Extension;
 
+use Symfony\Component\DependencyInjection\Attribute\TaggedIterator;
+use T3G\Bundle\TemplateBundle\ConfigurationSet\AbstractConfigurationSet;
+use Traversable;
 use Twig\Extension\AbstractExtension;
 use Twig\Extension\GlobalsInterface;
 
 class GlobalVariablesExtension extends AbstractExtension implements GlobalsInterface
 {
-    /**
-     * @var array
-     */
-    protected $config = [];
-
-    public function __construct($config)
-    {
-        $this->config = $config;
+    /** @param Traversable<string, AbstractConfigurationSet> $configurationSets */
+    public function __construct(
+        private readonly array $config,
+        #[TaggedIterator('t3g.configuration_set', defaultIndexMethod: 'getKey')] private readonly Traversable $configurationSets,
+    ) {
     }
 
     public function getGlobals(): array
     {
         return [
             'template' => $this->config,
+            'configuration_sets' => array_map(
+                static fn (AbstractConfigurationSet $set) => $set->getProperties(),
+                iterator_to_array($this->configurationSets)
+            ),
         ];
     }
 

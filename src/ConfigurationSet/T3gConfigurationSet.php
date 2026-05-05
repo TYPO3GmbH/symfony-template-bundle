@@ -13,6 +13,7 @@ namespace T3G\Bundle\TemplateBundle\ConfigurationSet;
 
 class T3gConfigurationSet extends AbstractConfigurationSet
 {
+    public static string $key = 'T3G';
     public static string $author = 'TYPO3 GmbH';
     public static string $url = 'https://typo3.com';
     public static string $street = 'Emanuel-Leutze-Straße 11';
@@ -24,4 +25,5 @@ class T3gConfigurationSet extends AbstractConfigurationSet
     public static string $privacyRoute = 'https://typo3.com/privacy-policy';
     public static string $legalRoute = 'https://typo3.com/legal-notice';
     public static string $feedbackRoute = 'https://support.typo3.com';
+    public static string $vatId = 'DE 815 655 651';
 }
