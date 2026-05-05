@@ -10,18 +10,17 @@ declare(strict_types=1);
 
 namespace T3G\Bundle\TemplateBundle\Twig\Extension;
 
-use Symfony\Component\DependencyInjection\Attribute\TaggedIterator;
+use Symfony\Component\DependencyInjection\Attribute\AutowireIterator;
 use T3G\Bundle\TemplateBundle\ConfigurationSet\AbstractConfigurationSet;
-use Traversable;
 use Twig\Extension\AbstractExtension;
 use Twig\Extension\GlobalsInterface;
 
 class GlobalVariablesExtension extends AbstractExtension implements GlobalsInterface
 {
-    /** @param Traversable<string, AbstractConfigurationSet> $configurationSets */
+    /** @param \Traversable<string, AbstractConfigurationSet> $configurationSets */
     public function __construct(
         private readonly array $config,
-        #[TaggedIterator('t3g.configuration_set', defaultIndexMethod: 'getKey')] private readonly Traversable $configurationSets,
+        #[AutowireIterator(tag: 't3g.configuration_set', defaultIndexMethod: 'getKey')] private readonly \Traversable $configurationSets,
     ) {
     }
 
