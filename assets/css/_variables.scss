@@ -2,6 +2,18 @@
 // Features
 //
 $enable-negative-margins: true;
+$enable-shadows: true;
+
+//
+// Components
+// --------------------------------------------------
+$box-shadow-sm: 0 6px 11px rgba(0, 0, 0, 0.15);
+$box-shadow-card:
+    0 22px 10px rgba(0, 0, 0, 0.01),
+    0 12px 8px rgba(0, 0, 0, 0.02),
+    0 4px 6px rgba(0, 0, 0, 0.05),
+    0 0 3px rgba(0, 0, 0, 0.08);
+
 
 //
 // Colors
@@ -185,8 +197,9 @@ $navbar-nav-link-padding-x: 0;
 // Dropdown
 // --------------------------------------------------
 $dropdown-link-hover-bg: $gray-100;
-$dropdown-padding-y: .1rem;
-$dropdown-item-padding-y: .25rem;
+$dropdown-padding-y: .125rem;
+$dropdown-item-padding-y: .5rem;
+$dropdown-box-shadow: $box-shadow-card;
 
 //
 // Border Radius
@@ -274,16 +287,6 @@ $form-check-input-border-radius: 6px;
 // --------------------------------------------------
 $pagination-color:          #616161;
 $pagination-hover-color:    #313131;
-
-//
-// Components
-// --------------------------------------------------
-$box-shadow-sm: 0 6px 11px rgba(0, 0, 0, 0.15);
-$box-shadow-card:
-    0 22px 10px rgba(0, 0, 0, 0.01),
-    0 12px 8px rgba(0, 0, 0, 0.02),
-    0 4px 6px rgba(0, 0, 0, 0.05),
-    0 0 3px rgba(0, 0, 0, 0.08);
 
 //
 // Cards
