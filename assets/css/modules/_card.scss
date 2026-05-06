@@ -124,16 +124,17 @@ $card-link-hover-color: $link-hover-color !default;
     line-height: 1;
     padding: .5rem $card-spacer-x;
     text-transform: uppercase;
-    box-shadow: inset 0 -1px 1px 0 rgba(0, 0, 0, .15);
+    border-bottom: 1px solid rgba(0, 0, 0, .15);
 }
 .card-badge-top {
     margin: 0 auto;
-    border-radius: 0 0 3px 3px;
+    border-radius: 0 0 $border-radius $border-radius;
 }
 .card-badge-bottom {
     margin: 0 auto;
-    border-radius: 3px 3px 0 0;
-    box-shadow: inset 0 1px 1px 0 rgba(0, 0, 0, .15);
+    border-radius: $border-radius $border-radius 0 0;
+    border-top: 1px solid rgba(0, 0, 0, .15);
+    border-bottom: 0;
 }
 @each $color, $value in $theme-colors {
     .card-badge-#{$color} {

@@ -2,7 +2,6 @@
 // Issue
 //
 $issue-bg: #ffffff;
-$issue-border-radius: $border-radius;
 $issue-color: color-contrast($issue-bg);
 $issue-padding: 1rem;
 $issue-margin: $spacer * 2;
@@ -11,7 +10,7 @@ $issue-type-width: 1.25rem;
     container-type: inline-size;
     position: relative;
     padding-left: $issue-type-width;
-    border-radius: $issue-border-radius;
+    border-radius: $border-radius;
     color: $issue-color;
     background-color: $issue-bg;
     overflow: hidden;

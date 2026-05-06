@@ -6,14 +6,12 @@
     --listbox-bg: var(--#{$prefix}card-bg);
     --listbox-header-color: var(--#{$prefix}card-color);
     --listbox-header-bg: color-mix(in srgb, var(--listbox-bg), black 2.5);
-    --listbox-shadow: #{$box-shadow-sm};
     --listbox-padding: 1rem;
-    --listbox-radius: 2px;
-    border-radius: var(--listbox-radius);
+    border-radius: $border-radius;
     color: var(--listbox-color);
     background: var(--listbox-bg);
     overflow: hidden;
-    box-shadow: var(--listbox-shadow);
+    box-shadow: $box-shadow-sm;
     display: flex;
     flex-direction: column;
 }

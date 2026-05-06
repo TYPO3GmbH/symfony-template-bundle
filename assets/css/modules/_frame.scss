@@ -3,7 +3,6 @@
 // --------------------------------------------------
 $frame-color:                   inherit !default;
 $frame-background:              transparent !default;
-$frame-embedded-border-radius:  .5rem !default;
 $frame-width-large:             1600px !default;
 $frame-width-medium:            870px !default;
 $frame-width-small:             600px !default;
@@ -128,7 +127,6 @@ $frame-backgrounds: map-merge(
     --frame-link-color: #{$link-color};
     --frame-link-hover-color: #{$link-hover-color};
     --frame-background: #{$frame-background};
-    --frame-embedded-border-radius: #{$frame-embedded-border-radius};
     --frame-width-large: #{$frame-width-large};
     --frame-width-medium: #{$frame-width-medium};
     --frame-width-small: #{$frame-width-small};
@@ -202,7 +200,7 @@ $frame-backgrounds: map-merge(
     }
     .frame-group-inner {
         position: relative;
-        border-radius: var(--frame-embedded-border-radius);
+        border-radius: $border-radius-sm;
         background: var(--frame-background);
         padding: var(--frame-spacing);
     }
@@ -210,7 +208,7 @@ $frame-backgrounds: map-merge(
         padding: 0;
     }
     .frame-backgroundimage-container {
-        border-radius: var(--frame-embedded-border-radius);
+        border-radius: $border-radius-sm;
     }
 }
 

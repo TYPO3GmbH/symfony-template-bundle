@@ -42,13 +42,13 @@
     }
     &:nth-child(odd):after {
         left: 0;
-        border-radius: 1rem 0 0 1rem;
+        border-radius: $border-radius-lg 0 0 $border-radius-lg;
         border-right: none;
     }
     &:nth-child(even):after {
         right: 0;
         border-left: none;
-        border-radius: 0 1rem 1rem 0;
+        border-radius: 0 $border-radius-lg $border-radius-lg 0;
     }
     &:first-child:after {
         border-top-left-radius: 0;

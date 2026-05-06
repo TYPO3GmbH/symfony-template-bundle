@@ -11,7 +11,7 @@
     .is-focused &,
     .is-open & {
         border-color: #ffc380;
-        box-shadow: 0 0 0 .2rem rgba(255, 135, 0, .25);
+        box-shadow: $input-focus-box-shadow;
     }
 }
 .#{$choices-selector}[data-type*=select-one] .#{$choices-selector}__inner {

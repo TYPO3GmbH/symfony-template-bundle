@@ -126,7 +126,9 @@ input.form-control:not(.input-group .form-control) {
     &:has(.form-check-input[type="radio"]:checked),
     &:has(.form-check-input[type="checkbox"]:checked) {
         background-color: #f8f8f8;
-        box-shadow: $card-box-shadow, inset 0 0 0 1px #777777;
+        box-shadow: $card-box-shadow;
+        outline: 1px solid #777777;
+        outline-offset: -1px;
     }
 
     svg,

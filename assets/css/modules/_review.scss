@@ -2,7 +2,6 @@
 // Review
 //
 $review-bg: #ffffff;
-$review-border-radius: $border-radius;
 $review-color: color-contrast($review-bg);
 $review-margin: $spacer * 2;
 $review-padding: 1rem;
@@ -10,7 +9,7 @@ $review-padding: 1rem;
     container-type: inline-size;
     border-left: 5px solid darken($review-bg, 20%);
     position: relative;
-    border-radius: $review-border-radius;
+    border-radius: $border-radius;
     color: $review-color;
     background-color: $review-bg;
     overflow: hidden;

@@ -21,7 +21,7 @@
         margin: 10px 0;
         padding: 0;
         border-radius: $alert-border-radius;
-        box-shadow: 0 0 10px 4px rgba(0, 0, 0, .25);
+        box-shadow: $card-box-shadow;
         &:not(.alert-danger) {
             background-color: #ffffff;
             color: color-contrast(#ffffff);

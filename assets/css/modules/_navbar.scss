@@ -107,7 +107,7 @@
     }
     .dropdown-item {
         height: 2.5rem;
-        border-radius: 2px;
+        border-radius: $border-radius;
     }
     .dropdown-divider {
         margin-left: 1rem;

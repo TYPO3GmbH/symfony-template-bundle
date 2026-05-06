@@ -1,9 +1,7 @@
 //
 // Dashboard
 //
-$dashboard-shadow:  $card-box-shadow;
 $dashboard-bg: #ffffff;
-$dashboard-border-radius: $card-border-radius;
 $dashboard-color: #2d2d2d;
 $dashboard-padding: 1.25rem;
 $dashboard-gutter: 1rem;
@@ -25,11 +23,11 @@ $dashboard-list-icon-external: '<svg viewBox="0 0 16 16"><g fill="#{$dashboard-c
     margin: calc(var(--dashboard-gutter) / 2);
     display: flex;
     flex-direction: column;
-    border-radius: $dashboard-border-radius;
+    border-radius: $card-border-radius;
     color: $dashboard-color;
     background-color: $dashboard-bg;
     overflow: hidden;
-    box-shadow: $dashboard-shadow;
+    box-shadow: $card-box-shadow;
     @each $name, $value in $theme-colors {
         &.dashboard-item-severity-#{$name} {
             --dashboard-item-title-icon-color: #{$value};
@@ -100,7 +98,8 @@ $dashboard-list-icon-external: '<svg viewBox="0 0 16 16"><g fill="#{$dashboard-c
 }
 .dashboard-item-row-bordered {
     > .dashboard-item-col {
-        box-shadow: 0 0 0 .5px rgba(0, 0, 0, .15);
+        outline: 1px solid rgba(0, 0, 0, .15);
+        outline-offset: -1px;
     }
 }
 .dashboard-item-col {
