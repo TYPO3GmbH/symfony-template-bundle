@@ -5,3 +5,8 @@
     border: none;
     box-shadow: $card-box-shadow;
 }
+.modal-header,
+.modal-body,
+.modal-footer {
+    padding: $spacer-responsive;
+}

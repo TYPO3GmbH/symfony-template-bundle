@@ -37,6 +37,9 @@ $card-link-hover-color: $link-hover-color !default;
         background-color: $card-cap-bg;
     }
 }
+.card-body {
+    padding: $spacer-responsive;
+}
 .card-header {
     h1,
     h2,
@@ -53,7 +56,7 @@ $card-link-hover-color: $link-hover-color !default;
             color: $primary;
         }
     }
-    padding: 1rem $card-spacer-x;
+    padding: $spacer-responsive;
 }
 .card-img-top {
     overflow: hidden;
@@ -64,7 +67,7 @@ $card-link-hover-color: $link-hover-color !default;
     }
 }
 .card-footer {
-    padding: 1rem $card-spacer-x;
+    padding: $spacer-responsive;
     .datatable + & {
         border-top: 1px solid rgba(0, 0, 0, .15);
     }
@@ -92,7 +95,7 @@ $card-link-hover-color: $link-hover-color !default;
 }
 .card-button {
     border: none;
-    padding: $card-spacer-y $card-spacer-x;
+    padding: $spacer-responsive;
 }
 .card-body + .card-body {
     border-top: 1px solid rgba(0, 0, 0, .15);
@@ -122,7 +125,7 @@ $card-link-hover-color: $link-hover-color !default;
 .card-badge {
     font-size: $font-size-sm;
     line-height: 1;
-    padding: .5rem $card-spacer-x;
+    padding: calc(#{$spacer-responsive} / 2) $spacer-responsive;
     text-transform: uppercase;
     border-bottom: 1px solid rgba(0, 0, 0, .15);
 }
@@ -218,7 +221,6 @@ $card-link-hover-color: $link-hover-color !default;
 }
 .card-header-title {
     flex-grow: 1;
-    overflow: hidden;
     > * {
         margin-bottom: 0;
     }
@@ -260,11 +262,11 @@ $card-link-hover-color: $link-hover-color !default;
     }
     .card-subtitle {
         font-size: $card-subtitle-size;
-        margin-bottom: $card-spacer-y;
+        margin-bottom: $spacer-responsive;
     }
     .card-footer {
         border-top: 0;
-        padding: $card-spacer-x;
+        padding: $spacer-responsive;
         background-color: transparent;
     }
     .card-body + .card-footer {

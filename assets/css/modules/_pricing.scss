@@ -19,7 +19,7 @@ $pricing-spacer: $card-spacer-y;
         border-color: $primary;
     }
     .pricing-image {
-        margin: -$pricing-spacer;
+        margin: calc(#{$pricing-spacer} * -1);
         margin-bottom: 0;
     }
 }
@@ -42,7 +42,7 @@ $pricing-spacer: $card-spacer-y;
 }
 .pricing-image {
     overflow: hidden;
-    margin: calc(-#{$pricing-spacer} - #{$card-border-width});
+    margin: calc((#{$pricing-spacer} * -1) - #{$card-border-width});
     margin-bottom: 0;
     border-top-left-radius: $card-border-radius;
     border-top-right-radius: $card-border-radius;
