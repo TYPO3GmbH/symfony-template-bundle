@@ -129,13 +129,22 @@ input.form-control:not(.input-group .form-control) {
         box-shadow: $card-box-shadow, inset 0 0 0 1px #777777;
     }
 
-    svg {
+    svg,
+    .cert {
         float: right;
         width: 50px;
         max-width: 25%;
         height: auto;
         margin-left: .5rem;
         fill: currentColor;
+    }
+
+    .form-check-input:disabled ~ .form-check-label,
+    .form-check-input[disabled] ~ .form-check-label {
+        img {
+            filter: grayscale(100%);
+            opacity: .66;
+        }
     }
 }
 
