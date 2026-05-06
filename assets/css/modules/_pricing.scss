@@ -18,6 +18,10 @@ $pricing-spacer: $card-spacer-y;
     .pricing {
         border-color: $primary;
     }
+    .pricing-image {
+        margin: -$pricing-spacer;
+        margin-bottom: 0;
+    }
 }
 .pricing {
     padding: $pricing-spacer;
@@ -38,11 +42,10 @@ $pricing-spacer: $card-spacer-y;
 }
 .pricing-image {
     overflow: hidden;
-    margin: -$pricing-spacer;
-    margin-top: -($pricing-spacer * 1.5);
+    margin: calc(-#{$pricing-spacer} - #{$card-border-width});
     margin-bottom: 0;
-    border-top-left-radius: $border-radius-sm;
-    border-top-right-radius: $border-radius-sm;
+    border-top-left-radius: $card-border-radius;
+    border-top-right-radius: $card-border-radius;
 }
 .pricing-header {
     text-align: center;
