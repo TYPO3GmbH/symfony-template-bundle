@@ -205,7 +205,7 @@ $card-link-hover-color: $link-hover-color !default;
     flex-direction: column;
     @include media-breakpoint-up('sm') {
         flex-direction: row;
-        align-items: center;
+        align-items: flex-start;
     }
 }
 .card-header-icon {
@@ -237,16 +237,30 @@ $card-link-hover-color: $link-hover-color !default;
     flex-shrink: 0;
     display: flex;
     gap: .35rem;
+    min-width: max-content;
+    margin-left: auto;
 }
 .card-header-form {
     flex-grow: 1;
+    min-width: 0;
     > form > div {
         display: flex;
-        margin: -.25rem;
+        flex-wrap: wrap;
+        gap: .5rem;
     }
     .form-group {
-        padding: .25rem;
         margin: 0;
+        min-width: 0;
+    }
+    .form-control,
+    .form-select {
+        width: 100%;
+    }
+    @include media-breakpoint-down('sm') {
+        + .card-header-actions,
+        + .card-header-actions .btn {
+            width: 100%;
+        }
     }
 }
 
