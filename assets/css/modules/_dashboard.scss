@@ -9,20 +9,39 @@ $dashboard-list-hover-bg: #efefef;
 $dashboard-list-hover-color: color-contrast($dashboard-list-hover-bg);
 $dashboard-list-icon-show: '<svg viewBox="0 0 16 16"><g fill="#{$dashboard-color}"><path d="M9.586 8L6.05 11.536l.707.707L11 8 6.757 3.757l-.707.707z"/></g></svg>';
 $dashboard-list-icon-external: '<svg viewBox="0 0 16 16"><g fill="#{$dashboard-color}"><path d="M10.05 8.657l-.707-.707L14.293 3l.706.707z"/><path d="M13 8.536V12H3V5h6.464l1-1H2.5a.5.5 0 0 0-.5.5v8a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 .5-.5V7.535l-1 1.001zM15.573 6.573l-4.146-4.146A.25.25 0 0 1 11.604 2h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177z"/></g></svg>';
+$dashboard-grid-column-fallbacks: (
+    sm: var(--dashboard-column-base, auto),
+    md: var(--dashboard-column-sm, var(--dashboard-column-base, auto)),
+    lg: var(--dashboard-column-md, var(--dashboard-column-sm, var(--dashboard-column-base, auto))),
+    xl: var(--dashboard-column-lg, var(--dashboard-column-md, var(--dashboard-column-sm, var(--dashboard-column-base, auto)))),
+    xxl: var(--dashboard-column-xl, var(--dashboard-column-lg, var(--dashboard-column-md, var(--dashboard-column-sm, var(--dashboard-column-base, auto)))))
+);
+$dashboard-grid-span-fallbacks: (
+    sm: var(--dashboard-span-base, #{$grid-columns}),
+    md: var(--dashboard-span-sm, var(--dashboard-span-base, #{$grid-columns})),
+    lg: var(--dashboard-span-md, var(--dashboard-span-sm, var(--dashboard-span-base, #{$grid-columns}))),
+    xl: var(--dashboard-span-lg, var(--dashboard-span-md, var(--dashboard-span-sm, var(--dashboard-span-base, #{$grid-columns})))),
+    xxl: var(--dashboard-span-xl, var(--dashboard-span-lg, var(--dashboard-span-md, var(--dashboard-span-sm, var(--dashboard-span-base, #{$grid-columns})))))
+);
 :root {
     --dashboard-padding: #{$dashboard-padding};
     --dashboard-gutter: #{$dashboard-gutter};
     --dashboard-item-title-icon-color: #{$typo3orange};
 }
 .dashboard {
-    display: flex;
-    flex-wrap: wrap;
-    margin: calc(var(--dashboard-gutter) * -1 / 2);
+    display: grid;
+    gap: var(--dashboard-gutter);
+    grid-template-columns: repeat($grid-columns, minmax(0, 1fr));
+    align-items: stretch;
+    > * {
+        grid-column: var(--dashboard-column-base, auto) / span var(--dashboard-span-base, #{$grid-columns});
+        min-width: 0;
+    }
 }
 .dashboard-item {
-    margin: calc(var(--dashboard-gutter) / 2);
     display: flex;
     flex-direction: column;
+    height: 100%;
     border-radius: $card-border-radius;
     color: $dashboard-color;
     background-color: $dashboard-bg;
@@ -47,13 +66,19 @@ $dashboard-list-icon-external: '<svg viewBox="0 0 16 16"><g fill="#{$dashboard-c
     }
 }
 .dashboard-item-body {
-    flex-grow: 1;
+    flex: 1 1 auto;
+    min-width: 0;
     padding: var(--dashboard-padding);
     > *:last-child {
         margin-bottom: 0;
     }
 }
 .dashboard-item-footer {
+    display: flex;
+    gap: .625rem;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
     padding: var(--dashboard-padding);
     padding-top: 0;
     > *:last-child {
@@ -77,12 +102,26 @@ $dashboard-list-icon-external: '<svg viewBox="0 0 16 16"><g fill="#{$dashboard-c
 //
 // Widths
 //
-@each $breakpoint in map-keys($grid-breakpoints) {
+@for $i from 1 through $grid-columns {
+    .dashboard-span-base-#{$i} {
+        --dashboard-span-base: #{$i};
+    }
+    .dashboard-start-base-#{$i} {
+        --dashboard-column-base: #{$i};
+    }
+}
+@each $breakpoint in map-keys(map-remove($grid-breakpoints, xs)) {
     $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
     @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+        .dashboard > * {
+            grid-column: var(--dashboard-column#{$infix}, #{map-get($dashboard-grid-column-fallbacks, $breakpoint)}) / span var(--dashboard-span#{$infix}, #{map-get($dashboard-grid-span-fallbacks, $breakpoint)});
+        }
         @for $i from 1 through $grid-columns {
-            .dashboard-item#{$infix}-w#{$i} {
-                width: calc(100% / #{$grid-columns} * #{$i} - var(--dashboard-gutter));
+            .dashboard-span#{$infix}-#{$i} {
+                --dashboard-span#{$infix}: #{$i};
+            }
+            .dashboard-start#{$infix}-#{$i} {
+                --dashboard-column#{$infix}: #{$i};
             }
         }
     }
@@ -246,6 +285,7 @@ $dashboard-list-icon-external: '<svg viewBox="0 0 16 16"><g fill="#{$dashboard-c
 }
 .dashboard-actions-entry-content {
     flex-grow: 1;
+    min-width: 0;
     > *:first-child {
         margin-top: 0;
     }
@@ -263,4 +303,11 @@ $dashboard-list-icon-external: '<svg viewBox="0 0 16 16"><g fill="#{$dashboard-c
 .dashboard-actions-entry-subtitle {
     font-size: .85rem;
     margin-bottom: 0;
+}
+.dashboard-actions-entry-icon,
+.dashboard-actions-entry-actions {
+    flex: 0 0 auto;
+}
+.dashboard-actions-entry-icon {
+    line-height: 1;
 }
