@@ -3,8 +3,8 @@
 //
 $dashboard-bg: #ffffff;
 $dashboard-color: #2d2d2d;
-$dashboard-padding: 1.25rem;
-$dashboard-gutter: 1rem;
+$dashboard-padding: $spacer-responsive;
+$dashboard-gutter: $spacer-responsive;
 $dashboard-container-max-width: 2000px;
 $dashboard-row-spans: 4 !default;
 $dashboard-row-starts: 4 !default;
