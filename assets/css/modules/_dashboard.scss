@@ -5,6 +5,7 @@ $dashboard-bg: #ffffff;
 $dashboard-color: #2d2d2d;
 $dashboard-padding: 1.25rem;
 $dashboard-gutter: 1rem;
+$dashboard-row-spans: 4 !default;
 $dashboard-list-hover-bg: #efefef;
 $dashboard-list-hover-color: color-contrast($dashboard-list-hover-bg);
 $dashboard-list-icon-show: '<svg viewBox="0 0 16 16"><g fill="#{$dashboard-color}"><path d="M9.586 8L6.05 11.536l.707.707L11 8 6.757 3.757l-.707.707z"/></g></svg>';
@@ -23,6 +24,13 @@ $dashboard-grid-span-fallbacks: (
     xl: var(--dashboard-span-lg, var(--dashboard-span-md, var(--dashboard-span-sm, var(--dashboard-span-base, #{$grid-columns})))),
     xxl: var(--dashboard-span-xl, var(--dashboard-span-lg, var(--dashboard-span-md, var(--dashboard-span-sm, var(--dashboard-span-base, #{$grid-columns})))))
 );
+$dashboard-grid-rowspan-fallbacks: (
+    sm: var(--dashboard-rowspan-base, 1),
+    md: var(--dashboard-rowspan-sm, var(--dashboard-rowspan-base, 1)),
+    lg: var(--dashboard-rowspan-md, var(--dashboard-rowspan-sm, var(--dashboard-rowspan-base, 1))),
+    xl: var(--dashboard-rowspan-lg, var(--dashboard-rowspan-md, var(--dashboard-rowspan-sm, var(--dashboard-rowspan-base, 1)))),
+    xxl: var(--dashboard-rowspan-xl, var(--dashboard-rowspan-lg, var(--dashboard-rowspan-md, var(--dashboard-rowspan-sm, var(--dashboard-rowspan-base, 1)))))
+);
 :root {
     --dashboard-padding: #{$dashboard-padding};
     --dashboard-gutter: #{$dashboard-gutter};
@@ -35,6 +43,7 @@ $dashboard-grid-span-fallbacks: (
     align-items: stretch;
     > * {
         grid-column: var(--dashboard-column-base, auto) / span var(--dashboard-span-base, #{$grid-columns});
+        grid-row: span var(--dashboard-rowspan-base, 1);
         min-width: 0;
     }
 }
@@ -110,11 +119,17 @@ $dashboard-grid-span-fallbacks: (
         --dashboard-column-base: #{$i};
     }
 }
+@for $i from 1 through $dashboard-row-spans {
+    .dashboard-rowspan-base-#{$i} {
+        --dashboard-rowspan-base: #{$i};
+    }
+}
 @each $breakpoint in map-keys(map-remove($grid-breakpoints, xs)) {
     $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
     @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
         .dashboard > * {
             grid-column: var(--dashboard-column#{$infix}, #{map-get($dashboard-grid-column-fallbacks, $breakpoint)}) / span var(--dashboard-span#{$infix}, #{map-get($dashboard-grid-span-fallbacks, $breakpoint)});
+            grid-row: span var(--dashboard-rowspan#{$infix}, #{map-get($dashboard-grid-rowspan-fallbacks, $breakpoint)});
         }
         @for $i from 1 through $grid-columns {
             .dashboard-span#{$infix}-#{$i} {
@@ -122,6 +137,11 @@ $dashboard-grid-span-fallbacks: (
             }
             .dashboard-start#{$infix}-#{$i} {
                 --dashboard-column#{$infix}: #{$i};
+            }
+        }
+        @for $i from 1 through $dashboard-row-spans {
+            .dashboard-rowspan#{$infix}-#{$i} {
+                --dashboard-rowspan#{$infix}: #{$i};
             }
         }
     }

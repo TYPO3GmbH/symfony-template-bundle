@@ -74,6 +74,61 @@
         {% endexample %}
     {% endframe %}
 
+    {% frame %}
+        <h2>Row Span</h2>
+        {% example with { language: 'html' } %}
+<div class="dashboard">
+    <div class="dashboard-item dashboard-span-base-12 dashboard-span-sm-6 dashboard-span-md-3">
+        <h3 class="dashboard-item-title">
+            {{ icon('actions-brand-typo3') }}
+            Item 1
+        </h3>
+        <div class="dashboard-item-body">
+            <p>Lorem ipsum dolor sit amet.</p>
+        </div>
+    </div>
+    <div class="dashboard-item dashboard-span-base-12 dashboard-span-sm-6 dashboard-span-md-3">
+        <h3 class="dashboard-item-title">
+            {{ icon('actions-brand-discord') }}
+            Item 2
+        </h3>
+        <div class="dashboard-item-body">
+            <p>Ut sed erat id nunc vestibulum.</p>
+        </div>
+    </div>
+    <div class="dashboard-item dashboard-span-base-12 dashboard-span-md-3 dashboard-rowspan-md-2">
+        <h3 class="dashboard-item-title">
+            {{ icon('actions-brand-twitter') }}
+            Item 3
+        </h3>
+        <div class="dashboard-item-body">
+            <p>Nam turpis diam, faucibus quis consectetur at, mollis at ligula.</p>
+            <p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
+        </div>
+    </div>
+    <div class="dashboard-item dashboard-span-base-12 dashboard-span-md-3 dashboard-rowspan-md-2">
+        <h3 class="dashboard-item-title">
+            {{ icon('actions-brand-facebook') }}
+            Item 4
+        </h3>
+        <div class="dashboard-item-body">
+            <p>Curabitur blandit tempus porttitor.</p>
+            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+        </div>
+    </div>
+    <div class="dashboard-item dashboard-span-base-12 dashboard-span-md-6">
+        <h3 class="dashboard-item-title">
+            {{ icon('actions-brand-slack') }}
+            Item 5
+        </h3>
+        <div class="dashboard-item-body">
+            <p>Donec ullamcorper nulla non metus auctor fringilla.</p>
+        </div>
+    </div>
+</div>
+        {% endexample %}
+    {% endframe %}
+
 
     {% frame %}
         <h2>List</h2>
