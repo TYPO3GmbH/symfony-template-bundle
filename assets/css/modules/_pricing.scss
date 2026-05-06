@@ -1,6 +1,8 @@
 //
 // Pricing
 //
+$pricing-spacer: $card-spacer-y;
+
 .pricing-grid {
     position: relative;
     display: flex;
@@ -12,8 +14,13 @@
     position: relative;
     width: 230px;
 }
+.pricing-grid-item-active {
+    .pricing {
+        border-color: $primary;
+    }
+}
 .pricing {
-    padding: $card-spacer-y $card-spacer-x;
+    padding: $pricing-spacer;
     display: flex;
     height: 100%;
     flex-direction: column;
@@ -23,7 +30,7 @@
     background-color: $card-bg;
     box-shadow: $card-box-shadow;
     transition: box-shadow ease-in-out .2s, background-color ease-in-out .2s;
-    gap: $card-spacer-y;
+    gap: $pricing-spacer;
     &:hover,
     &[data-active="true"] {
         box-shadow: $box-shadow;
@@ -31,11 +38,11 @@
 }
 .pricing-image {
     overflow: hidden;
-    margin: -1.5rem;
-    margin-top: -2.25rem;
+    margin: -$pricing-spacer;
+    margin-top: -($pricing-spacer * 1.5);
     margin-bottom: 0;
-    border-top-left-radius: .5rem;
-    border-top-right-radius: .5rem;
+    border-top-left-radius: $border-radius-sm;
+    border-top-right-radius: $border-radius-sm;
 }
 .pricing-header {
     text-align: center;
