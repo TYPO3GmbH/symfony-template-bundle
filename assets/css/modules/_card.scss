@@ -109,7 +109,7 @@ $card-link-hover-color: $link-hover-color !default;
 //
 .card-alerts {
     .alert {
-        padding: .75rem $card-spacer-x;
+        padding: $alert-padding-y $alert-padding-x;
         border: none;
         border-radius: 0;
         margin-bottom: 0;

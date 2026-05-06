@@ -200,7 +200,7 @@ $frame-backgrounds: map-merge(
     }
     .frame-group-inner {
         position: relative;
-        border-radius: $border-radius-sm;
+        border-radius: $border-radius-lg;
         background: var(--frame-background);
         padding: var(--frame-spacing);
     }
@@ -208,7 +208,7 @@ $frame-backgrounds: map-merge(
         padding: 0;
     }
     .frame-backgroundimage-container {
-        border-radius: $border-radius-sm;
+        border-radius: $border-radius-lg;
     }
 }
 
