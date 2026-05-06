@@ -5,7 +5,9 @@ $dashboard-bg: #ffffff;
 $dashboard-color: #2d2d2d;
 $dashboard-padding: 1.25rem;
 $dashboard-gutter: 1rem;
+$dashboard-container-max-width: 2000px;
 $dashboard-row-spans: 4 !default;
+$dashboard-row-starts: 4 !default;
 $dashboard-list-hover-bg: #efefef;
 $dashboard-list-hover-color: color-contrast($dashboard-list-hover-bg);
 $dashboard-list-icon-show: '<svg viewBox="0 0 16 16"><g fill="#{$dashboard-color}"><path d="M9.586 8L6.05 11.536l.707.707L11 8 6.757 3.757l-.707.707z"/></g></svg>';
@@ -31,10 +33,21 @@ $dashboard-grid-rowspan-fallbacks: (
     xl: var(--dashboard-rowspan-lg, var(--dashboard-rowspan-md, var(--dashboard-rowspan-sm, var(--dashboard-rowspan-base, 1)))),
     xxl: var(--dashboard-rowspan-xl, var(--dashboard-rowspan-lg, var(--dashboard-rowspan-md, var(--dashboard-rowspan-sm, var(--dashboard-rowspan-base, 1)))))
 );
+$dashboard-grid-rowstart-fallbacks: (
+    sm: var(--dashboard-rowstart-base, auto),
+    md: var(--dashboard-rowstart-sm, var(--dashboard-rowstart-base, auto)),
+    lg: var(--dashboard-rowstart-md, var(--dashboard-rowstart-sm, var(--dashboard-rowstart-base, auto))),
+    xl: var(--dashboard-rowstart-lg, var(--dashboard-rowstart-md, var(--dashboard-rowstart-sm, var(--dashboard-rowstart-base, auto)))),
+    xxl: var(--dashboard-rowstart-xl, var(--dashboard-rowstart-lg, var(--dashboard-rowstart-md, var(--dashboard-rowstart-sm, var(--dashboard-rowstart-base, auto)))))
+);
 :root {
     --dashboard-padding: #{$dashboard-padding};
     --dashboard-gutter: #{$dashboard-gutter};
+    --dashboard-container-max-width: #{$dashboard-container-max-width};
     --dashboard-item-title-icon-color: #{$typo3orange};
+}
+.container-dashboard {
+    max-width: var(--dashboard-container-max-width);
 }
 .dashboard {
     display: grid;
@@ -43,7 +56,7 @@ $dashboard-grid-rowspan-fallbacks: (
     align-items: stretch;
     > * {
         grid-column: var(--dashboard-column-base, auto) / span var(--dashboard-span-base, #{$grid-columns});
-        grid-row: span var(--dashboard-rowspan-base, 1);
+        grid-row: var(--dashboard-rowstart-base, auto) / span var(--dashboard-rowspan-base, 1);
         min-width: 0;
     }
 }
@@ -124,12 +137,17 @@ $dashboard-grid-rowspan-fallbacks: (
         --dashboard-rowspan-base: #{$i};
     }
 }
+@for $i from 1 through $dashboard-row-starts {
+    .dashboard-rowstart-base-#{$i} {
+        --dashboard-rowstart-base: #{$i};
+    }
+}
 @each $breakpoint in map-keys(map-remove($grid-breakpoints, xs)) {
     $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
     @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
         .dashboard > * {
             grid-column: var(--dashboard-column#{$infix}, #{map-get($dashboard-grid-column-fallbacks, $breakpoint)}) / span var(--dashboard-span#{$infix}, #{map-get($dashboard-grid-span-fallbacks, $breakpoint)});
-            grid-row: span var(--dashboard-rowspan#{$infix}, #{map-get($dashboard-grid-rowspan-fallbacks, $breakpoint)});
+            grid-row: var(--dashboard-rowstart#{$infix}, #{map-get($dashboard-grid-rowstart-fallbacks, $breakpoint)}) / span var(--dashboard-rowspan#{$infix}, #{map-get($dashboard-grid-rowspan-fallbacks, $breakpoint)});
         }
         @for $i from 1 through $grid-columns {
             .dashboard-span#{$infix}-#{$i} {
@@ -142,6 +160,11 @@ $dashboard-grid-rowspan-fallbacks: (
         @for $i from 1 through $dashboard-row-spans {
             .dashboard-rowspan#{$infix}-#{$i} {
                 --dashboard-rowspan#{$infix}: #{$i};
+            }
+        }
+        @for $i from 1 through $dashboard-row-starts {
+            .dashboard-rowstart#{$infix}-#{$i} {
+                --dashboard-rowstart#{$infix}: #{$i};
             }
         }
     }
