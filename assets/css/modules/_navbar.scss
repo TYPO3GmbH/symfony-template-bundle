@@ -421,7 +421,15 @@
         width: 1rem;
         border: none;
         margin-left: auto;
-        background-image: url(svg-inline('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g class="icon-color"><path d="M4.464 6.05l-.707.707L8 11l4.243-4.243-.707-.707L8 9.586z"/></g></svg>'));
+        background-color: currentColor;
+        mask-image: url(svg-inline('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M4.464 6.05l-.707.707L8 11l4.243-4.243-.707-.707L8 9.586z"/></svg>'));
+        mask-position: center;
+        mask-repeat: no-repeat;
+        mask-size: 1rem 1rem;
+        -webkit-mask-image: url(svg-inline('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M4.464 6.05l-.707.707L8 11l4.243-4.243-.707-.707L8 9.586z"/></svg>'));
+        -webkit-mask-position: center;
+        -webkit-mask-repeat: no-repeat;
+        -webkit-mask-size: 1rem 1rem;
     }
     &[aria-expanded="true"]:after {
         transform: rotate(180deg);
