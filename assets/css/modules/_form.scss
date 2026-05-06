@@ -107,6 +107,38 @@ input.form-control:not(.input-group .form-control) {
 //
 // Form Check
 //
+.form-check-box {
+    height: 100%;
+    padding: .75rem;
+    padding-left: 2.75rem;
+    border: none;
+    border-radius: $card-border-radius;
+    box-shadow: $card-box-shadow;
+
+    .form-check-input {
+        margin-left: -2rem;
+    }
+
+    .form-check-label {
+        display: block;
+    }
+
+    &:has(.form-check-input[type="radio"]:checked),
+    &:has(.form-check-input[type="checkbox"]:checked) {
+        background-color: #f8f8f8;
+        box-shadow: $card-box-shadow, inset 0 0 0 1px #777777;
+    }
+
+    svg {
+        float: right;
+        width: 50px;
+        max-width: 25%;
+        height: auto;
+        margin-left: .5rem;
+        fill: currentColor;
+    }
+}
+
 .form-check-label-hascount {
     display: flex;
 }
