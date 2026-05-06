@@ -331,7 +331,8 @@ $grid-gutter-width: 40px;
 // Progress
 // --------------------------------------------------
 $progress-height:           2rem;
-$progress-border-radius:    $border-radius;
+$progress-border-radius:    $border-radius-lg;
+$progress-font-size:        $font-size-sm;
 
 //
 // Modal
