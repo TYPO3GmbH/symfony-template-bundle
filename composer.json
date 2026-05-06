@@ -37,7 +37,7 @@
         "friendsofphp/php-cs-fixer": "^3.0",
         "overtrue/phplint": "^5.5.0",
         "symfony/phpunit-bridge": "^5.4 || ^6.4 || ^7.4",
-        "symfony/webpack-encore-bundle": "^1.13"
+        "symfony/webpack-encore-bundle": "^2.4"
     },
     "suggest": {
         "symfony/webpack-encore-bundle": "Needed to support encore entrypoints."
