@@ -21,6 +21,10 @@
     --#{$prefix}btn-hover-border-color: var(--#{$prefix}btn-border-color);
 }
 
+.btn-light {
+    --#{$prefix}btn-bg: #f2f2f2;
+}
+
 .btn:not(.btn-link) {
     display: inline-flex;
     align-items: center;
