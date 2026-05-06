@@ -7,13 +7,12 @@ $enable-shadows: true;
 //
 // Components
 // --------------------------------------------------
-$box-shadow-sm: 0 6px 11px rgba(0, 0, 0, 0.15);
+$box-shadow-sm: 0 6px 11px rgba(0, 0, 0, .15);
 $box-shadow-card:
-    0 22px 10px rgba(0, 0, 0, 0.01),
-    0 12px 8px rgba(0, 0, 0, 0.02),
-    0 4px 6px rgba(0, 0, 0, 0.05),
-    0 0 3px rgba(0, 0, 0, 0.08);
-
+    0 22px 10px rgba(0, 0, 0, .01),
+    0 12px 8px rgba(0, 0, 0, .02),
+    0 4px 6px rgba(0, 0, 0, .05),
+    0 0 3px rgba(0, 0, 0, .08);
 
 //
 // Colors
@@ -36,14 +35,14 @@ $indigo:            #5d4db3;
 $purple:            #7f4db3;
 $pink:              #bf4080;
 $red:               #cc3d33;
-$orange:            #ED6D05;
+$orange:            #ed6d05;
 $typo3orange:       #ff8700;
 $yellow:            #ffd500;
 $green:             #6eb34d;
 $teal:              #33cc9e;
 $cyan:              #13abec;
 
-$primary:           #ED6D05;
+$primary:           #ed6d05;
 $primary-dark:      shade-color($primary, 20%);
 $primary-light:     tint-color($primary, 20%);
 
@@ -127,7 +126,7 @@ $link-alternate-color:          #ffffff;
 $link-alternate-hover-color:    darken($link-alternate-color, 15%);
 
 $min-contrast-ratio: 2.4;
-$spacer-responsive: clamp(0.75rem, calc(0.75rem + 0.625vw), 1.5625rem);
+$spacer-responsive: clamp(.75rem, calc(.75rem + .625vw), 1.5625rem);
 
 //
 // Grid breakpoints
@@ -166,13 +165,13 @@ $h4-font-size: 1.25rem;
 $h5-font-size: 1rem;
 $h6-font-size: .8125rem;
 
-$font-size-base-responsive: clamp(1rem, calc(0.9605rem + 0.1976vw), 1.125rem);
+$font-size-base-responsive: clamp(1rem, calc(.9605rem + .1976vw), 1.125rem);
 $h1-font-size-responsive: clamp(1.4375rem, calc(1.3489rem + 1.0087vw), 2.1887rem);
-$h2-font-size-responsive: clamp(1.375rem, calc(1.3086rem + 0.7554vw), 1.938rem);
-$h3-font-size-responsive: clamp(1.25rem, calc(1.1909rem + 0.6723vw), 1.75rem);
-$h4-font-size-responsive: clamp(1.125rem, calc(1.1536rem + 0.5603vw), 1.62rem);
-$h5-font-size-responsive: clamp(1rem, calc(1.0539rem + 0.3557vw), 1.35rem);
-$h6-font-size-responsive: clamp(1rem, calc(0.9605rem + 0.1976vw), 1.125rem);
+$h2-font-size-responsive: clamp(1.375rem, calc(1.3086rem + .7554vw), 1.938rem);
+$h3-font-size-responsive: clamp(1.25rem, calc(1.1909rem + .6723vw), 1.75rem);
+$h4-font-size-responsive: clamp(1.125rem, calc(1.1536rem + .5603vw), 1.62rem);
+$h5-font-size-responsive: clamp(1rem, calc(1.0539rem + .3557vw), 1.35rem);
+$h6-font-size-responsive: clamp(1rem, calc(.9605rem + .1976vw), 1.125rem);
 
 $font-size-base:  1rem;
 $font-size-lg:    $font-size-base * 1.25 !default;
@@ -210,16 +209,16 @@ $border-radius-lg:          1rem;
 //
 // Forms and Buttons
 //
-$input-btn-padding-y: 0.5625rem;
+$input-btn-padding-y: .5625rem;
 $input-btn-padding-x: 1rem;
 $input-btn-font-size: 1.1875rem;
 $input-btn-line-height: 1;
-$input-btn-border-width: 0.125rem;
-$input-btn-padding-y-sm: 0.375rem;
-$input-btn-padding-x-sm: 0.75rem;
+$input-btn-border-width: .125rem;
+$input-btn-padding-y-sm: .375rem;
+$input-btn-padding-x-sm: .75rem;
 $input-btn-font-size-sm: 1rem;
 $input-btn-line-height-sm: 1;
-$input-btn-padding-y-lg: 0.75rem;
+$input-btn-padding-y-lg: .75rem;
 $input-btn-padding-x-lg: 1.25rem;
 $input-btn-font-size-lg: 1.375rem;
 $input-btn-line-height-lg: 1;
@@ -247,10 +246,10 @@ $btn-hover-bg-tint-amount: 0%;
 $btn-hover-border-shade-amount: 50%;
 $btn-hover-border-tint-amount: 0%;
 $btn-hover-shadow:
-    0 25px 10px rgba(0, 0, 0, 0.01),
-    0 14px 8px rgba(0, 0, 0, 0.05),
-    0 6px 6px rgba(0, 0, 0, 0.09),
-    0 2px 3px rgba(0, 0, 0, 0.1);
+    0 25px 10px rgba(0, 0, 0, .01),
+    0 14px 8px rgba(0, 0, 0, .05),
+    0 6px 6px rgba(0, 0, 0, .09),
+    0 2px 3px rgba(0, 0, 0, .1);
 
 $input-padding-y: $input-btn-padding-y;
 $input-padding-x: $input-btn-padding-x;

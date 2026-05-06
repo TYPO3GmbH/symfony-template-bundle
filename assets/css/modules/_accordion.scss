@@ -9,7 +9,6 @@
     .accordion-item:first-of-type {
         overflow: hidden;
     }
-
     .accordion-item:last-of-type {
         overflow: hidden;
     }
@@ -21,18 +20,15 @@
         border-radius: $accordion-border-radius;
         overflow: hidden;
     }
-
     .accordion-button,
     .accordion-title-link {
         border-top-left-radius: $accordion-button-border-radius !important;
         border-top-right-radius: $accordion-button-border-radius !important;
-
         &.collapsed {
             border-bottom-left-radius: $accordion-button-border-radius !important;
             border-bottom-right-radius: $accordion-button-border-radius !important;
         }
     }
-
     .accordion-collapse {
         border-bottom-right-radius: $accordion-border-radius;
         border-bottom-left-radius: $accordion-border-radius;

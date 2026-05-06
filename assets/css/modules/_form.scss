@@ -26,11 +26,9 @@
     vertical-align: middle;
     margin-left: 1rem;
 }
-
 input.form-control:not(.input-group .form-control) {
     height: $input-height;
 }
-
 .input-group-text {
     .form-check {
         display: flex;
@@ -114,15 +112,12 @@ input.form-control:not(.input-group .form-control) {
     border: none;
     border-radius: $card-border-radius;
     box-shadow: $card-box-shadow;
-
     .form-check-input {
         margin-left: -2rem;
     }
-
     .form-check-label {
         display: block;
     }
-
     &:has(.form-check-input[type="radio"]:checked),
     &:has(.form-check-input[type="checkbox"]:checked) {
         background-color: #f8f8f8;
@@ -130,7 +125,6 @@ input.form-control:not(.input-group .form-control) {
         outline: 1px solid #777777;
         outline-offset: -1px;
     }
-
     svg,
     .cert {
         float: right;
@@ -140,7 +134,6 @@ input.form-control:not(.input-group .form-control) {
         margin-left: .5rem;
         fill: currentColor;
     }
-
     .form-check-input:disabled ~ .form-check-label,
     .form-check-input[disabled] ~ .form-check-label {
         img {
@@ -149,7 +142,6 @@ input.form-control:not(.input-group .form-control) {
         }
     }
 }
-
 .form-check-label-hascount {
     display: flex;
 }

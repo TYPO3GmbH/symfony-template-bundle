@@ -13,27 +13,22 @@
     --#{$prefix}btn-active-bg: #{$black};
     --#{$prefix}btn-active-border-color: #{$black};
 }
-
 .btn-notice,
 .btn-light,
 .btn-lighter {
     --#{$prefix}btn-border-color: #{$gray-400};
     --#{$prefix}btn-hover-border-color: var(--#{$prefix}btn-border-color);
 }
-
 .btn-light {
     --#{$prefix}btn-bg: #f2f2f2;
 }
-
 .btn:not(.btn-link) {
     display: inline-flex;
     align-items: center;
-
     &:hover,
     &:focus {
         box-shadow: $btn-hover-shadow;
     }
-
     .input-group & {
         box-shadow: none;
     }

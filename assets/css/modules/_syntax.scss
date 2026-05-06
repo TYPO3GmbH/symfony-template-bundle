@@ -2,7 +2,6 @@
 // Syntax
 //
 $code-font-size: .875em;
-
 code,
 kbd,
 pre,
@@ -10,16 +9,13 @@ pre,
 samp {
     font-size: $code-font-size;
 }
-
 code[class*="language-"],
 pre[class*="language-"] {
     font-size: $code-font-size;
 }
-
 pre {
     border-radius: $border-radius;
 }
-
 .modal-content {
     pre[class*="language-"] {
         margin: 0;

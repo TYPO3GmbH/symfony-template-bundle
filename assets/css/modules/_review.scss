@@ -95,27 +95,23 @@ $review-padding: 1rem;
         order: 1;
     }
 }
-
 @container (max-width: 720px) {
     .review-header,
     .review-actions {
         padding-left: calc(#{$review-padding} * .75);
         padding-right: calc(#{$review-padding} * .75);
     }
-
     .review-data-item {
         padding-left: calc(#{$review-padding} * .75);
         padding-right: calc(#{$review-padding} * .75);
     }
 }
-
 @container (max-width: 520px) {
     .review-data,
     .review-note {
         font-size: $font-size-sm;
         line-height: 1.25;
     }
-
     .review-card {
         .review-issue,
         .review-title {

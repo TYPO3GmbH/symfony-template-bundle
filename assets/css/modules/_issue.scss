@@ -162,26 +162,22 @@ $issue-type-width: 1.25rem;
         }
     }
 }
-
 @container (max-width: 520px) {
     .issue-data,
     .issue-meta {
         font-size: $font-size-sm;
         line-height: 1.25;
     }
-
     .issue-card {
         .issue-headline {
             font-size: 1rem;
         }
     }
 }
-
 @container (max-width: 720px) {
     .issue-content {
         padding: calc(#{$issue-padding} * .75);
     }
-
     .issue-data-item,
     .issue-meta-item {
         padding-left: calc(#{$issue-padding} * .75);

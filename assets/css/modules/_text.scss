@@ -4,33 +4,26 @@
 body {
     font-size: $font-size-base-responsive;
 }
-
 h1 {
     font-size: $h1-font-size-responsive;
     font-weight: 500;
 }
-
 h2 {
     font-size: $h2-font-size-responsive;
     font-weight: 500;
 }
-
 h3 {
     font-size: $h3-font-size-responsive;
 }
-
 h4 {
     font-size: $h4-font-size-responsive;
 }
-
 h5 {
     font-size: $h5-font-size-responsive;
 }
-
 h6 {
     font-size: $h6-font-size-responsive;
 }
-
 .text-inherit {
     color: inherit !important;
     &:hover {
@@ -44,7 +37,6 @@ h6 {
     color: inherit !important;
     opacity: .5;
 }
-
 .page-main p a:not(.btn):not(.dropdown-item):not(.page-link),
 .page-main li a:not(.btn):not(.dropdown-item):not(.page-link) {
     text-decoration-line: underline;
@@ -52,34 +44,29 @@ h6 {
     text-decoration-thickness: 2px;
     text-underline-offset: 2px;
     font-weight: 500;
-    transition: all 0.1s ease-in;
-
+    transition: all .1s ease-in;
     &:hover,
     &:focus {
         text-decoration-color: currentColor;
     }
 }
-
 .page-main .frame[class*="frame-background-"] p a:not(.btn):not(.dropdown-item):not(.page-link),
 .page-main .frame[class*="frame-background-"] li a:not(.btn):not(.dropdown-item):not(.page-link) {
     color: var(--frame-link-color);
     text-decoration-line: underline;
     text-decoration-color: var(--frame-link-color);
-
     &:hover,
     &:focus {
         color: var(--frame-link-hover-color);
         text-decoration-color: var(--frame-link-hover-color);
     }
 }
-
 .page-main .frame[class*="frame-background-"] .card-inverse p a:not(.btn):not(.dropdown-item):not(.page-link),
 .page-main .frame[class*="frame-background-"] .card-inverse li a:not(.btn):not(.dropdown-item):not(.page-link),
 .page-main .card-inverse a:not(.btn):not(.dropdown-item):not(.page-link),
 .page-main .card-inverse li a:not(.btn):not(.dropdown-item):not(.page-link) {
     color: $white;
     text-decoration-color: $white;
-
     &:hover,
     &:focus {
         color: $white;

@@ -216,7 +216,6 @@ $table-sorting-icon-descending: '<svg viewBox="0 0 16 16"><g fill="#{$table-high
 .datatable-action {
     @extend .btn;
     @extend .btn-sm;
-
     --datatable-action-line-height: calc(#{$btn-font-size-sm} * #{$btn-line-height-sm});
     --#{$prefix}btn-color: #{$body-color};
     --#{$prefix}btn-bg: #{$white};
@@ -227,19 +226,16 @@ $table-sorting-icon-descending: '<svg viewBox="0 0 16 16"><g fill="#{$table-high
     --#{$prefix}btn-active-color: #{$white};
     --#{$prefix}btn-active-bg: #{$black};
     --#{$prefix}btn-active-border-color: #{$black};
-
     display: inline-flex;
     align-items: center;
     gap: .35em;
     min-height: calc(var(--datatable-action-line-height) + (var(--#{$prefix}btn-padding-y) * 2) + (var(--#{$prefix}btn-border-width) * 2));
     vertical-align: middle;
-
     &:hover,
     &:focus {
         box-shadow: $btn-hover-shadow;
         text-decoration: none;
     }
-
     @each $color, $value in $theme-colors {
         &.datatable-action-#{$color} {
             @extend .btn-#{$color};
@@ -259,7 +255,6 @@ $table-sorting-icon-descending: '<svg viewBox="0 0 16 16"><g fill="#{$table-high
     width: var(--datatable-action-line-height);
     height: var(--datatable-action-line-height);
     line-height: 1;
-
     .icon,
     svg {
         display: block;
