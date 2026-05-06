@@ -317,25 +317,22 @@
     display: flex;
     align-items: flex-end;
     > .icon {
-        --icon-size: 34.29px;
+        --icon-size: 30px;
     }
     .icon-color {
         color: $typo3orange;
     }
 }
+.navbar-brand-logo {
+    display: block;
+    width: 29px;
+    height: 29px;
+}
 .navbar-brand-name {
     font-size: 22px;
     font-weight: 400;
     line-height: 1;
-}
-.navbar-brand-image {
-    display: block;
-    img {
-        display: block;
-        width: $navbar-mainnavigation-logo-width;
-        height: $navbar-mainnavigation-logo-height;
-        margin-bottom: 4px;
-    }
+    margin-bottom: -4px;
 }
 
 //
