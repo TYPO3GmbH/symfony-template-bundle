@@ -1,12 +1,10 @@
 //
 // Pricing
 //
-$pricing-padding: 1.5rem;
-$pricing-border-radius: .5rem;
 .pricing-grid {
     position: relative;
     display: flex;
-    gap: 1rem;
+    gap: $spacer;
     flex-wrap: wrap;
     justify-content: center;
 }
@@ -15,47 +13,47 @@ $pricing-border-radius: .5rem;
     width: 230px;
 }
 .pricing {
-    padding: ($pricing-padding * 1.25) $pricing-padding;
+    padding: $card-spacer-y $card-spacer-x;
     display: flex;
     height: 100%;
     flex-direction: column;
     position: relative;
-    border-radius: $pricing-border-radius;
-    background-color: rgba(255, 255, 255, .75);
-    box-shadow: 0 .5rem 1rem rgba($black, 0);
+    border: $card-border-width solid $card-border-color;
+    border-radius: $card-border-radius;
+    background-color: $card-bg;
+    box-shadow: $card-box-shadow;
     transition: box-shadow ease-in-out .2s, background-color ease-in-out .2s;
-    gap: $pricing-padding;
+    gap: $card-spacer-y;
     &:hover,
     &[data-active="true"] {
-        background-color: rgba(255, 255, 255, 1);
-        box-shadow: 0 .5rem 1rem rgba($black, .15);
+        box-shadow: $box-shadow;
     }
 }
 .pricing-image {
     overflow: hidden;
-    margin: -$pricing-padding;
-    margin-top: -($pricing-padding * 1.5);
+    margin: -1.5rem;
+    margin-top: -2.25rem;
     margin-bottom: 0;
-    border-top-left-radius: $pricing-border-radius;
-    border-top-right-radius: $pricing-border-radius;
+    border-top-left-radius: .5rem;
+    border-top-right-radius: .5rem;
 }
 .pricing-header {
     text-align: center;
 }
 .pricing-header-title {
-    font-size: 1.375rem;
-    font-weight: bold;
+    font-size: $h4-font-size;
+    font-weight: $headings-font-weight;
     line-height: 1.25;
 }
 .pricing-header-subtitle {
-    font-size: 1.125rem;
+    font-size: $h5-font-size;
     font-weight: normal;
     line-height: 1.25;
     opacity: .75;
     margin-bottom: 0;
 }
 .pricing-content {
-    font-size: 75%;
+    font-size: $font-size-sm;
     text-align: center;
     flex-grow: 1;
     > *:first-child {
@@ -68,10 +66,14 @@ $pricing-border-radius: .5rem;
 .pricing-items {
     text-align: center;
 }
+.pricing-product-wrapper + .pricing-product-wrapper,
+.pricing-option-wrapper + .pricing-option-wrapper {
+    margin-top: $spacer * .5;
+}
 .pricing-item {
     line-height: 1;
     .pricing-item-price {
-        font-weight: bold;
+        font-weight: $font-weight-bold;
         &[data-currency]:before {
             margin-right: .2em;
             font-size: .75em;
@@ -102,6 +104,8 @@ $pricing-border-radius: .5rem;
 .pricing-select {
     display: flex;
     min-height: 38px;
+    flex-direction: column;
+    gap: $spacer * .5;
     text-align: center;
     align-items: center;
     justify-content: center;
@@ -110,10 +114,70 @@ $pricing-border-radius: .5rem;
     @extend .btn;
     @extend .btn-primary;
     font-size: .875rem;
-    border-radius: 1.25rem;
 }
 .pricing-select-current {
     line-height: 1.25;
     display: inline-block;
     color: $success;
+}
+.pricing-option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.pricing-option-details {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: $spacer * .5;
+}
+.pricing-option-setup {
+    display: flex;
+    flex-direction: column;
+}
+.pricing-option-main {
+    display: flex;
+    flex-direction: column;
+    gap: $spacer * .25;
+}
+.pricing-option-price {
+    display: flex;
+    flex-direction: column;
+    gap: $spacer * .125;
+}
+.pricing-option-setup .pricing-option-amount {
+    font-size: $font-size-sm;
+}
+.pricing-option-amount {
+    font-size: $h2-font-size;
+    font-weight: $font-weight-bold;
+    line-height: 1.1;
+    color: $body-color;
+}
+.pricing-option-label,
+.pricing-option-interval {
+    font-size: $font-size-sm;
+    color: $text-muted;
+}
+.pricing-option-current {
+    display: inline-block;
+    margin-top: $spacer * .25;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-bold;
+    color: $primary;
+    text-transform: uppercase;
+}
+.pricing-option-muted {
+    .pricing-option-amount {
+        color: $text-muted;
+    }
+}
+.pricing-option-selector {
+    @extend .visually-hidden;
+}
+.pricing-option-radio {
+    width: 1.25rem;
+    height: 1.25rem;
+    cursor: pointer;
+    accent-color: $primary;
 }
