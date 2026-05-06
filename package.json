@@ -1,7 +1,7 @@
 {
     "devDependencies": {
         "@fortawesome/fontawesome-free": "^6.4.2",
-        "@symfony/webpack-encore": "^4.5.0",
+        "@symfony/webpack-encore": "^6.0.0",
         "autoprefixer": "^10.4.16",
         "bootstrap": "^5.3.3",
         "bootstrap-tagsinput": "^0.7.1",
@@ -10,15 +10,17 @@
         "eslint-webpack-plugin": "^4.0.1",
         "file-loader": "^6.2.0",
         "jquery": "^3.7.1",
-        "postcss": "^8.4.38",
-        "postcss-loader": "^7.3.3",
+        "postcss": "^8.5",
+        "postcss-loader": "^8.2",
         "postcss-scss": "^4.0.9",
         "regenerator-runtime": "^0.14.1",
-        "sass": "^1.78.0",
-        "sass-loader": "^13.3.2",
+        "sass": "^1.99.0",
+        "sass-loader": "^16.0.7",
         "stylelint": "^15.11.0",
         "stylelint-order": "^6.0.3",
-        "stylelint-scss": "^5.3.1"
+        "stylelint-scss": "^5.3.1",
+        "webpack": "^5.106.2",
+        "webpack-cli": "^6.0.1"
     },
     "license": "UNLICENSED",
     "browserslist": [
