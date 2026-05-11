@@ -23,8 +23,10 @@
     --#{$prefix}btn-bg: #f2f2f2;
 }
 .btn:not(.btn-link) {
-    display: inline-flex;
     align-items: center;
+    &:not(.btn-sm):not(.btn-lg) {
+        min-height: $input-height;
+    }
     &:hover,
     &:focus {
         box-shadow: $btn-hover-shadow;
