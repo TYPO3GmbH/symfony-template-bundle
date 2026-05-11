@@ -235,6 +235,7 @@ $dashboard-grid-rowstart-fallbacks: (
     border-top: 1px solid #e0e3e4;
     line-height: 1.2;
     gap: .75rem;
+    text-decoration: none !important;
     &:after {
         content: '';
         display: block;

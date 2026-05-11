@@ -37,12 +37,13 @@ h6 {
     color: inherit !important;
     opacity: .5;
 }
-.page-main p a:not(.btn):not(.dropdown-item):not(.page-link),
-.page-main li a:not(.btn):not(.dropdown-item):not(.page-link) {
+.page-main p a:not(.btn):not(.dropdown-item):not(.page-link):not(.card-footer-link):not(.dashboard-item-footer-link):not(.datatable-action),
+.modal-body a:not(.btn):not(.dropdown-item):not(.page-link):not(.card-footer-link):not(.dashboard-item-footer-link):not(.datatable-action) {
     text-decoration-line: underline;
     text-decoration-color: $primary;
     text-decoration-thickness: 2px;
     text-underline-offset: 2px;
+    border-bottom: 0;
     font-weight: 500;
     transition: all .1s ease-in;
     &:hover,
@@ -50,23 +51,22 @@ h6 {
         text-decoration-color: currentColor;
     }
 }
-.page-main .frame[class*="frame-background-"] p a:not(.btn):not(.dropdown-item):not(.page-link),
-.page-main .frame[class*="frame-background-"] li a:not(.btn):not(.dropdown-item):not(.page-link) {
+.page-main .frame[class*="frame-background-"] p a:not(.btn):not(.dropdown-item):not(.page-link):not(.card-footer-link):not(.dashboard-item-footer-link):not(.datatable-action) {
     color: var(--frame-link-color);
     text-decoration-line: underline;
-    text-decoration-color: var(--frame-link-color);
+    text-decoration-color: var(--frame-link-decoration-color);
+    border-bottom: 0;
     &:hover,
     &:focus {
         color: var(--frame-link-hover-color);
-        text-decoration-color: var(--frame-link-hover-color);
+        text-decoration-color: var(--frame-link-decoration-hover-color);
     }
 }
-.page-main .frame[class*="frame-background-"] .card-inverse p a:not(.btn):not(.dropdown-item):not(.page-link),
-.page-main .frame[class*="frame-background-"] .card-inverse li a:not(.btn):not(.dropdown-item):not(.page-link),
-.page-main .card-inverse a:not(.btn):not(.dropdown-item):not(.page-link),
-.page-main .card-inverse li a:not(.btn):not(.dropdown-item):not(.page-link) {
+.page-main .frame[class*="frame-background-"] .card-inverse p a:not(.btn):not(.dropdown-item):not(.page-link):not(.card-footer-link):not(.dashboard-item-footer-link):not(.datatable-action),
+.page-main .card-inverse p a:not(.btn):not(.dropdown-item):not(.page-link):not(.card-footer-link):not(.dashboard-item-footer-link):not(.datatable-action) {
     color: $white;
     text-decoration-color: $white;
+    border-bottom: 0;
     &:hover,
     &:focus {
         color: $white;
