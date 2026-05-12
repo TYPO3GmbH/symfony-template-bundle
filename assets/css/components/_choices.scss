@@ -29,6 +29,7 @@
     .is-open & {
         border-color: #ffc380;
         box-shadow: $input-focus-box-shadow;
+        border-radius: $input-border-radius;
     }
 }
 .#{$choices-selector}[data-type*=select-one] .#{$choices-selector}__inner {
