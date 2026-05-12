@@ -33,7 +33,6 @@ $btn-default-excludes:
     ".btn-outline-dark",
     ".btn-outline-darker";
 $btn-default-selector: ".btn";
-
 @each $selector in $btn-default-excludes {
     $btn-default-selector: "#{$btn-default-selector}:not(#{$selector})";
 }

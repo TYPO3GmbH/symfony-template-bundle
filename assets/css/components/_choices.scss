@@ -5,7 +5,6 @@
 .#{$choices-selector} {
     margin-bottom: 0;
     border-radius: $input-border-radius;
-
     &.is-focused {
         overflow: visible;
     }
@@ -24,7 +23,6 @@
     border: $input-border-width solid $input-border-color;
     border-radius: $input-border-radius;
     border-width: $input-border-width;
-
     .is-focused &,
     .is-open &,
     .is-flipped.is-open & {
