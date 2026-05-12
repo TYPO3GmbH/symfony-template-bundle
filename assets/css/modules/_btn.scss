@@ -1,8 +1,45 @@
 //
 // Buttons
 //
+$btn-default-excludes:
+    ".btn-link",
+    ".btn-input-group-clear",
+    ".btn-primary",
+    ".btn-secondary",
+    ".btn-tertiary",
+    ".btn-quaternary",
+    ".btn-success",
+    ".btn-info",
+    ".btn-warning",
+    ".btn-danger",
+    ".btn-notice",
+    ".btn-default",
+    ".btn-light",
+    ".btn-lighter",
+    ".btn-dark",
+    ".btn-darker",
+    ".btn-outline-primary",
+    ".btn-outline-secondary",
+    ".btn-outline-tertiary",
+    ".btn-outline-quaternary",
+    ".btn-outline-success",
+    ".btn-outline-info",
+    ".btn-outline-warning",
+    ".btn-outline-danger",
+    ".btn-outline-notice",
+    ".btn-outline-default",
+    ".btn-outline-light",
+    ".btn-outline-lighter",
+    ".btn-outline-dark",
+    ".btn-outline-darker";
+$btn-default-selector: ".btn";
+
+@each $selector in $btn-default-excludes {
+    $btn-default-selector: "#{$btn-default-selector}:not(#{$selector})";
+}
+
 .btn-default,
-.btn:not(.btn-link):not(.btn-input-group-clear):not(.btn-primary):not(.btn-secondary):not(.btn-tertiary):not(.btn-quaternary):not(.btn-success):not(.btn-info):not(.btn-warning):not(.btn-danger):not(.btn-notice):not(.btn-default):not(.btn-light):not(.btn-lighter):not(.btn-dark):not(.btn-darker):not(.btn-outline-primary):not(.btn-outline-secondary):not(.btn-outline-tertiary):not(.btn-outline-quaternary):not(.btn-outline-success):not(.btn-outline-info):not(.btn-outline-warning):not(.btn-outline-danger):not(.btn-outline-notice):not(.btn-outline-default):not(.btn-outline-light):not(.btn-outline-lighter):not(.btn-outline-dark):not(.btn-outline-darker) {
+#{$btn-default-selector} {
     --#{$prefix}btn-color: #{$body-color};
     --#{$prefix}btn-bg: #{$white};
     --#{$prefix}btn-border-color: #{$gray-400};
