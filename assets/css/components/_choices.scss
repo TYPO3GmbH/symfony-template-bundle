@@ -4,6 +4,11 @@
 // Adjustments
 .#{$choices-selector} {
     margin-bottom: 0;
+    border-radius: $input-border-radius;
+
+    &.is-focused {
+        overflow: visible;
+    }
 }
 .#{$choices-selector}__inner {
     display: flex;
@@ -23,7 +28,7 @@
     .is-focused &,
     .is-open & {
         border-color: #ffc380;
-        box-shadow: 0 0 0 .15rem rgba($primary, .25);
+        box-shadow: $input-focus-box-shadow;
     }
 }
 .#{$choices-selector}[data-type*=select-one] .#{$choices-selector}__inner {
