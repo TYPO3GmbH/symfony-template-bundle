@@ -26,7 +26,8 @@
     border-width: $input-border-width;
 
     .is-focused &,
-    .is-open & {
+    .is-open &,
+    .is-flipped.is-open & {
         border-color: #ffc380;
         box-shadow: $input-focus-box-shadow;
         border-radius: $input-border-radius;
@@ -53,11 +54,10 @@
 }
 .#{$choices-selector}__list--dropdown {
     z-index: 2;
-    margin-top: .125rem;
     color: $input-color;
     background-color: $input-bg;
     border-color: $input-border-color;
-    border-radius: $input-border-radius;
+    border-radius: $input-border-radius !important;
     box-shadow: $box-shadow-sm;
 
     .#{$choices-selector}__list {
