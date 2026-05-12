@@ -3,7 +3,6 @@
 // --------------------------------------------------
 $frame-color:                   inherit !default;
 $frame-background:              transparent !default;
-$frame-embedded-border-radius:  .5rem !default;
 $frame-width-large:             1600px !default;
 $frame-width-medium:            870px !default;
 $frame-width-small:             600px !default;
@@ -40,49 +39,65 @@ $frame-backgrounds: map-merge(
             'background':       $primary,
             'color':            color-contrast($primary),
             'link-color':       color-contrast($primary),
-            'link-hover-color': color-contrast($primary)
+            'link-hover-color': color-contrast($primary),
+            'link-decoration-color': $white,
+            'link-decoration-hover-color': color-contrast($primary)
         ),
         'primary-gradient': (
             'background':       linear-gradient(135deg, shade-color($primary, 15%) 15%, tint-color($primary, 15%)  85%),
             'color':            color-contrast($primary),
             'link-color':       color-contrast($primary),
-            'link-hover-color': color-contrast($primary)
+            'link-hover-color': color-contrast($primary),
+            'link-decoration-color': $white,
+            'link-decoration-hover-color': color-contrast($primary)
         ),
         'secondary': (
             'background':       $secondary,
             'color':            color-contrast($secondary),
-            'link-color':       $link-color,
-            'link-hover-color': $link-hover-color
+            'link-color':       color-contrast($secondary),
+            'link-hover-color': color-contrast($secondary),
+            'link-decoration-color': $primary-light,
+            'link-decoration-hover-color': color-contrast($secondary)
         ),
         'secondary-gradient': (
             'background':       linear-gradient(135deg, shade-color($secondary, 15%) 15%, tint-color($secondary, 15%)  85%),
             'color':            color-contrast($secondary),
-            'link-color':       $link-color,
-            'link-hover-color': $link-hover-color
+            'link-color':       color-contrast($secondary),
+            'link-hover-color': color-contrast($secondary),
+            'link-decoration-color': $primary-light,
+            'link-decoration-hover-color': color-contrast($secondary)
         ),
         'tertiary': (
             'background':       $tertiary,
             'color':            color-contrast($tertiary),
             'link-color':       $link-color,
-            'link-hover-color': $link-hover-color
+            'link-hover-color': $link-hover-color,
+            'link-decoration-color': $primary,
+            'link-decoration-hover-color': $link-hover-color
         ),
         'tertiary-gradient': (
             'background':       linear-gradient(135deg, shade-color($tertiary, 15%) 15%, tint-color($tertiary, 15%)  85%),
             'color':            color-contrast($tertiary),
             'link-color':       $link-color,
-            'link-hover-color': $link-hover-color
+            'link-hover-color': $link-hover-color,
+            'link-decoration-color': $primary,
+            'link-decoration-hover-color': $link-hover-color
         ),
         'quaternary': (
             'background':       $quaternary,
             'color':            color-contrast($quaternary),
             'link-color':       $link-color,
-            'link-hover-color': $link-hover-color
+            'link-hover-color': $link-hover-color,
+            'link-decoration-color': $primary,
+            'link-decoration-hover-color': $link-hover-color
         ),
         'quaternary-gradient': (
             'background':       linear-gradient(135deg, shade-color($quaternary, 15%) 15%, tint-color($quaternary, 15%)  85%),
             'color':            color-contrast($quaternary),
             'link-color':       $link-color,
-            'link-hover-color': $link-hover-color
+            'link-hover-color': $link-hover-color,
+            'link-decoration-color': $primary,
+            'link-decoration-hover-color': $link-hover-color
         ),
         'default': (
         ),
@@ -90,31 +105,41 @@ $frame-backgrounds: map-merge(
             'background':       #ffffff,
             'color':            color-contrast(#ffffff),
             'link-color':       $link-color,
-            'link-hover-color': $link-hover-color
+            'link-hover-color': $link-hover-color,
+            'link-decoration-color': $primary,
+            'link-decoration-hover-color': $link-hover-color
         ),
         'lighter': (
             'background':       $lighter,
             'color':            color-contrast($lighter),
             'link-color':       $link-color,
-            'link-hover-color': $link-hover-color
+            'link-hover-color': $link-hover-color,
+            'link-decoration-color': $primary,
+            'link-decoration-hover-color': $link-hover-color
         ),
         'light': (
             'background':       $light,
             'color':            color-contrast($light),
             'link-color':       $link-color,
-            'link-hover-color': $link-hover-color
+            'link-hover-color': $link-hover-color,
+            'link-decoration-color': $primary,
+            'link-decoration-hover-color': $link-hover-color
         ),
         'dark': (
             'background':       $dark,
             'color':            color-contrast($dark),
-            'link-color':       $link-color,
-            'link-hover-color': $link-hover-color
+            'link-color':       color-contrast($dark),
+            'link-hover-color': color-contrast($dark),
+            'link-decoration-color': $primary-light,
+            'link-decoration-hover-color': color-contrast($dark)
         ),
         'darker': (
             'background':       $darker,
             'color':            color-contrast($darker),
-            'link-color':       $link-color,
-            'link-hover-color': $link-hover-color
+            'link-color':       color-contrast($darker),
+            'link-hover-color': color-contrast($darker),
+            'link-decoration-color': $primary-light,
+            'link-decoration-hover-color': color-contrast($darker)
         ),
     ),
     $frame-backgrounds
@@ -127,8 +152,9 @@ $frame-backgrounds: map-merge(
     --frame-color: #{$frame-color};
     --frame-link-color: #{$link-color};
     --frame-link-hover-color: #{$link-hover-color};
+    --frame-link-decoration-color: #{$primary};
+    --frame-link-decoration-hover-color: #{$link-hover-color};
     --frame-background: #{$frame-background};
-    --frame-embedded-border-radius: #{$frame-embedded-border-radius};
     --frame-width-large: #{$frame-width-large};
     --frame-width-medium: #{$frame-width-medium};
     --frame-width-small: #{$frame-width-small};
@@ -202,7 +228,7 @@ $frame-backgrounds: map-merge(
     }
     .frame-group-inner {
         position: relative;
-        border-radius: var(--frame-embedded-border-radius);
+        border-radius: $border-radius-lg;
         background: var(--frame-background);
         padding: var(--frame-spacing);
     }
@@ -210,7 +236,7 @@ $frame-backgrounds: map-merge(
         padding: 0;
     }
     .frame-backgroundimage-container {
-        border-radius: var(--frame-embedded-border-radius);
+        border-radius: $border-radius-lg;
     }
 }
 
@@ -359,6 +385,8 @@ $frame-backgrounds: map-merge(
         $background: map-get($settings, 'background');
         $link-color: map-get($settings, 'link-color');
         $link-hover-color: map-get($settings, 'link-hover-color');
+        $link-decoration-color: map-get($settings, 'link-decoration-color');
+        $link-decoration-hover-color: map-get($settings, 'link-decoration-hover-color');
         @if ($color) {
             --frame-color: #{$color};
         }
@@ -370,6 +398,12 @@ $frame-backgrounds: map-merge(
         }
         @if ($link-hover-color) {
             --frame-link-hover-color: #{$link-hover-color};
+        }
+        @if ($link-decoration-color) {
+            --frame-link-decoration-color: #{$link-decoration-color};
+        }
+        @if ($link-decoration-hover-color) {
+            --frame-link-decoration-hover-color: #{$link-decoration-hover-color};
         }
     }
     .frame-size-default.frame-background-#{$name}.frame-space-after-none:not(.frame-ruler-after):not(.frame-has-backgroundimage):not(.frame-layout-embedded) +

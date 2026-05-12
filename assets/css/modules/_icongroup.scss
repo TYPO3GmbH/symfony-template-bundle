@@ -4,7 +4,7 @@
 :root {
     --icongroup-gap: #{$grid-gutter-width};
     --icongroup-columns: 1;
-    --icongroup-icon-color: #{$primary};
+    --icongroup-icon-color: #{$typo3orange};
     --icongroup-icon-size: 40px;
     --icongroup-icon-gap: calc(var(--icongroup-gap) / 2);
 }

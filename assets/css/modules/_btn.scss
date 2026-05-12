@@ -1,12 +1,71 @@
 //
 // Buttons
 //
+$btn-default-excludes:
+    ".btn-link",
+    ".btn-input-group-clear",
+    ".btn-primary",
+    ".btn-secondary",
+    ".btn-tertiary",
+    ".btn-quaternary",
+    ".btn-success",
+    ".btn-info",
+    ".btn-warning",
+    ".btn-danger",
+    ".btn-notice",
+    ".btn-default",
+    ".btn-light",
+    ".btn-lighter",
+    ".btn-dark",
+    ".btn-darker",
+    ".btn-outline-primary",
+    ".btn-outline-secondary",
+    ".btn-outline-tertiary",
+    ".btn-outline-quaternary",
+    ".btn-outline-success",
+    ".btn-outline-info",
+    ".btn-outline-warning",
+    ".btn-outline-danger",
+    ".btn-outline-notice",
+    ".btn-outline-default",
+    ".btn-outline-light",
+    ".btn-outline-lighter",
+    ".btn-outline-dark",
+    ".btn-outline-darker";
+$btn-default-selector: ".btn";
+@each $selector in $btn-default-excludes {
+    $btn-default-selector: "#{$btn-default-selector}:not(#{$selector})";
+}
+
+.btn-default,
+#{$btn-default-selector} {
+    --#{$prefix}btn-color: #{$body-color};
+    --#{$prefix}btn-bg: #{$white};
+    --#{$prefix}btn-border-color: #{$gray-400};
+    --#{$prefix}btn-hover-color: #{$body-color};
+    --#{$prefix}btn-hover-bg: #{$white};
+    --#{$prefix}btn-hover-border-color: var(--#{$prefix}btn-border-color);
+    --#{$prefix}btn-active-color: #{$white};
+    --#{$prefix}btn-active-bg: #{$black};
+    --#{$prefix}btn-active-border-color: #{$black};
+}
+.btn-notice,
+.btn-light,
+.btn-lighter {
+    --#{$prefix}btn-border-color: #{$gray-400};
+    --#{$prefix}btn-hover-border-color: var(--#{$prefix}btn-border-color);
+}
+.btn-light {
+    --#{$prefix}btn-bg: #f2f2f2;
+}
 .btn:not(.btn-link) {
-    display: inline-flex;
-    letter-spacing: .5px;
-    text-transform: uppercase;
-    &:not(:focus) {
-        box-shadow: $box-shadow-sm;
+    align-items: center;
+    &:not(.btn-sm):not(.btn-lg) {
+        min-height: $input-height;
+    }
+    &:hover,
+    &:focus {
+        box-shadow: $btn-hover-shadow;
     }
     .input-group & {
         box-shadow: none;

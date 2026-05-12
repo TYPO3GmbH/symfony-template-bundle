@@ -1,21 +1,20 @@
 //
 // Issue
 //
-$issue-shadow: $box-shadow-sm;
 $issue-bg: #ffffff;
-$issue-border-radius: 2px;
 $issue-color: color-contrast($issue-bg);
 $issue-padding: 1rem;
-$issue-margin: $spacer;
+$issue-margin: $spacer * 2;
 $issue-type-width: 1.25rem;
 .issue {
+    container-type: inline-size;
     position: relative;
     padding-left: $issue-type-width;
-    border-radius: $issue-border-radius;
+    border-radius: $border-radius;
     color: $issue-color;
     background-color: $issue-bg;
     overflow: hidden;
-    box-shadow: $issue-shadow;
+    box-shadow: $card-box-shadow;
     margin-bottom: $issue-margin;
 }
 
@@ -60,6 +59,7 @@ $issue-type-width: 1.25rem;
     margin-bottom: .25rem;
 }
 .issue-headline {
+    font-size: $h5-font-size-responsive;
     word-break: break-word;
     > a {
         color: $issue-color !important;
@@ -75,8 +75,6 @@ $issue-type-width: 1.25rem;
 // Data
 .issue-data {
     border-top: 1px dashed rgba(0, 0, 0, .15);
-    font-size: $font-size-sm;
-    line-height: 1.2;
     display: flex;
     flex-wrap: wrap;
     padding: .75rem 0;
@@ -102,8 +100,6 @@ $issue-type-width: 1.25rem;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    font-size: .875rem;
-    line-height: 1.25;
     margin-top: 0 !important;
     background-color: darken($issue-bg, 2.5%);
 }
@@ -147,9 +143,6 @@ $issue-type-width: 1.25rem;
 // Card
 //
 .issue-card {
-    .issue-headline {
-        font-size: 1rem;
-    }
     .issue-meta-item-avatar {
         margin-left: -19px;
         position: relative;
@@ -167,5 +160,27 @@ $issue-type-width: 1.25rem;
             text-overflow: ellipsis;
             overflow: hidden;
         }
+    }
+}
+@container (max-width: 520px) {
+    .issue-data,
+    .issue-meta {
+        font-size: $font-size-sm;
+        line-height: 1.25;
+    }
+    .issue-card {
+        .issue-headline {
+            font-size: 1rem;
+        }
+    }
+}
+@container (max-width: 720px) {
+    .issue-content {
+        padding: calc(#{$issue-padding} * .75);
+    }
+    .issue-data-item,
+    .issue-meta-item {
+        padding-left: calc(#{$issue-padding} * .75);
+        padding-right: calc(#{$issue-padding} * .75);
     }
 }

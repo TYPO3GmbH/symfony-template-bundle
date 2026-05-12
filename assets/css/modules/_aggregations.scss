@@ -1,11 +1,9 @@
 //
 // Aggregations
 //
-$aggregation-shadow: $box-shadow-sm;
 $aggregation-padding: $card-spacer-y $card-spacer-x;
 $aggregation-margin: $spacer;
 $aggregation-bg: #ffffff;
-$aggregation-border-radius: 2px;
 $aggregation-breakpoint: 'lg';
 
 // Toggle
@@ -51,8 +49,8 @@ $aggregation-breakpoint: 'lg';
 .aggregations {
     overflow: hidden;
     background-color: $aggregation-bg;
-    border-radius: $aggregation-border-radius;
-    box-shadow: $aggregation-shadow;
+    border-radius: $card-border-radius;
+    box-shadow: $box-shadow-sm;
     > *:first-child {
         margin-top: 0;
     }

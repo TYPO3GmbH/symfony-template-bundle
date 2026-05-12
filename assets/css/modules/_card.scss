@@ -10,18 +10,27 @@ $card-link-hover-color: $link-hover-color !default;
 // Card
 //
 .card {
-    overflow: hidden;
-    box-shadow: $box-shadow-sm;
+    box-shadow: $card-box-shadow;
     margin-bottom: $spacer * 2;
     border: none;
+    border-radius: $card-border-radius;
     a[class=""] {
         color: $card-link-color;
         &:hover {
             color: $card-link-hover-color;
         }
     }
-    .datatable {
+    > .datatable {
         margin-bottom: 0;
+        border-radius: inherit;
+    }
+    > .datatable:not(:first-child) {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+    > .datatable:not(:last-child) {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
     }
 }
 .card-header,
@@ -35,6 +44,9 @@ $card-link-hover-color: $link-hover-color !default;
     &-fade {
         background-color: $card-cap-bg;
     }
+}
+.card-body {
+    padding: $spacer-responsive;
 }
 .card-header {
     h1,
@@ -52,7 +64,7 @@ $card-link-hover-color: $link-hover-color !default;
             color: $primary;
         }
     }
-    padding: 1rem $card-spacer-x;
+    padding: $spacer-responsive;
 }
 .card-img-top {
     overflow: hidden;
@@ -63,7 +75,7 @@ $card-link-hover-color: $link-hover-color !default;
     }
 }
 .card-footer {
-    padding: 1rem $card-spacer-x;
+    padding: $spacer-responsive;
     .datatable + & {
         border-top: 1px solid rgba(0, 0, 0, .15);
     }
@@ -91,7 +103,7 @@ $card-link-hover-color: $link-hover-color !default;
 }
 .card-button {
     border: none;
-    padding: $card-spacer-y $card-spacer-x;
+    padding: $spacer-responsive;
 }
 .card-body + .card-body {
     border-top: 1px solid rgba(0, 0, 0, .15);
@@ -108,7 +120,7 @@ $card-link-hover-color: $link-hover-color !default;
 //
 .card-alerts {
     .alert {
-        padding: .75rem $card-spacer-x;
+        padding: $alert-padding-y $alert-padding-x;
         border: none;
         border-radius: 0;
         margin-bottom: 0;
@@ -121,18 +133,19 @@ $card-link-hover-color: $link-hover-color !default;
 .card-badge {
     font-size: $font-size-sm;
     line-height: 1;
-    padding: .5rem $card-spacer-x;
+    padding: calc(#{$spacer-responsive} / 2) $spacer-responsive;
     text-transform: uppercase;
-    box-shadow: inset 0 -1px 1px 0 rgba(0, 0, 0, .15);
+    border-bottom: 1px solid rgba(0, 0, 0, .15);
 }
 .card-badge-top {
     margin: 0 auto;
-    border-radius: 0 0 3px 3px;
+    border-radius: 0 0 $border-radius $border-radius;
 }
 .card-badge-bottom {
     margin: 0 auto;
-    border-radius: 3px 3px 0 0;
-    box-shadow: inset 0 1px 1px 0 rgba(0, 0, 0, .15);
+    border-radius: $border-radius $border-radius 0 0;
+    border-top: 1px solid rgba(0, 0, 0, .15);
+    border-bottom: 0;
 }
 @each $color, $value in $theme-colors {
     .card-badge-#{$color} {
@@ -151,6 +164,8 @@ $card-link-hover-color: $link-hover-color !default;
         background-color: #fafafa;
         border-right: 1px dotted #dadada;
         position: absolute;
+        border-top-left-radius: $card-border-radius;
+        border-bottom-left-radius: $card-border-radius;
         top: 0;
         left: 0;
         bottom: 0;
@@ -192,7 +207,7 @@ $card-link-hover-color: $link-hover-color !default;
     flex-direction: column;
     @include media-breakpoint-up('sm') {
         flex-direction: row;
-        align-items: center;
+        align-items: flex-start;
     }
 }
 .card-header-icon {
@@ -216,7 +231,6 @@ $card-link-hover-color: $link-hover-color !default;
 }
 .card-header-title {
     flex-grow: 1;
-    overflow: hidden;
     > * {
         margin-bottom: 0;
     }
@@ -225,16 +239,30 @@ $card-link-hover-color: $link-hover-color !default;
     flex-shrink: 0;
     display: flex;
     gap: .35rem;
+    min-width: max-content;
+    margin-left: auto;
 }
 .card-header-form {
     flex-grow: 1;
+    min-width: 0;
     > form > div {
         display: flex;
-        margin: -.25rem;
+        flex-wrap: wrap;
+        gap: .5rem;
     }
     .form-group {
-        padding: .25rem;
         margin: 0;
+        min-width: 0;
+    }
+    .form-control,
+    .form-select {
+        width: 100%;
+    }
+    @include media-breakpoint-down('sm') {
+        + .card-header-actions,
+        + .card-header-actions .btn {
+            width: 100%;
+        }
     }
 }
 
@@ -258,11 +286,11 @@ $card-link-hover-color: $link-hover-color !default;
     }
     .card-subtitle {
         font-size: $card-subtitle-size;
-        margin-bottom: $card-spacer-y;
+        margin-bottom: $spacer-responsive;
     }
     .card-footer {
         border-top: 0;
-        padding: $card-spacer-x;
+        padding: $spacer-responsive;
         background-color: transparent;
     }
     .card-body + .card-footer {

@@ -7,7 +7,7 @@
         <h2>Default</h2>
         {% example with { language: 'html' } %}
 <div class="dashboard">
-    <div class="dashboard-item dashboard-item-w12 dashboard-item-md-w4">
+    <div class="dashboard-item dashboard-span-base-12 dashboard-span-sm-4">
         <h3 class="dashboard-item-title">
             {{ icon('actions-brand-typo3') }}
             Item 1
@@ -16,7 +16,7 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </div>
     </div>
-    <div class="dashboard-item dashboard-item-w12 dashboard-item-md-w4">
+    <div class="dashboard-item dashboard-span-base-12 dashboard-span-sm-4">
         <h3 class="dashboard-item-title">
             {{ icon('actions-brand-twitter') }}
             Item 2
@@ -25,7 +25,7 @@
             <p>Ut sed erat id nunc vestibulum rhoncus vitae in dolor. </p>
         </div>
     </div>
-    <div class="dashboard-item dashboard-item-w12 dashboard-item-md-w4">
+    <div class="dashboard-item dashboard-span-base-12 dashboard-span-sm-4">
         <h3 class="dashboard-item-title">
             {{ icon('actions-brand-facebook') }}
             Item 3
@@ -34,7 +34,7 @@
             <p>Nam turpis diam, faucibus quis consectetur at, mollis at ligula.</p>
         </div>
     </div>
-    <div class="dashboard-item dashboard-item-w12 dashboard-item-md-w6">
+    <div class="dashboard-item dashboard-span-base-12 dashboard-span-sm-6">
         <h3 class="dashboard-item-title">
             {{ icon('actions-brand-discord') }}
             Item 4
@@ -43,7 +43,7 @@
             <p>Nam turpis diam, faucibus quis consectetur at, mollis at ligula.</p>
         </div>
     </div>
-    <div class="dashboard-item dashboard-item-w12 dashboard-item-md-w6">
+    <div class="dashboard-item dashboard-span-base-12 dashboard-span-sm-6">
         <h3 class="dashboard-item-title">
             {{ icon('actions-brand-slack') }}
             Item 5
@@ -69,6 +69,61 @@
     </div>
     <div class="dashboard-item-footer">
         <a href="#" class="dashboard-item-footer-link">Manage something</a>
+    </div>
+</div>
+        {% endexample %}
+    {% endframe %}
+
+    {% frame %}
+        <h2>Row Span</h2>
+        {% example with { language: 'html' } %}
+<div class="dashboard">
+    <div class="dashboard-item dashboard-span-base-12 dashboard-span-sm-6 dashboard-span-md-3">
+        <h3 class="dashboard-item-title">
+            {{ icon('actions-brand-typo3') }}
+            Item 1
+        </h3>
+        <div class="dashboard-item-body">
+            <p>Lorem ipsum dolor sit amet.</p>
+        </div>
+    </div>
+    <div class="dashboard-item dashboard-span-base-12 dashboard-span-sm-6 dashboard-span-md-3">
+        <h3 class="dashboard-item-title">
+            {{ icon('actions-brand-discord') }}
+            Item 2
+        </h3>
+        <div class="dashboard-item-body">
+            <p>Ut sed erat id nunc vestibulum.</p>
+        </div>
+    </div>
+    <div class="dashboard-item dashboard-span-base-12 dashboard-span-md-3 dashboard-rowspan-md-2">
+        <h3 class="dashboard-item-title">
+            {{ icon('actions-brand-twitter') }}
+            Item 3
+        </h3>
+        <div class="dashboard-item-body">
+            <p>Nam turpis diam, faucibus quis consectetur at, mollis at ligula.</p>
+            <p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
+        </div>
+    </div>
+    <div class="dashboard-item dashboard-span-base-12 dashboard-span-md-3 dashboard-rowspan-md-2">
+        <h3 class="dashboard-item-title">
+            {{ icon('actions-brand-facebook') }}
+            Item 4
+        </h3>
+        <div class="dashboard-item-body">
+            <p>Curabitur blandit tempus porttitor.</p>
+            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+        </div>
+    </div>
+    <div class="dashboard-item dashboard-span-base-12 dashboard-span-md-6">
+        <h3 class="dashboard-item-title">
+            {{ icon('actions-brand-slack') }}
+            Item 5
+        </h3>
+        <div class="dashboard-item-body">
+            <p>Donec ullamcorper nulla non metus auctor fringilla.</p>
+        </div>
     </div>
 </div>
         {% endexample %}
@@ -146,10 +201,9 @@
                         <h4 class="dashboard-actions-entry-title">Title</h4>
                         <div class="dashboard-actions-entry-subtitle">Subtitle</div>
                     </div>
-                    <div class="dashboard-actions-entry-content-section dashboard-actions-entry-content-section--footer">
-                        <a class="btn btn-primary btn-sm" href="#">Action 1</a>
-                        <a class="btn btn-light btn-sm" href="#">Action 2</a>
-                    </div>
+                </div>
+                <div class="dashboard-actions-entry-actions">
+                    <a class="btn btn-primary btn-sm" href="#">Action</a>
                 </div>
             </div>
             <div class="dashboard-actions-entry">
@@ -161,10 +215,9 @@
                         <h4 class="dashboard-actions-entry-title">Title</h4>
                         <div class="dashboard-actions-entry-subtitle">Subtitle</div>
                     </div>
-                    <div class="dashboard-actions-entry-content-section dashboard-actions-entry-content-section--footer">
-                        <a class="btn btn-primary btn-sm" href="#">Action 1</a>
-                        <a class="btn btn-light btn-sm" href="#">Action 2</a>
-                    </div>
+                </div>
+                <div class="dashboard-actions-entry-actions">
+                    <a class="btn btn-primary btn-sm" href="#">Action</a>
                 </div>
             </div>
             <div class="dashboard-actions-entry">
@@ -176,10 +229,9 @@
                         <h4 class="dashboard-actions-entry-title">Title</h4>
                         <div class="dashboard-actions-entry-subtitle">Subtitle</div>
                     </div>
-                    <div class="dashboard-actions-entry-content-section dashboard-actions-entry-content-section--footer">
-                        <a class="btn btn-primary btn-sm" href="#">Action 1</a>
-                        <a class="btn btn-light btn-sm" href="#">Action 2</a>
-                    </div>
+                </div>
+                <div class="dashboard-actions-entry-actions">
+                    <a class="btn btn-primary btn-sm" href="#">Action</a>
                 </div>
             </div>
         </div>

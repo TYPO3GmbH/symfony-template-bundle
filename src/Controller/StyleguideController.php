@@ -116,6 +116,14 @@ class StyleguideController extends AbstractController
     /**
      * @return Response
      */
+    public function componentDropdown(): Response
+    {
+        return $this->render('@Template/styleguide/component/dropdown.html.twig');
+    }
+
+    /**
+     * @return Response
+     */
     public function componentForm(): Response
     {
         return $this->render('@Template/styleguide/component/form.html.twig');

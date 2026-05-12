@@ -30,6 +30,10 @@ _template_styleguide_component_dashboard:
   path: /styleguide/component/dashboard
   controller: T3G\Bundle\TemplateBundle\Controller\StyleguideController::componentDashboard
 
+_template_styleguide_component_dropdown:
+  path: /styleguide/component/dropdown
+  controller: T3G\Bundle\TemplateBundle\Controller\StyleguideController::componentDropdown
+
 _template_styleguide_component_form:
   path: /styleguide/component/form
   controller: T3G\Bundle\TemplateBundle\Controller\StyleguideController::componentForm

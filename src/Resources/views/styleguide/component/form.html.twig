@@ -30,6 +30,38 @@
     {% endframe %}
 
     {% frame %}
+        <h2>Form Check Box</h2>
+        {% example with { language: 'html' } %}
+<div class="row g-3">
+    <div class="col-md-6">
+        <div class="form-check form-check-box">
+            <input class="form-check-input" id="membership-type-personal" type="radio" name="membershipStartWizard[type]" value="personal" checked>
+            <label class="form-check-label" for="membership-type-personal">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" aria-hidden="true" focusable="false">
+                    <path d="M320 320C373 320 416 277 416 224C416 171 373 128 320 128C267 128 224 171 224 224C224 277 267 320 320 320zM320 160C355.3 160 384 188.7 384 224C384 259.3 355.3 288 320 288C284.7 288 256 259.3 256 224C256 188.7 284.7 160 320 160zM192 544L448 544C465.7 544 480 529.7 480 512C480 459 437 416 384 416L256 416C203 416 160 459 160 512C160 529.7 174.3 544 192 544zM256 384L384 384C454.7 384 512 441.3 512 512C512 547.3 483.3 576 448 576L192 576C156.7 576 128 547.3 128 512C128 441.3 185.3 384 256 384z"></path>
+                </svg>
+                <strong>Personal Membership</strong><br>
+                <span class="text-muted">Support TYPO3 as an individual and become part of the global Open Source community.</span>
+            </label>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-check form-check-box">
+            <input class="form-check-input" id="membership-type-organization" type="radio" name="membershipStartWizard[type]" value="organization">
+            <label class="form-check-label" for="membership-type-organization">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" aria-hidden="true" focusable="false">
+                    <path d="M192 96C174.3 96 160 110.3 160 128L160 512C160 529.7 174.3 544 192 544L256 544L256 464C256 437.5 277.5 416 304 416L336 416C362.5 416 384 437.5 384 464L384 544L448 544C465.7 544 480 529.7 480 512L480 128C480 110.3 465.7 96 448 96L192 96zM288 544L352 544L352 464C352 455.2 344.8 448 336 448L304 448C295.2 448 288 455.2 288 464L288 544zM256 576L192 576C156.7 576 128 547.3 128 512L128 128C128 92.7 156.7 64 192 64L448 64C483.3 64 512 92.7 512 128L512 512C512 547.3 483.3 576 448 576L256 576zM352 192C352 183.2 359.2 176 368 176L384 176C392.8 176 400 183.2 400 192L400 208C400 216.8 392.8 224 384 224L368 224C359.2 224 352 216.8 352 208L352 192zM368 288L384 288C392.8 288 400 295.2 400 304L400 320C400 328.8 392.8 336 384 336L368 336C359.2 336 352 328.8 352 320L352 304C352 295.2 359.2 288 368 288zM240 192C240 183.2 247.2 176 256 176L272 176C280.8 176 288 183.2 288 192L288 208C288 216.8 280.8 224 272 224L256 224C247.2 224 240 216.8 240 208L240 192zM256 288L272 288C280.8 288 288 295.2 288 304L288 320C288 328.8 280.8 336 272 336L256 336C247.2 336 240 328.8 240 320L240 304C240 295.2 247.2 288 256 288z"></path>
+                </svg>
+                <strong>Organization Membership</strong><br>
+                <span class="text-muted">Back TYPO3 as an organization and boost your brand in the global Open Source community.</span>
+            </label>
+        </div>
+    </div>
+</div>
+        {% endexample %}
+    {% endframe %}
+
+    {% frame %}
         <h2>Form Inline</h2>
         {% example with { language: 'html' } %}
 <form class="form-inline">
@@ -48,6 +80,24 @@
     </div>
     <div class="form-group">
         <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>
+        {% endexample %}
+    {% endframe %}
+
+    {% frame %}
+        <h2>Input Group</h2>
+        {% example with { language: 'html' } %}
+<form>
+    <div class="input-group">
+        <input type="text" name="query" placeholder="Issue ID or Searchwords" class="form-control" value="">
+        <span class="input-group-text">
+            <span class="form-check">
+                <input class="form-check-input" type="checkbox" id="customControlAutosizing" name="searchClosed" value="1" aria-label="Search in closed tickets, too">
+                <label class="form-check-label" for="customControlAutosizing">Closed Tickets</label>
+            </span>
+        </span>
+        <button type="submit" class="btn btn-success">{{ icon('actions-search') }}</button>
     </div>
 </form>
         {% endexample %}
