@@ -164,6 +164,8 @@ $card-link-hover-color: $link-hover-color !default;
         background-color: #fafafa;
         border-right: 1px dotted #dadada;
         position: absolute;
+        border-top-left-radius: $card-border-radius;
+        border-bottom-left-radius: $card-border-radius;
         top: 0;
         left: 0;
         bottom: 0;
