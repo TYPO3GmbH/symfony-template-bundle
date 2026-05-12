@@ -38,7 +38,8 @@ h6 {
     opacity: .5;
 }
 .page-main p a:not(.btn):not(.dropdown-item):not(.page-link):not(.card-footer-link):not(.dashboard-item-footer-link):not(.datatable-action),
-.modal-body a:not(.btn):not(.dropdown-item):not(.page-link):not(.card-footer-link):not(.dashboard-item-footer-link):not(.datatable-action) {
+.modal-body a:not(.btn):not(.dropdown-item):not(.page-link):not(.card-footer-link):not(.dashboard-item-footer-link):not(.datatable-action),
+.dashboard-item-body a:not(.btn):not(.dropdown-item):not(.page-link):not(.card-footer-link):not(.dashboard-item-footer-link):not(.datatable-action) {
     text-decoration-line: underline;
     text-decoration-color: $primary;
     text-decoration-thickness: 2px;
