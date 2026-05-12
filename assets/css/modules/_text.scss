@@ -52,7 +52,7 @@ h6 {
         text-decoration-color: currentColor;
     }
 }
-.page-main .frame[class*="frame-background-"] p a:not(.btn):not(.dropdown-item):not(.page-link):not(.card-footer-link):not(.dashboard-item-footer-link):not(.datatable-action) {
+.page-main .frame[class*="frame-background-"] p a:not(.btn):not(.dropdown-item):not(.page-link):not(.card-footer-link):not(.dashboard-item-footer-link):not(.datatable-action):not(.card *) {
     color: var(--frame-link-color);
     text-decoration-line: underline;
     text-decoration-color: var(--frame-link-decoration-color);

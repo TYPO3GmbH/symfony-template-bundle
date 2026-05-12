@@ -14,7 +14,8 @@ $card-link-hover-color: $link-hover-color !default;
     margin-bottom: $spacer * 2;
     border: none;
     border-radius: $card-border-radius;
-    a[class=""] {
+    a[class=""],
+    a:not([class]) {
         color: $card-link-color;
         &:hover {
             color: $card-link-hover-color;
