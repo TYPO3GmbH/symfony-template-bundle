@@ -130,3 +130,11 @@
     </div>
     <input type="hidden" readonly="true" id="{{ id }}_value" name="{{ full_name }}"{%- if disabled %} disabled="disabled"{% endif -%}{%- if required %} required="required"{% endif -%} {% if value is not empty %}value="{{ value }}"{% endif %}>
 {% endblock %}
+
+{% block navigator_row -%}
+    <div class="d-flex justify-content-end gap-2">
+        {% for child in form.children %}
+            {{- form_widget(child) -}}
+        {% endfor %}
+    </div>
+{%- endblock %}
