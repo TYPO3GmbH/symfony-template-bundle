@@ -30,6 +30,24 @@ class GmbhLayoutPdf extends Fpdi
 
     public function getSenderAddress(): string
     {
+        if ('' !== T3gConfigurationSet::$additionalRecipientLine) {
+            return sprintf(
+                '
+                %s
+                %s
+                %s
+                %s %s
+                %s
+            ',
+                T3gConfigurationSet::$author,
+                T3gConfigurationSet::$additionalRecipientLine,
+                T3gConfigurationSet::$street,
+                T3gConfigurationSet::$zip,
+                T3gConfigurationSet::$city,
+                T3gConfigurationSet::$country
+            );
+        }
+
         return sprintf(
             '
             %s
@@ -116,13 +134,15 @@ class GmbhLayoutPdf extends Fpdi
             0,
             29.7,
             270.1,
-            sprintf(
-                '%s<br>%s<br>%s %s<br>%s',
-                T3gConfigurationSet::$author,
-                T3gConfigurationSet::$street,
-                T3gConfigurationSet::$zip,
-                T3gConfigurationSet::$city,
-                T3gConfigurationSet::$country
+            implode(
+                '<br>',
+                array_filter([
+                    T3gConfigurationSet::$author,
+                    T3gConfigurationSet::$additionalRecipientLine,
+                    T3gConfigurationSet::$street,
+                    sprintf('%s %s', T3gConfigurationSet::$zip, T3gConfigurationSet::$city),
+                    T3gConfigurationSet::$country,
+                ])
             )
         );
 

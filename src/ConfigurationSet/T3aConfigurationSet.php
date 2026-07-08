@@ -16,7 +16,8 @@ class T3aConfigurationSet extends AbstractConfigurationSet
     public static string $key = 'T3A';
     public static string $author = 'TYPO3 Association';
     public static string $url = 'https://typo3.org';
-    public static string $street = 'Rathausstrasse 14';
+    public static string $additionalRecipientLine = '℅ LAUNCHSWISS AG';
+    public static string $street = 'Bahnhofstrasse 4';
     public static string $zip = '6340';
     public static string $city = 'Baar';
     public static string $country = 'Switzerland';

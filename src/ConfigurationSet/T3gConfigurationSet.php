@@ -16,6 +16,7 @@ class T3gConfigurationSet extends AbstractConfigurationSet
     public static string $key = 'T3G';
     public static string $author = 'TYPO3 GmbH';
     public static string $url = 'https://typo3.com';
+    public static string $additionalRecipientLine = '';
     public static string $street = 'Emanuel-Leutze-Straße 11';
     public static string $zip = '40547';
     public static string $city = 'Düsseldorf';
