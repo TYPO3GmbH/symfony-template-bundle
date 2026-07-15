@@ -19,6 +19,7 @@ abstract class AbstractConfigurationSet
     public static string $key;
     public static string $author;
     public static string $url;
+    public static string $additionalRecipientLine;
     public static string $street;
     public static string $zip;
     public static string $city;
@@ -49,6 +50,7 @@ abstract class AbstractConfigurationSet
             $config['application']['routes']['privacy'] = static::$privacyRoute;
             $config['application']['routes']['legal'] = static::$legalRoute;
             $config['application']['routes']['feedback'] = static::$feedbackRoute;
+            $config['application']['address']['additionalRecipientLine'] = static::$additionalRecipientLine;
             $config['application']['address']['street'] = static::$street;
             $config['application']['address']['zip'] = static::$zip;
             $config['application']['address']['city'] = static::$city;
@@ -61,6 +63,7 @@ abstract class AbstractConfigurationSet
             $config['application']['routes']['privacy'] ??= static::$privacyRoute;
             $config['application']['routes']['legal'] ??= static::$legalRoute;
             $config['application']['routes']['feedback'] ??= static::$feedbackRoute;
+            $config['application']['address']['additionalRecipientLine'] ??= static::$additionalRecipientLine;
             $config['application']['address']['street'] ??= static::$street;
             $config['application']['address']['zip'] ??= static::$zip;
             $config['application']['address']['city'] ??= static::$city;
@@ -71,9 +74,15 @@ abstract class AbstractConfigurationSet
 
     public static function getFooter(): string
     {
+        if ('' !== static::$additionalRecipientLine) {
+            $recipient = sprintf('%s, %s', static::$author, static::$additionalRecipientLine);
+        } else {
+            $recipient = static::$author;
+        }
+
         return sprintf(
             '%s, %s, %s-%s %s, %s%s',
-            static::$author,
+            $recipient,
             static::$street,
             static::$countryIso2Code,
             static::$zip,

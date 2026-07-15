@@ -30,6 +30,24 @@ class AssociationLayoutPdf extends Fpdi
 
     public function getSenderAddress(): string
     {
+        if ('' !== T3aConfigurationSet::$additionalRecipientLine) {
+            return sprintf(
+                '
+                %s
+                %s
+                %s
+                %s %s
+                %s
+            ',
+                T3aConfigurationSet::$author,
+                T3aConfigurationSet::$additionalRecipientLine,
+                T3aConfigurationSet::$street,
+                T3aConfigurationSet::$zip,
+                T3aConfigurationSet::$city,
+                T3aConfigurationSet::$country
+            );
+        }
+
         return sprintf(
             '
             %s
@@ -118,12 +136,13 @@ class AssociationLayoutPdf extends Fpdi
             270.1,
             implode(
                 '<br>',
-                [
+                array_filter([
                     T3aConfigurationSet::$author,
+                    T3aConfigurationSet::$additionalRecipientLine,
                     T3aConfigurationSet::$street,
                     sprintf('%s %s', T3aConfigurationSet::$zip, T3aConfigurationSet::$city),
                     T3aConfigurationSet::$country,
-                ]
+                ])
             )
         );
 
