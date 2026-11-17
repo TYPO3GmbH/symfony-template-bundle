@@ -1,12 +1,14 @@
-import { Chart, registerables } from 'chart.js';
-Chart.register(...registerables);
+let Chart;
 
 const Charts = {
     options: {
         selector: 'canvas.js-chart'
     },
-    initialize: function () {
+    initialize: async function () {
         if (document.querySelectorAll(this.options.selector).length > 0) {
+            const chartJs = await import('chart.js');
+            Chart = chartJs.Chart;
+            Chart.register(...chartJs.registerables);
             Charts.setup();
         }
     },

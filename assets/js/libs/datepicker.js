@@ -1,18 +1,20 @@
-import flatpickr from "flatpickr";
 import { DateTime } from 'luxon';
+// The styles stay in app.css, so the overrides in _datepicker.scss keep winning the cascade
 require("flatpickr/dist/flatpickr.min.css");
 require("flatpickr/dist/themes/light.css");
 
 const elementsWithDatepicker = document.querySelectorAll('[data-datepicker]');
-if (elementsWithDatepicker.length >= 1) {
+const elementsWithDateTimepicker = document.querySelectorAll('[data-datetimepicker]');
+if (elementsWithDatepicker.length >= 1 || elementsWithDateTimepicker.length >= 1) {
+    import('flatpickr').then(({ default: flatpickr }) => initializeDatepickers(flatpickr));
+}
+
+function initializeDatepickers(flatpickr) {
     elementsWithDatepicker.forEach(function (element) {
         const options = element.dataset.datepicker ? JSON.parse(element.dataset.datepicker) : {};
         new flatpickr(element, options);
     });
-}
 
-const elementsWithDateTimepicker = document.querySelectorAll('[data-datetimepicker]');
-if (elementsWithDateTimepicker.length >= 1) {
     elementsWithDateTimepicker.forEach(function (element) {
 
         // Convert from UTC to LocalTime before initiating the Datetimepicker
