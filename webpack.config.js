@@ -36,4 +36,8 @@ Encore
     })
 ;
 
-module.exports = Encore.getWebpackConfig();
+const config = Encore.getWebpackConfig();
+// Lazily loaded chunks must not share the chunk registry with the webpack runtime of the consuming application
+config.output.uniqueName = 'symfony_template_bundle';
+
+module.exports = config;
